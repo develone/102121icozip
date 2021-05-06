@@ -1,0 +1,294 @@
+
+obj-zip/lifting.o:     file format elf32-zip
+
+
+Disassembly of section .text:
+
+00000000 <singlelift>:
+   0:	14 00 00 01 	CMP        $1,R2
+   4:	78 90 01 5c 	BLT        @0x00000164    // 164 <singlelift+0x164>
+   8:	78 80 01 5c 	BRA        @0x00000168    // 168 <singlelift+0x168>
+   c:	e8 38 ad 18 	SUB        $56,SP         | SW         R5,$24(SP)
+  10:	b5 1c bd 20 	SW         R6,$28(SP)     | SW         R7,$32(SP)
+  14:	c5 24 cd 28 	SW         R8,$36(SP)     | SW         R9,$40(SP)
+  18:	d5 2c dd 30 	SW         R10,$44(SP)    | SW         R11,$48(SP)
+  1c:	e5 34 b7 90 	SW         R12,$52(SP)    | MOV        R2,R6
+  20:	33 04 40 00 	MPY        R1,R6
+  24:	2b 41 80 00 	MOV        R6,R5
+  28:	29 40 00 1f 	LSR        $31,R5
+  2c:	28 85 80 00 	ADD        R6,R5
+  30:	29 c0 00 01 	ASR        $1,R5
+  34:	29 80 00 02 	LSL        $2,R5
+  38:	2c c7 40 14 	SW         R5,$20(SP)
+  3c:	4b 40 40 00 	MOV        R1,R9
+  40:	49 80 00 02 	LSL        $2,R9
+  44:	0b 40 80 00 	MOV        R2,R1
+  48:	09 c0 00 01 	ASR        $1,R1
+  4c:	8d 0c e7 a0 	SW         R1,$12(SP)     | MOV        R4,R12
+  50:	a2 a8 a5 04 	ADD        R5,R4          | SW         R4,$4(SP)
+  54:	08 83 ff fe 	ADD        $-2,R1
+  58:	0b 06 40 00 	MPY        R9,R1
+  5c:	df e0 da 88 	MOV        R12,R11        | ADD        R1,R11
+  60:	5c c7 40 08 	SW         R11,$8(SP)
+  64:	5b 40 c0 00 	MOV        R3,R11
+  68:	58 80 00 10 	ADD        $16,R11
+  6c:	11 80 00 02 	LSL        $2,R2
+  70:	8f e0 8a 90 	MOV        R12,R1         | ADD        R2,R1
+  74:	8d 10 d4 0c 	SW         R1,$16(SP)     | LW         12(SP),R10
+  78:	50 83 ff ff 	ADD        $-1,R10
+  7c:	af e0 a4 04 	MOV        R12,R5         | LW         4(SP),R4
+  80:	14 86 ff f0 	LW         -16(R11),R2
+  84:	1c 86 ff f4 	LW         -12(R11),R3
+  88:	3c 86 ff f8 	LW         -8(R11),R7
+  8c:	b4 dc 90 98 	LW         -4(R11),R6     | SUB        R3,R2
+  90:	0b 40 c0 00 	MOV        R3,R1
+  94:	08 85 80 00 	ADD        R6,R1
+  98:	09 c0 00 01 	ASR        $1,R1
+  9c:	38 04 40 00 	SUB        R1,R7
+  a0:	0b 41 c0 00 	MOV        R7,R1
+  a4:	95 e0 92 b8 	SW         R2,(R12)       | ADD        R7,R2
+  a8:	10 80 00 02 	ADD        $2,R2
+  ac:	11 c0 00 02 	ASR        $2,R2
+  b0:	92 98 95 a0 	ADD        R3,R2          | SW         R2,(R4)
+  b4:	94 0c 93 03 	LW         12(SP),R2      | CMP        $3,R2
+  b8:	78 90 00 60 	BLT        @0x0000011c    // 11c <singlelift+0x11c>
+  bc:	13 42 c0 00 	MOV        R11,R2
+  c0:	c6 01 dd 00 	LDI        $1,R8          | SW         R11,(SP)
+  c4:	aa c8 a2 c8 	ADD        R9,R5          | ADD        R9,R4
+  c8:	3c 84 80 04 	LW         4(R2),R7
+  cc:	1b 41 c0 00 	MOV        R7,R3
+  d0:	18 85 80 00 	ADD        R6,R3
+  d4:	19 c0 00 01 	ASR        $1,R3
+  d8:	dc 90 d8 98 	LW         (R2),R11       | SUB        R3,R11
+  dc:	1b 42 c0 00 	MOV        R11,R3
+  e0:	8d a8 da 88 	SW         R1,(R5)        | ADD        R1,R11
+  e4:	0b 42 c0 00 	MOV        R11,R1
+  e8:	08 80 00 02 	ADD        $2,R1
+  ec:	09 c0 00 02 	ASR        $2,R1
+  f0:	8a b0 8d a0 	ADD        R6,R1          | SW         R1,(R4)
+  f4:	92 08 c2 01 	ADD        $8,R2          | ADD        $1,R8
+  f8:	0b 40 c0 00 	MOV        R3,R1
+  fc:	33 41 c0 00 	MOV        R7,R6
+ 100:	44 06 80 00 	CMP        R10,R8
+ 104:	78 ab ff bc 	BNZ        @0x000000c4    // c4 <singlelift+0xc4>
+ 108:	dc 00 ac 08 	LW         (SP),R11       | LW         8(SP),R5
+ 10c:	23 41 40 00 	MOV        R5,R4
+ 110:	8c 14 a2 88 	LW         20(SP),R1      | ADD        R1,R4
+ 114:	14 87 40 04 	LW         4(SP),R2
+ 118:	78 80 00 0c 	BRA        @0x00000128    // 128 <singlelift+0x128>
+ 11c:	3b 41 80 00 	MOV        R6,R7
+ 120:	1b 40 40 00 	MOV        R1,R3
+ 124:	13 41 00 00 	MOV        R4,R2
+ 128:	aa c8 9d a8 	ADD        R9,R5          | SW         R3,(R5)
+ 12c:	a2 c8 9a 01 	ADD        R9,R4          | ADD        $1,R3
+ 130:	19 c0 00 03 	ASR        $3,R3
+ 134:	9a b8 9d a0 	ADD        R7,R3          | SW         R3,(R4)
+ 138:	e2 04 92 04 	ADD        $4,R12         | ADD        $4,R2
+ 13c:	95 04 9c 08 	SW         R2,$4(SP)      | LW         8(SP),R3
+ 140:	9a 04 9d 08 	ADD        $4,R3          | SW         R3,$8(SP)
+ 144:	da c8 a4 10 	ADD        R9,R11         | LW         16(SP),R4
+ 148:	24 07 00 00 	CMP        R12,R4
+ 14c:	78 ab ff 2c 	BNZ        @0x0000007c    // 7c <singlelift+0x7c>
+ 150:	ac 18 b4 1c 	LW         24(SP),R5      | LW         28(SP),R6
+ 154:	bc 20 c4 24 	LW         32(SP),R7      | LW         36(SP),R8
+ 158:	cc 28 d4 2c 	LW         40(SP),R9      | LW         44(SP),R10
+ 15c:	dc 30 e4 34 	LW         48(SP),R11     | LW         52(SP),R12
+ 160:	ea 38 ff 80 	ADD        $56,SP         | RTN
+ 164:	7b 40 00 00 	RTN
+ 168:	78 83 fe a0 	BRA        @0x0000000c    // c <singlelift+0xc>
+
+0000016c <ilift>:
+ 16c:	14 00 00 01 	CMP        $1,R2
+ 170:	78 90 01 64 	BLT        @0x000002d8    // 2d8 <ilift+0x16c>
+ 174:	78 80 01 64 	BRA        @0x000002dc    // 2dc <ilift+0x170>
+ 178:	e8 3c ad 1c 	SUB        $60,SP         | SW         R5,$28(SP)
+ 17c:	b5 20 bd 24 	SW         R6,$32(SP)     | SW         R7,$36(SP)
+ 180:	c5 28 cd 2c 	SW         R8,$40(SP)     | SW         R9,$44(SP)
+ 184:	d5 30 dd 34 	SW         R10,$48(SP)    | SW         R11,$52(SP)
+ 188:	e5 38 b7 90 	SW         R12,$56(SP)    | MOV        R2,R6
+ 18c:	33 04 40 00 	MPY        R1,R6
+ 190:	2b 41 80 00 	MOV        R6,R5
+ 194:	29 40 00 1f 	LSR        $31,R5
+ 198:	28 85 80 00 	ADD        R6,R5
+ 19c:	29 c0 00 01 	ASR        $1,R5
+ 1a0:	29 80 00 02 	LSL        $2,R5
+ 1a4:	53 40 40 00 	MOV        R1,R10
+ 1a8:	51 80 00 02 	LSL        $2,R10
+ 1ac:	0b 40 80 00 	MOV        R2,R1
+ 1b0:	09 c0 00 01 	ASR        $1,R1
+ 1b4:	8d 0c 9d 04 	SW         R1,$12(SP)     | SW         R3,$4(SP)
+ 1b8:	4b 40 c0 00 	MOV        R3,R9
+ 1bc:	ca d0 cd 00 	ADD        R10,R9         | SW         R9,(SP)
+ 1c0:	0b 40 c0 00 	MOV        R3,R1
+ 1c4:	8a a8 8d 08 	ADD        R5,R1          | SW         R1,$8(SP)
+ 1c8:	63 41 00 00 	MOV        R4,R12
+ 1cc:	11 80 00 02 	LSL        $2,R2
+ 1d0:	4b 40 c0 00 	MOV        R3,R9
+ 1d4:	ca 90 cd 10 	ADD        R2,R9          | SW         R9,$16(SP)
+ 1d8:	0c 87 40 0c 	LW         12(SP),R1
+ 1dc:	09 80 00 03 	LSL        $3,R1
+ 1e0:	0b 40 5f f0 	MOV        $-16+R1,R1
+ 1e4:	8d 18 8c 0c 	SW         R1,$24(SP)     | LW         12(SP),R1
+ 1e8:	08 83 ff fe 	ADD        $-2,R1
+ 1ec:	0b 06 80 00 	MPY        R10,R1
+ 1f0:	8a a8 88 d0 	ADD        R5,R1          | SUB        R10,R1
+ 1f4:	8d 14 dc 0c 	SW         R1,$20(SP)     | LW         12(SP),R11
+ 1f8:	58 83 ff ff 	ADD        $-1,R11
+ 1fc:	9f e0 a4 08 	MOV        R12,R3         | LW         8(SP),R4
+ 200:	8c 04 ac 88 	LW         4(SP),R1       | LW         (R1),R5
+ 204:	bc 00 b4 b8 	LW         (SP),R7        | LW         (R7),R6
+ 208:	0b 41 40 00 	MOV        R5,R1
+ 20c:	8a b0 8a 02 	ADD        R6,R1          | ADD        $2,R1
+ 210:	09 c0 00 02 	ASR        $2,R1
+ 214:	94 a0 90 88 	LW         (R4),R2        | SUB        R1,R2
+ 218:	aa 90 ad e0 	ADD        R2,R5          | SW         R5,(R12)
+ 21c:	14 c7 00 04 	SW         R2,$4(R12)
+ 220:	cc 0c af b0 	LW         12(SP),R9      | MOV        R6,R5
+ 224:	4c 00 00 03 	CMP        $3,R9
+ 228:	78 90 00 54 	BLT        @0x00000280    // 280 <ilift+0x114>
+ 22c:	c7 90 ce 01 	MOV        R2,R8          | LDI        $1,R9
+ 230:	78 80 00 04 	BRA        @0x00000238    // 238 <ilift+0xcc>
+ 234:	43 40 80 00 	MOV        R2,R8
+ 238:	9a 08 ba d0 	ADD        $8,R3          | ADD        R10,R7
+ 23c:	a2 d0 ac b8 	ADD        R10,R4         | LW         (R7),R5
+ 240:	0b 41 40 00 	MOV        R5,R1
+ 244:	8a b0 8a 02 	ADD        R6,R1          | ADD        $2,R1
+ 248:	09 c0 00 02 	ASR        $2,R1
+ 24c:	94 a0 90 88 	LW         (R4),R2        | SUB        R1,R2
+ 250:	8f 90 8a c0 	MOV        R2,R1          | ADD        R8,R1
+ 254:	09 c0 00 01 	ASR        $1,R1
+ 258:	8a b0 8d 98 	ADD        R6,R1          | SW         R1,(R3)
+ 25c:	14 c4 c0 04 	SW         R2,$4(R3)
+ 260:	48 80 00 01 	ADD        $1,R9
+ 264:	33 41 40 00 	MOV        R5,R6
+ 268:	4c 06 c0 00 	CMP        R11,R9
+ 26c:	78 ab ff c4 	BNZ        @0x00000234    // 234 <ilift+0xc8>
+ 270:	9f e0 8c 18 	MOV        R12,R3         | LW         24(SP),R1
+ 274:	9a 88 a4 14 	ADD        R1,R3          | LW         20(SP),R4
+ 278:	94 00 a2 90 	LW         (SP),R2        | ADD        R2,R4
+ 27c:	78 80 00 00 	BRA        @0x00000280    // 280 <ilift+0x114>
+ 280:	20 86 80 00 	ADD        R10,R4
+ 284:	0b 41 40 00 	MOV        R5,R1
+ 288:	08 80 00 01 	ADD        $1,R1
+ 28c:	09 c0 00 03 	ASR        $3,R1
+ 290:	94 a0 90 88 	LW         (R4),R2        | SUB        R1,R2
+ 294:	8f 90 8a c0 	MOV        R2,R1          | ADD        R8,R1
+ 298:	09 c0 00 01 	ASR        $1,R1
+ 29c:	08 85 40 00 	ADD        R5,R1
+ 2a0:	0c c4 c0 08 	SW         R1,$8(R3)
+ 2a4:	14 c4 c0 0c 	SW         R2,$12(R3)
+ 2a8:	cc 04 ca 04 	LW         4(SP),R9       | ADD        $4,R9
+ 2ac:	cd 04 8c 00 	SW         R9,$4(SP)      | LW         (SP),R1
+ 2b0:	8a 04 8d 00 	ADD        $4,R1          | SW         R1,(SP)
+ 2b4:	94 08 92 04 	LW         8(SP),R2       | ADD        $4,R2
+ 2b8:	95 08 e2 d0 	SW         R2,$8(SP)      | ADD        R10,R12
+ 2bc:	8c 10 8b c8 	LW         16(SP),R1      | CMP        R9,R1
+ 2c0:	78 ab ff 38 	BNZ        @0x000001fc    // 1fc <ilift+0x90>
+ 2c4:	ac 1c b4 20 	LW         28(SP),R5      | LW         32(SP),R6
+ 2c8:	bc 24 c4 28 	LW         36(SP),R7      | LW         40(SP),R8
+ 2cc:	cc 2c d4 30 	LW         44(SP),R9      | LW         48(SP),R10
+ 2d0:	dc 34 e4 38 	LW         52(SP),R11     | LW         56(SP),R12
+ 2d4:	ea 3c ff 80 	ADD        $60,SP         | RTN
+ 2d8:	7b 40 00 00 	RTN
+ 2dc:	78 83 fe 98 	BRA        @0x00000178    // 178 <ilift+0xc>
+
+000002e0 <lifting>:
+ 2e0:	e8 38 85 14 	SUB        $56,SP         | SW         R0,$20(SP)
+ 2e4:	ad 18 b5 1c 	SW         R5,$24(SP)     | SW         R6,$28(SP)
+ 2e8:	bd 20 c5 24 	SW         R7,$32(SP)     | SW         R8,$36(SP)
+ 2ec:	cd 28 d5 2c 	SW         R9,$40(SP)     | SW         R10,$44(SP)
+ 2f0:	dd 30 e5 34 	SW         R11,$48(SP)    | SW         R12,$52(SP)
+ 2f4:	33 40 40 00 	MOV        R1,R6
+ 2f8:	14 c7 40 00 	SW         R2,(SP)
+ 2fc:	63 40 c0 00 	MOV        R3,R12
+ 300:	24 c7 40 04 	SW         R4,$4(SP)
+ 304:	5b 43 40 00 	MOV        SP,R11
+ 308:	58 80 00 08 	ADD        $8,R11
+ 30c:	53 42 c0 00 	MOV        R11,R10
+ 310:	43 40 c0 00 	MOV        R3,R8
+ 314:	3b 40 80 00 	MOV        R2,R7
+ 318:	2b 40 40 00 	MOV        R1,R5
+ 31c:	4e 00 00 01 	LDI        $1,R9
+ 320:	78 80 00 10 	BRA        @0x00000334    // 334 <lifting+0x54>
+ 324:	29 c0 00 01 	ASR        $1,R5
+ 328:	09 80 00 02 	LSL        $2,R1
+ 32c:	ba 88 c2 88 	ADD        R1,R7          | ADD        R1,R8
+ 330:	ca 01 d2 04 	ADD        $1,R9          | ADD        $4,R10
+ 334:	23 42 00 00 	MOV        R8,R4
+ 338:	1b 41 c0 00 	MOV        R7,R3
+ 33c:	13 41 40 00 	MOV        R5,R2
+ 340:	0b 41 80 00 	MOV        R6,R1
+ 344:	87 fa fc f8 	JSR        0x00000000
+ 348:	00 00 00 00 
+ 34c:	23 41 c0 00 	MOV        R7,R4
+ 350:	1b 42 00 00 	MOV        R8,R3
+ 354:	13 41 40 00 	MOV        R5,R2
+ 358:	0b 41 80 00 	MOV        R6,R1
+ 35c:	87 fa fc f8 	JSR        0x00000000
+ 360:	00 00 00 00 
+ 364:	13 41 80 00 	MOV        R6,R2
+ 368:	13 05 40 00 	MPY        R5,R2
+ 36c:	0b 40 80 00 	MOV        R2,R1
+ 370:	09 40 00 1f 	LSR        $31,R1
+ 374:	08 84 80 00 	ADD        R2,R1
+ 378:	09 c0 00 01 	ASR        $1,R1
+ 37c:	13 41 40 00 	MOV        R5,R2
+ 380:	11 40 00 1f 	LSR        $31,R2
+ 384:	10 85 40 00 	ADD        R5,R2
+ 388:	11 c0 00 01 	ASR        $1,R2
+ 38c:	8a 90 cb 01 	ADD        R2,R1          | CMP        $1,R9
+ 390:	78 88 00 6c 	BZ         @0x00000400    // 400 <lifting+0x120>
+ 394:	94 d4 92 88 	LW         -4(R10),R2     | ADD        R1,R2
+ 398:	95 d0 cb 03 	SW         R2,(R10)       | CMP        $3,R9
+ 39c:	78 ab ff 84 	BNZ        @0x00000324    // 324 <lifting+0x44>
+ 3a0:	94 04 8c 90 	LW         4(SP),R2       | LW         (R2),R1
+ 3a4:	0c 00 00 00 	CMP        $0,R1
+ 3a8:	78 88 00 98 	BZ         @0x00000444    // 444 <lifting+0x164>
+ 3ac:	78 80 00 a4 	BRA        @0x00000454    // 454 <lifting+0x174>
+ 3b0:	0c 86 c0 04 	LW         4(R11),R1
+ 3b4:	09 80 00 02 	LSL        $2,R1
+ 3b8:	cf c0 ca 88 	MOV        R8,R9          | ADD        R1,R9
+ 3bc:	d7 e0 d2 88 	MOV        R12,R10        | ADD        R1,R10
+ 3c0:	23 42 80 00 	MOV        R10,R4
+ 3c4:	1b 42 40 00 	MOV        R9,R3
+ 3c8:	13 41 40 00 	MOV        R5,R2
+ 3cc:	0b 41 80 00 	MOV        R6,R1
+ 3d0:	87 fa fc f8 	JSR        0x0000016c     // 16c <ilift>
+ 3d4:	00 00 01 6c 
+ 3d8:	23 42 40 00 	MOV        R9,R4
+ 3dc:	1b 42 80 00 	MOV        R10,R3
+ 3e0:	13 41 40 00 	MOV        R5,R2
+ 3e4:	0b 41 80 00 	MOV        R6,R1
+ 3e8:	87 fa fc f8 	JSR        0x0000016c     // 16c <ilift>
+ 3ec:	00 00 01 6c 
+ 3f0:	aa a8 da 7c 	ADD        R5,R5          | ADD        $-4,R11
+ 3f4:	3c 06 c0 00 	CMP        R11,R7
+ 3f8:	78 ab ff b4 	BNZ        @0x000003b0    // 3b0 <lifting+0xd0>
+ 3fc:	78 80 00 0c 	BRA        @0x0000040c    // 40c <lifting+0x12c>
+ 400:	0c c6 80 00 	SW         R1,(R10)
+ 404:	29 c0 00 01 	ASR        $1,R5
+ 408:	78 83 ff 1c 	BRA        @0x00000328    // 328 <lifting+0x48>
+ 40c:	a7 e0 9c 00 	MOV        R12,R4         | LW         (SP),R3
+ 410:	13 41 40 00 	MOV        R5,R2
+ 414:	0b 41 80 00 	MOV        R6,R1
+ 418:	87 fa fc f8 	JSR        0x0000016c     // 16c <ilift>
+ 41c:	00 00 01 6c 
+ 420:	a4 00 9f e0 	LW         (SP),R4        | MOV        R12,R3
+ 424:	13 41 40 00 	MOV        R5,R2
+ 428:	8f b0 84 14 	MOV        R6,R1          | LW         20(SP),R0
+ 42c:	ac 18 b4 1c 	LW         24(SP),R5      | LW         28(SP),R6
+ 430:	bc 20 c4 24 	LW         32(SP),R7      | LW         36(SP),R8
+ 434:	cc 28 d4 2c 	LW         40(SP),R9      | LW         44(SP),R10
+ 438:	dc 30 e4 34 	LW         48(SP),R11     | LW         52(SP),R12
+ 43c:	68 80 00 38 	ADD        $56,SP
+ 440:	78 83 fd 28 	BRA        @0x0000016c    // 16c <ilift>
+ 444:	28 43 ff fe 	AND        $-2,R5
+ 448:	3b 43 40 00 	MOV        SP,R7
+ 44c:	44 87 40 00 	LW         (SP),R8
+ 450:	78 83 ff 5c 	BRA        @0x000003b0    // 3b0 <lifting+0xd0>
+ 454:	84 14 ac 18 	LW         20(SP),R0      | LW         24(SP),R5
+ 458:	b4 1c bc 20 	LW         28(SP),R6      | LW         32(SP),R7
+ 45c:	c4 24 cc 28 	LW         36(SP),R8      | LW         40(SP),R9
+ 460:	d4 2c dc 30 	LW         44(SP),R10     | LW         48(SP),R11
+ 464:	e4 34 ea 38 	LW         52(SP),R12     | ADD        $56,SP
+ 468:	7b 40 00 00 	RTN

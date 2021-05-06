@@ -2,7 +2,7 @@
 ##
 ## Filename:	sw/board/Makefile
 ##
-## Project:	ICO Zip, iCE40 ZipCPU demonstration project
+## Project:	ZBasic, a generic toplevel impl using the full ZipCPU
 ##
 ## Purpose:	
 ##
@@ -11,7 +11,7 @@
 ##
 ################################################################################
 ##
-## Copyright (C) 2015-2020, Gisselquist Technology, LLC
+## Copyright (C) 2015-2016, Gisselquist Technology, LLC
 ##
 ## This program is free software (firmware): you can redistribute it and/or
 ## modify it under the terms of  the GNU General Public License as published
@@ -36,7 +36,7 @@
 ##
 ##
 .PHONY: all
-PROGRAMS := cputest hello
+PROGRAMS := cputest hello jpeg 
 all:	$(PROGRAMS)
 #
 #
@@ -47,14 +47,14 @@ NM	:=zip-nm
 OBJDIR	:= obj-zip
 RDELF	:= zip-readelf
 OBJDUMP := zip-objdump
-SOURCES := cputest.c hello.c
+SOURCES := cputest.c hello.c jpeg.c lifting.c rd_bytes.c
 HEADERS := $(foreach hdr,$(subst .c,.o,$(SOURCES)),$(wildcard $(hdr))) board.h
-LDSCRIPT:= -Tboard.ld
+LDSCRIPT:= -Tboardram.ld
 LFLAGS  := $(LDSCRIPT) -L../zlib
 INCS    := -I../zlib -I../../rtl/icozip -I.
 CFLAGS  := -O3 $(INCS)
 LIBS    := -lc -licozip
-INSTALLD:=/home/dan/work/rnd/zipcpu/sw/install
+INSTALLD:=/home/devel/zipcpu/sw/install
 NLIBD	:=$(INSTALLD)/cross-tools/zip/lib
 ZLIBD	:=../zlib
 LIB	:= $(NLIBD)/libg.a $(NLIBD)/libc.a
@@ -92,14 +92,22 @@ cputest: $(OBJDIR)/cputest.o boardram.ld
 	$(CC) $(CFLAGS) -T boardram.ld -fno-builtin -Wl,-Map=$(OBJDIR)/cputest.map $(OBJDIR)/cputest.o -o $@
 cputestcis: $(OBJDIR)/cputestcis.o boardram.ld
 	$(CC) $(CFLAGS) -T boardram.ld -fno-builtin -Wl,-Map=$(OBJDIR)/cputestcis.map $(OBJDIR)/cputestcis.o -o $@
-
+$(OBJDIR)/lifting.o: lifting.c
+	$(CC) -O3 -c  $< -o $@
+	
 $(OBJDIR)/hello.o: hello.c
-	$(CC) -O3 -c $< -o $@
+	$(CC) -O3 -c  $< -o $@
+$(OBJDIR)/jpeg.o: jpeg.c
+	$(CC) $(CFLAGS) -c  $< -o $@
+
 $(OBJDIR)/gettysburg.o: gettysburg.c
 	$(CC) -O3 -c $< -o $@
 
-hello: $(OBJDIR)/hello.o board.ld
-	$(CC) $(CFLAGS) $(LFLAGS) $< $(LIBS) -o $@
+hello: $(OBJDIR)/hello.o boardram.ld
+	$(CC) $(CFLAGS) $(LFLAGS) -Wl,-Map=$(OBJDIR)/hello.map $< $(LIBS) -o $@
+
+jpeg: $(OBJDIR)/jpeg.o $(OBJDIR)/lifting.o  boardram.ld
+	$(CC) $(CFLAGS) $(LFLAGS) $(OBJDIR)/lifting.o  -Wl,-Map=$(OBJDIR)/jpeg.map $< $(LIBS) -o $@ -lgcc
 
 
 define	mk-objdir
