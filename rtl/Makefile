@@ -43,11 +43,11 @@ all:	basic uart icozip leddigits switch_leds # pptest
 SUBMAKE := $(MAKE) --no-print-directory -C
 #
 .PHONY: leddigits
-basic:
+leddigits:
 	$(SUBMAKE) leddigits
 
 .PHONY: switch_leds
-basic:
+switch_leds:
 	$(SUBMAKE) leddigits
 
 .PHONY: basic
