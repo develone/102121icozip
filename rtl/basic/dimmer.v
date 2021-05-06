@@ -2,7 +2,7 @@
 //
 // Filename: 	dimmer.v
 //
-// Project:	ICO Zip, iCE40 ZipCPU demonstration project
+// Project:	ICO Zip, iCE40 ZipCPU demonsrtation project
 //
 // Purpose:	A very simple demonstration project, showing how an LED can be
 //		gradually increased in brightness, and then reset to do it
@@ -13,7 +13,7 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 //
-// Copyright (C) 2017-2020, Gisselquist Technology, LLC
+// Copyright (C) 2017, Gisselquist Technology, LLC
 //
 // This program is free software (firmware): you can redistribute it and/or
 // modify it under the terms of  the GNU General Public License as published

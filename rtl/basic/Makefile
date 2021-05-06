@@ -2,7 +2,7 @@
 ## 
 ## Filename: 	rtl/basic/Makefile
 ##
-## Project:	ICO Zip, iCE40 ZipCPU demonstration project
+## Project:	ICO Zip, iCE40 ZipCPU demonsrtation project
 ##
 ## Purpose:	To direct the build of the files in the rtl/basic directory!
 ##
@@ -11,7 +11,7 @@
 ##
 ################################################################################
 ##
-## Copyright (C) 2016-2020, Gisselquist Technology, LLC
+## Copyright (C) 2016-2017, Gisselquist Technology, LLC
 ##
 ## This program is free software (firmware): you can redistribute it and/or
 ## modify it under the terms of  the GNU General Public License as published
@@ -35,16 +35,20 @@
 ################################################################################
 ##
 ##
-all: blinky pmodtest clktest dimmer
-PNR := nextpnr-ice40 --hx8k -r --freq 100 --package ct256
+#all: blinky pmodtest clktest dimmer
+all: blinky clktest dimmer pmodtest
+
 # GNU Make automatic variables (since I can never remember these ...)
 # $@	- name of the target
 # $<	- Name of the first prerequisite
 # $^	- Names of all the prerequisites
-%.json: %.v
-	yosys -p 'synth_ice40 -json $@' $<
-%.asc: %.json %.pcf
-	$(PNR) --pcf $*.pcf --json $*.json --asc $@
+%.blif: %.v
+	#yosys -p 'synth_ice40 -blif $@' $<
+	#yosys -l simple.log -p 'synth_ice40 -blif $@ -json $@' $<
+	yosys -l simple.log -p 'synth_ice40 -blif $@ -json $*.json' $<
+%.asc: %.blif %.pcf
+	#arachne-pnr -d 8k -p $*.pcf -o $@ $<
+	nextpnr-ice40 --hx8k --pcf $*.pcf --json $*.json --asc $*.asc 
 %.bin: %.asc
 	icetime -d hx8k -c 100 $<
 	icepack $< $@
@@ -57,9 +61,9 @@ dimmer:     dimmer.bin
 
 .PHONY: load
 load: blinky.bin
-	echo "To load this, type: sudo icoprog -p < blinky.bin" # Needs sudo
+	icoprog -p < blinky.bin # Needs sudo
 
 clean:
-	rm -f *.blif *.json *.asc *.bin
+	rm -f *.blif *.asc *.bin *.json
 	# rm -rf obj_dir
 

@@ -2,7 +2,7 @@
 //
 // Filename: 	clktest.v
 //
-// Project:	ICO Zip, iCE40 ZipCPU demonstration project
+// Project:	ICO Zip, iCE40 ZipCPU demonsrtation project
 //
 // Purpose:	To determine the actual clock rate of the ICO board.  If the
 //		clock is configured properly within here, then one LED will 
@@ -15,7 +15,7 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 //
-// Copyright (C) 2015-2020, Gisselquist Technology, LLC
+// Copyright (C) 2015-2017, Gisselquist Technology, LLC
 //
 // This program is free software (firmware): you can redistribute it and/or
 // modify it under the terms of  the GNU General Public License as published

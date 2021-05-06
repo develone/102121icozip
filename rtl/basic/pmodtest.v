@@ -2,7 +2,7 @@
 //
 // Filename: 	pmodtest.v
 //
-// Project:	ICO Zip, iCE40 ZipCPU demonstration project, Basic Demos
+// Project:	ICO Zip, iCE40 ZipCPU demonsrtation project, Basic Demos
 //
 // Purpose:	
 //
@@ -11,7 +11,7 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 //
-// Copyright (C) 2015-2020, Gisselquist Technology, LLC
+// Copyright (C) 2015-2016, Gisselquist Technology, LLC
 //
 // This program is free software (firmware): you can redistribute it and/or
 // modify it under the terms of  the GNU General Public License as published
