@@ -1,7 +1,7 @@
-set_io i_clk R9			# 25MHz clock ?
-set_io o_ledg[0] C8
-set_io o_ledg[1] F7
-set_io o_ledr K9
-set_io i_btn[1] K11
-set_io i_btn[0] P13
+set_io i_clk C8	#R9			# 25MHz clock ?
+set_io o_ledg[0]  A9	#C8
+set_io o_ledg[1] B8	#F7
+set_io o_ledr B7	#K9
+set_io i_btn[1] A16	#K11
+set_io i_btn[0] B9	#P13
 
