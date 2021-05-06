@@ -1,0 +1,138 @@
+05/06/21 13:00
+Not getting sw/board/obj-zip stops the make process.  Manual  steps in sw/board & sim/verilated.
+jpeg is crash at 0x01000000 This should not be occuring.
+
+git clone git@github.com:develone/icozip.git
+cd icozip/
+git checkout catzip
+make
+cd sw/board/
+mkdir obj-zip
+make
+cd ../../sim/verilated/
+make
+./arm-main_tb
+Listening on port 8363
+Listening on port 8364
+> T
+Running CPU self-test
+-----------------------------------
+SIM Instructions                Is this a simulator?
+CIS Instructions                Supported
+Break test #1                   Pass
+Break test #2                   Pass
+Break test #3                   Pass
+Early Branch test               Pass
+Trap test/AND                   Pass
+Trap test/CLR                   Pass
+Overflow test                   Pass
+Carry test                      Pass
+Loop test                       Pass
+Shift test                      Pass
+Pipeline test                   Pass
+Mem-Pipeline test               Pass
+Conditional Execution test      Pass
+No-waiting pipeline test        Pass
+Conditional Branching test      Pass
+Ill Instruction test, NULL PC   Pass
+Ill Instruction test, two       Pass
+Comparison test, ==             Pass
+Comparison test, !=             Pass
+CC Register test                Pass
+Multi-Arg test                  Pass
+Multiply test                   Pass
+> Z
+This is what happens with hello
+BOMB : CPU BREAK RECEIVED
+ZIPM--DUMP: Supervisor mode
+
+sR0 : 02000018 sR1 : 0200021c sR2 : 02000000 sR3 : 0000003a
+sR4 : 020000e8 sR5 : 00001265 sR6 : 02004994 sR7 : ad0c8d10
+sR8 : 00000000 sR9 : 00000000 sR10: 00000000 sR11: 00000000
+sR12: 00000000 sSP : 02fffff4 sCC : 00000006 sPC : 020000e4
+
+uR0 : 00000000 uR1 : 00000000 uR2 : 00000000 uR3 : 00000000
+uR4 : 00000000 uR5 : 00000000 uR6 : 00000000 uR7 : 00000000
+uR8 : 00000000 uR9 : 00000000 uR10: 00000000 uR11: 00000000
+uR12: 00000000 uSP : 00000000 uCC : 00000020 uPC : 02000048
+
+This is what happens with
+BOMB : CPU BREAK RECEIVED
+ZIPM--DUMP: Supervisor mode
+
+sR0 : fffffa00 sR1 : 00000000 sR2 : 00000000 sR3 : 00000000
+sR4 : 00000000 sR5 : 00000000 sR6 : 00000000 sR7 : 00000000
+sR8 : 00000000 sR9 : 00000000 sR10: 00000000 sR11: 00000000
+sR12: 00000000 sSP : 00000000 sCC : 00000004 sPC : 01800000
+
+uR0 : 00000000 uR1 : 00000000 uR2 : 00000000 uR3 : 00000000
+uR4 : 00000000 uR5 : 00000000 uR6 : 00000000 uR7 : 00000000
+uR8 : 00000000 uR9 : 00000000 uR10: 00000000 uR11: 00000000
+uR12: 00000000 uSP : 00000000 uCC : 00000020 uPC : 00000000
+In a 2nd shell
+cd ~/testbuilds/icozip/sw/host
+./arm-zipload -v ../board/cputest
+Halting the CPU
+Memory regions:
+	Block RAM: 01400000 - 01402000
+	SDRAM       : 02000000 - 03000000
+Loading: ../board/cputest
+Section 0: 02000000 - 02003ddc
+Writing to MEM: 02000000-02003ddc
+Clearing the CPUs registers
+Setting PC to 02000000
+The CPU should be fully loaded, you may now
+start it (from reset/reboot) with:
+> wbregs cpu 0x0f
+
+CPU Status is: 0000060f
+./arm-wbregs cpu 0x0f
+
+./arm-zipload -v ../board/hello
+Halting the CPU
+Memory regions:
+	Block RAM: 01400000 - 01402000
+	SDRAM       : 02000000 - 03000000
+Loading: ../board/hello
+Section 0: 02000000 - 020049dc
+Writing to MEM: 02000000-020049dc
+Clearing the CPUs registers
+Setting PC to 02000000
+The CPU should be fully loaded, you may now
+start it (from reset/reboot) with:
+> wbregs cpu 0x0f
+
+CPU Status is: 0000060f
+./arm-wbregs cpu 0x0f
+04000000 (     CPU)-> 0000000f
+
+Steps needed to run jpeg
+
+This is what found in jpeg-disasm.txt 	0200f1f0 <ptrs>:
+./arm-wbregs 0x01401000 0x2
+01401000 (        )-> 00000002
+
+./arm-wbregs 0x01401004 0x1
+01401004 (        )-> 00000001
+
+./arm-zipload -v ../board/jpeg
+Halting the CPU
+Memory regions:
+	Block RAM: 01400000 - 01402000
+	SDRAM       : 02000000 - 03000000
+Loading: ../board/jpeg
+Section 0: 02000000 - 0204f260
+Writing to MEM: 02000000-0204f260
+Clearing the CPUs registers
+Setting PC to 02000000
+The CPU should be fully loaded, you may now
+start it (from reset/reboot) with:
+> wbregs cpu 0x0f
+
+CPU Status is: 0000060f
+./arm-wrsdram rgb_pack.bin
+The size of the buffer is 0x010000 or 65536 words
+
+READ-COMPLETE
+./arm-wbregs cpu 0x0f
+04000000 (     CPU)-> 0000000f
