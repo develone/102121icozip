@@ -54,7 +54,7 @@ DBGBUS  := hbconsole.txt
 CPU     := zipbones.txt
 SCOPES  := # spixscope.txt
 ##LDSCRIPT:= mem_flash_bkram.txt mem_bkram_only.txt mem_flash_sram.txt mem_sram_only.txt
-LDSCRIPT:= mem_flash_bkram.txt mem_bkram_only.txt mem_flash_sram.txt mem_sdram_only.txt
+LDSCRIPT:=  mem_sdram_only.txt
 BONUS   :=
 DATA := clock50.txt $(BASE) $(AUX) $(IO) $(MEMORY) $(DBGBUS) $(CPU) $(SCOPES) $(BONUS) $(LDSCRIPT)
 	# Not used: rtclite.txt watchdog.txt

@@ -27,7 +27,7 @@
 // for more details.
 //
 // You should have received a copy of the GNU General Public License along
-// with this program.  (It's in the 1001 4 20 24 27 29 44 46 60 100 105 109 116 997 998 999 1001ROOT)/doc directory.  Run make with no
+// with this program.  (It's in the 1001 27 116 1001ROOT)/doc directory.  Run make with no
 // target there if the PDF file isn't present.)  If not, see
 // <http://www.gnu.org/licenses/> for a copy.
 // }}}
@@ -40,6 +40,6 @@
 // }}}
 `ifndef	DATESTAMP
 `define DATESTAMP 32'h20210506
-`define BUILDTIME 32'h00043643
+`define BUILDTIME 32'h00070820
 `endif
 //
