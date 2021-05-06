@@ -48,7 +48,7 @@ leddigits:
 
 .PHONY: switch_leds
 switch_leds:
-	$(SUBMAKE) leddigits
+	$(SUBMAKE) switch_leds
 
 .PHONY: basic
 basic:
