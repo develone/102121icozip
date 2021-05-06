@@ -1,19 +1,18 @@
 ################################################################################
 ##
-## Filename:	Makefile
+## Filename: 	Makefile
 ##
-## Project:	ICO Zip, iCE40 ZipCPU demonstration project
+## Project:	ICO Zip, iCE40 ZipCPU demonsrtation project
 ##
-## Purpose:	Simply coordinates builds in the various subdirectories of
-##		rtl.
-##
+## Purpose:	To coordinate the build of a series of UART testing programs
+##		for the icoboard.
 ##
 ## Creator:	Dan Gisselquist, Ph.D.
 ##		Gisselquist Technology, LLC
 ##
 ################################################################################
 ##
-## Copyright (C) 2016-2020, Gisselquist Technology, LLC
+## Copyright (C) 2016-2017, Gisselquist Technology, LLC
 ##
 ## This program is free software (firmware): you can redistribute it and/or
 ## modify it under the terms of  the GNU General Public License as published
@@ -37,51 +36,32 @@
 ################################################################################
 ##
 ##
-.PHONY: all
-all:	basic uart icozip leddigits switch_leds # pptest
-# all:	verilated sw bench bit
-SUBMAKE := $(MAKE) --no-print-directory -C
-#
-.PHONY: basic
-basic:
-	$(SUBMAKE) basic
+all: leddigits
 
-.PHONY: uart
-uart:
-	$(SUBMAKE) uart
+# GNU Make automatic variables (since I can never remember these ...)
+# $@	- name of the target
+# $<	- Name of the first prerequisite
+# $^	- Names of all the prerequisites
+%.blif: %.v
+	#yosys -p 'synth_ice40 -blif $@' $^
+	yosys -l simple.log -p 'synth_ice40 -blif leddigits.blif -json leddigits.json -top catboard' leddigits.v
+%.asc: %.blif %.pcf
+	#arachne-pnr -d 8k -p $*.pcf -o $@ $<
+	nextpnr-ice40 --seed 8 --freq 100 --hx8k --pcf leddigits.pcf --json leddigits.json --asc leddigits.asc
+%.bin: %.asc
+	icetime -d hx8k -c 70 $<
+	icepack $< $@
 
-.PHONY: pmodleds
-pmodleds:
-	$(SUBMAKE) pmodleds
+.PHONY: leddigits
 
-.PHONY: pptest
-pptest:
-	$(SUBMAKE) pptest
+leddigits:	leddigits.bin
 
-.PHONY: icozip
-icozip:
-	$(SUBMAKE) icozip
+
+leddigits.blif:   leddigits.v
 
 
 .PHONY: clean
-clean:	clean-basic clean-uart clean-pptest clean-pmodleds clean-icozip
+clean:
+	rm -f *.blif *.asc *.bin *.json
+	rm -rf obj_dir
 
-.PHONY: clean-basic
-clean-basic:
-	$(SUBMAKE) basic clean
-
-.PHONY: clean-uart
-clean-uart:
-	$(SUBMAKE) uart clean
-
-.PHONY: clean-pptest
-clean-pptest:
-	$(SUBMAKE) pptest clean
-
-.PHONY: clean-pmodleds
-clean-pmodleds:
-	$(SUBMAKE) pmodleds clean
-
-.PHONY: clean-icozip
-clean-icozip:
-	$(SUBMAKE) icozip clean

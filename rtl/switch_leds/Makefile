@@ -1,19 +1,18 @@
 ################################################################################
 ##
-## Filename:	Makefile
+## Filename: 	Makefile
 ##
-## Project:	ICO Zip, iCE40 ZipCPU demonstration project
+## Project:	ICO Zip, iCE40 ZipCPU demonsrtation project
 ##
-## Purpose:	Simply coordinates builds in the various subdirectories of
-##		rtl.
-##
+## Purpose:	To coordinate the build of a series of UART testing programs
+##		for the icoboard.
 ##
 ## Creator:	Dan Gisselquist, Ph.D.
 ##		Gisselquist Technology, LLC
 ##
 ################################################################################
 ##
-## Copyright (C) 2016-2020, Gisselquist Technology, LLC
+## Copyright (C) 2016-2017, Gisselquist Technology, LLC
 ##
 ## This program is free software (firmware): you can redistribute it and/or
 ## modify it under the terms of  the GNU General Public License as published
@@ -37,51 +36,33 @@
 ################################################################################
 ##
 ##
-.PHONY: all
-all:	basic uart icozip leddigits switch_leds # pptest
-# all:	verilated sw bench bit
-SUBMAKE := $(MAKE) --no-print-directory -C
-#
-.PHONY: basic
-basic:
-	$(SUBMAKE) basic
+all: switch_leds
 
-.PHONY: uart
-uart:
-	$(SUBMAKE) uart
+# GNU Make automatic variables (since I can never remember these ...)
+# $@	- name of the target
+# $<	- Name of the first prerequisite
+# $^	- Names of all the prerequisites
+%.blif: %.v
+	#yosys -p 'synth_ice40 -blif $@' $^
+	yosys -l simple.log -p 'synth_ice40 -blif switch_leds.blif -json switch_leds.json -top buttons_display' switch_leds.v
+%.asc: %.blif %.pcf
+	#arachne-pnr -d 8k -p $*.pcf -o $@ $<
+	nextpnr-ice40 --seed 8 --freq 100 --hx8k --pcf switch_leds.pcf --json switch_leds.json --asc switch_leds.asc
 
-.PHONY: pmodleds
-pmodleds:
-	$(SUBMAKE) pmodleds
+%.bin: %.asc
+	icetime -d hx8k -c 70 $<
+	icepack $< $@
 
-.PHONY: pptest
-pptest:
-	$(SUBMAKE) pptest
+.PHONY: switch_leds
 
-.PHONY: icozip
-icozip:
-	$(SUBMAKE) icozip
+switch_leds:	switch_leds.bin
+
+
+switch_leds.blif:   switch_leds.v
 
 
 .PHONY: clean
-clean:	clean-basic clean-uart clean-pptest clean-pmodleds clean-icozip
+clean:
+	rm -f *.blif *.asc *.bin *.json
+	rm -rf obj_dir
 
-.PHONY: clean-basic
-clean-basic:
-	$(SUBMAKE) basic clean
-
-.PHONY: clean-uart
-clean-uart:
-	$(SUBMAKE) uart clean
-
-.PHONY: clean-pptest
-clean-pptest:
-	$(SUBMAKE) pptest clean
-
-.PHONY: clean-pmodleds
-clean-pmodleds:
-	$(SUBMAKE) pmodleds clean
-
-.PHONY: clean-icozip
-clean-icozip:
-	$(SUBMAKE) icozip clean

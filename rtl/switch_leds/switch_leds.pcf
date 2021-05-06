@@ -1,0 +1,18 @@
+
+ 
+# pin definitions 
+set_io d7_o A15 
+set_io d0_o A11 
+set_io d5_o B13 
+set_io d6_o B15 
+set_io d2_o B12 
+set_io d3_o B11 
+set_io d1_o B10 
+set_io clk_i C8 
+set_io d4_o B14 
+set_io sw1_i A16
+set_io sw2_i B9
+set_io sw3_i[0] C6
+set_io sw3_i[1] C5
+set_io sw3_i[2] C4
+set_io sw3_i[3] C3

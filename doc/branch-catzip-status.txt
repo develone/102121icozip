@@ -1,5 +1,7 @@
 05/06/21 13:00
 Not getting sw/board/obj-zip stops the make process.  Manual  steps in sw/board & sim/verilated.
+This issue was solved by adding missing rd_bytes.c in sw/board.
+
 jpeg is crash at 0x01000000 This should not be occuring.
 
 git clone git@github.com:develone/icozip.git -b catzip
@@ -136,3 +138,90 @@ The size of the buffer is 0x010000 or 65536 words
 READ-COMPLETE
 ./arm-wbregs cpu 0x0f
 04000000 (     CPU)-> 0000000f
+md5sum icozip.pcf 
+
+43b185a136709b43683b10871e289f38  icozip.pcf
+
+43b185a136709b43683b10871e289f38  addr23/catzip/rtl/catzip/catzip.pcf
+
+HIERARCHY is the same as addr23/catzip/rtl/catzip.bin
+Top module:  \toplevel
+Used module:     \ppio
+Used module:     \main
+Used module:         \ziptimer
+Used module:         \icontrol
+Used module:         \memdev
+Used module:         \wbgpio
+Used module:         \sdramdev
+Used module:         \console
+Used module:         \hbconsole
+Used module:             \hbnewline
+Used module:             \hbgenhex
+Used module:             \hbdeword
+Used module:             \hbidle
+Used module:             \hbints
+Used module:             \hbexec
+Used module:             \hbpack
+Used module:             \hbdechex
+Used module:         \pport
+Used module:         \zipbones
+Used module:             \zipcpu
+Used module:                 \wbdblpriarb
+Used module:                 \memops
+Used module:                 \div
+Used module:                 \cpuops
+Used module:                     \mpyop
+Used module:                 \idecode
+Used module:                 \dblfetch
+Used module:         \wbxbar
+Used module:             \addrdecode
+Used module:             \skidbuffer
+Parameter \W = 16
+
+addr23/catzip/rtl/catzip.bin not the same.
+
+=== toplevel ===
+
+   Number of wires:               4001
+   Number of wire bits:          19373
+   Number of public wires:        4001
+   Number of public wire bits:   19373
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               8188
+     SB_CARRY                      679
+     SB_DFF                        643
+     SB_DFFE                      1066
+     SB_DFFESR                     541
+     SB_DFFESS                      67
+     SB_DFFSR                      536
+     SB_DFFSS                       15
+     SB_GB                           1
+     SB_IO                          24
+     SB_LUT4                      4594
+     SB_RAM40_4K                    22
+
+
+=== toplevel ===
+
+   Number of wires:               3943
+   Number of wire bits:          19543
+   Number of public wires:        3943
+   Number of public wire bits:   19543
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               8128
+     SB_CARRY                      679
+     SB_DFF                        840
+     SB_DFFE                      1187
+     SB_DFFESR                     386
+     SB_DFFESS                      67
+     SB_DFFSR                      336
+     SB_DFFSS                       15
+     SB_IO                          24
+     SB_LUT4                      4571
+     SB_PLL40_CORE                   1
+     SB_RAM40_4K                    22
+

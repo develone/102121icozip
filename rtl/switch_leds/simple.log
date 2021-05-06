@@ -1,0 +1,2455 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Wolf <claire@symbioticeda.com>          |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.9+4052 (git sha1 0ccc7229, gcc 8.3.0-6+rpi1 -fPIC -Os)
+
+
+-- Parsing `switch_leds.v' using frontend `verilog' --
+
+1. Executing Verilog-2005 frontend: switch_leds.v
+Parsing Verilog input from `switch_leds.v' to AST representation.
+Warning: Yosys has only limited support for tri-state logic at the moment. (switch_leds.v:364)
+Warning: Yosys has only limited support for tri-state logic at the moment. (switch_leds.v:378)
+Warning: Yosys has only limited support for tri-state logic at the moment. (switch_leds.v:392)
+Warning: Yosys has only limited support for tri-state logic at the moment. (switch_leds.v:406)
+Warning: Yosys has only limited support for tri-state logic at the moment. (switch_leds.v:420)
+Warning: Yosys has only limited support for tri-state logic at the moment. (switch_leds.v:434)
+Warning: Yosys has only limited support for tri-state logic at the moment. (switch_leds.v:448)
+Warning: Yosys has only limited support for tri-state logic at the moment. (switch_leds.v:462)
+Generating RTLIL representation for module `\buttons_display'.
+Warning: wire '\display_inst_1_o_drvr' is assigned in a block at switch_leds.v:361.9-361.53.
+Warning: wire '\display_inst_1_o_drvr' is assigned in a block at switch_leds.v:364.9-364.36.
+Warning: wire '\display_inst_2_o_drvr' is assigned in a block at switch_leds.v:375.9-375.53.
+Warning: wire '\display_inst_2_o_drvr' is assigned in a block at switch_leds.v:378.9-378.36.
+Warning: wire '\display_inst_3_o_drvr' is assigned in a block at switch_leds.v:389.9-389.53.
+Warning: wire '\display_inst_3_o_drvr' is assigned in a block at switch_leds.v:392.9-392.36.
+Warning: wire '\display_inst_4_o_drvr' is assigned in a block at switch_leds.v:403.9-403.53.
+Warning: wire '\display_inst_4_o_drvr' is assigned in a block at switch_leds.v:406.9-406.36.
+Warning: wire '\display_inst_5_o_drvr' is assigned in a block at switch_leds.v:417.9-417.53.
+Warning: wire '\display_inst_5_o_drvr' is assigned in a block at switch_leds.v:420.9-420.36.
+Warning: wire '\display_inst_6_o_drvr' is assigned in a block at switch_leds.v:431.9-431.53.
+Warning: wire '\display_inst_6_o_drvr' is assigned in a block at switch_leds.v:434.9-434.36.
+Warning: wire '\display_inst_7_o_drvr' is assigned in a block at switch_leds.v:445.9-445.53.
+Warning: wire '\display_inst_7_o_drvr' is assigned in a block at switch_leds.v:448.9-448.36.
+Warning: wire '\display_inst_8_o_drvr' is assigned in a block at switch_leds.v:459.9-459.53.
+Warning: wire '\display_inst_8_o_drvr' is assigned in a block at switch_leds.v:462.9-462.36.
+switch_leds.v:71: Warning: Identifier `\d6' is implicitly declared.
+switch_leds.v:72: Warning: Identifier `\d7' is implicitly declared.
+switch_leds.v:73: Warning: Identifier `\d4' is implicitly declared.
+switch_leds.v:74: Warning: Identifier `\d5' is implicitly declared.
+switch_leds.v:75: Warning: Identifier `\d2' is implicitly declared.
+switch_leds.v:76: Warning: Identifier `\d3' is implicitly declared.
+switch_leds.v:77: Warning: Identifier `\d0' is implicitly declared.
+switch_leds.v:78: Warning: Identifier `\d1' is implicitly declared.
+Note: Assuming pure combinatorial block at switch_leds.v:99.1-114.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at switch_leds.v:148.1-193.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at switch_leds.v:200.1-228.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at switch_leds.v:231.1-352.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+switch_leds.v:356: Warning: Identifier `\display_inst_1_dummy' is implicitly declared.
+switch_leds.v:361: Warning: Identifier `\display_inst_1_o_drvr' is implicitly declared.
+Note: Assuming pure combinatorial block at switch_leds.v:359.1-366.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+switch_leds.v:370: Warning: Identifier `\display_inst_2_dummy' is implicitly declared.
+switch_leds.v:375: Warning: Identifier `\display_inst_2_o_drvr' is implicitly declared.
+Note: Assuming pure combinatorial block at switch_leds.v:373.1-380.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+switch_leds.v:384: Warning: Identifier `\display_inst_3_dummy' is implicitly declared.
+switch_leds.v:389: Warning: Identifier `\display_inst_3_o_drvr' is implicitly declared.
+Note: Assuming pure combinatorial block at switch_leds.v:387.1-394.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+switch_leds.v:398: Warning: Identifier `\display_inst_4_dummy' is implicitly declared.
+switch_leds.v:403: Warning: Identifier `\display_inst_4_o_drvr' is implicitly declared.
+Note: Assuming pure combinatorial block at switch_leds.v:401.1-408.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+switch_leds.v:412: Warning: Identifier `\display_inst_5_dummy' is implicitly declared.
+switch_leds.v:417: Warning: Identifier `\display_inst_5_o_drvr' is implicitly declared.
+Note: Assuming pure combinatorial block at switch_leds.v:415.1-422.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+switch_leds.v:426: Warning: Identifier `\display_inst_6_dummy' is implicitly declared.
+switch_leds.v:431: Warning: Identifier `\display_inst_6_o_drvr' is implicitly declared.
+Note: Assuming pure combinatorial block at switch_leds.v:429.1-436.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+switch_leds.v:440: Warning: Identifier `\display_inst_7_dummy' is implicitly declared.
+switch_leds.v:445: Warning: Identifier `\display_inst_7_o_drvr' is implicitly declared.
+Note: Assuming pure combinatorial block at switch_leds.v:443.1-450.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+switch_leds.v:454: Warning: Identifier `\display_inst_8_dummy' is implicitly declared.
+switch_leds.v:459: Warning: Identifier `\display_inst_8_o_drvr' is implicitly declared.
+Note: Assuming pure combinatorial block at switch_leds.v:457.1-464.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+-- Running command `synth_ice40 -blif switch_leds.blif -json switch_leds.json -top buttons_display' --
+
+2. Executing SYNTH_ICE40 pass.
+
+2.1. Executing Verilog-2005 frontend: /usr/local/bin/../share/yosys/ice40/cells_sim.v
+Parsing Verilog input from `/usr/local/bin/../share/yosys/ice40/cells_sim.v' to AST representation.
+Generating RTLIL representation for module `\SB_IO'.
+Generating RTLIL representation for module `\SB_GB_IO'.
+Generating RTLIL representation for module `\SB_GB'.
+Generating RTLIL representation for module `\SB_LUT4'.
+Generating RTLIL representation for module `\SB_CARRY'.
+Generating RTLIL representation for module `\SB_DFF'.
+Generating RTLIL representation for module `\SB_DFFE'.
+Generating RTLIL representation for module `\SB_DFFSR'.
+Generating RTLIL representation for module `\SB_DFFR'.
+Generating RTLIL representation for module `\SB_DFFSS'.
+Generating RTLIL representation for module `\SB_DFFS'.
+Generating RTLIL representation for module `\SB_DFFESR'.
+Generating RTLIL representation for module `\SB_DFFER'.
+Generating RTLIL representation for module `\SB_DFFESS'.
+Generating RTLIL representation for module `\SB_DFFES'.
+Generating RTLIL representation for module `\SB_DFFN'.
+Generating RTLIL representation for module `\SB_DFFNE'.
+Generating RTLIL representation for module `\SB_DFFNSR'.
+Generating RTLIL representation for module `\SB_DFFNR'.
+Generating RTLIL representation for module `\SB_DFFNSS'.
+Generating RTLIL representation for module `\SB_DFFNS'.
+Generating RTLIL representation for module `\SB_DFFNESR'.
+Generating RTLIL representation for module `\SB_DFFNER'.
+Generating RTLIL representation for module `\SB_DFFNESS'.
+Generating RTLIL representation for module `\SB_DFFNES'.
+Generating RTLIL representation for module `\SB_RAM40_4K'.
+Generating RTLIL representation for module `\SB_RAM40_4KNR'.
+Generating RTLIL representation for module `\SB_RAM40_4KNW'.
+Generating RTLIL representation for module `\SB_RAM40_4KNRNW'.
+Generating RTLIL representation for module `\ICESTORM_LC'.
+Generating RTLIL representation for module `\SB_PLL40_CORE'.
+Generating RTLIL representation for module `\SB_PLL40_PAD'.
+Generating RTLIL representation for module `\SB_PLL40_2_PAD'.
+Generating RTLIL representation for module `\SB_PLL40_2F_CORE'.
+Generating RTLIL representation for module `\SB_PLL40_2F_PAD'.
+Generating RTLIL representation for module `\SB_WARMBOOT'.
+Generating RTLIL representation for module `\SB_SPRAM256KA'.
+Generating RTLIL representation for module `\SB_HFOSC'.
+Generating RTLIL representation for module `\SB_LFOSC'.
+Generating RTLIL representation for module `\SB_RGBA_DRV'.
+Generating RTLIL representation for module `\SB_LED_DRV_CUR'.
+Generating RTLIL representation for module `\SB_RGB_DRV'.
+Generating RTLIL representation for module `\SB_I2C'.
+Generating RTLIL representation for module `\SB_SPI'.
+Generating RTLIL representation for module `\SB_LEDDA_IP'.
+Generating RTLIL representation for module `\SB_FILTER_50NS'.
+Generating RTLIL representation for module `\SB_IO_I3C'.
+Generating RTLIL representation for module `\SB_IO_OD'.
+Generating RTLIL representation for module `\SB_MAC16'.
+Generating RTLIL representation for module `\ICESTORM_RAM'.
+Successfully finished Verilog frontend.
+
+2.2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.2.1. Analyzing design hierarchy..
+Top module:  \buttons_display
+
+2.2.2. Analyzing design hierarchy..
+Top module:  \buttons_display
+Removed 0 unused modules.
+
+2.3. Executing PROC pass (convert processes to netlists).
+
+2.3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+2.3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1330$429 in module SB_DFFNES.
+Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1274$422 in module SB_DFFNESS.
+Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1199$418 in module SB_DFFNER.
+Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1143$411 in module SB_DFFNESR.
+Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1074$408 in module SB_DFFNS.
+Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1026$405 in module SB_DFFNSS.
+Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:957$402 in module SB_DFFNR.
+Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:909$399 in module SB_DFFNSR.
+Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:753$391 in module SB_DFFES.
+Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:697$384 in module SB_DFFESS.
+Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:622$380 in module SB_DFFER.
+Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:566$373 in module SB_DFFESR.
+Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:497$370 in module SB_DFFS.
+Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:449$367 in module SB_DFFSS.
+Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:380$364 in module SB_DFFR.
+Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:332$361 in module SB_DFFSR.
+Marked 3 switch rules as full_case in process $proc$switch_leds.v:467$180 in module buttons_display.
+Marked 1 switch rules as full_case in process $proc$switch_leds.v:457$178 in module buttons_display.
+Marked 1 switch rules as full_case in process $proc$switch_leds.v:443$175 in module buttons_display.
+Marked 1 switch rules as full_case in process $proc$switch_leds.v:429$172 in module buttons_display.
+Marked 1 switch rules as full_case in process $proc$switch_leds.v:415$169 in module buttons_display.
+Marked 1 switch rules as full_case in process $proc$switch_leds.v:401$166 in module buttons_display.
+Marked 1 switch rules as full_case in process $proc$switch_leds.v:387$163 in module buttons_display.
+Marked 1 switch rules as full_case in process $proc$switch_leds.v:373$160 in module buttons_display.
+Marked 1 switch rules as full_case in process $proc$switch_leds.v:359$157 in module buttons_display.
+Marked 39 switch rules as full_case in process $proc$switch_leds.v:231$32 in module buttons_display.
+Marked 8 switch rules as full_case in process $proc$switch_leds.v:200$15 in module buttons_display.
+Marked 9 switch rules as full_case in process $proc$switch_leds.v:148$4 in module buttons_display.
+Marked 2 switch rules as full_case in process $proc$switch_leds.v:99$1 in module buttons_display.
+Removed a total of 0 dead cases.
+
+2.3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 8 redundant assignments.
+Promoted 43 assignments to connections.
+
+2.3.4. Executing PROC_INIT pass (extract init attributes).
+Found init rule in `\SB_DFFNES.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$432'.
+  Set init value: \Q = 1'0
+Found init rule in `\SB_DFFNESS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$428'.
+  Set init value: \Q = 1'0
+Found init rule in `\SB_DFFNER.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$421'.
+  Set init value: \Q = 1'0
+Found init rule in `\SB_DFFNESR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$417'.
+  Set init value: \Q = 1'0
+Found init rule in `\SB_DFFNS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$410'.
+  Set init value: \Q = 1'0
+Found init rule in `\SB_DFFNSS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$407'.
+  Set init value: \Q = 1'0
+Found init rule in `\SB_DFFNR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$404'.
+  Set init value: \Q = 1'0
+Found init rule in `\SB_DFFNSR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$401'.
+  Set init value: \Q = 1'0
+Found init rule in `\SB_DFFNE.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$398'.
+  Set init value: \Q = 1'0
+Found init rule in `\SB_DFFN.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$396'.
+  Set init value: \Q = 1'0
+Found init rule in `\SB_DFFES.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$394'.
+  Set init value: \Q = 1'0
+Found init rule in `\SB_DFFESS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$390'.
+  Set init value: \Q = 1'0
+Found init rule in `\SB_DFFER.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$383'.
+  Set init value: \Q = 1'0
+Found init rule in `\SB_DFFESR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$379'.
+  Set init value: \Q = 1'0
+Found init rule in `\SB_DFFS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$372'.
+  Set init value: \Q = 1'0
+Found init rule in `\SB_DFFSS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$369'.
+  Set init value: \Q = 1'0
+Found init rule in `\SB_DFFR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$366'.
+  Set init value: \Q = 1'0
+Found init rule in `\SB_DFFSR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$363'.
+  Set init value: \Q = 1'0
+Found init rule in `\SB_DFFE.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$360'.
+  Set init value: \Q = 1'0
+Found init rule in `\SB_DFF.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$358'.
+  Set init value: \Q = 1'0
+
+2.3.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \S in `\SB_DFFNES.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1330$429'.
+Found async reset \R in `\SB_DFFNER.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1199$418'.
+Found async reset \S in `\SB_DFFNS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1074$408'.
+Found async reset \R in `\SB_DFFNR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:957$402'.
+Found async reset \S in `\SB_DFFES.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:753$391'.
+Found async reset \R in `\SB_DFFER.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:622$380'.
+Found async reset \S in `\SB_DFFS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:497$370'.
+Found async reset \R in `\SB_DFFR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:380$364'.
+
+2.3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\SB_DFFNES.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$432'.
+Creating decoders for process `\SB_DFFNES.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1330$429'.
+     1/1: $0\Q[0:0]
+Creating decoders for process `\SB_DFFNESS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$428'.
+Creating decoders for process `\SB_DFFNESS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1274$422'.
+     1/1: $0\Q[0:0]
+Creating decoders for process `\SB_DFFNER.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$421'.
+Creating decoders for process `\SB_DFFNER.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1199$418'.
+     1/1: $0\Q[0:0]
+Creating decoders for process `\SB_DFFNESR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$417'.
+Creating decoders for process `\SB_DFFNESR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1143$411'.
+     1/1: $0\Q[0:0]
+Creating decoders for process `\SB_DFFNS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$410'.
+Creating decoders for process `\SB_DFFNS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1074$408'.
+     1/1: $0\Q[0:0]
+Creating decoders for process `\SB_DFFNSS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$407'.
+Creating decoders for process `\SB_DFFNSS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1026$405'.
+     1/1: $0\Q[0:0]
+Creating decoders for process `\SB_DFFNR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$404'.
+Creating decoders for process `\SB_DFFNR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:957$402'.
+     1/1: $0\Q[0:0]
+Creating decoders for process `\SB_DFFNSR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$401'.
+Creating decoders for process `\SB_DFFNSR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:909$399'.
+     1/1: $0\Q[0:0]
+Creating decoders for process `\SB_DFFNE.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$398'.
+Creating decoders for process `\SB_DFFNE.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:866$397'.
+     1/1: $0\Q[0:0]
+Creating decoders for process `\SB_DFFN.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$396'.
+Creating decoders for process `\SB_DFFN.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:830$395'.
+Creating decoders for process `\SB_DFFES.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$394'.
+Creating decoders for process `\SB_DFFES.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:753$391'.
+     1/1: $0\Q[0:0]
+Creating decoders for process `\SB_DFFESS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$390'.
+Creating decoders for process `\SB_DFFESS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:697$384'.
+     1/1: $0\Q[0:0]
+Creating decoders for process `\SB_DFFER.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$383'.
+Creating decoders for process `\SB_DFFER.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:622$380'.
+     1/1: $0\Q[0:0]
+Creating decoders for process `\SB_DFFESR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$379'.
+Creating decoders for process `\SB_DFFESR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:566$373'.
+     1/1: $0\Q[0:0]
+Creating decoders for process `\SB_DFFS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$372'.
+Creating decoders for process `\SB_DFFS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:497$370'.
+     1/1: $0\Q[0:0]
+Creating decoders for process `\SB_DFFSS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$369'.
+Creating decoders for process `\SB_DFFSS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:449$367'.
+     1/1: $0\Q[0:0]
+Creating decoders for process `\SB_DFFR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$366'.
+Creating decoders for process `\SB_DFFR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:380$364'.
+     1/1: $0\Q[0:0]
+Creating decoders for process `\SB_DFFSR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$363'.
+Creating decoders for process `\SB_DFFSR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:332$361'.
+     1/1: $0\Q[0:0]
+Creating decoders for process `\SB_DFFE.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$360'.
+Creating decoders for process `\SB_DFFE.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:289$359'.
+     1/1: $0\Q[0:0]
+Creating decoders for process `\SB_DFF.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$358'.
+Creating decoders for process `\SB_DFF.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:253$357'.
+Creating decoders for process `\buttons_display.$proc$switch_leds.v:0$188'.
+Creating decoders for process `\buttons_display.$proc$switch_leds.v:467$180'.
+     1/8: $0\display_digit_shf[7:0] [7:1]
+     2/8: $0\display_digit_shf[7:0] [0]
+     3/8: $0\display_seg_mask[6:0] [0]
+     4/8: $0\display_seg_timer[9:0]
+     5/8: $0\display_seg_mask[6:0] [6:1]
+     6/8: $0\display_initialized[0:0]
+     7/8: $0\display_blank[0:0]
+     8/8: $0\display_seg_cntr[2:0]
+Creating decoders for process `\buttons_display.$proc$switch_leds.v:457$178'.
+     1/1: $1\display_inst_8_o_drvr[0:0]
+Creating decoders for process `\buttons_display.$proc$switch_leds.v:443$175'.
+     1/1: $1\display_inst_7_o_drvr[0:0]
+Creating decoders for process `\buttons_display.$proc$switch_leds.v:429$172'.
+     1/1: $1\display_inst_6_o_drvr[0:0]
+Creating decoders for process `\buttons_display.$proc$switch_leds.v:415$169'.
+     1/1: $1\display_inst_5_o_drvr[0:0]
+Creating decoders for process `\buttons_display.$proc$switch_leds.v:401$166'.
+     1/1: $1\display_inst_4_o_drvr[0:0]
+Creating decoders for process `\buttons_display.$proc$switch_leds.v:387$163'.
+     1/1: $1\display_inst_3_o_drvr[0:0]
+Creating decoders for process `\buttons_display.$proc$switch_leds.v:373$160'.
+     1/1: $1\display_inst_2_o_drvr[0:0]
+Creating decoders for process `\buttons_display.$proc$switch_leds.v:359$157'.
+     1/1: $1\display_inst_1_o_drvr[0:0]
+Creating decoders for process `\buttons_display.$proc$switch_leds.v:231$32'.
+     1/39: $39\display_segments[6:0]
+     2/39: $38\display_segments[6:0]
+     3/39: $37\display_segments[6:0]
+     4/39: $36\display_segments[6:0]
+     5/39: $35\display_segments[6:0]
+     6/39: $34\display_segments[6:0]
+     7/39: $33\display_segments[6:0]
+     8/39: $32\display_segments[6:0]
+     9/39: $31\display_segments[6:0]
+    10/39: $30\display_segments[6:0]
+    11/39: $29\display_segments[6:0]
+    12/39: $28\display_segments[6:0]
+    13/39: $27\display_segments[6:0]
+    14/39: $26\display_segments[6:0]
+    15/39: $25\display_segments[6:0]
+    16/39: $24\display_segments[6:0]
+    17/39: $23\display_segments[6:0]
+    18/39: $22\display_segments[6:0]
+    19/39: $21\display_segments[6:0]
+    20/39: $20\display_segments[6:0]
+    21/39: $19\display_segments[6:0]
+    22/39: $18\display_segments[6:0]
+    23/39: $17\display_segments[6:0]
+    24/39: $16\display_segments[6:0]
+    25/39: $15\display_segments[6:0]
+    26/39: $14\display_segments[6:0]
+    27/39: $13\display_segments[6:0]
+    28/39: $12\display_segments[6:0]
+    29/39: $11\display_segments[6:0]
+    30/39: $10\display_segments[6:0]
+    31/39: $9\display_segments[6:0]
+    32/39: $8\display_segments[6:0]
+    33/39: $7\display_segments[6:0]
+    34/39: $6\display_segments[6:0]
+    35/39: $5\display_segments[6:0]
+    36/39: $4\display_segments[6:0]
+    37/39: $3\display_segments[6:0]
+    38/39: $2\display_segments[6:0]
+    39/39: $1\display_segments[6:0]
+Creating decoders for process `\buttons_display.$proc$switch_leds.v:200$15'.
+     1/8: $8\display_active_digit[6:0]
+     2/8: $7\display_active_digit[6:0]
+     3/8: $6\display_active_digit[6:0]
+     4/8: $5\display_active_digit[6:0]
+     5/8: $4\display_active_digit[6:0]
+     6/8: $3\display_active_digit[6:0]
+     7/8: $2\display_active_digit[6:0]
+     8/8: $1\display_active_digit[6:0]
+Creating decoders for process `\buttons_display.$proc$switch_leds.v:148$4'.
+     1/23: $9\display_drvr_enbls[7:0] [7]
+     2/23: $9\display_drvr_enbls[7:0] [6:0]
+     3/23: $8\display_drvr_enbls[7:0] [7]
+     4/23: $8\display_drvr_enbls[7:0] [5:0]
+     5/23: $8\display_drvr_enbls[7:0] [6]
+     6/23: $7\display_drvr_enbls[7:0] [7:6]
+     7/23: $7\display_drvr_enbls[7:0] [4:0]
+     8/23: $7\display_drvr_enbls[7:0] [5]
+     9/23: $6\display_drvr_enbls[7:0] [7:5]
+    10/23: $6\display_drvr_enbls[7:0] [3:0]
+    11/23: $6\display_drvr_enbls[7:0] [4]
+    12/23: $5\display_drvr_enbls[7:0] [7:4]
+    13/23: $5\display_drvr_enbls[7:0] [2:0]
+    14/23: $5\display_drvr_enbls[7:0] [3]
+    15/23: $4\display_drvr_enbls[7:0] [7:3]
+    16/23: $4\display_drvr_enbls[7:0] [1:0]
+    17/23: $4\display_drvr_enbls[7:0] [2]
+    18/23: $3\display_drvr_enbls[7:0] [7:2]
+    19/23: $3\display_drvr_enbls[7:0] [0]
+    20/23: $3\display_drvr_enbls[7:0] [1]
+    21/23: $2\display_drvr_enbls[7:0] [7:1]
+    22/23: $2\display_drvr_enbls[7:0] [0]
+    23/23: $1\display_drvr_enbls[7:0]
+Creating decoders for process `\buttons_display.$proc$switch_leds.v:99$1'.
+     1/4: $1\sw2_digit[6:0] [6:4]
+     2/4: $1\sw2_digit[6:0] [3:0]
+     3/4: $1\sw1_digit[6:0] [6:4]
+     4/4: $1\sw1_digit[6:0] [3:0]
+
+2.3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\buttons_display.\drvrs[0]' from process `\buttons_display.$proc$switch_leds.v:0$188'.
+No latch inferred for signal `\buttons_display.\drvrs[1]' from process `\buttons_display.$proc$switch_leds.v:0$188'.
+No latch inferred for signal `\buttons_display.\drvrs[2]' from process `\buttons_display.$proc$switch_leds.v:0$188'.
+No latch inferred for signal `\buttons_display.\drvrs[3]' from process `\buttons_display.$proc$switch_leds.v:0$188'.
+No latch inferred for signal `\buttons_display.\drvrs[4]' from process `\buttons_display.$proc$switch_leds.v:0$188'.
+No latch inferred for signal `\buttons_display.\drvrs[5]' from process `\buttons_display.$proc$switch_leds.v:0$188'.
+No latch inferred for signal `\buttons_display.\drvrs[6]' from process `\buttons_display.$proc$switch_leds.v:0$188'.
+No latch inferred for signal `\buttons_display.\drvrs[7]' from process `\buttons_display.$proc$switch_leds.v:0$188'.
+No latch inferred for signal `\buttons_display.\display_inst_8_o_drvr' from process `\buttons_display.$proc$switch_leds.v:457$178'.
+No latch inferred for signal `\buttons_display.\display_inst_7_o_drvr' from process `\buttons_display.$proc$switch_leds.v:443$175'.
+No latch inferred for signal `\buttons_display.\display_inst_6_o_drvr' from process `\buttons_display.$proc$switch_leds.v:429$172'.
+No latch inferred for signal `\buttons_display.\display_inst_5_o_drvr' from process `\buttons_display.$proc$switch_leds.v:415$169'.
+No latch inferred for signal `\buttons_display.\display_inst_4_o_drvr' from process `\buttons_display.$proc$switch_leds.v:401$166'.
+No latch inferred for signal `\buttons_display.\display_inst_3_o_drvr' from process `\buttons_display.$proc$switch_leds.v:387$163'.
+No latch inferred for signal `\buttons_display.\display_inst_2_o_drvr' from process `\buttons_display.$proc$switch_leds.v:373$160'.
+No latch inferred for signal `\buttons_display.\display_inst_1_o_drvr' from process `\buttons_display.$proc$switch_leds.v:359$157'.
+No latch inferred for signal `\buttons_display.\display_segments' from process `\buttons_display.$proc$switch_leds.v:231$32'.
+No latch inferred for signal `\buttons_display.\display_active_digit' from process `\buttons_display.$proc$switch_leds.v:200$15'.
+No latch inferred for signal `\buttons_display.\display_drvr_enbls' from process `\buttons_display.$proc$switch_leds.v:148$4'.
+No latch inferred for signal `\buttons_display.\sw2_digit' from process `\buttons_display.$proc$switch_leds.v:99$1'.
+No latch inferred for signal `\buttons_display.\sw1_digit' from process `\buttons_display.$proc$switch_leds.v:99$1'.
+
+2.3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\SB_DFFNES.\Q' using process `\SB_DFFNES.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1330$429'.
+  created $adff cell `$procdff$3516' with negative edge clock and positive level reset.
+Creating register for signal `\SB_DFFNESS.\Q' using process `\SB_DFFNESS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1274$422'.
+  created $dff cell `$procdff$3517' with negative edge clock.
+Creating register for signal `\SB_DFFNER.\Q' using process `\SB_DFFNER.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1199$418'.
+  created $adff cell `$procdff$3518' with negative edge clock and positive level reset.
+Creating register for signal `\SB_DFFNESR.\Q' using process `\SB_DFFNESR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1143$411'.
+  created $dff cell `$procdff$3519' with negative edge clock.
+Creating register for signal `\SB_DFFNS.\Q' using process `\SB_DFFNS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1074$408'.
+  created $adff cell `$procdff$3520' with negative edge clock and positive level reset.
+Creating register for signal `\SB_DFFNSS.\Q' using process `\SB_DFFNSS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1026$405'.
+  created $dff cell `$procdff$3521' with negative edge clock.
+Creating register for signal `\SB_DFFNR.\Q' using process `\SB_DFFNR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:957$402'.
+  created $adff cell `$procdff$3522' with negative edge clock and positive level reset.
+Creating register for signal `\SB_DFFNSR.\Q' using process `\SB_DFFNSR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:909$399'.
+  created $dff cell `$procdff$3523' with negative edge clock.
+Creating register for signal `\SB_DFFNE.\Q' using process `\SB_DFFNE.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:866$397'.
+  created $dff cell `$procdff$3524' with negative edge clock.
+Creating register for signal `\SB_DFFN.\Q' using process `\SB_DFFN.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:830$395'.
+  created $dff cell `$procdff$3525' with negative edge clock.
+Creating register for signal `\SB_DFFES.\Q' using process `\SB_DFFES.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:753$391'.
+  created $adff cell `$procdff$3526' with positive edge clock and positive level reset.
+Creating register for signal `\SB_DFFESS.\Q' using process `\SB_DFFESS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:697$384'.
+  created $dff cell `$procdff$3527' with positive edge clock.
+Creating register for signal `\SB_DFFER.\Q' using process `\SB_DFFER.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:622$380'.
+  created $adff cell `$procdff$3528' with positive edge clock and positive level reset.
+Creating register for signal `\SB_DFFESR.\Q' using process `\SB_DFFESR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:566$373'.
+  created $dff cell `$procdff$3529' with positive edge clock.
+Creating register for signal `\SB_DFFS.\Q' using process `\SB_DFFS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:497$370'.
+  created $adff cell `$procdff$3530' with positive edge clock and positive level reset.
+Creating register for signal `\SB_DFFSS.\Q' using process `\SB_DFFSS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:449$367'.
+  created $dff cell `$procdff$3531' with positive edge clock.
+Creating register for signal `\SB_DFFR.\Q' using process `\SB_DFFR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:380$364'.
+  created $adff cell `$procdff$3532' with positive edge clock and positive level reset.
+Creating register for signal `\SB_DFFSR.\Q' using process `\SB_DFFSR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:332$361'.
+  created $dff cell `$procdff$3533' with positive edge clock.
+Creating register for signal `\SB_DFFE.\Q' using process `\SB_DFFE.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:289$359'.
+  created $dff cell `$procdff$3534' with positive edge clock.
+Creating register for signal `\SB_DFF.\Q' using process `\SB_DFF.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:253$357'.
+  created $dff cell `$procdff$3535' with positive edge clock.
+Creating register for signal `\buttons_display.\display_seg_cntr' using process `\buttons_display.$proc$switch_leds.v:467$180'.
+  created $dff cell `$procdff$3536' with positive edge clock.
+Creating register for signal `\buttons_display.\display_blank' using process `\buttons_display.$proc$switch_leds.v:467$180'.
+  created $dff cell `$procdff$3537' with positive edge clock.
+Creating register for signal `\buttons_display.\display_initialized' using process `\buttons_display.$proc$switch_leds.v:467$180'.
+  created $dff cell `$procdff$3538' with positive edge clock.
+Creating register for signal `\buttons_display.\display_digit_shf' using process `\buttons_display.$proc$switch_leds.v:467$180'.
+  created $dff cell `$procdff$3539' with positive edge clock.
+Creating register for signal `\buttons_display.\display_seg_mask' using process `\buttons_display.$proc$switch_leds.v:467$180'.
+  created $dff cell `$procdff$3540' with positive edge clock.
+Creating register for signal `\buttons_display.\display_seg_timer' using process `\buttons_display.$proc$switch_leds.v:467$180'.
+  created $dff cell `$procdff$3541' with positive edge clock.
+
+2.3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+2.3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `SB_DFFNES.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$432'.
+Found and cleaned up 1 empty switch in `\SB_DFFNES.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1330$429'.
+Removing empty process `SB_DFFNES.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1330$429'.
+Removing empty process `SB_DFFNESS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$428'.
+Found and cleaned up 2 empty switches in `\SB_DFFNESS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1274$422'.
+Removing empty process `SB_DFFNESS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1274$422'.
+Removing empty process `SB_DFFNER.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$421'.
+Found and cleaned up 1 empty switch in `\SB_DFFNER.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1199$418'.
+Removing empty process `SB_DFFNER.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1199$418'.
+Removing empty process `SB_DFFNESR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$417'.
+Found and cleaned up 2 empty switches in `\SB_DFFNESR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1143$411'.
+Removing empty process `SB_DFFNESR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1143$411'.
+Removing empty process `SB_DFFNS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$410'.
+Removing empty process `SB_DFFNS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1074$408'.
+Removing empty process `SB_DFFNSS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$407'.
+Found and cleaned up 1 empty switch in `\SB_DFFNSS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1026$405'.
+Removing empty process `SB_DFFNSS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1026$405'.
+Removing empty process `SB_DFFNR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$404'.
+Removing empty process `SB_DFFNR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:957$402'.
+Removing empty process `SB_DFFNSR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$401'.
+Found and cleaned up 1 empty switch in `\SB_DFFNSR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:909$399'.
+Removing empty process `SB_DFFNSR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:909$399'.
+Removing empty process `SB_DFFNE.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$398'.
+Found and cleaned up 1 empty switch in `\SB_DFFNE.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:866$397'.
+Removing empty process `SB_DFFNE.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:866$397'.
+Removing empty process `SB_DFFN.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$396'.
+Removing empty process `SB_DFFN.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:830$395'.
+Removing empty process `SB_DFFES.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$394'.
+Found and cleaned up 1 empty switch in `\SB_DFFES.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:753$391'.
+Removing empty process `SB_DFFES.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:753$391'.
+Removing empty process `SB_DFFESS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$390'.
+Found and cleaned up 2 empty switches in `\SB_DFFESS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:697$384'.
+Removing empty process `SB_DFFESS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:697$384'.
+Removing empty process `SB_DFFER.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$383'.
+Found and cleaned up 1 empty switch in `\SB_DFFER.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:622$380'.
+Removing empty process `SB_DFFER.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:622$380'.
+Removing empty process `SB_DFFESR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$379'.
+Found and cleaned up 2 empty switches in `\SB_DFFESR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:566$373'.
+Removing empty process `SB_DFFESR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:566$373'.
+Removing empty process `SB_DFFS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$372'.
+Removing empty process `SB_DFFS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:497$370'.
+Removing empty process `SB_DFFSS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$369'.
+Found and cleaned up 1 empty switch in `\SB_DFFSS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:449$367'.
+Removing empty process `SB_DFFSS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:449$367'.
+Removing empty process `SB_DFFR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$366'.
+Removing empty process `SB_DFFR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:380$364'.
+Removing empty process `SB_DFFSR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$363'.
+Found and cleaned up 1 empty switch in `\SB_DFFSR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:332$361'.
+Removing empty process `SB_DFFSR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:332$361'.
+Removing empty process `SB_DFFE.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$360'.
+Found and cleaned up 1 empty switch in `\SB_DFFE.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:289$359'.
+Removing empty process `SB_DFFE.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:289$359'.
+Removing empty process `SB_DFF.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$358'.
+Removing empty process `SB_DFF.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:253$357'.
+Removing empty process `buttons_display.$proc$switch_leds.v:0$188'.
+Found and cleaned up 3 empty switches in `\buttons_display.$proc$switch_leds.v:467$180'.
+Removing empty process `buttons_display.$proc$switch_leds.v:467$180'.
+Found and cleaned up 1 empty switch in `\buttons_display.$proc$switch_leds.v:457$178'.
+Removing empty process `buttons_display.$proc$switch_leds.v:457$178'.
+Found and cleaned up 1 empty switch in `\buttons_display.$proc$switch_leds.v:443$175'.
+Removing empty process `buttons_display.$proc$switch_leds.v:443$175'.
+Found and cleaned up 1 empty switch in `\buttons_display.$proc$switch_leds.v:429$172'.
+Removing empty process `buttons_display.$proc$switch_leds.v:429$172'.
+Found and cleaned up 1 empty switch in `\buttons_display.$proc$switch_leds.v:415$169'.
+Removing empty process `buttons_display.$proc$switch_leds.v:415$169'.
+Found and cleaned up 1 empty switch in `\buttons_display.$proc$switch_leds.v:401$166'.
+Removing empty process `buttons_display.$proc$switch_leds.v:401$166'.
+Found and cleaned up 1 empty switch in `\buttons_display.$proc$switch_leds.v:387$163'.
+Removing empty process `buttons_display.$proc$switch_leds.v:387$163'.
+Found and cleaned up 1 empty switch in `\buttons_display.$proc$switch_leds.v:373$160'.
+Removing empty process `buttons_display.$proc$switch_leds.v:373$160'.
+Found and cleaned up 1 empty switch in `\buttons_display.$proc$switch_leds.v:359$157'.
+Removing empty process `buttons_display.$proc$switch_leds.v:359$157'.
+Found and cleaned up 39 empty switches in `\buttons_display.$proc$switch_leds.v:231$32'.
+Removing empty process `buttons_display.$proc$switch_leds.v:231$32'.
+Found and cleaned up 8 empty switches in `\buttons_display.$proc$switch_leds.v:200$15'.
+Removing empty process `buttons_display.$proc$switch_leds.v:200$15'.
+Found and cleaned up 9 empty switches in `\buttons_display.$proc$switch_leds.v:148$4'.
+Removing empty process `buttons_display.$proc$switch_leds.v:148$4'.
+Found and cleaned up 2 empty switches in `\buttons_display.$proc$switch_leds.v:99$1'.
+Removing empty process `buttons_display.$proc$switch_leds.v:99$1'.
+Cleaned up 87 empty switches.
+
+2.4. Executing FLATTEN pass (flatten design).
+
+2.5. Executing TRIBUF pass.
+
+2.6. Executing DEMINOUT pass (demote inout ports to input or output).
+
+2.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module buttons_display.
+<suppressed ~55 debug messages>
+
+2.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \buttons_display..
+Removed 2 unused cells and 1137 unused wires.
+<suppressed ~5 debug messages>
+
+2.9. Executing CHECK pass (checking for obvious problems).
+Checking module buttons_display...
+Found and reported 0 problems.
+
+2.10. Executing OPT pass (performing simple optimizations).
+
+2.10.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module buttons_display.
+
+2.10.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\buttons_display'.
+Removed a total of 0 cells.
+
+2.10.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \buttons_display..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port B of cell $procmux$650: \display_initialized -> 1'1
+  Analyzing evaluation results.
+    dead port 1/2 on $mux $procmux$1000.
+    dead port 1/2 on $mux $procmux$1003.
+    dead port 1/2 on $mux $procmux$1006.
+    dead port 1/2 on $mux $procmux$1009.
+    dead port 1/2 on $mux $procmux$1012.
+    dead port 1/2 on $mux $procmux$1015.
+    dead port 1/2 on $mux $procmux$1018.
+    dead port 1/2 on $mux $procmux$1021.
+    dead port 1/2 on $mux $procmux$1024.
+    dead port 1/2 on $mux $procmux$1027.
+    dead port 1/2 on $mux $procmux$1030.
+    dead port 1/2 on $mux $procmux$1036.
+    dead port 1/2 on $mux $procmux$1039.
+    dead port 1/2 on $mux $procmux$1042.
+    dead port 1/2 on $mux $procmux$1045.
+    dead port 1/2 on $mux $procmux$1048.
+    dead port 1/2 on $mux $procmux$1051.
+    dead port 1/2 on $mux $procmux$1054.
+    dead port 1/2 on $mux $procmux$1057.
+    dead port 1/2 on $mux $procmux$1060.
+    dead port 1/2 on $mux $procmux$1063.
+    dead port 1/2 on $mux $procmux$1066.
+    dead port 1/2 on $mux $procmux$1069.
+    dead port 1/2 on $mux $procmux$1072.
+    dead port 1/2 on $mux $procmux$1075.
+    dead port 1/2 on $mux $procmux$1078.
+    dead port 1/2 on $mux $procmux$1081.
+    dead port 1/2 on $mux $procmux$1084.
+    dead port 1/2 on $mux $procmux$1087.
+    dead port 1/2 on $mux $procmux$1090.
+    dead port 1/2 on $mux $procmux$1093.
+    dead port 1/2 on $mux $procmux$1096.
+    dead port 1/2 on $mux $procmux$1099.
+    dead port 1/2 on $mux $procmux$1102.
+    dead port 1/2 on $mux $procmux$1105.
+    dead port 1/2 on $mux $procmux$1108.
+    dead port 1/2 on $mux $procmux$1111.
+    dead port 1/2 on $mux $procmux$1114.
+    dead port 1/2 on $mux $procmux$1117.
+    dead port 1/2 on $mux $procmux$1120.
+    dead port 1/2 on $mux $procmux$1123.
+    dead port 1/2 on $mux $procmux$1126.
+    dead port 1/2 on $mux $procmux$1129.
+    dead port 1/2 on $mux $procmux$1132.
+    dead port 1/2 on $mux $procmux$1135.
+    dead port 1/2 on $mux $procmux$1138.
+    dead port 1/2 on $mux $procmux$1144.
+    dead port 1/2 on $mux $procmux$1147.
+    dead port 1/2 on $mux $procmux$1150.
+    dead port 1/2 on $mux $procmux$1153.
+    dead port 1/2 on $mux $procmux$1156.
+    dead port 1/2 on $mux $procmux$1159.
+    dead port 1/2 on $mux $procmux$1162.
+    dead port 1/2 on $mux $procmux$1165.
+    dead port 1/2 on $mux $procmux$1168.
+    dead port 1/2 on $mux $procmux$1171.
+    dead port 1/2 on $mux $procmux$1174.
+    dead port 1/2 on $mux $procmux$1177.
+    dead port 1/2 on $mux $procmux$1180.
+    dead port 1/2 on $mux $procmux$1183.
+    dead port 1/2 on $mux $procmux$1186.
+    dead port 1/2 on $mux $procmux$1189.
+    dead port 1/2 on $mux $procmux$1192.
+    dead port 1/2 on $mux $procmux$1195.
+    dead port 1/2 on $mux $procmux$1198.
+    dead port 1/2 on $mux $procmux$1201.
+    dead port 1/2 on $mux $procmux$1204.
+    dead port 1/2 on $mux $procmux$1207.
+    dead port 1/2 on $mux $procmux$1210.
+    dead port 1/2 on $mux $procmux$1213.
+    dead port 1/2 on $mux $procmux$1216.
+    dead port 1/2 on $mux $procmux$1219.
+    dead port 1/2 on $mux $procmux$1222.
+    dead port 1/2 on $mux $procmux$1225.
+    dead port 1/2 on $mux $procmux$1228.
+    dead port 1/2 on $mux $procmux$1231.
+    dead port 1/2 on $mux $procmux$1234.
+    dead port 1/2 on $mux $procmux$1237.
+    dead port 1/2 on $mux $procmux$1240.
+    dead port 1/2 on $mux $procmux$1243.
+    dead port 1/2 on $mux $procmux$1249.
+    dead port 1/2 on $mux $procmux$1252.
+    dead port 1/2 on $mux $procmux$1255.
+    dead port 1/2 on $mux $procmux$1258.
+    dead port 1/2 on $mux $procmux$1261.
+    dead port 1/2 on $mux $procmux$1264.
+    dead port 1/2 on $mux $procmux$1267.
+    dead port 1/2 on $mux $procmux$1270.
+    dead port 1/2 on $mux $procmux$1273.
+    dead port 1/2 on $mux $procmux$1276.
+    dead port 1/2 on $mux $procmux$1279.
+    dead port 1/2 on $mux $procmux$1282.
+    dead port 1/2 on $mux $procmux$1285.
+    dead port 1/2 on $mux $procmux$1288.
+    dead port 1/2 on $mux $procmux$1291.
+    dead port 1/2 on $mux $procmux$1294.
+    dead port 1/2 on $mux $procmux$1297.
+    dead port 1/2 on $mux $procmux$1300.
+    dead port 1/2 on $mux $procmux$1303.
+    dead port 1/2 on $mux $procmux$1306.
+    dead port 1/2 on $mux $procmux$1309.
+    dead port 1/2 on $mux $procmux$1312.
+    dead port 1/2 on $mux $procmux$1315.
+    dead port 1/2 on $mux $procmux$1318.
+    dead port 1/2 on $mux $procmux$1321.
+    dead port 1/2 on $mux $procmux$1324.
+    dead port 1/2 on $mux $procmux$1327.
+    dead port 1/2 on $mux $procmux$1330.
+    dead port 1/2 on $mux $procmux$1333.
+    dead port 1/2 on $mux $procmux$1336.
+    dead port 1/2 on $mux $procmux$1339.
+    dead port 1/2 on $mux $procmux$1342.
+    dead port 1/2 on $mux $procmux$1345.
+    dead port 1/2 on $mux $procmux$1351.
+    dead port 1/2 on $mux $procmux$1354.
+    dead port 1/2 on $mux $procmux$1357.
+    dead port 1/2 on $mux $procmux$1360.
+    dead port 1/2 on $mux $procmux$1363.
+    dead port 1/2 on $mux $procmux$1366.
+    dead port 1/2 on $mux $procmux$1369.
+    dead port 1/2 on $mux $procmux$1372.
+    dead port 1/2 on $mux $procmux$1375.
+    dead port 1/2 on $mux $procmux$1378.
+    dead port 1/2 on $mux $procmux$1381.
+    dead port 1/2 on $mux $procmux$1384.
+    dead port 1/2 on $mux $procmux$1387.
+    dead port 1/2 on $mux $procmux$1390.
+    dead port 1/2 on $mux $procmux$1393.
+    dead port 1/2 on $mux $procmux$1396.
+    dead port 1/2 on $mux $procmux$1399.
+    dead port 1/2 on $mux $procmux$1402.
+    dead port 1/2 on $mux $procmux$1405.
+    dead port 1/2 on $mux $procmux$1408.
+    dead port 1/2 on $mux $procmux$1411.
+    dead port 1/2 on $mux $procmux$1414.
+    dead port 1/2 on $mux $procmux$1417.
+    dead port 1/2 on $mux $procmux$1420.
+    dead port 1/2 on $mux $procmux$1423.
+    dead port 1/2 on $mux $procmux$1426.
+    dead port 1/2 on $mux $procmux$1429.
+    dead port 1/2 on $mux $procmux$1432.
+    dead port 1/2 on $mux $procmux$1435.
+    dead port 1/2 on $mux $procmux$1438.
+    dead port 1/2 on $mux $procmux$1441.
+    dead port 1/2 on $mux $procmux$1444.
+    dead port 1/2 on $mux $procmux$1450.
+    dead port 1/2 on $mux $procmux$1453.
+    dead port 1/2 on $mux $procmux$1456.
+    dead port 1/2 on $mux $procmux$1459.
+    dead port 1/2 on $mux $procmux$1462.
+    dead port 1/2 on $mux $procmux$1465.
+    dead port 1/2 on $mux $procmux$1468.
+    dead port 1/2 on $mux $procmux$1471.
+    dead port 1/2 on $mux $procmux$1474.
+    dead port 1/2 on $mux $procmux$1477.
+    dead port 1/2 on $mux $procmux$1480.
+    dead port 1/2 on $mux $procmux$1483.
+    dead port 1/2 on $mux $procmux$1486.
+    dead port 1/2 on $mux $procmux$1489.
+    dead port 1/2 on $mux $procmux$1492.
+    dead port 1/2 on $mux $procmux$1495.
+    dead port 1/2 on $mux $procmux$1498.
+    dead port 1/2 on $mux $procmux$1501.
+    dead port 1/2 on $mux $procmux$1504.
+    dead port 1/2 on $mux $procmux$1507.
+    dead port 1/2 on $mux $procmux$1510.
+    dead port 1/2 on $mux $procmux$1513.
+    dead port 1/2 on $mux $procmux$1516.
+    dead port 1/2 on $mux $procmux$1519.
+    dead port 1/2 on $mux $procmux$1522.
+    dead port 1/2 on $mux $procmux$1525.
+    dead port 1/2 on $mux $procmux$1528.
+    dead port 1/2 on $mux $procmux$1531.
+    dead port 1/2 on $mux $procmux$1534.
+    dead port 1/2 on $mux $procmux$1537.
+    dead port 1/2 on $mux $procmux$1540.
+    dead port 1/2 on $mux $procmux$1546.
+    dead port 1/2 on $mux $procmux$1549.
+    dead port 1/2 on $mux $procmux$1552.
+    dead port 1/2 on $mux $procmux$1555.
+    dead port 1/2 on $mux $procmux$1558.
+    dead port 1/2 on $mux $procmux$1561.
+    dead port 1/2 on $mux $procmux$1564.
+    dead port 1/2 on $mux $procmux$1567.
+    dead port 1/2 on $mux $procmux$1570.
+    dead port 1/2 on $mux $procmux$1573.
+    dead port 1/2 on $mux $procmux$1576.
+    dead port 1/2 on $mux $procmux$1579.
+    dead port 1/2 on $mux $procmux$1582.
+    dead port 1/2 on $mux $procmux$1585.
+    dead port 1/2 on $mux $procmux$1588.
+    dead port 1/2 on $mux $procmux$1591.
+    dead port 1/2 on $mux $procmux$1594.
+    dead port 1/2 on $mux $procmux$1597.
+    dead port 1/2 on $mux $procmux$1600.
+    dead port 1/2 on $mux $procmux$1603.
+    dead port 1/2 on $mux $procmux$1606.
+    dead port 1/2 on $mux $procmux$1609.
+    dead port 1/2 on $mux $procmux$1612.
+    dead port 1/2 on $mux $procmux$1615.
+    dead port 1/2 on $mux $procmux$1618.
+    dead port 1/2 on $mux $procmux$1621.
+    dead port 1/2 on $mux $procmux$1624.
+    dead port 1/2 on $mux $procmux$1627.
+    dead port 1/2 on $mux $procmux$1630.
+    dead port 1/2 on $mux $procmux$1633.
+    dead port 1/2 on $mux $procmux$1639.
+    dead port 1/2 on $mux $procmux$1642.
+    dead port 1/2 on $mux $procmux$1645.
+    dead port 1/2 on $mux $procmux$1648.
+    dead port 1/2 on $mux $procmux$1651.
+    dead port 1/2 on $mux $procmux$1654.
+    dead port 1/2 on $mux $procmux$1657.
+    dead port 1/2 on $mux $procmux$1660.
+    dead port 1/2 on $mux $procmux$1663.
+    dead port 1/2 on $mux $procmux$1666.
+    dead port 1/2 on $mux $procmux$1669.
+    dead port 1/2 on $mux $procmux$1672.
+    dead port 1/2 on $mux $procmux$1675.
+    dead port 1/2 on $mux $procmux$1678.
+    dead port 1/2 on $mux $procmux$1681.
+    dead port 1/2 on $mux $procmux$1684.
+    dead port 1/2 on $mux $procmux$1687.
+    dead port 1/2 on $mux $procmux$1690.
+    dead port 1/2 on $mux $procmux$1693.
+    dead port 1/2 on $mux $procmux$1696.
+    dead port 1/2 on $mux $procmux$1699.
+    dead port 1/2 on $mux $procmux$1702.
+    dead port 1/2 on $mux $procmux$1705.
+    dead port 1/2 on $mux $procmux$1708.
+    dead port 1/2 on $mux $procmux$1711.
+    dead port 1/2 on $mux $procmux$1714.
+    dead port 1/2 on $mux $procmux$1717.
+    dead port 1/2 on $mux $procmux$1720.
+    dead port 1/2 on $mux $procmux$1723.
+    dead port 1/2 on $mux $procmux$1729.
+    dead port 1/2 on $mux $procmux$1732.
+    dead port 1/2 on $mux $procmux$1735.
+    dead port 1/2 on $mux $procmux$1738.
+    dead port 1/2 on $mux $procmux$1741.
+    dead port 1/2 on $mux $procmux$1744.
+    dead port 1/2 on $mux $procmux$1747.
+    dead port 1/2 on $mux $procmux$1750.
+    dead port 1/2 on $mux $procmux$1753.
+    dead port 1/2 on $mux $procmux$1756.
+    dead port 1/2 on $mux $procmux$1759.
+    dead port 1/2 on $mux $procmux$1762.
+    dead port 1/2 on $mux $procmux$1765.
+    dead port 1/2 on $mux $procmux$1768.
+    dead port 1/2 on $mux $procmux$1771.
+    dead port 1/2 on $mux $procmux$1774.
+    dead port 1/2 on $mux $procmux$1777.
+    dead port 1/2 on $mux $procmux$1780.
+    dead port 1/2 on $mux $procmux$1783.
+    dead port 1/2 on $mux $procmux$1786.
+    dead port 1/2 on $mux $procmux$1789.
+    dead port 1/2 on $mux $procmux$1792.
+    dead port 1/2 on $mux $procmux$1795.
+    dead port 1/2 on $mux $procmux$1798.
+    dead port 1/2 on $mux $procmux$1801.
+    dead port 1/2 on $mux $procmux$1804.
+    dead port 1/2 on $mux $procmux$1807.
+    dead port 1/2 on $mux $procmux$1810.
+    dead port 1/2 on $mux $procmux$1816.
+    dead port 1/2 on $mux $procmux$1819.
+    dead port 1/2 on $mux $procmux$1822.
+    dead port 1/2 on $mux $procmux$1825.
+    dead port 1/2 on $mux $procmux$1828.
+    dead port 1/2 on $mux $procmux$1831.
+    dead port 1/2 on $mux $procmux$1834.
+    dead port 1/2 on $mux $procmux$1837.
+    dead port 1/2 on $mux $procmux$1840.
+    dead port 1/2 on $mux $procmux$1843.
+    dead port 1/2 on $mux $procmux$1846.
+    dead port 1/2 on $mux $procmux$1849.
+    dead port 1/2 on $mux $procmux$1852.
+    dead port 1/2 on $mux $procmux$1855.
+    dead port 1/2 on $mux $procmux$1858.
+    dead port 1/2 on $mux $procmux$1861.
+    dead port 1/2 on $mux $procmux$1864.
+    dead port 1/2 on $mux $procmux$1867.
+    dead port 1/2 on $mux $procmux$1870.
+    dead port 1/2 on $mux $procmux$1873.
+    dead port 1/2 on $mux $procmux$1876.
+    dead port 1/2 on $mux $procmux$1879.
+    dead port 1/2 on $mux $procmux$1882.
+    dead port 1/2 on $mux $procmux$1885.
+    dead port 1/2 on $mux $procmux$1888.
+    dead port 1/2 on $mux $procmux$1891.
+    dead port 1/2 on $mux $procmux$1894.
+    dead port 1/2 on $mux $procmux$1900.
+    dead port 1/2 on $mux $procmux$1903.
+    dead port 1/2 on $mux $procmux$1906.
+    dead port 1/2 on $mux $procmux$1909.
+    dead port 1/2 on $mux $procmux$1912.
+    dead port 1/2 on $mux $procmux$1915.
+    dead port 1/2 on $mux $procmux$1918.
+    dead port 1/2 on $mux $procmux$1921.
+    dead port 1/2 on $mux $procmux$1924.
+    dead port 1/2 on $mux $procmux$1927.
+    dead port 1/2 on $mux $procmux$1930.
+    dead port 1/2 on $mux $procmux$1933.
+    dead port 1/2 on $mux $procmux$1936.
+    dead port 1/2 on $mux $procmux$1939.
+    dead port 1/2 on $mux $procmux$1942.
+    dead port 1/2 on $mux $procmux$1945.
+    dead port 1/2 on $mux $procmux$1948.
+    dead port 1/2 on $mux $procmux$1951.
+    dead port 1/2 on $mux $procmux$1954.
+    dead port 1/2 on $mux $procmux$1957.
+    dead port 1/2 on $mux $procmux$1960.
+    dead port 1/2 on $mux $procmux$1963.
+    dead port 1/2 on $mux $procmux$1966.
+    dead port 1/2 on $mux $procmux$1969.
+    dead port 1/2 on $mux $procmux$1972.
+    dead port 1/2 on $mux $procmux$1975.
+    dead port 1/2 on $mux $procmux$1981.
+    dead port 1/2 on $mux $procmux$1984.
+    dead port 1/2 on $mux $procmux$1987.
+    dead port 1/2 on $mux $procmux$1990.
+    dead port 1/2 on $mux $procmux$1993.
+    dead port 1/2 on $mux $procmux$1996.
+    dead port 1/2 on $mux $procmux$1999.
+    dead port 1/2 on $mux $procmux$2002.
+    dead port 1/2 on $mux $procmux$2005.
+    dead port 1/2 on $mux $procmux$2008.
+    dead port 1/2 on $mux $procmux$2011.
+    dead port 1/2 on $mux $procmux$2014.
+    dead port 1/2 on $mux $procmux$2017.
+    dead port 1/2 on $mux $procmux$2020.
+    dead port 1/2 on $mux $procmux$2023.
+    dead port 1/2 on $mux $procmux$2026.
+    dead port 1/2 on $mux $procmux$2029.
+    dead port 1/2 on $mux $procmux$2032.
+    dead port 1/2 on $mux $procmux$2035.
+    dead port 1/2 on $mux $procmux$2038.
+    dead port 1/2 on $mux $procmux$2041.
+    dead port 1/2 on $mux $procmux$2044.
+    dead port 1/2 on $mux $procmux$2047.
+    dead port 1/2 on $mux $procmux$2050.
+    dead port 1/2 on $mux $procmux$2053.
+    dead port 1/2 on $mux $procmux$2059.
+    dead port 1/2 on $mux $procmux$2062.
+    dead port 1/2 on $mux $procmux$2065.
+    dead port 1/2 on $mux $procmux$2068.
+    dead port 1/2 on $mux $procmux$2071.
+    dead port 1/2 on $mux $procmux$2074.
+    dead port 1/2 on $mux $procmux$2077.
+    dead port 1/2 on $mux $procmux$2080.
+    dead port 1/2 on $mux $procmux$2083.
+    dead port 1/2 on $mux $procmux$2086.
+    dead port 1/2 on $mux $procmux$2089.
+    dead port 1/2 on $mux $procmux$2092.
+    dead port 1/2 on $mux $procmux$2095.
+    dead port 1/2 on $mux $procmux$2098.
+    dead port 1/2 on $mux $procmux$2101.
+    dead port 1/2 on $mux $procmux$2104.
+    dead port 1/2 on $mux $procmux$2107.
+    dead port 1/2 on $mux $procmux$2110.
+    dead port 1/2 on $mux $procmux$2113.
+    dead port 1/2 on $mux $procmux$2116.
+    dead port 1/2 on $mux $procmux$2119.
+    dead port 1/2 on $mux $procmux$2122.
+    dead port 1/2 on $mux $procmux$2125.
+    dead port 1/2 on $mux $procmux$2128.
+    dead port 1/2 on $mux $procmux$2134.
+    dead port 1/2 on $mux $procmux$2137.
+    dead port 1/2 on $mux $procmux$2140.
+    dead port 1/2 on $mux $procmux$2143.
+    dead port 1/2 on $mux $procmux$2146.
+    dead port 1/2 on $mux $procmux$2149.
+    dead port 1/2 on $mux $procmux$2152.
+    dead port 1/2 on $mux $procmux$2155.
+    dead port 1/2 on $mux $procmux$2158.
+    dead port 1/2 on $mux $procmux$2161.
+    dead port 1/2 on $mux $procmux$2164.
+    dead port 1/2 on $mux $procmux$2167.
+    dead port 1/2 on $mux $procmux$2170.
+    dead port 1/2 on $mux $procmux$2173.
+    dead port 1/2 on $mux $procmux$2176.
+    dead port 1/2 on $mux $procmux$2179.
+    dead port 1/2 on $mux $procmux$2182.
+    dead port 1/2 on $mux $procmux$2185.
+    dead port 1/2 on $mux $procmux$2188.
+    dead port 1/2 on $mux $procmux$2191.
+    dead port 1/2 on $mux $procmux$2194.
+    dead port 1/2 on $mux $procmux$2197.
+    dead port 1/2 on $mux $procmux$2200.
+    dead port 1/2 on $mux $procmux$2206.
+    dead port 1/2 on $mux $procmux$2209.
+    dead port 1/2 on $mux $procmux$2212.
+    dead port 1/2 on $mux $procmux$2215.
+    dead port 1/2 on $mux $procmux$2218.
+    dead port 1/2 on $mux $procmux$2221.
+    dead port 1/2 on $mux $procmux$2224.
+    dead port 1/2 on $mux $procmux$2227.
+    dead port 1/2 on $mux $procmux$2230.
+    dead port 1/2 on $mux $procmux$2233.
+    dead port 1/2 on $mux $procmux$2236.
+    dead port 1/2 on $mux $procmux$2239.
+    dead port 1/2 on $mux $procmux$2242.
+    dead port 1/2 on $mux $procmux$2245.
+    dead port 1/2 on $mux $procmux$2248.
+    dead port 1/2 on $mux $procmux$2251.
+    dead port 1/2 on $mux $procmux$2254.
+    dead port 1/2 on $mux $procmux$2257.
+    dead port 1/2 on $mux $procmux$2260.
+    dead port 1/2 on $mux $procmux$2263.
+    dead port 1/2 on $mux $procmux$2266.
+    dead port 1/2 on $mux $procmux$2269.
+    dead port 1/2 on $mux $procmux$2275.
+    dead port 1/2 on $mux $procmux$2278.
+    dead port 1/2 on $mux $procmux$2281.
+    dead port 1/2 on $mux $procmux$2284.
+    dead port 1/2 on $mux $procmux$2287.
+    dead port 1/2 on $mux $procmux$2290.
+    dead port 1/2 on $mux $procmux$2293.
+    dead port 1/2 on $mux $procmux$2296.
+    dead port 1/2 on $mux $procmux$2299.
+    dead port 1/2 on $mux $procmux$2302.
+    dead port 1/2 on $mux $procmux$2305.
+    dead port 1/2 on $mux $procmux$2308.
+    dead port 1/2 on $mux $procmux$2311.
+    dead port 1/2 on $mux $procmux$2314.
+    dead port 1/2 on $mux $procmux$2317.
+    dead port 1/2 on $mux $procmux$2320.
+    dead port 1/2 on $mux $procmux$2323.
+    dead port 1/2 on $mux $procmux$2326.
+    dead port 1/2 on $mux $procmux$2329.
+    dead port 1/2 on $mux $procmux$2332.
+    dead port 1/2 on $mux $procmux$2335.
+    dead port 1/2 on $mux $procmux$2341.
+    dead port 1/2 on $mux $procmux$2344.
+    dead port 1/2 on $mux $procmux$2347.
+    dead port 1/2 on $mux $procmux$2350.
+    dead port 1/2 on $mux $procmux$2353.
+    dead port 1/2 on $mux $procmux$2356.
+    dead port 1/2 on $mux $procmux$2359.
+    dead port 1/2 on $mux $procmux$2362.
+    dead port 1/2 on $mux $procmux$2365.
+    dead port 1/2 on $mux $procmux$2368.
+    dead port 1/2 on $mux $procmux$2371.
+    dead port 1/2 on $mux $procmux$2374.
+    dead port 1/2 on $mux $procmux$2377.
+    dead port 1/2 on $mux $procmux$2380.
+    dead port 1/2 on $mux $procmux$2383.
+    dead port 1/2 on $mux $procmux$2386.
+    dead port 1/2 on $mux $procmux$2389.
+    dead port 1/2 on $mux $procmux$2392.
+    dead port 1/2 on $mux $procmux$2395.
+    dead port 1/2 on $mux $procmux$2398.
+    dead port 1/2 on $mux $procmux$2404.
+    dead port 1/2 on $mux $procmux$2407.
+    dead port 1/2 on $mux $procmux$2410.
+    dead port 1/2 on $mux $procmux$2413.
+    dead port 1/2 on $mux $procmux$2416.
+    dead port 1/2 on $mux $procmux$2419.
+    dead port 1/2 on $mux $procmux$2422.
+    dead port 1/2 on $mux $procmux$2425.
+    dead port 1/2 on $mux $procmux$2428.
+    dead port 1/2 on $mux $procmux$2431.
+    dead port 1/2 on $mux $procmux$2434.
+    dead port 1/2 on $mux $procmux$2437.
+    dead port 1/2 on $mux $procmux$2440.
+    dead port 1/2 on $mux $procmux$2443.
+    dead port 1/2 on $mux $procmux$2446.
+    dead port 1/2 on $mux $procmux$2449.
+    dead port 1/2 on $mux $procmux$2452.
+    dead port 1/2 on $mux $procmux$2455.
+    dead port 1/2 on $mux $procmux$2458.
+    dead port 1/2 on $mux $procmux$2464.
+    dead port 1/2 on $mux $procmux$2467.
+    dead port 1/2 on $mux $procmux$2470.
+    dead port 1/2 on $mux $procmux$2473.
+    dead port 1/2 on $mux $procmux$2476.
+    dead port 1/2 on $mux $procmux$2479.
+    dead port 1/2 on $mux $procmux$2482.
+    dead port 1/2 on $mux $procmux$2485.
+    dead port 1/2 on $mux $procmux$2488.
+    dead port 1/2 on $mux $procmux$2491.
+    dead port 1/2 on $mux $procmux$2494.
+    dead port 1/2 on $mux $procmux$2497.
+    dead port 1/2 on $mux $procmux$2500.
+    dead port 1/2 on $mux $procmux$2503.
+    dead port 1/2 on $mux $procmux$2506.
+    dead port 1/2 on $mux $procmux$2509.
+    dead port 1/2 on $mux $procmux$2512.
+    dead port 1/2 on $mux $procmux$2515.
+    dead port 1/2 on $mux $procmux$2521.
+    dead port 1/2 on $mux $procmux$2524.
+    dead port 1/2 on $mux $procmux$2527.
+    dead port 1/2 on $mux $procmux$2530.
+    dead port 1/2 on $mux $procmux$2533.
+    dead port 1/2 on $mux $procmux$2536.
+    dead port 1/2 on $mux $procmux$2539.
+    dead port 1/2 on $mux $procmux$2542.
+    dead port 1/2 on $mux $procmux$2545.
+    dead port 1/2 on $mux $procmux$2548.
+    dead port 1/2 on $mux $procmux$2551.
+    dead port 1/2 on $mux $procmux$2554.
+    dead port 1/2 on $mux $procmux$2557.
+    dead port 1/2 on $mux $procmux$2560.
+    dead port 1/2 on $mux $procmux$2563.
+    dead port 1/2 on $mux $procmux$2566.
+    dead port 1/2 on $mux $procmux$2569.
+    dead port 1/2 on $mux $procmux$2575.
+    dead port 1/2 on $mux $procmux$2578.
+    dead port 1/2 on $mux $procmux$2581.
+    dead port 1/2 on $mux $procmux$2584.
+    dead port 1/2 on $mux $procmux$2587.
+    dead port 1/2 on $mux $procmux$2590.
+    dead port 1/2 on $mux $procmux$2593.
+    dead port 1/2 on $mux $procmux$2596.
+    dead port 1/2 on $mux $procmux$2599.
+    dead port 1/2 on $mux $procmux$2602.
+    dead port 1/2 on $mux $procmux$2605.
+    dead port 1/2 on $mux $procmux$2608.
+    dead port 1/2 on $mux $procmux$2611.
+    dead port 1/2 on $mux $procmux$2614.
+    dead port 1/2 on $mux $procmux$2617.
+    dead port 1/2 on $mux $procmux$2620.
+    dead port 1/2 on $mux $procmux$2626.
+    dead port 1/2 on $mux $procmux$2629.
+    dead port 1/2 on $mux $procmux$2632.
+    dead port 1/2 on $mux $procmux$2635.
+    dead port 1/2 on $mux $procmux$2638.
+    dead port 1/2 on $mux $procmux$2641.
+    dead port 1/2 on $mux $procmux$2644.
+    dead port 1/2 on $mux $procmux$2647.
+    dead port 1/2 on $mux $procmux$2650.
+    dead port 1/2 on $mux $procmux$2653.
+    dead port 1/2 on $mux $procmux$2656.
+    dead port 1/2 on $mux $procmux$2659.
+    dead port 1/2 on $mux $procmux$2662.
+    dead port 1/2 on $mux $procmux$2665.
+    dead port 1/2 on $mux $procmux$2668.
+    dead port 1/2 on $mux $procmux$2674.
+    dead port 1/2 on $mux $procmux$2677.
+    dead port 1/2 on $mux $procmux$2680.
+    dead port 1/2 on $mux $procmux$2683.
+    dead port 1/2 on $mux $procmux$2686.
+    dead port 1/2 on $mux $procmux$2689.
+    dead port 1/2 on $mux $procmux$2692.
+    dead port 1/2 on $mux $procmux$2695.
+    dead port 1/2 on $mux $procmux$2698.
+    dead port 1/2 on $mux $procmux$2701.
+    dead port 1/2 on $mux $procmux$2704.
+    dead port 1/2 on $mux $procmux$2707.
+    dead port 1/2 on $mux $procmux$2710.
+    dead port 1/2 on $mux $procmux$2713.
+    dead port 1/2 on $mux $procmux$2719.
+    dead port 1/2 on $mux $procmux$2722.
+    dead port 1/2 on $mux $procmux$2725.
+    dead port 1/2 on $mux $procmux$2728.
+    dead port 1/2 on $mux $procmux$2731.
+    dead port 1/2 on $mux $procmux$2734.
+    dead port 1/2 on $mux $procmux$2737.
+    dead port 1/2 on $mux $procmux$2740.
+    dead port 1/2 on $mux $procmux$2743.
+    dead port 1/2 on $mux $procmux$2746.
+    dead port 1/2 on $mux $procmux$2749.
+    dead port 1/2 on $mux $procmux$2752.
+    dead port 1/2 on $mux $procmux$2755.
+    dead port 1/2 on $mux $procmux$2761.
+    dead port 1/2 on $mux $procmux$2764.
+    dead port 1/2 on $mux $procmux$2767.
+    dead port 1/2 on $mux $procmux$2770.
+    dead port 1/2 on $mux $procmux$2773.
+    dead port 1/2 on $mux $procmux$2776.
+    dead port 1/2 on $mux $procmux$2779.
+    dead port 1/2 on $mux $procmux$2782.
+    dead port 1/2 on $mux $procmux$2785.
+    dead port 1/2 on $mux $procmux$2788.
+    dead port 1/2 on $mux $procmux$2791.
+    dead port 1/2 on $mux $procmux$2794.
+    dead port 1/2 on $mux $procmux$2800.
+    dead port 1/2 on $mux $procmux$2803.
+    dead port 1/2 on $mux $procmux$2806.
+    dead port 1/2 on $mux $procmux$2809.
+    dead port 1/2 on $mux $procmux$2812.
+    dead port 1/2 on $mux $procmux$2815.
+    dead port 1/2 on $mux $procmux$2818.
+    dead port 1/2 on $mux $procmux$2821.
+    dead port 1/2 on $mux $procmux$2824.
+    dead port 1/2 on $mux $procmux$2827.
+    dead port 1/2 on $mux $procmux$2830.
+    dead port 1/2 on $mux $procmux$2836.
+    dead port 1/2 on $mux $procmux$2839.
+    dead port 1/2 on $mux $procmux$2842.
+    dead port 1/2 on $mux $procmux$2845.
+    dead port 1/2 on $mux $procmux$2848.
+    dead port 1/2 on $mux $procmux$2851.
+    dead port 1/2 on $mux $procmux$2854.
+    dead port 1/2 on $mux $procmux$2857.
+    dead port 1/2 on $mux $procmux$2860.
+    dead port 1/2 on $mux $procmux$2863.
+    dead port 1/2 on $mux $procmux$2869.
+    dead port 1/2 on $mux $procmux$2872.
+    dead port 1/2 on $mux $procmux$2875.
+    dead port 1/2 on $mux $procmux$2878.
+    dead port 1/2 on $mux $procmux$2881.
+    dead port 1/2 on $mux $procmux$2884.
+    dead port 1/2 on $mux $procmux$2887.
+    dead port 1/2 on $mux $procmux$2890.
+    dead port 1/2 on $mux $procmux$2893.
+    dead port 1/2 on $mux $procmux$2899.
+    dead port 1/2 on $mux $procmux$2902.
+    dead port 1/2 on $mux $procmux$2905.
+    dead port 1/2 on $mux $procmux$2908.
+    dead port 1/2 on $mux $procmux$2911.
+    dead port 1/2 on $mux $procmux$2914.
+    dead port 1/2 on $mux $procmux$2917.
+    dead port 1/2 on $mux $procmux$2920.
+    dead port 1/2 on $mux $procmux$2926.
+    dead port 1/2 on $mux $procmux$2929.
+    dead port 1/2 on $mux $procmux$2932.
+    dead port 1/2 on $mux $procmux$2935.
+    dead port 1/2 on $mux $procmux$2938.
+    dead port 1/2 on $mux $procmux$2941.
+    dead port 1/2 on $mux $procmux$2944.
+    dead port 1/2 on $mux $procmux$2950.
+    dead port 1/2 on $mux $procmux$2953.
+    dead port 1/2 on $mux $procmux$2956.
+    dead port 1/2 on $mux $procmux$2959.
+    dead port 1/2 on $mux $procmux$2962.
+    dead port 1/2 on $mux $procmux$2965.
+    dead port 1/2 on $mux $procmux$2971.
+    dead port 1/2 on $mux $procmux$2974.
+    dead port 1/2 on $mux $procmux$2977.
+    dead port 1/2 on $mux $procmux$2980.
+    dead port 1/2 on $mux $procmux$2983.
+    dead port 1/2 on $mux $procmux$2989.
+    dead port 1/2 on $mux $procmux$2992.
+    dead port 1/2 on $mux $procmux$2995.
+    dead port 1/2 on $mux $procmux$2998.
+    dead port 1/2 on $mux $procmux$3004.
+    dead port 1/2 on $mux $procmux$3007.
+    dead port 1/2 on $mux $procmux$3010.
+    dead port 1/2 on $mux $procmux$3016.
+    dead port 1/2 on $mux $procmux$3019.
+    dead port 1/2 on $mux $procmux$3025.
+    dead port 1/2 on $mux $procmux$3034.
+    dead port 1/2 on $mux $procmux$3037.
+    dead port 1/2 on $mux $procmux$3040.
+    dead port 1/2 on $mux $procmux$3043.
+    dead port 1/2 on $mux $procmux$3046.
+    dead port 1/2 on $mux $procmux$3049.
+    dead port 1/2 on $mux $procmux$3052.
+    dead port 1/2 on $mux $procmux$3058.
+    dead port 1/2 on $mux $procmux$3061.
+    dead port 1/2 on $mux $procmux$3064.
+    dead port 1/2 on $mux $procmux$3067.
+    dead port 1/2 on $mux $procmux$3070.
+    dead port 1/2 on $mux $procmux$3073.
+    dead port 1/2 on $mux $procmux$3079.
+    dead port 1/2 on $mux $procmux$3082.
+    dead port 1/2 on $mux $procmux$3085.
+    dead port 1/2 on $mux $procmux$3088.
+    dead port 1/2 on $mux $procmux$3091.
+    dead port 1/2 on $mux $procmux$3097.
+    dead port 1/2 on $mux $procmux$3100.
+    dead port 1/2 on $mux $procmux$3103.
+    dead port 1/2 on $mux $procmux$3106.
+    dead port 1/2 on $mux $procmux$3112.
+    dead port 1/2 on $mux $procmux$3115.
+    dead port 1/2 on $mux $procmux$3118.
+    dead port 1/2 on $mux $procmux$3124.
+    dead port 1/2 on $mux $procmux$3127.
+    dead port 1/2 on $mux $procmux$3133.
+    dead port 1/2 on $mux $procmux$3142.
+    dead port 1/2 on $mux $procmux$3145.
+    dead port 1/2 on $mux $procmux$3148.
+    dead port 1/2 on $mux $procmux$3151.
+    dead port 1/2 on $mux $procmux$3154.
+    dead port 1/2 on $mux $procmux$3157.
+    dead port 1/2 on $mux $procmux$3160.
+    dead port 1/2 on $mux $procmux$3163.
+    dead port 1/2 on $mux $procmux$3196.
+    dead port 1/2 on $mux $procmux$3199.
+    dead port 1/2 on $mux $procmux$3202.
+    dead port 1/2 on $mux $procmux$3205.
+    dead port 1/2 on $mux $procmux$3208.
+    dead port 1/2 on $mux $procmux$3211.
+    dead port 1/2 on $mux $procmux$3214.
+    dead port 1/2 on $mux $procmux$3244.
+    dead port 1/2 on $mux $procmux$3247.
+    dead port 1/2 on $mux $procmux$3250.
+    dead port 1/2 on $mux $procmux$3253.
+    dead port 1/2 on $mux $procmux$3256.
+    dead port 1/2 on $mux $procmux$3259.
+    dead port 1/2 on $mux $procmux$3262.
+    dead port 1/2 on $mux $procmux$3268.
+    dead port 1/2 on $mux $procmux$3271.
+    dead port 1/2 on $mux $procmux$3274.
+    dead port 1/2 on $mux $procmux$3277.
+    dead port 1/2 on $mux $procmux$3280.
+    dead port 1/2 on $mux $procmux$3283.
+    dead port 1/2 on $mux $procmux$3310.
+    dead port 1/2 on $mux $procmux$3313.
+    dead port 1/2 on $mux $procmux$3316.
+    dead port 1/2 on $mux $procmux$3319.
+    dead port 1/2 on $mux $procmux$3322.
+    dead port 1/2 on $mux $procmux$3325.
+    dead port 1/2 on $mux $procmux$3331.
+    dead port 1/2 on $mux $procmux$3334.
+    dead port 1/2 on $mux $procmux$3337.
+    dead port 1/2 on $mux $procmux$3340.
+    dead port 1/2 on $mux $procmux$3343.
+    dead port 1/2 on $mux $procmux$3349.
+    dead port 1/2 on $mux $procmux$3352.
+    dead port 1/2 on $mux $procmux$3355.
+    dead port 1/2 on $mux $procmux$3358.
+    dead port 1/2 on $mux $procmux$3361.
+    dead port 1/2 on $mux $procmux$3367.
+    dead port 1/2 on $mux $procmux$3370.
+    dead port 1/2 on $mux $procmux$3373.
+    dead port 1/2 on $mux $procmux$3376.
+    dead port 1/2 on $mux $procmux$3379.
+    dead port 1/2 on $mux $procmux$3385.
+    dead port 1/2 on $mux $procmux$3388.
+    dead port 1/2 on $mux $procmux$3391.
+    dead port 1/2 on $mux $procmux$3394.
+    dead port 1/2 on $mux $procmux$3400.
+    dead port 1/2 on $mux $procmux$3403.
+    dead port 1/2 on $mux $procmux$3406.
+    dead port 1/2 on $mux $procmux$3409.
+    dead port 1/2 on $mux $procmux$3415.
+    dead port 1/2 on $mux $procmux$3418.
+    dead port 1/2 on $mux $procmux$3421.
+    dead port 1/2 on $mux $procmux$3424.
+    dead port 1/2 on $mux $procmux$3430.
+    dead port 1/2 on $mux $procmux$3433.
+    dead port 1/2 on $mux $procmux$3436.
+    dead port 1/2 on $mux $procmux$3442.
+    dead port 1/2 on $mux $procmux$3445.
+    dead port 1/2 on $mux $procmux$3448.
+    dead port 1/2 on $mux $procmux$3454.
+    dead port 1/2 on $mux $procmux$3457.
+    dead port 1/2 on $mux $procmux$3460.
+    dead port 1/2 on $mux $procmux$3466.
+    dead port 1/2 on $mux $procmux$3469.
+    dead port 1/2 on $mux $procmux$3475.
+    dead port 1/2 on $mux $procmux$3478.
+    dead port 1/2 on $mux $procmux$3484.
+    dead port 1/2 on $mux $procmux$3487.
+    dead port 1/2 on $mux $procmux$3493.
+    dead port 1/2 on $mux $procmux$3499.
+    dead port 1/2 on $mux $procmux$694.
+    dead port 1/2 on $mux $procmux$697.
+    dead port 1/2 on $mux $procmux$700.
+    dead port 1/2 on $mux $procmux$703.
+    dead port 1/2 on $mux $procmux$706.
+    dead port 1/2 on $mux $procmux$709.
+    dead port 1/2 on $mux $procmux$712.
+    dead port 1/2 on $mux $procmux$715.
+    dead port 1/2 on $mux $procmux$718.
+    dead port 1/2 on $mux $procmux$721.
+    dead port 1/2 on $mux $procmux$724.
+    dead port 1/2 on $mux $procmux$727.
+    dead port 1/2 on $mux $procmux$730.
+    dead port 1/2 on $mux $procmux$733.
+    dead port 1/2 on $mux $procmux$736.
+    dead port 1/2 on $mux $procmux$739.
+    dead port 1/2 on $mux $procmux$742.
+    dead port 1/2 on $mux $procmux$745.
+    dead port 1/2 on $mux $procmux$748.
+    dead port 1/2 on $mux $procmux$751.
+    dead port 1/2 on $mux $procmux$754.
+    dead port 1/2 on $mux $procmux$757.
+    dead port 1/2 on $mux $procmux$760.
+    dead port 1/2 on $mux $procmux$763.
+    dead port 1/2 on $mux $procmux$766.
+    dead port 1/2 on $mux $procmux$769.
+    dead port 1/2 on $mux $procmux$772.
+    dead port 1/2 on $mux $procmux$775.
+    dead port 1/2 on $mux $procmux$778.
+    dead port 1/2 on $mux $procmux$781.
+    dead port 1/2 on $mux $procmux$784.
+    dead port 1/2 on $mux $procmux$787.
+    dead port 1/2 on $mux $procmux$790.
+    dead port 1/2 on $mux $procmux$793.
+    dead port 1/2 on $mux $procmux$796.
+    dead port 1/2 on $mux $procmux$799.
+    dead port 1/2 on $mux $procmux$802.
+    dead port 1/2 on $mux $procmux$805.
+    dead port 1/2 on $mux $procmux$811.
+    dead port 1/2 on $mux $procmux$814.
+    dead port 1/2 on $mux $procmux$817.
+    dead port 1/2 on $mux $procmux$820.
+    dead port 1/2 on $mux $procmux$823.
+    dead port 1/2 on $mux $procmux$826.
+    dead port 1/2 on $mux $procmux$829.
+    dead port 1/2 on $mux $procmux$832.
+    dead port 1/2 on $mux $procmux$835.
+    dead port 1/2 on $mux $procmux$838.
+    dead port 1/2 on $mux $procmux$841.
+    dead port 1/2 on $mux $procmux$844.
+    dead port 1/2 on $mux $procmux$847.
+    dead port 1/2 on $mux $procmux$850.
+    dead port 1/2 on $mux $procmux$853.
+    dead port 1/2 on $mux $procmux$856.
+    dead port 1/2 on $mux $procmux$859.
+    dead port 1/2 on $mux $procmux$862.
+    dead port 1/2 on $mux $procmux$865.
+    dead port 1/2 on $mux $procmux$868.
+    dead port 1/2 on $mux $procmux$871.
+    dead port 1/2 on $mux $procmux$874.
+    dead port 1/2 on $mux $procmux$877.
+    dead port 1/2 on $mux $procmux$880.
+    dead port 1/2 on $mux $procmux$883.
+    dead port 1/2 on $mux $procmux$886.
+    dead port 1/2 on $mux $procmux$889.
+    dead port 1/2 on $mux $procmux$892.
+    dead port 1/2 on $mux $procmux$895.
+    dead port 1/2 on $mux $procmux$898.
+    dead port 1/2 on $mux $procmux$901.
+    dead port 1/2 on $mux $procmux$904.
+    dead port 1/2 on $mux $procmux$907.
+    dead port 1/2 on $mux $procmux$910.
+    dead port 1/2 on $mux $procmux$913.
+    dead port 1/2 on $mux $procmux$916.
+    dead port 1/2 on $mux $procmux$919.
+    dead port 1/2 on $mux $procmux$925.
+    dead port 1/2 on $mux $procmux$928.
+    dead port 1/2 on $mux $procmux$931.
+    dead port 1/2 on $mux $procmux$934.
+    dead port 1/2 on $mux $procmux$937.
+    dead port 1/2 on $mux $procmux$940.
+    dead port 1/2 on $mux $procmux$943.
+    dead port 1/2 on $mux $procmux$946.
+    dead port 1/2 on $mux $procmux$949.
+    dead port 1/2 on $mux $procmux$952.
+    dead port 1/2 on $mux $procmux$955.
+    dead port 1/2 on $mux $procmux$958.
+    dead port 1/2 on $mux $procmux$961.
+    dead port 1/2 on $mux $procmux$964.
+    dead port 1/2 on $mux $procmux$967.
+    dead port 1/2 on $mux $procmux$970.
+    dead port 1/2 on $mux $procmux$973.
+    dead port 1/2 on $mux $procmux$976.
+    dead port 1/2 on $mux $procmux$979.
+    dead port 1/2 on $mux $procmux$982.
+    dead port 1/2 on $mux $procmux$985.
+    dead port 1/2 on $mux $procmux$988.
+    dead port 1/2 on $mux $procmux$991.
+    dead port 1/2 on $mux $procmux$994.
+    dead port 1/2 on $mux $procmux$997.
+Removed 847 multiplexer ports.
+<suppressed ~23 debug messages>
+
+2.10.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \buttons_display.
+    New ctrl vector for $mux cell $procmux$808: { }
+  Optimizing cells in module \buttons_display.
+Performed a total of 1 changes.
+
+2.10.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\buttons_display'.
+Removed a total of 0 cells.
+
+2.10.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.10.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \buttons_display..
+Removed 3 unused cells and 851 unused wires.
+<suppressed ~4 debug messages>
+
+2.10.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module buttons_display.
+
+2.10.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+2.10.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \buttons_display..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~23 debug messages>
+
+2.10.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \buttons_display.
+Performed a total of 0 changes.
+
+2.10.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\buttons_display'.
+Removed a total of 0 cells.
+
+2.10.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.10.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \buttons_display..
+
+2.10.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module buttons_display.
+
+2.10.16. Finished OPT passes. (There is nothing left to do.)
+
+2.11. Executing FSM pass (extract and optimize FSM).
+
+2.11.1. Executing FSM_DETECT pass (finding FSMs in design).
+
+2.11.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+
+2.11.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+2.11.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \buttons_display..
+
+2.11.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+2.11.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+
+2.11.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+2.11.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+
+2.12. Executing OPT pass (performing simple optimizations).
+
+2.12.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module buttons_display.
+
+2.12.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\buttons_display'.
+Removed a total of 0 cells.
+
+2.12.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \buttons_display..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~23 debug messages>
+
+2.12.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \buttons_display.
+Performed a total of 0 changes.
+
+2.12.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\buttons_display'.
+Removed a total of 0 cells.
+
+2.12.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$3541 ($dff) from module buttons_display (D = $procmux$638_Y, Q = \display_seg_timer).
+Adding SRST signal on $auto$opt_dff.cc:764:run$3542 ($dffe) from module buttons_display (D = $sub$switch_leds.v:488$187_Y [9:0], Q = \display_seg_timer, rval = 10'1001010100).
+Adding SRST signal on $procdff$3540 ($dff) from module buttons_display (D = { $procmux$644_Y $procmux$632_Y }, Q = \display_seg_mask, rval = 7'0010101).
+Adding EN signal on $auto$opt_dff.cc:702:run$3544 ($sdff) from module buttons_display (D = { \display_seg_mask [5:0] \display_seg_mask [6] }, Q = \display_seg_mask).
+Adding SRST signal on $procdff$3539 ($dff) from module buttons_display (D = { $procmux$617_Y $procmux$626_Y }, Q = \display_digit_shf, rval = 8'00000001).
+Adding EN signal on $auto$opt_dff.cc:702:run$3546 ($sdff) from module buttons_display (D = { \display_digit_shf [6:0] \display_digit_shf [7] }, Q = \display_digit_shf).
+Adding SRST signal on $procdff$3538 ($dff) from module buttons_display (D = $logic_not$switch_leds.v:471$182_Y, Q = \display_initialized, rval = 1'1).
+Adding EN signal on $procdff$3537 ($dff) from module buttons_display (D = $eq$switch_leds.v:477$184_Y, Q = \display_blank).
+Adding EN signal on $procdff$3536 ($dff) from module buttons_display (D = $procmux$660_Y, Q = \display_seg_cntr).
+Adding SRST signal on $auto$opt_dff.cc:764:run$3556 ($dffe) from module buttons_display (D = $sub$switch_leds.v:484$186_Y [2:0], Q = \display_seg_cntr, rval = 3'110).
+
+2.12.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \buttons_display..
+Removed 18 unused cells and 16 unused wires.
+<suppressed ~19 debug messages>
+
+2.12.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module buttons_display.
+
+2.12.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+2.12.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \buttons_display..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~15 debug messages>
+
+2.12.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \buttons_display.
+Performed a total of 0 changes.
+
+2.12.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\buttons_display'.
+<suppressed ~3 debug messages>
+Removed a total of 1 cells.
+
+2.12.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.12.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \buttons_display..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+2.12.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module buttons_display.
+
+2.12.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+2.12.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \buttons_display..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~15 debug messages>
+
+2.12.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \buttons_display.
+Performed a total of 0 changes.
+
+2.12.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\buttons_display'.
+Removed a total of 0 cells.
+
+2.12.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.12.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \buttons_display..
+
+2.12.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module buttons_display.
+
+2.12.23. Finished OPT passes. (There is nothing left to do.)
+
+2.13. Executing WREDUCE pass (reducing word size of cells).
+Removed top 1 bits (of 7) from port B of cell buttons_display.$eq$switch_leds.v:232$33 ($eq).
+Removed top 1 bits (of 7) from port B of cell buttons_display.$eq$switch_leds.v:235$34 ($eq).
+Removed top 1 bits (of 7) from port B of cell buttons_display.$eq$switch_leds.v:238$36 ($eq).
+Removed top 6 bits (of 7) from port B of cell buttons_display.$eq$switch_leds.v:241$38 ($eq).
+Removed top 1 bits (of 7) from port B of cell buttons_display.$eq$switch_leds.v:241$39 ($eq).
+Removed top 5 bits (of 7) from port B of cell buttons_display.$eq$switch_leds.v:244$41 ($eq).
+Removed top 1 bits (of 7) from port B of cell buttons_display.$eq$switch_leds.v:244$42 ($eq).
+Removed top 5 bits (of 7) from port B of cell buttons_display.$eq$switch_leds.v:247$44 ($eq).
+Removed top 1 bits (of 7) from port B of cell buttons_display.$eq$switch_leds.v:247$45 ($eq).
+Removed top 4 bits (of 7) from port B of cell buttons_display.$eq$switch_leds.v:250$47 ($eq).
+Removed top 1 bits (of 7) from port B of cell buttons_display.$eq$switch_leds.v:250$48 ($eq).
+Removed top 4 bits (of 7) from port B of cell buttons_display.$eq$switch_leds.v:253$50 ($eq).
+Removed top 1 bits (of 7) from port B of cell buttons_display.$eq$switch_leds.v:253$51 ($eq).
+Removed top 4 bits (of 7) from port B of cell buttons_display.$eq$switch_leds.v:256$53 ($eq).
+Removed top 1 bits (of 7) from port B of cell buttons_display.$eq$switch_leds.v:256$54 ($eq).
+Removed top 4 bits (of 7) from port B of cell buttons_display.$eq$switch_leds.v:259$56 ($eq).
+Removed top 1 bits (of 7) from port B of cell buttons_display.$eq$switch_leds.v:259$57 ($eq).
+Removed top 3 bits (of 7) from port B of cell buttons_display.$eq$switch_leds.v:262$59 ($eq).
+Removed top 1 bits (of 7) from port B of cell buttons_display.$eq$switch_leds.v:262$60 ($eq).
+Removed top 3 bits (of 7) from port B of cell buttons_display.$eq$switch_leds.v:265$62 ($eq).
+Removed top 1 bits (of 7) from port B of cell buttons_display.$eq$switch_leds.v:265$63 ($eq).
+Removed top 3 bits (of 7) from port B of cell buttons_display.$eq$switch_leds.v:268$65 ($eq).
+Removed top 3 bits (of 7) from port B of cell buttons_display.$eq$switch_leds.v:271$70 ($eq).
+Removed top 3 bits (of 7) from port B of cell buttons_display.$eq$switch_leds.v:274$75 ($eq).
+Removed top 3 bits (of 7) from port B of cell buttons_display.$eq$switch_leds.v:277$80 ($eq).
+Removed top 3 bits (of 7) from port B of cell buttons_display.$eq$switch_leds.v:280$85 ($eq).
+Removed top 3 bits (of 7) from port B of cell buttons_display.$eq$switch_leds.v:283$90 ($eq).
+Removed top 2 bits (of 3) from port B of cell buttons_display.$eq$switch_leds.v:477$184 ($eq).
+Removed top 31 bits (of 32) from port B of cell buttons_display.$sub$switch_leds.v:484$186 ($sub).
+Removed top 29 bits (of 32) from port Y of cell buttons_display.$sub$switch_leds.v:484$186 ($sub).
+Removed top 31 bits (of 32) from port B of cell buttons_display.$sub$switch_leds.v:488$187 ($sub).
+Removed top 22 bits (of 32) from port Y of cell buttons_display.$sub$switch_leds.v:488$187 ($sub).
+Removed cell buttons_display.$procmux$3169 ($mux).
+Removed cell buttons_display.$procmux$3172 ($mux).
+Removed cell buttons_display.$procmux$3175 ($mux).
+Removed cell buttons_display.$procmux$3178 ($mux).
+Removed cell buttons_display.$procmux$3181 ($mux).
+Removed cell buttons_display.$procmux$3184 ($mux).
+Removed cell buttons_display.$procmux$3187 ($mux).
+Removed cell buttons_display.$procmux$3190 ($mux).
+Removed cell buttons_display.$procmux$3220 ($mux).
+Removed cell buttons_display.$procmux$3223 ($mux).
+Removed cell buttons_display.$procmux$3226 ($mux).
+Removed cell buttons_display.$procmux$3229 ($mux).
+Removed cell buttons_display.$procmux$3232 ($mux).
+Removed cell buttons_display.$procmux$3235 ($mux).
+Removed cell buttons_display.$procmux$3238 ($mux).
+Removed cell buttons_display.$procmux$3289 ($mux).
+Removed cell buttons_display.$procmux$3292 ($mux).
+Removed cell buttons_display.$procmux$3295 ($mux).
+Removed cell buttons_display.$procmux$3298 ($mux).
+Removed cell buttons_display.$procmux$3301 ($mux).
+Removed cell buttons_display.$procmux$3304 ($mux).
+Removed top 1 bits (of 3) from mux cell buttons_display.$procmux$3505 ($mux).
+Removed top 1 bits (of 3) from mux cell buttons_display.$procmux$3511 ($mux).
+Removed top 29 bits (of 32) from wire buttons_display.$sub$switch_leds.v:484$186_Y.
+Removed top 1 bits (of 7) from wire buttons_display.sw1_digit.
+Removed top 1 bits (of 7) from wire buttons_display.sw2_digit.
+
+2.14. Executing PEEPOPT pass (run peephole optimizers).
+
+2.15. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \buttons_display..
+Removed 0 unused cells and 24 unused wires.
+<suppressed ~1 debug messages>
+
+2.16. Executing SHARE pass (SAT-based resource sharing).
+
+2.17. Executing TECHMAP pass (map to technology primitives).
+
+2.17.1. Executing Verilog-2005 frontend: /usr/local/bin/../share/yosys/cmp2lut.v
+Parsing Verilog input from `/usr/local/bin/../share/yosys/cmp2lut.v' to AST representation.
+Generating RTLIL representation for module `\_90_lut_cmp_'.
+Successfully finished Verilog frontend.
+
+2.17.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~6 debug messages>
+
+2.18. Executing OPT_EXPR pass (perform const folding).
+Optimizing module buttons_display.
+
+2.19. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \buttons_display..
+
+2.20. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module buttons_display:
+  creating $macc model for $sub$switch_leds.v:484$186 ($sub).
+  creating $macc model for $sub$switch_leds.v:488$187 ($sub).
+  creating $alu model for $macc $sub$switch_leds.v:488$187.
+  creating $alu model for $macc $sub$switch_leds.v:484$186.
+  creating $alu cell for $sub$switch_leds.v:484$186: $auto$alumacc.cc:485:replace_alu$3562
+  creating $alu cell for $sub$switch_leds.v:488$187: $auto$alumacc.cc:485:replace_alu$3565
+  created 2 $alu and 0 $macc cells.
+
+2.21. Executing OPT pass (performing simple optimizations).
+
+2.21.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module buttons_display.
+
+2.21.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\buttons_display'.
+Removed a total of 0 cells.
+
+2.21.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \buttons_display..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~15 debug messages>
+
+2.21.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \buttons_display.
+Performed a total of 0 changes.
+
+2.21.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\buttons_display'.
+Removed a total of 0 cells.
+
+2.21.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.21.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \buttons_display..
+
+2.21.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module buttons_display.
+
+2.21.9. Finished OPT passes. (There is nothing left to do.)
+
+2.22. Executing MEMORY pass.
+
+2.22.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+2.22.2. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+
+2.22.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \buttons_display..
+
+2.22.4. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+2.22.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \buttons_display..
+
+2.22.6. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+2.23. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \buttons_display..
+
+2.24. Executing MEMORY_BRAM pass (mapping $mem cells to block memories).
+
+2.25. Executing TECHMAP pass (map to technology primitives).
+
+2.25.1. Executing Verilog-2005 frontend: /usr/local/bin/../share/yosys/ice40/brams_map.v
+Parsing Verilog input from `/usr/local/bin/../share/yosys/ice40/brams_map.v' to AST representation.
+Generating RTLIL representation for module `\$__ICE40_RAM4K'.
+Generating RTLIL representation for module `\$__ICE40_RAM4K_M0'.
+Generating RTLIL representation for module `\$__ICE40_RAM4K_M123'.
+Successfully finished Verilog frontend.
+
+2.25.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~5 debug messages>
+
+2.26. Executing ICE40_BRAMINIT pass.
+
+2.27. Executing OPT pass (performing simple optimizations).
+
+2.27.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module buttons_display.
+<suppressed ~1 debug messages>
+
+2.27.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\buttons_display'.
+Removed a total of 0 cells.
+
+2.27.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.27.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \buttons_display..
+
+2.27.5. Finished fast OPT passes.
+
+2.28. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+2.29. Executing OPT pass (performing simple optimizations).
+
+2.29.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module buttons_display.
+
+2.29.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\buttons_display'.
+Removed a total of 0 cells.
+
+2.29.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \buttons_display..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~15 debug messages>
+
+2.29.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \buttons_display.
+    Consolidated identical input bits for $mux cell $procmux$3031:
+      Old ports: A=7'0000000, B={ 1'0 \sw2_digit }, Y=$8\display_active_digit[6:0]
+      New ports: A=6'000000, B=\sw2_digit, Y=$8\display_active_digit[6:0] [5:0]
+      New connections: $8\display_active_digit[6:0] [6] = 1'0
+    Consolidated identical input bits for $mux cell $procmux$3505:
+      Old ports: A=2'10, B=2'00, Y=\sw2_digit [5:4]
+      New ports: A=1'1, B=1'0, Y=\sw2_digit [5]
+      New connections: \sw2_digit [4] = 1'0
+    Consolidated identical input bits for $mux cell $procmux$3511:
+      Old ports: A=2'10, B=2'00, Y=\sw1_digit [5:4]
+      New ports: A=1'1, B=1'0, Y=\sw1_digit [5]
+      New connections: \sw1_digit [4] = 1'0
+    Consolidated identical input bits for $mux cell $procmux$922:
+      Old ports: A=7'0001000, B=7'1101110, Y=$37\display_segments[6:0]
+      New ports: A=1'0, B=1'1, Y=$37\display_segments[6:0] [1]
+      New connections: { $37\display_segments[6:0] [6:2] $37\display_segments[6:0] [0] } = { $37\display_segments[6:0] [1] $37\display_segments[6:0] [1] 2'01 $37\display_segments[6:0] [1] 1'0 }
+  Optimizing cells in module \buttons_display.
+    Consolidated identical input bits for $mux cell $procmux$1033:
+      Old ports: A=$37\display_segments[6:0], B=7'0001000, Y=$36\display_segments[6:0]
+      New ports: A=$37\display_segments[6:0] [1], B=1'0, Y=$36\display_segments[6:0] [1]
+      New connections: { $36\display_segments[6:0] [6:2] $36\display_segments[6:0] [0] } = { $36\display_segments[6:0] [1] $36\display_segments[6:0] [1] 2'01 $36\display_segments[6:0] [1] 1'0 }
+    Consolidated identical input bits for $mux cell $procmux$3031:
+      Old ports: A=6'000000, B=\sw2_digit, Y=$8\display_active_digit[6:0] [5:0]
+      New ports: A=5'00000, B={ \sw2_digit [5] \sw2_digit [3:0] }, Y={ $8\display_active_digit[6:0] [5] $8\display_active_digit[6:0] [3:0] }
+      New connections: $8\display_active_digit[6:0] [4] = 1'0
+    Consolidated identical input bits for $mux cell $procmux$3055:
+      Old ports: A=$8\display_active_digit[6:0], B=7'0100000, Y=$7\display_active_digit[6:0]
+      New ports: A=$8\display_active_digit[6:0] [5:0], B=6'100000, Y=$7\display_active_digit[6:0] [5:0]
+      New connections: $7\display_active_digit[6:0] [6] = 1'0
+  Optimizing cells in module \buttons_display.
+    Consolidated identical input bits for $mux cell $procmux$1141:
+      Old ports: A=$36\display_segments[6:0], B=7'0001000, Y=$35\display_segments[6:0]
+      New ports: A=$36\display_segments[6:0] [1], B=1'0, Y=$35\display_segments[6:0] [1]
+      New connections: { $35\display_segments[6:0] [6:2] $35\display_segments[6:0] [0] } = { $35\display_segments[6:0] [1] $35\display_segments[6:0] [1] 2'01 $35\display_segments[6:0] [1] 1'0 }
+    Consolidated identical input bits for $mux cell $procmux$3055:
+      Old ports: A=$8\display_active_digit[6:0] [5:0], B=6'100000, Y=$7\display_active_digit[6:0] [5:0]
+      New ports: A={ $8\display_active_digit[6:0] [5] $8\display_active_digit[6:0] [3:0] }, B=5'10000, Y={ $7\display_active_digit[6:0] [5] $7\display_active_digit[6:0] [3:0] }
+      New connections: $7\display_active_digit[6:0] [4] = 1'0
+    Consolidated identical input bits for $mux cell $procmux$3076:
+      Old ports: A=$7\display_active_digit[6:0], B=7'0100000, Y=$6\display_active_digit[6:0]
+      New ports: A=$7\display_active_digit[6:0] [5:0], B=6'100000, Y=$6\display_active_digit[6:0] [5:0]
+      New connections: $6\display_active_digit[6:0] [6] = 1'0
+  Optimizing cells in module \buttons_display.
+    Consolidated identical input bits for $mux cell $procmux$1246:
+      Old ports: A=$35\display_segments[6:0], B=7'0001000, Y=$34\display_segments[6:0]
+      New ports: A=$35\display_segments[6:0] [1], B=1'0, Y=$34\display_segments[6:0] [1]
+      New connections: { $34\display_segments[6:0] [6:2] $34\display_segments[6:0] [0] } = { $34\display_segments[6:0] [1] $34\display_segments[6:0] [1] 2'01 $34\display_segments[6:0] [1] 1'0 }
+    Consolidated identical input bits for $mux cell $procmux$3076:
+      Old ports: A=$7\display_active_digit[6:0] [5:0], B=6'100000, Y=$6\display_active_digit[6:0] [5:0]
+      New ports: A={ $7\display_active_digit[6:0] [5] $7\display_active_digit[6:0] [3:0] }, B=5'10000, Y={ $6\display_active_digit[6:0] [5] $6\display_active_digit[6:0] [3:0] }
+      New connections: $6\display_active_digit[6:0] [4] = 1'0
+    Consolidated identical input bits for $mux cell $procmux$3094:
+      Old ports: A=$6\display_active_digit[6:0], B=7'0100000, Y=$5\display_active_digit[6:0]
+      New ports: A=$6\display_active_digit[6:0] [5:0], B=6'100000, Y=$5\display_active_digit[6:0] [5:0]
+      New connections: $5\display_active_digit[6:0] [6] = 1'0
+  Optimizing cells in module \buttons_display.
+    Consolidated identical input bits for $mux cell $procmux$1348:
+      Old ports: A=$34\display_segments[6:0], B=7'0011100, Y=$33\display_segments[6:0]
+      New ports: A={ 1'0 $34\display_segments[6:0] [1] $34\display_segments[6:0] [1] }, B=3'110, Y={ $33\display_segments[6:0] [4] $33\display_segments[6:0] [2:1] }
+      New connections: { $33\display_segments[6:0] [6:5] $33\display_segments[6:0] [3] $33\display_segments[6:0] [0] } = { $33\display_segments[6:0] [1] $33\display_segments[6:0] [1] 2'10 }
+    Consolidated identical input bits for $mux cell $procmux$3094:
+      Old ports: A=$6\display_active_digit[6:0] [5:0], B=6'100000, Y=$5\display_active_digit[6:0] [5:0]
+      New ports: A={ $6\display_active_digit[6:0] [5] $6\display_active_digit[6:0] [3:0] }, B=5'10000, Y={ $5\display_active_digit[6:0] [5] $5\display_active_digit[6:0] [3:0] }
+      New connections: $5\display_active_digit[6:0] [4] = 1'0
+    Consolidated identical input bits for $mux cell $procmux$3109:
+      Old ports: A=$5\display_active_digit[6:0], B=7'0100000, Y=$4\display_active_digit[6:0]
+      New ports: A=$5\display_active_digit[6:0] [5:0], B=6'100000, Y=$4\display_active_digit[6:0] [5:0]
+      New connections: $4\display_active_digit[6:0] [6] = 1'0
+  Optimizing cells in module \buttons_display.
+    Consolidated identical input bits for $mux cell $procmux$1447:
+      Old ports: A=$33\display_segments[6:0], B=7'1111000, Y=$32\display_segments[6:0]
+      New ports: A={ $33\display_segments[6:0] [1] $33\display_segments[6:0] [4] $33\display_segments[6:0] [2:1] }, B=4'1100, Y={ $32\display_segments[6:0] [5:4] $32\display_segments[6:0] [2:1] }
+      New connections: { $32\display_segments[6:0] [6] $32\display_segments[6:0] [3] $32\display_segments[6:0] [0] } = { $32\display_segments[6:0] [5] 2'10 }
+    Consolidated identical input bits for $mux cell $procmux$3109:
+      Old ports: A=$5\display_active_digit[6:0] [5:0], B=6'100000, Y=$4\display_active_digit[6:0] [5:0]
+      New ports: A={ $5\display_active_digit[6:0] [5] $5\display_active_digit[6:0] [3:0] }, B=5'10000, Y={ $4\display_active_digit[6:0] [5] $4\display_active_digit[6:0] [3:0] }
+      New connections: $4\display_active_digit[6:0] [4] = 1'0
+    Consolidated identical input bits for $mux cell $procmux$3121:
+      Old ports: A=$4\display_active_digit[6:0], B=7'0100000, Y=$3\display_active_digit[6:0]
+      New ports: A=$4\display_active_digit[6:0] [5:0], B=6'100000, Y=$3\display_active_digit[6:0] [5:0]
+      New connections: $3\display_active_digit[6:0] [6] = 1'0
+  Optimizing cells in module \buttons_display.
+    Consolidated identical input bits for $mux cell $procmux$1543:
+      Old ports: A=$32\display_segments[6:0], B=7'1101101, Y=$31\display_segments[6:0]
+      New ports: A={ $32\display_segments[6:0] [5:4] $32\display_segments[6:0] [2:1] 1'0 }, B=5'10101, Y={ $31\display_segments[6:0] [5:4] $31\display_segments[6:0] [2:0] }
+      New connections: { $31\display_segments[6:0] [6] $31\display_segments[6:0] [3] } = { $31\display_segments[6:0] [5] 1'1 }
+    Consolidated identical input bits for $mux cell $procmux$3121:
+      Old ports: A=$4\display_active_digit[6:0] [5:0], B=6'100000, Y=$3\display_active_digit[6:0] [5:0]
+      New ports: A={ $4\display_active_digit[6:0] [5] $4\display_active_digit[6:0] [3:0] }, B=5'10000, Y={ $3\display_active_digit[6:0] [5] $3\display_active_digit[6:0] [3:0] }
+      New connections: $3\display_active_digit[6:0] [4] = 1'0
+    Consolidated identical input bits for $mux cell $procmux$3130:
+      Old ports: A=$3\display_active_digit[6:0], B=7'0100000, Y=$2\display_active_digit[6:0]
+      New ports: A=$3\display_active_digit[6:0] [5:0], B=6'100000, Y=$2\display_active_digit[6:0] [5:0]
+      New connections: $2\display_active_digit[6:0] [6] = 1'0
+  Optimizing cells in module \buttons_display.
+    Consolidated identical input bits for $mux cell $procmux$3130:
+      Old ports: A=$3\display_active_digit[6:0] [5:0], B=6'100000, Y=$2\display_active_digit[6:0] [5:0]
+      New ports: A={ $3\display_active_digit[6:0] [5] $3\display_active_digit[6:0] [3:0] }, B=5'10000, Y={ $2\display_active_digit[6:0] [5] $2\display_active_digit[6:0] [3:0] }
+      New connections: $2\display_active_digit[6:0] [4] = 1'0
+    Consolidated identical input bits for $mux cell $procmux$3136:
+      Old ports: A=$2\display_active_digit[6:0], B={ 1'0 \sw1_digit [5] 1'0 \sw1_digit [3:0] }, Y=\display_active_digit
+      New ports: A=$2\display_active_digit[6:0] [5:0], B={ \sw1_digit [5] 1'0 \sw1_digit [3:0] }, Y=\display_active_digit [5:0]
+      New connections: \display_active_digit [6] = 1'0
+  Optimizing cells in module \buttons_display.
+    Consolidated identical input bits for $mux cell $procmux$3136:
+      Old ports: A=$2\display_active_digit[6:0] [5:0], B={ \sw1_digit [5] 1'0 \sw1_digit [3:0] }, Y=\display_active_digit [5:0]
+      New ports: A={ $2\display_active_digit[6:0] [5] $2\display_active_digit[6:0] [3:0] }, B={ \sw1_digit [5] \sw1_digit [3:0] }, Y={ \display_active_digit [5] \display_active_digit [3:0] }
+      New connections: \display_active_digit [4] = 1'0
+  Optimizing cells in module \buttons_display.
+Performed a total of 25 changes.
+
+2.29.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\buttons_display'.
+Removed a total of 0 cells.
+
+2.29.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.29.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \buttons_display..
+
+2.29.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module buttons_display.
+<suppressed ~121 debug messages>
+
+2.29.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+2.29.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \buttons_display..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~15 debug messages>
+
+2.29.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \buttons_display.
+    Consolidated identical input bits for $mux cell $procmux$2518:
+      Old ports: A=$19\display_segments[6:0], B=7'1110001, Y=$18\display_segments[6:0]
+      New ports: A=2'10, B=2'01, Y={ $18\display_segments[6:0] [3] $18\display_segments[6:0] [0] }
+      New connections: { $18\display_segments[6:0] [6:4] $18\display_segments[6:0] [2:1] } = { $18\display_segments[6:0] [0] $18\display_segments[6:0] [0] $18\display_segments[6:0] [0] 2'00 }
+  Optimizing cells in module \buttons_display.
+    Consolidated identical input bits for $mux cell $procmux$2572:
+      Old ports: A=$18\display_segments[6:0], B=7'1111001, Y=$17\display_segments[6:0]
+      New ports: A={ $18\display_segments[6:0] [3] $18\display_segments[6:0] [0] }, B=2'11, Y={ $17\display_segments[6:0] [3] $17\display_segments[6:0] [0] }
+      New connections: { $17\display_segments[6:0] [6:4] $17\display_segments[6:0] [2:1] } = { $17\display_segments[6:0] [0] $17\display_segments[6:0] [0] $17\display_segments[6:0] [0] 2'00 }
+  Optimizing cells in module \buttons_display.
+    Consolidated identical input bits for $mux cell $procmux$2623:
+      Old ports: A=$17\display_segments[6:0], B=7'1011110, Y=$16\display_segments[6:0]
+      New ports: A={ $17\display_segments[6:0] [0] $17\display_segments[6:0] [3] 1'0 $17\display_segments[6:0] [0] }, B=4'1110, Y={ $16\display_segments[6:0] [4:3] $16\display_segments[6:0] [1:0] }
+      New connections: { $16\display_segments[6:0] [6:5] $16\display_segments[6:0] [2] } = { $16\display_segments[6:0] [4] $16\display_segments[6:0] [0] $16\display_segments[6:0] [1] }
+  Optimizing cells in module \buttons_display.
+    Consolidated identical input bits for $mux cell $procmux$2671:
+      Old ports: A=$16\display_segments[6:0], B=7'0111001, Y=$15\display_segments[6:0]
+      New ports: A={ $16\display_segments[6:0] [4] $16\display_segments[6:0] [4:3] $16\display_segments[6:0] [1:0] }, B=5'01101, Y={ $15\display_segments[6:0] [6] $15\display_segments[6:0] [4:3] $15\display_segments[6:0] [1:0] }
+      New connections: { $15\display_segments[6:0] [5] $15\display_segments[6:0] [2] } = { $15\display_segments[6:0] [0] $15\display_segments[6:0] [1] }
+  Optimizing cells in module \buttons_display.
+Performed a total of 4 changes.
+
+2.29.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\buttons_display'.
+Removed a total of 0 cells.
+
+2.29.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.29.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \buttons_display..
+Removed 0 unused cells and 120 unused wires.
+<suppressed ~1 debug messages>
+
+2.29.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module buttons_display.
+
+2.29.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+2.29.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \buttons_display..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~15 debug messages>
+
+2.29.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \buttons_display.
+Performed a total of 0 changes.
+
+2.29.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\buttons_display'.
+Removed a total of 0 cells.
+
+2.29.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.29.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \buttons_display..
+
+2.29.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module buttons_display.
+
+2.29.23. Finished OPT passes. (There is nothing left to do.)
+
+2.30. Executing ICE40_WRAPCARRY pass (wrap carries).
+
+2.31. Executing TECHMAP pass (map to technology primitives).
+
+2.31.1. Executing Verilog-2005 frontend: /usr/local/bin/../share/yosys/techmap.v
+Parsing Verilog input from `/usr/local/bin/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `\$__div_mod_u'.
+Generating RTLIL representation for module `\$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `\$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_pmux'.
+Generating RTLIL representation for module `\_90_lut'.
+Successfully finished Verilog frontend.
+
+2.31.2. Executing Verilog-2005 frontend: /usr/local/bin/../share/yosys/ice40/arith_map.v
+Parsing Verilog input from `/usr/local/bin/../share/yosys/ice40/arith_map.v' to AST representation.
+Generating RTLIL representation for module `\_80_ice40_alu'.
+Successfully finished Verilog frontend.
+
+2.31.3. Continuing TECHMAP pass.
+Using extmapper simplemap for cells of type $and.
+Using extmapper simplemap for cells of type $eq.
+Using extmapper simplemap for cells of type $logic_not.
+Using extmapper simplemap for cells of type $sdffe.
+Using extmapper simplemap for cells of type $reduce_and.
+Using extmapper simplemap for cells of type $dffe.
+Using extmapper simplemap for cells of type $sdff.
+Using template $paramod$1eb759649286d7485bd82f4dfc30385bade4b4b3\_80_ice40_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $tribuf.
+Using extmapper simplemap for cells of type $mux.
+Using template $paramod$b8c0a997bce700f23568a5ada79cc6781d1f5ca0\_80_ice40_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $sdffce.
+Using extmapper simplemap for cells of type $xor.
+Using extmapper simplemap for cells of type $not.
+Using extmapper simplemap for cells of type $pos.
+No more expansions possible.
+<suppressed ~208 debug messages>
+
+2.32. Executing OPT pass (performing simple optimizations).
+
+2.32.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module buttons_display.
+<suppressed ~259 debug messages>
+
+2.32.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\buttons_display'.
+<suppressed ~192 debug messages>
+Removed a total of 64 cells.
+
+2.32.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.32.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \buttons_display..
+Removed 27 unused cells and 146 unused wires.
+<suppressed ~28 debug messages>
+
+2.32.5. Finished fast OPT passes.
+
+2.33. Executing ICE40_OPT pass (performing simple optimizations).
+
+2.33.1. Running ICE40 specific optimizations.
+Optimized $__ICE40_CARRY_WRAPPER cell back to logic (without SB_CARRY) buttons_display.$auto$alumacc.cc:485:replace_alu$3562.slice[0].carry: CO=\display_seg_cntr [0]
+Optimized $__ICE40_CARRY_WRAPPER cell back to logic (without SB_CARRY) buttons_display.$auto$alumacc.cc:485:replace_alu$3565.slice[0].carry: CO=\display_seg_timer [0]
+
+2.33.2. Executing OPT_EXPR pass (perform const folding).
+Optimizing module buttons_display.
+
+2.33.3. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\buttons_display'.
+Removed a total of 0 cells.
+
+2.33.4. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.33.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \buttons_display..
+
+2.33.6. Rerunning OPT passes. (Removed registers in this run.)
+
+2.33.7. Running ICE40 specific optimizations.
+
+2.33.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module buttons_display.
+
+2.33.9. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\buttons_display'.
+Removed a total of 0 cells.
+
+2.33.10. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.33.11. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \buttons_display..
+
+2.33.12. Finished OPT passes. (There is nothing left to do.)
+
+2.34. Executing DFFLEGALIZE pass (convert FFs to types supported by the target).
+
+2.35. Executing TECHMAP pass (map to technology primitives).
+
+2.35.1. Executing Verilog-2005 frontend: /usr/local/bin/../share/yosys/ice40/ff_map.v
+Parsing Verilog input from `/usr/local/bin/../share/yosys/ice40/ff_map.v' to AST representation.
+Generating RTLIL representation for module `\$_DFF_N_'.
+Generating RTLIL representation for module `\$_DFF_P_'.
+Generating RTLIL representation for module `\$_DFFE_NP_'.
+Generating RTLIL representation for module `\$_DFFE_PP_'.
+Generating RTLIL representation for module `\$_DFF_NP0_'.
+Generating RTLIL representation for module `\$_DFF_NP1_'.
+Generating RTLIL representation for module `\$_DFF_PP0_'.
+Generating RTLIL representation for module `\$_DFF_PP1_'.
+Generating RTLIL representation for module `\$_DFFE_NP0P_'.
+Generating RTLIL representation for module `\$_DFFE_NP1P_'.
+Generating RTLIL representation for module `\$_DFFE_PP0P_'.
+Generating RTLIL representation for module `\$_DFFE_PP1P_'.
+Generating RTLIL representation for module `\$_SDFF_NP0_'.
+Generating RTLIL representation for module `\$_SDFF_NP1_'.
+Generating RTLIL representation for module `\$_SDFF_PP0_'.
+Generating RTLIL representation for module `\$_SDFF_PP1_'.
+Generating RTLIL representation for module `\$_SDFFCE_NP0P_'.
+Generating RTLIL representation for module `\$_SDFFCE_NP1P_'.
+Generating RTLIL representation for module `\$_SDFFCE_PP0P_'.
+Generating RTLIL representation for module `\$_SDFFCE_PP1P_'.
+Successfully finished Verilog frontend.
+
+2.35.2. Continuing TECHMAP pass.
+Using template \$_SDFFCE_PP0P_ for cells of type $_SDFFCE_PP0P_.
+Using template \$_SDFFCE_PP1P_ for cells of type $_SDFFCE_PP1P_.
+Using template \$_DFFE_PP_ for cells of type $_DFFE_PP_.
+Using template \$_SDFF_PP1_ for cells of type $_SDFF_PP1_.
+No more expansions possible.
+<suppressed ~52 debug messages>
+
+2.36. Executing OPT_EXPR pass (perform const folding).
+Optimizing module buttons_display.
+
+2.37. Executing SIMPLEMAP pass (map simple cells to gate primitives).
+Mapping buttons_display.$auto$alumacc.cc:485:replace_alu$3562.slice[0].carry ($lut).
+Mapping buttons_display.$auto$alumacc.cc:485:replace_alu$3565.slice[0].carry ($lut).
+
+2.38. Executing ICE40_OPT pass (performing simple optimizations).
+
+2.38.1. Running ICE40 specific optimizations.
+
+2.38.2. Executing OPT_EXPR pass (perform const folding).
+Optimizing module buttons_display.
+<suppressed ~99 debug messages>
+
+2.38.3. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\buttons_display'.
+<suppressed ~150 debug messages>
+Removed a total of 50 cells.
+
+2.38.4. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.38.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \buttons_display..
+Removed 0 unused cells and 234 unused wires.
+<suppressed ~1 debug messages>
+
+2.38.6. Rerunning OPT passes. (Removed registers in this run.)
+
+2.38.7. Running ICE40 specific optimizations.
+
+2.38.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module buttons_display.
+
+2.38.9. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\buttons_display'.
+Removed a total of 0 cells.
+
+2.38.10. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.38.11. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \buttons_display..
+
+2.38.12. Finished OPT passes. (There is nothing left to do.)
+
+2.39. Executing TECHMAP pass (map to technology primitives).
+
+2.39.1. Executing Verilog-2005 frontend: /usr/local/bin/../share/yosys/ice40/latches_map.v
+Parsing Verilog input from `/usr/local/bin/../share/yosys/ice40/latches_map.v' to AST representation.
+Generating RTLIL representation for module `\$_DLATCH_N_'.
+Generating RTLIL representation for module `\$_DLATCH_P_'.
+Successfully finished Verilog frontend.
+
+2.39.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~4 debug messages>
+
+2.40. Executing ABC pass (technology mapping using ABC).
+
+2.40.1. Extracting gate netlist of module `\buttons_display' to `<abc-temp-dir>/input.blif'..
+Extracted 309 gates and 347 wires to a netlist network with 36 inputs and 17 outputs.
+
+2.40.1.1. Executing ABC.
+Running ABC command: <yosys-exe-dir>/yosys-abc -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_lut <abc-temp-dir>/lutdefs.txt 
+ABC: + strash 
+ABC: + ifraig 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + dc2 
+ABC: + dretime 
+ABC: + strash 
+ABC: + dch -f 
+ABC: + if 
+ABC: + mfs2 
+ABC: + lutpack -S 1 
+ABC: + dress 
+ABC: Total number of equiv classes                =      40.
+ABC: Participating nodes from both networks       =      95.
+ABC: Participating nodes from the first network   =      39. (  55.71 % of nodes)
+ABC: Participating nodes from the second network  =      56. (  80.00 % of nodes)
+ABC: Node pairs (any polarity)                    =      39. (  55.71 % of names can be moved)
+ABC: Node pairs (same polarity)                   =      31. (  44.29 % of names can be moved)
+ABC: Total runtime =     0.02 sec
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+2.40.1.2. Re-integrating ABC results.
+ABC RESULTS:              $lut cells:       69
+ABC RESULTS:        internal signals:      294
+ABC RESULTS:           input signals:       36
+ABC RESULTS:          output signals:       17
+Removing temp directory.
+
+2.41. Executing ICE40_WRAPCARRY pass (wrap carries).
+
+2.42. Executing TECHMAP pass (map to technology primitives).
+
+2.42.1. Executing Verilog-2005 frontend: /usr/local/bin/../share/yosys/ice40/ff_map.v
+Parsing Verilog input from `/usr/local/bin/../share/yosys/ice40/ff_map.v' to AST representation.
+Generating RTLIL representation for module `\$_DFF_N_'.
+Generating RTLIL representation for module `\$_DFF_P_'.
+Generating RTLIL representation for module `\$_DFFE_NP_'.
+Generating RTLIL representation for module `\$_DFFE_PP_'.
+Generating RTLIL representation for module `\$_DFF_NP0_'.
+Generating RTLIL representation for module `\$_DFF_NP1_'.
+Generating RTLIL representation for module `\$_DFF_PP0_'.
+Generating RTLIL representation for module `\$_DFF_PP1_'.
+Generating RTLIL representation for module `\$_DFFE_NP0P_'.
+Generating RTLIL representation for module `\$_DFFE_NP1P_'.
+Generating RTLIL representation for module `\$_DFFE_PP0P_'.
+Generating RTLIL representation for module `\$_DFFE_PP1P_'.
+Generating RTLIL representation for module `\$_SDFF_NP0_'.
+Generating RTLIL representation for module `\$_SDFF_NP1_'.
+Generating RTLIL representation for module `\$_SDFF_PP0_'.
+Generating RTLIL representation for module `\$_SDFF_PP1_'.
+Generating RTLIL representation for module `\$_SDFFCE_NP0P_'.
+Generating RTLIL representation for module `\$_SDFFCE_NP1P_'.
+Generating RTLIL representation for module `\$_SDFFCE_PP0P_'.
+Generating RTLIL representation for module `\$_SDFFCE_PP1P_'.
+Successfully finished Verilog frontend.
+
+2.42.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~22 debug messages>
+Removed 2 unused cells and 143 unused wires.
+
+2.43. Executing OPT_LUT pass (optimize LUTs).
+Discovering LUTs.
+Number of LUTs:       80
+  1-LUT                3
+  2-LUT               30
+  3-LUT               20
+  4-LUT               27
+
+Eliminating LUTs.
+Number of LUTs:       80
+  1-LUT                3
+  2-LUT               30
+  3-LUT               20
+  4-LUT               27
+
+Combining LUTs.
+Number of LUTs:       80
+  1-LUT                3
+  2-LUT               30
+  3-LUT               20
+  4-LUT               27
+
+Eliminated 0 LUTs.
+Combined 0 LUTs.
+<suppressed ~282 debug messages>
+
+2.44. Executing TECHMAP pass (map to technology primitives).
+
+2.44.1. Executing Verilog-2005 frontend: /usr/local/bin/../share/yosys/ice40/cells_map.v
+Parsing Verilog input from `/usr/local/bin/../share/yosys/ice40/cells_map.v' to AST representation.
+Generating RTLIL representation for module `\$lut'.
+Successfully finished Verilog frontend.
+
+2.44.2. Continuing TECHMAP pass.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'1000 for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'0001 for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'00000001 for cells of type $lut.
+Using template $paramod$571404c0889eaf57f492cb5e37f8acb5df5852f9\$lut for cells of type $lut.
+Using template $paramod$1bf62ab10e48d71d6497bccacf5c70420c470fe9\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'0100 for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'00000111 for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'00010000 for cells of type $lut.
+Using template $paramod$38f9bf4dd2329347b8471f0a98443dd323386889\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'00001101 for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'00001011 for cells of type $lut.
+Using template $paramod$6e46ec5a196ba1a24b8e69ab094cadc07c13ac1f\$lut for cells of type $lut.
+Using template $paramod$e5759512db67494ff77fbdfc66dff4006376568f\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'11100000 for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'01000000 for cells of type $lut.
+Using template $paramod$2d8ecce5c907513cebcd38ab5efe0fc26fc03464\$lut for cells of type $lut.
+Using template $paramod$5a621b016c894274d07edef48c49b401a15fd796\$lut for cells of type $lut.
+Using template $paramod$5c32c59025c0b98f20e63f249d83e7ebb4b085e3\$lut for cells of type $lut.
+Using template $paramod$6d6beead1425af15cf78b27fd9b11b41b5d4bce8\$lut for cells of type $lut.
+Using template $paramod$ab8bb87959c5d7cfa27886cee1355b38e054a61a\$lut for cells of type $lut.
+Using template $paramod$b93d1ea7a612a32c185108f67a153d44ffb9aac2\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'11110001 for cells of type $lut.
+Using template $paramod$6b0849254d6c87461fb93e37cc18f089f61eb912\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'01110000 for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000001\LUT=2'01 for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'11010000 for cells of type $lut.
+Using template $paramod$04b674496422df8889c01c3744b94097628ccfbc\$lut for cells of type $lut.
+Using template $paramod$43779580bfffd5d5a9f321249a174febf1dac288\$lut for cells of type $lut.
+Using template $paramod$c5b694ec89d7629b942ccf6a9be1d39e24f8edec\$lut for cells of type $lut.
+Using template $paramod$658b9ed803f0d3d335616d3858b53e0a2522f1e8\$lut for cells of type $lut.
+Using template $paramod$272652f6c6fbe9a75eff76e45cc7e2788835518b\$lut for cells of type $lut.
+Using template $paramod$fd904e9e35cfd343a9df248824bd3f1408724879\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'10001111 for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'1011 for cells of type $lut.
+No more expansions possible.
+<suppressed ~525 debug messages>
+Removed 0 unused cells and 180 unused wires.
+
+2.45. Executing AUTONAME pass.
+Renamed 1468 objects in module buttons_display (28 iterations).
+<suppressed ~170 debug messages>
+
+2.46. Executing HIERARCHY pass (managing design hierarchy).
+
+2.46.1. Analyzing design hierarchy..
+Top module:  \buttons_display
+
+2.46.2. Analyzing design hierarchy..
+Top module:  \buttons_display
+Removed 0 unused modules.
+
+2.47. Printing statistics.
+
+=== buttons_display ===
+
+   Number of wires:                101
+   Number of wire bits:            309
+   Number of public wires:         101
+   Number of public wire bits:     309
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                133
+     $_TBUF_                         8
+     SB_CARRY                        9
+     SB_DFFE                         1
+     SB_DFFESR                      18
+     SB_DFFESS                      10
+     SB_DFFSS                        1
+     SB_IO                           6
+     SB_LUT4                        80
+
+2.48. Executing CHECK pass (checking for obvious problems).
+Checking module buttons_display...
+Found and reported 0 problems.
+
+2.49. Executing BLIF backend.
+
+2.50. Executing JSON backend.
+
+Warnings: 48 unique messages, 48 total
+End of script. Logfile hash: 92b86cf0e4, CPU: user 4.16s system 0.12s, MEM: 42.89 MB peak
+Yosys 0.9+4052 (git sha1 0ccc7229, gcc 8.3.0-6+rpi1 -fPIC -Os)
+Time spent: 21% 22x opt_expr (1 sec), 16% 11x read_verilog (0 sec), ...
