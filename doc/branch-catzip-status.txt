@@ -2,9 +2,9 @@
 Not getting sw/board/obj-zip stops the make process.  Manual  steps in sw/board & sim/verilated.
 jpeg is crash at 0x01000000 This should not be occuring.
 
-git clone git@github.com:develone/icozip.git
-cd icozip/
-git checkout catzip
+git clone git@github.com:develone/icozip.git -b catzip
+
+
 make
 cd sw/board/
 mkdir obj-zip
