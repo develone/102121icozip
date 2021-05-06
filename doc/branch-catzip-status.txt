@@ -1,3 +1,43 @@
+05/06/21 17:25
+The follow bit files now work on hardware iCE40 HX8k
+sudo config_cat switch_leds.bin
+sudo config_cat switch_leds.bin
+sudo config_cat blinky.bin
+sudo config_cat dimmer.bin
+sudo config_cat clktest.bin
+
+sudo ./arm-netpport 
+Listening on port 8363
+Listening on port 8364
+
+sudo config_cat ../../rtl/icozip/icozip.bin 
+
+OK: GPIO 25 exported
+OK: GPIO 17 exported
+OK: GPIO 22 exported
+
+OK: SPI driver loaded
+
+Setting GPIO directions
+out
+out
+in
+Setting output to low
+0
+Reseting FPGA
+0
+1
+Checking DONE pin
+0
+Continuing with configuration procedure
+263+1 records in
+263+1 records out
+135100 bytes (135 kB, 132 KiB) copied, 0.0249037 s, 5.4 MB/s
+Setting output to high
+1
+Checking DONE pin
+1
+ 
 05/06/21 13:00
 Not getting sw/board/obj-zip stops the make process.  Manual  steps in sw/board & sim/verilated.
 This issue was solved by adding missing rd_bytes.c in sw/board.
