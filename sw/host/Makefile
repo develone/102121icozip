@@ -2,7 +2,7 @@
 ##
 ## Filename:	sw/host/Makefile
 ##
-## Project:	ICO Zip, iCE40 ZipCPU demonstration project
+## Project:	CAT Zip, iCE40 ZipCPU demonsrtation project
 ##
 ## Purpose:	
 ## Targets:	
@@ -12,7 +12,7 @@
 ##
 ################################################################################
 ##
-## Copyright (C) 2015-2020, Gisselquist Technology, LLC
+## Copyright (C) 2015-2018, Gisselquist Technology, LLC
 ##
 ## This program is free software (firmware): you can redistribute it and/or
 ## modify it under the terms of  the GNU General Public License as published
@@ -40,7 +40,7 @@
 all:
 CROSS ?=
 ARCH  ?= $(shell bash ./arch.sh)
-SHARED := wbregs flashid dumpflash spixscope sramscope zipload zipstate dbgscope zipdbg
+SHARED := wbregs sdramscope zipload zipstate zipdbg wrsdram rdsdram
 #
 ifeq ($(ARCH),arm)
 PROGRAMS   := $(SHARED) netpport
@@ -59,8 +59,8 @@ hostcheck:
 CXX := $(CROSS)g++
 OBJDIR := obj-$(ARCH)
 BUSSRCS := hexbus.cpp llcomms.cpp regdefs.cpp byteswap.cpp
-SCOPESRC:= spixscope.cpp sramscope.cpp dbgscope.cpp
-SOURCES := wbregs.cpp netpport.cpp flashid.cpp flashdrvr.cpp $(BUSSRCS) $(SCOPESRC)
+SCOPESRC:=  sdramscope.cpp dbgscope.cpp
+SOURCES := wbregs.cpp netpport.cpp  $(BUSSRCS) $(SCOPESRC)
 # rdclocks.cpp flashdrvr.cpp		\
 #	 mkedid.cpp $(BUSSRCS)	edidrxscope.cpp	edidtxscope.cpp		\
 #	zipload.cpp zipstate.cpp zipdbg.cpp cpedid.cpp readhist.cpp	\
@@ -106,43 +106,45 @@ wbregs: $(ARCH)-wbregs
 $(ARCH)-wbregs: $(OBJDIR)/wbregs.o $(BUSOBJS)
 	$(CXX) $(CFLAGS) $^ $(LIBS) -o $@
 
-.PHONY: dumpflash
-dumpflash: $(ARCH)-dumpflash
-$(ARCH)-dumpflash: $(OBJDIR)/dumpflash.o $(BUSOBJS)
-	$(CXX) $(CFLAGS) $^ $(LIBS) -o $@
+ 
 
 #
 # Programs that depend upon not just the bus objects, but the flash driver
 # as well.
-wbprogram: $(OBJDIR)/wbprogram.o $(OBJDIR)/flashdrvr.o $(BUSOBJS)
-	$(CXX) -g $^ -o $@
-.PHONY: flashid sramscope spixscope zipstate zipload dbgscope zipdbg
-flashid: $(ARCH)-flashid
-$(ARCH)-flashid: $(OBJDIR)/flashid.o $(BUSOBJS)
-	$(CXX) -g $^ -o $@
+#wbprogram: $(OBJDIR)/wbprogram.o   $(BUSOBJS)
+
+#	$(CXX) -g $^ -o $@
+.PHONY: sdramscope zipstate zipload dbgscope zipdbg wrsdram rdsdram
 zipstate: $(ARCH)-zipstate
 $(ARCH)-zipstate: $(OBJDIR)/zipstate.o $(BUSOBJS)
 	$(CXX) -g $^ -o $@
+
 zipload: $(ARCH)-zipload
-$(ARCH)-zipload: $(OBJDIR)/zipload.o $(OBJDIR)/flashdrvr.o
+$(ARCH)-zipload: $(OBJDIR)/zipload.o  
 $(ARCH)-zipload: $(BUSOBJS) $(OBJDIR)/zipelf.o
 	$(CXX) -g $^ -lelf -o $@
+
+wrsdram: $(ARCH)-wrsdram
+$(ARCH)-wrsdram: $(OBJDIR)/wrsdram.o  
+$(ARCH)-wrsdram: $(BUSOBJS) $(OBJDIR)/zipelf.o
+	$(CXX) -g $^ -lelf -o $@
+
+rdsdram: $(ARCH)-rdsdram
+$(ARCH)-rdsdram: $(OBJDIR)/rdsdram.o  
+$(ARCH)-rdsdram: $(BUSOBJS) $(OBJDIR)/zipelf.o
+	$(CXX) -g $^ -lelf -o $@	 
 
 ## SCOPES
 # These depend upon the scopecls.o, the bus objects, as well as their
 # main file(s).
 #
-spixscope: $(ARCH)-spixscope
-$(ARCH)-spixscope: $(OBJDIR)/spixscope.o $(OBJDIR)/scopecls.o $(BUSOBJS)
-	$(CXX) -g $^ -o $@
-sramscope: $(ARCH)-sramscope
-$(ARCH)-sramscope: $(OBJDIR)/sramscope.o $(OBJDIR)/scopecls.o $(BUSOBJS)
-	$(CXX) -g $^ -o $@
-dbgscope: $(ARCH)-dbgscope
-$(ARCH)-dbgscope: $(OBJDIR)/dbgscope.o $(OBJDIR)/scopecls.o $(BUSOBJS)
+
+sdramscope: $(ARCH)-sdramscope
+$(ARCH)-sdramscope: $(OBJDIR)/sdramscope.o $(OBJDIR)/scopecls.o $(BUSOBJS)
 	$(CXX) -g $^ -o $@
 #
 #
+	 
 
 
 #

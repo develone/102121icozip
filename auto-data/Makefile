@@ -49,11 +49,12 @@ all:	data
 BASE    := global.txt # dlyarbiter.txt
 AUX     := version.txt buserr.txt pic.txt pwrcount.txt
 IO      := gpio.txt # spio.txt
-MEMORY  := spixpress.txt sramdev.txt bkram.txt
+MEMORY  :=  sdramdev.txt bkram.txt #spixpress.txt
 DBGBUS  := hbconsole.txt
 CPU     := zipbones.txt
 SCOPES  := # spixscope.txt
 LDSCRIPT:= mem_flash_bkram.txt mem_bkram_only.txt mem_flash_sram.txt mem_sram_only.txt
+LDSCRIPT:= mem_flash_bkram.txt mem_bkram_only.txt mem_flash_sram.txt mem_sdram_only.txt
 BONUS   :=
 DATA := clock50.txt $(BASE) $(AUX) $(IO) $(MEMORY) $(DBGBUS) $(CPU) $(SCOPES) $(BONUS) $(LDSCRIPT)
 	# Not used: rtclite.txt watchdog.txt

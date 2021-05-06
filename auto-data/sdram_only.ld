@@ -1,6 +1,6 @@
 /*******************************************************************************
 *
-* Filename:	sram.ld
+* Filename:	sdram_only.ld
 * {{{
 * Project:	ICO Zip, iCE40 ZipCPU demonstration project
 *
@@ -63,35 +63,29 @@ _bkram    = ORIGIN(bkram);
 _sdram    = ORIGIN(sdram);
 /* LD.DEFNS from zipmaster.txt */
 _kram  = ORIGIN(bkram); /* Can be used for high-speed kernel RAM */
-_ram   = ORIGIN(sram);
-_rom   = ORIGIN(flash);
-_top_of_stack = ORIGIN(sram) + LENGTH(sram);
+_ram   = ORIGIN(sdram);
+_rom   = 0;	/* Disable the flash */
+_top_of_stack = ORIGIN(sdram) + LENGTH(sdram);
 
 
-/* LD.SCRIPT from mem_flash_sram.txt */
+/* LD.SCRIPT from mem_sdram_only.txt */
 SECTIONS
 {
-	.rocode 0x01400000 : ALIGN(4) {
+	.rocode ORIGIN(sdram) : ALIGN(4) {
 		_boot_address = .;
 		*(.start) *(.boot)
-       } > flash
-       _kram_start = . ;
-       .kernel : ALIGN_WITH_INPUT {
+                _kram_start = . ;
 		*(.kernel)
-		}> bkram AT> flash
-       _kram_end = . ;
-       .ramcode : ALIGN_WITH_INPUT {
+                _kram_end = . ;
 		_ram_image_start = . ;
 		*(.text.startup)
 		*(.text*)
 		*(.rodata*) *(.strings)
 		*(.data) *(COMMON)
-		}> sram AT> flash
-       _ram_image_end = . ;
-       .bss : ALIGN_WITH_INPUT {
+                _ram_image_end = . ;
 		*(.bss)
 		_bss_image_end = . ;
-		} > sram
+		} > sdram
        _top_of_heap = .;
 }
 
