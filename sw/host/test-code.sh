@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "inpbuf"
-./arm-wbregs 0x02002330
+./arm-wbregs 0x02002420
          COUNTER=15
 	ADDRESS=0x02002330
          until [  $COUNTER -lt 1 ]; do
