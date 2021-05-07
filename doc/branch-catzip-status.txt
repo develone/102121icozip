@@ -1,3 +1,91 @@
+05/07/21  14:15
+This is one of the last fixes.
+ git diff sw/board/Makefile
+diff --git a/sw/board/Makefile b/sw/board/Makefile
+index a412113..2fad549 100644
+--- a/sw/board/Makefile
++++ b/sw/board/Makefile
+@@ -53,7 +53,7 @@ LDSCRIPT:= -Tboardram.ld
+ LFLAGS  := $(LDSCRIPT) -L../zlib
+ INCS    := -I../zlib -I../../rtl/catzip -I.
+ CFLAGS  := -O3 $(INCS)
+-LIBS    := -lc -libcatzip.
++LIBS    := -lc -lcatzip
+ INSTALLD:=/home/devel/zipcpu/sw/install
+ NLIBD  :=$(INSTALLD)/cross-tools/zip/lib
+ ZLIBD  :=../zlib
+
+./arm-zipload -v ../board/cputest
+Halting the CPU
+Memory regions:
+	Block RAM: 01400000 - 01402000
+	SDRAM       : 02000000 - 03000000
+Loading: ../board/cputest
+Section 0: 02000000 - 02003ddc
+Writing to MEM: 02000000-02003ddc
+Clearing the CPUs registers
+Setting PC to 02000000
+The CPU should be fully loaded, you may now
+start it (from reset/reboot) with:
+> wbregs cpu 0x0f
+
+CPU Status is: 0000060f
+./arm-wbregs cpu 0x0f
+04000000 (     CPU)-> 0000000f
+Running CPU self-test
+-----------------------------------
+SIM Instructions                Is this a simulator?
+CIS Instructions                Supported
+Break test #1                   Pass
+Break test #2                   Pass
+Break test #3                   Pass
+Early Branch test               Pass
+Trap test/AND                   Pass
+Trap test/CLR                   Pass
+Overflow test                   Pass
+Carry test                      Pass
+Loop test                       Pass
+Shift test                      Pass
+Pipeline test                   Pass
+Mem-Pipeline test               Pass
+Conditional Execution test      Pass
+No-waiting pipeline test        Pass
+Conditional Branching test      Pass
+Ill Instruction test, NULL PC   Pass
+Ill Instruction test, two       Pass
+Comparison test, ==             Pass
+Comparison test, !=             Pass
+CC Register test                Pass
+Multi-Arg test                  Pass
+Multiply test                   Pass
+
+/arm-zipload -v ../board/hello
+Halting the CPU
+Memory regions:
+	Block RAM: 01400000 - 01402000
+	SDRAM       : 02000000 - 03000000
+Loading: ../board/hello
+Section 0: 02000000 - 02004a2c
+Writing to MEM: 02000000-02004a2c
+Clearing the CPUs registers
+Setting PC to 02000000
+The CPU should be fully loaded, you may now
+start it (from reset/reboot) with:
+> wbregs cpu 0x0f
+
+CPU Status is: 0000060f
+./arm-wbregs cpu 0x0f
+04000000 (     CPU)-> 0000000f
+Multiply HI-word test           Hello, World
+restart the simulator.
+
+
+icetime -d hx8k -c 40 catzip.asc
+// Reading input .asc file..
+// Reading 8k chipdb file..
+// Creating timing netlist..
+// Timing estimate: 18.52 ns (53.98 MHz)
+// Checking 25.00 ns (40.00 MHz) clock constraint: PASSED.
 05/07/21 12:43
 printf working now.but the jpeg is not perfering the lifting step.
 
@@ -5,6 +93,13 @@ printf working now.but the jpeg is not perfering the lifting step.
 Listening on port 8363
 Listening on port 8364
 > T
+fwd_inv = 0xffcf
+
+0
+  = 22e27727ppsp00 0  c   = cc7c
+  = eede8828ppsp00 0  3   = 3383
+  = 22e27717ppsp00 0  5   = 5575
+  = 33e37727ppsp00 0  b   = bb7b
 
 ptrs.inpbuf = 0xff0f  0 __f_  d xx0xff4f
 
@@ -18,6 +113,66 @@ fwd_inv = 0xffcf
   = 33e37727ppsp00 0  b   = bb7b
 <  [CLOSED]
 finished ted dwt
+./runjpeg.sh 
+01401000 (        )-> 00000002
+01401004 (        )-> 00000000
+Halting the CPU
+Memory regions:
+	Block RAM: 01400000 - 01402000
+	SDRAM       : 02000000 - 03000000
+Loading: ../board/jpeg
+Section 0: 02000000 - 0204f2b0
+Writing to MEM: 02000000-0204f2b0
+Clearing the CPUs registers
+Setting PC to 02000000
+The CPU should be fully loaded, you may now
+start it (from reset/reboot) with:
+> wbregs cpu 0x0f
+
+CPU Status is: 0000060f
+The size of the buffer is 0x010000 or 65536 words
+
+READ-COMPLETE
+04000000 (     CPU)-> 0000000f
+inpbuf
+0200f240 (        ) : [."$|] 0e22247c
+COUNTER 10
+0200f244 (        ) : [....] 0de22083
+COUNTER 9
+0200f248 (        ) : [.".u] 0e221475
+COUNTER 8
+0200f24c (        ) : [.2.{] 0e32207b
+COUNTER 7
+0200f250 (        ) : [..(z] 0e12287a
+COUNTER 6
+0200f254 (        ) : [.".|] 0e22187c
+COUNTER 5
+0200f258 (        ) : [...p] 0e021870
+COUNTER 4
+0200f25c (        ) : [...u] 0dd20c75
+COUNTER 3
+0200f260 (        ) : [...m] 0dc2106d
+COUNTER 2
+0200f264 (        ) : [..,v] 0de22c76
+COUNTER 1
+0200f268 (        ) : [...j] 0df2006a
+
+Write-COMPLETE
+The size of the buffer is 0x010000 or 65536 words
+
+./arm-rdsdram dwt.bin
+
+Write-COMPLETE
+The size of the buffer is 0x010000 or 65536 words
+octave
+
+fid = fopen('dwt.bin','r'); im4 = fread(fid, [256,inf], 'int32'); fclose(fid);
+1515847770
+ 191964241
+ 
+figure;imagesc(im4);colorbar;
+im4(256,256)=78;
+im4(255,256)=85;
 
  ./runjpeg.sh 
 01401000 (        )-> 00000002
