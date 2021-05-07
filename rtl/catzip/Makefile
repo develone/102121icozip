@@ -44,7 +44,7 @@ FBDIR := .
 VDIRFB:= $(FBDIR)/obj-$(ARCH)
 VOBJ := obj-$(ARCH)
 include auto.mk
-PCFFILE := icozip.pcf
+PCFFILE := catzip.pcf
 VERILATOR := verilator
 VFLAGS := -O3 -MMD -Mdir $(VDIRFB) -Wall -Wno-TIMESCALEMOD -trace -cc $(AUTOVDIRS)
 # VERILATOR := VERILATOR_ROOT=/home/dan/tmp/verilator.git /home/dan/tmp/verilator.git/bin/verilator
@@ -101,26 +101,26 @@ $(VDIRFB)/V%__ALL.a: $(VDIRFB)/V%.mk
 #
 #
 .PHONY: bin
-bin: icozip.bin
+bin: catzip.bin
 #
 #
-icozip.json: toplevel.v wbxbar.v addrdecode.v skidbuffer.v $(VFLIST)
+catzip.json: toplevel.v wbxbar.v addrdecode.v skidbuffer.v $(VFLIST)
 	@echo yosys -ql yosys.log -p 'synth_ice40 -top toplevel' ...
 	@yosys -ql yosys.log -p 'synth_ice40 -json icozip.json -top toplevel' $^
 
 .PHONY: yosys
-yosys: icozip.json
+yosys: catzip.json
 
-icozip.asc: $(PCFFILE) icozip.json
+catzip.asc: $(PCFFILE) catzip.json
 	# arachne-pnr -d 8k -r -P ct256 -p $(PCFFILE) icozip.blif -o $@
-	nextpnr-ice40 --hx8k -r --freq 50 --package ct256 --pcf $(PCFFILE) --json icozip.json --asc icozip.asc --no-promote-globals
+	nextpnr-ice40 --hx8k -r --freq 40 --package ct256 --pcf $(PCFFILE) --json catzip.json --asc catzip.asc --no-promote-globals
 
 .PHONY: arachne
-arachne: icozip.asc
+arachne: catzip.asc
 
-icozip.bin: icozip.asc
-	icepack icozip.asc icozip.bin
-	icetime -d hx8k -c 50 icozip.asc
+icozip.bin: catzip.asc
+	icepack catzip.asc catzip.bin
+	icetime -d hx8k -c 40 catzip.asc
 
 #
 #

@@ -38,7 +38,7 @@
 ##
 ##
 .PHONY: all
-all:	basic uart icozip leddigits switch_leds # pptest
+all:	basic uart catzip leddigits switch_leds # pptest
 # all:	verilated sw bench bit
 SUBMAKE := $(MAKE) --no-print-directory -C
 #
