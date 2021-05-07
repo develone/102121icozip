@@ -211,14 +211,21 @@ extern	void	_bootloader(void) __attribute__ ((section (".boot")));
 //		zero.  This is sometimes called the BSS segment.
 //
 #ifndef	SKIP_BOOTLOADER
+#define	NOTNULL(A)	(4 != (unsigned)&A[1])  //adding this to try and fix.
 void	_bootloader(void) {
-	if (_rom == NULL) {
+	/*
+	if (_rom == NULL) {   This is the error.
 		int	*wrp = _ram_image_end;
 		while(wrp < _bss_image_end)
 			*wrp++ = 0;
 		return;
+	}*/
+	if (!NOTNULL(_rom)) { 
+		int *wrp = _ram_image_end; 
+		while(wrp < _bss_image_end) *wrp++ = 0; 
+		return;
 	}
-
+	
 	int *ramend = _ram_image_end, *bsend = _bss_image_end,
 	    *kramdev = (_kram) ? _kram : _ram;
 
