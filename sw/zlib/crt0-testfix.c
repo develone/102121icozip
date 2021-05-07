@@ -247,18 +247,17 @@ void	_bootloader(void) {
 		while(wrp < _bss_image_end)
 			*wrp++ = 0;
 		return;
+	}*/
+	if (!NOTNULL(_rom)) { 
+		int *wrp = _ram_image_end; 
+		while(wrp < _bss_image_end) *wrp++ = 0; 
+		return;
 	}
 
 	int *ramend = _ram_image_end, *bsend = _bss_image_end,
 	    *kramdev = (_kram) ? _kram : _ram;
 */
 
-	// NSTR("BOOTLOADER");
-	int *ramend = _ram_image_end, *bsend = _bss_image_end;
-
-	if (!NOTNULL(_rom)) { 
-		return;
-	}
 #ifdef	USE_DMA
 	_zip->z_dma.d_ctrl= DMACLEAR;
 	_zip->z_dma.d_rd = _kram_start; // Flash memory
