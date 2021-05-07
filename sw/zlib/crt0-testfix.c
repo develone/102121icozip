@@ -256,7 +256,7 @@ void	_bootloader(void) {
 
 	int *ramend = _ram_image_end, *bsend = _bss_image_end,
 	    *kramdev = (_kram) ? _kram : _ram;
-*/
+
 
 #ifdef	USE_DMA
 	_zip->z_dma.d_ctrl= DMACLEAR;

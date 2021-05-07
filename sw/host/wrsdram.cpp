@@ -58,7 +58,7 @@ FPGA	*m_fpga;
  * 0200f144 <ptrs>:
  * zip-objdump -d jpeg > jpeg-disasm.txt
  * */
-#define	DUMPMEM 	0x0200f1f0
+#define	DUMPMEM 	0x0200f240
 
 //#define	DUMPWORDS	(FLASHLEN>>2)	// 16MB Flash
 //#define	DUMPWORDS (4000>>2)
