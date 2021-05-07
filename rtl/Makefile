@@ -66,9 +66,9 @@ pmodleds:
 pptest:
 	$(SUBMAKE) pptest
 
-.PHONY: icozip
-icozip:
-	$(SUBMAKE) icozip
+.PHONY: catzip
+catzip:
+	$(SUBMAKE) catzip
 
 
 .PHONY: clean

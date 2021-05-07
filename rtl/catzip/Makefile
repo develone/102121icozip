@@ -106,19 +106,19 @@ bin: catzip.bin
 #
 catzip.json: toplevel.v wbxbar.v addrdecode.v skidbuffer.v $(VFLIST)
 	@echo yosys -ql yosys.log -p 'synth_ice40 -top toplevel' ...
-	@yosys -ql yosys.log -p 'synth_ice40 -json icozip.json -top toplevel' $^
+	@yosys -ql yosys.log -p 'synth_ice40 -json catzip.json -top toplevel' $^
 
 .PHONY: yosys
 yosys: catzip.json
 
 catzip.asc: $(PCFFILE) catzip.json
-	# arachne-pnr -d 8k -r -P ct256 -p $(PCFFILE) icozip.blif -o $@
+	# arachne-pnr -d 8k -r -P ct256 -p $(PCFFILE) catzip.blif -o $@
 	nextpnr-ice40 --hx8k -r --freq 40 --package ct256 --pcf $(PCFFILE) --json catzip.json --asc catzip.asc --no-promote-globals
 
 .PHONY: arachne
 arachne: catzip.asc
 
-icozip.bin: catzip.asc
+catzip.bin: catzip.asc
 	icepack catzip.asc catzip.bin
 	icetime -d hx8k -c 40 catzip.asc
 
