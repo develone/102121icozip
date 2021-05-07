@@ -1,0 +1,49 @@
+05/07/21 
+hardware tests icozip-catzip-br not working 
+commit 7338ce9525299f3ccb04e1829d334615671f8fe2 (HEAD -> catzip, origin/catzip)
+Author: Edward Vidal Jr <develone@sbcglobal.net>
+Date:   Fri May 7 14:45:26 2021 -0600
+
+    testing
+devel@mypi3-19:~/catzip-addr23050121a/catzip/sw/host $ sudo config_cat ../../rtl/catzip/catzip.bin 
+[sudo] password for devel: 
+
+GPIO 25 not exported, trying to export...
+GPIO 17 not exported, trying to export...
+GPIO 22 not exported, trying to export...
+
+OK: SPI driver loaded
+
+Setting GPIO directions
+out
+out
+in
+Setting output to low
+0
+Reseting FPGA
+0
+1
+Checking DONE pin
+0
+Continuing with configuration procedure
+263+1 records in
+263+1 records out
+135100 bytes (135 kB, 132 KiB) copied, 0.0284976 s, 4.7 MB/s
+Setting output to high
+1
+Checking DONE pin
+1
+devel@mypi3-19:~/catzip-addr23050121a/catzip/sw/host $ sudo ./arm-netpport 
+Listening on port 8363
+Listening on port 8364
+# 
+Command port is now connected
+< A01000015R
+> A01000015R20210430
+Command port disconnect
+
+devel@mypi3-19:~/catzip-addr23050121a/catzip/sw/host $ ./arm-wbregs version
+01000014 ( VERSION) : [.!.0] 20210430
+
+sudo netstat -anpe | grep "8363" | grep "LISTEN
+tcp        0      0 0.0.0.0:8363            0.0.0.0:*               LISTEN      0          21003      1135/./arm-netpport 
