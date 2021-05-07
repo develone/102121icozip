@@ -2158,7 +2158,7 @@ ABC: Participating nodes from the first network   =      38. (  49.35 % of nodes
 ABC: Participating nodes from the second network  =      50. (  64.94 % of nodes)
 ABC: Node pairs (any polarity)                    =      38. (  49.35 % of names can be moved)
 ABC: Node pairs (same polarity)                   =      25. (  32.47 % of names can be moved)
-ABC: Total runtime =     0.02 sec
+ABC: Total runtime =     0.01 sec
 ABC: + write_blif <abc-temp-dir>/output.blif 
 
 2.40.1.2. Re-integrating ABC results.
@@ -2321,6 +2321,6 @@ Found and reported 0 problems.
 2.50. Executing JSON backend.
 
 Warnings: 40 unique messages, 40 total
-End of script. Logfile hash: e1bc881e0e, CPU: user 4.03s system 0.15s, MEM: 42.50 MB peak
+End of script. Logfile hash: 96eaa43c99, CPU: user 3.81s system 0.13s, MEM: 42.34 MB peak
 Yosys 0.9+4052 (git sha1 0ccc7229, gcc 8.3.0-6+rpi1 -fPIC -Os)
 Time spent: 20% 21x opt_expr (0 sec), 16% 11x read_verilog (0 sec), ...

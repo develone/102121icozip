@@ -69,7 +69,7 @@ SOURCES := wbregs.cpp netpport.cpp  $(BUSSRCS) $(SCOPESRC)
 HEADERS := llcomms.h port.h hexbus.h devbus.h
 OBJECTS := $(addprefix $(OBJDIR)/,$(subst .cpp,.o,$(SOURCES)))
 BUSOBJS := $(addprefix $(OBJDIR)/,$(subst .cpp,.o,$(BUSSRCS)))
-CFLAGS := -g -Wall -I. -I../../rtl/icozip
+CFLAGS := -g -Wall -I. -I../../rtl/catzip
 LIBS :=
 SUBMAKE := $(MAKE) --no-print-directory
 
