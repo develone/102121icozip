@@ -1,3 +1,14 @@
+05/08/21 06:15
+Testing Write and Read Sdram.
+The size of the buffer is 0x010000 or 65536 words
+
+READ-COMPLETE
+
+Write-COMPLETE
+The size of the buffer is 0x010000 or 65536 words
+Binary files rgb_pack.bin and rdtest.bin differ
+
+./arm-wrsdram rgb_pack.bin; ./arm-rdsdram rdtest.bin; diff rgb_pack.bin rdtest.bin
 05/08/21 05:32
 Prior to the chgs in sw/host/netpport.cpp none of the tests performed could even be done.
 
