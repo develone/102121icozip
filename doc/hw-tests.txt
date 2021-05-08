@@ -1,3 +1,248 @@
+05/08/21 05:32
+Prior to the chgs in sw/host/netpport.cpp none of the tests performed could even be done.
+
+cputest fails in hardware.
+hello fails in hardware.
+
+leddigits This worked ok counting on the 8 7 segment leds.
+
+switch_leds 
+
+This test worked ok reading the 4 bits from dip sw and displaying on the first & last 7 segment leds.
+Pressing either of the push buttons turns off i of the  7 segment leds.
+
+blinky
+
+This test is ok. A single led blinks.
+
+dimmer
+
+This test worked ok the led starts getting brigher the starts over at full brightness,
+
+Complete step by step of all of these tests is found below.
+
+**************************************************05/08/21***********************************************************
+
+
+This test worked ok reading the 4 bits from dip sw and displaying on the first & last 7 segment leds.
+Pressing either of the push buttons turns off i of the  7 segment leds.
+
+loading the latest bitfile
+
+sudo config_cat ../../rtl/catzip/catzip.bin 
+[sudo] password for devel: 
+
+GPIO 25 not exported, trying to export...
+GPIO 17 not exported, trying to export...
+GPIO 22 not exported, trying to export...
+
+OK: SPI driver loaded
+
+Setting GPIO directions
+out
+out
+in
+Setting output to low
+0
+Reseting FPGA
+0
+1
+Checking DONE pin
+0
+Continuing with configuration procedure
+263+1 records in
+263+1 records out
+135100 bytes (135 kB, 132 KiB) copied, 0.0279093 s, 4.8 MB/s
+Setting output to high
+1
+Checking DONE pin
+1
+
+sudo ./arm-netpport 
+Listening on port 8363
+Listening on port 8364
+# 
+# ZZZ
+# Z
+
+Command port is now connected
+< A01000015R
+> A01000015R20210507
+Command port disconnect
+
+Remote connection from mypi3-20 to mypi3-19
+
+./arm-wbregs -n mypi3-19 -p 8363 version
+01000014 ( VERSION) : [.!..] 20210507
+
+Local connection on mypi3-19
+
+./arm-wbregs version
+01000014 ( VERSION) : [.!..] 20210507
+
+Testing cputest which works with simulator 
+./arm-zipload -v ../board/cputest
+Halting the CPU
+Memory regions:
+	Block RAM: 01400000 - 01402000
+	SDRAM       : 02000000 - 03000000
+Loading: ../board/cputest
+Section 0: 02000000 - 02003ddc
+Writing to MEM: 02000000-02003ddc
+Clearing the CPUs registers
+Setting PC to 02000000
+The CPU should be fully loaded, you may now
+start it (from reset/reboot) with:
+> wbregs cpu 0x0f
+
+CPU Status is: 0000060f
+
+./arm-wbregs cpu 0x0f
+04000000 (     CPU)-> 0000000f
+
+./arm-zipload -v ../board/hello
+Halting the CPU
+Memory regions:
+	Block RAM: 01400000 - 01402000
+	SDRAM       : 02000000 - 03000000
+Loading: ../board/hello
+Section 0: 02000000 - 02004a2c
+Writing to MEM: 02000000-02004a2c
+Clearing the CPUs registers
+Setting PC to 02000000
+The CPU should be fully loaded, you may now
+start it (from reset/reboot) with:
+> wbregs cpu 0x0f
+
+CPU Status is: 0000060f
+
+./arm-wbregs cpu 0x0f
+04000000 (     CPU)-> 0000000f
+
+sudo config_cat ../../rtl/leddigits/leddigits.bin 
+[sudo] password for devel: 
+
+OK: GPIO 25 exported
+OK: GPIO 17 exported
+OK: GPIO 22 exported
+
+OK: SPI driver loaded
+
+Setting GPIO directions
+out
+out
+in
+Setting output to low
+0
+Reseting FPGA
+0
+1
+Checking DONE pin
+0
+Continuing with configuration procedure
+263+1 records in
+263+1 records out
+135100 bytes (135 kB, 132 KiB) copied, 0.0257981 s, 5.2 MB/s
+Setting output to high
+1
+Checking DONE pin
+1
+
+This work ok counting on the 8 7 segment leds.
+
+sudo config_cat ../../rtl/switch_leds/switch_leds.bin
+
+OK: GPIO 25 exported
+OK: GPIO 17 exported
+OK: GPIO 22 exported
+
+OK: SPI driver loaded
+
+Setting GPIO directions
+out
+out
+in
+Setting output to low
+0
+Reseting FPGA
+0
+1
+Checking DONE pin
+0
+Continuing with configuration procedure
+263+1 records in
+263+1 records out
+135100 bytes (135 kB, 132 KiB) copied, 0.0257468 s, 5.2 MB/s
+Setting output to high
+1
+Checking DONE pin
+1
+
+This test worked ok reading the 4 bits from dip sw and displaying on the first & last 7 segment leds.
+Pressing either of the push buttons turns off i of the  7 segment leds.
+
+sudo config_cat ../../rtl/basic/blinky.bin 
+
+OK: GPIO 25 exported
+OK: GPIO 17 exported
+OK: GPIO 22 exported
+
+OK: SPI driver loaded
+
+Setting GPIO directions
+out
+out
+in
+Setting output to low
+0
+Reseting FPGA
+0
+1
+Checking DONE pin
+0
+Continuing with configuration procedure
+263+1 records in
+263+1 records out
+135100 bytes (135 kB, 132 KiB) copied, 0.0254943 s, 5.3 MB/s
+Setting output to high
+1
+Checking DONE pin
+1
+
+This test is ok. A single led blinks.
+
+sudo config_cat ../../rtl/basic/dimmer.bin 
+
+OK: GPIO 25 exported
+OK: GPIO 17 exported
+OK: GPIO 22 exported
+
+OK: SPI driver loaded
+
+Setting GPIO directions
+out
+out
+in
+Setting output to low
+0
+Reseting FPGA
+0
+1
+Checking DONE pin
+0
+Continuing with configuration procedure
+263+1 records in
+263+1 records out
+135100 bytes (135 kB, 132 KiB) copied, 0.0256619 s, 5.3 MB/s
+Setting output to high
+1
+Checking DONE pin
+1
+
+This test worked ok the led starts getting brigher the starts over at full brightness,
+
+**************************************************05/08/21***********************************************************
+
 05/07/21 
 hardware tests icozip-catzip-br not working 
 commit 7338ce9525299f3ccb04e1829d334615671f8fe2 (HEAD -> catzip, origin/catzip)
