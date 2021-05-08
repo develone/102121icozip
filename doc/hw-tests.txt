@@ -1,3 +1,80 @@
+05/08/21 12:30
+hellopp works ok.
+speechpp works with issues.
+
+
+**************************************************05/08/21***********************************************************
+sudo ./arm-netpport 
+[sudo] password for devel: 
+Listening on port 8363
+Listening on port 8364
+
+sudo config_cat ../../rtl/pptest/speechpp.bin 
+
+OK: GPIO 25 exported
+OK: GPIO 17 exported
+OK: GPIO 22 exported
+
+OK: SPI driver loaded
+
+Setting GPIO directions
+out
+out
+in
+Setting output to low
+0
+Reseting FPGA
+0
+1
+Checking DONE pin
+0
+Continuing with configuration procedure
+263+1 records in
+263+1 records out
+135100 bytes (135 kB, 132 KiB) copied, 0.0269249 s, 5.0 MB/s
+Setting output to high
+1
+Checking DONE pin
+1
+
+sudo config_cat ../../rtl/pptest/hellopp.bin 
+
+OK: GPIO 25 exported
+OK: GPIO 17 exported
+OK: GPIO 22 exported
+
+OK: SPI driver loaded
+
+Setting GPIO directions
+out
+out
+in
+Setting output to low
+0
+Reseting FPGA
+0
+1
+Checking DONE pin
+0
+Continuing with configuration procedure
+263+1 records in
+263+1 records out
+135100 bytes (135 kB, 132 KiB) copied, 0.0269665 s, 5.0 MB/s
+Setting output to high
+1
+Checking DONE pin
+1
+
+sudo ./arm-netpport 
+Listening on port 8363
+Listening on port 8364
+. Hello, World! 
+. Hello, World! 
+. Hello, World! 
+
+Complete step by step of all of these tests is found below.
+
+**************************************************05/08/21***********************************************************
 05/08/21 06:15
 Testing Write and Read Sdram.
 The size of the buffer is 0x010000 or 65536 words
@@ -22,6 +99,7 @@ switch_leds
 This test worked ok reading the 4 bits from dip sw and displaying on the first & last 7 segment leds.
 Pressing either of the push buttons turns off i of the  7 segment leds.
 
+**************************************************05/08/21***********************************************************
 blinky
 
 This test is ok. A single led blinks.
