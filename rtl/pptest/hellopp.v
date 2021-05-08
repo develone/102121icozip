@@ -15,7 +15,7 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 //
-// Copyright (C) 2015-2020, Gisselquist Technology, LLC
+// Copyright (C) 2015-2017, Gisselquist Technology, LLC
 //
 // This program is free software (firmware): you can redistribute it and/or
 // modify it under the terms of  the GNU General Public License as published
@@ -61,7 +61,7 @@ module	hellopp(i_clk,
 	assign	s_clk = i_clk;
 `else
 	wire	clk_66mhz, pll_locked;
-	SB_PLL40_PAD #(
+	SB_PLL40_CORE #(
 		.FEEDBACK_PATH("SIMPLE"),
 		.DELAY_ADJUSTMENT_MODE_FEEDBACK("FIXED"),
 		.DELAY_ADJUSTMENT_MODE_RELATIVE("FIXED"),
@@ -73,7 +73,7 @@ module	hellopp(i_clk,
 		.DIVF(7'd47),		// Multiply by (DIVF+1)
 		.FILTER_RANGE(3'b001)
 	) plli (
-		.PACKAGEPIN     (i_clk        ),
+		.REFERENCECLK    (i_clk        ),
 		.PLLOUTCORE     (clk_66mhz    ),
 		.LOCK           (pll_locked  ),
 		.BYPASS         (1'b0         ),
