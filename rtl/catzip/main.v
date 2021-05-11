@@ -910,13 +910,15 @@ parameter	RDLY = 6;
 `endif	// BUSCONSOLE_ACCESS
 
 `ifdef	SDRAM_ACCESS
-	sdramdev 
+	wbsdram 
 	
 		sdrami(i_clk,
 			wb_sdram_cyc,
 			 
 			wb_sdram_stb,wb_sdram_we,
+			/* verilator lint_off WIDTH */
 			wb_sdram_addr[(23-1):0],
+			/* verilator lint_off WIDTH */
 			wb_sdram_data, // 32 bits wide
 			wb_sdram_sel,  // 32/8 bits wide
 			wb_sdram_stall, wb_sdram_ack, wb_sdram_idata,

@@ -60,8 +60,8 @@
 #./arm-wbregs 0x200046c 0x7f000000  
 #./arm-wbregs 0x200046c 
 #Ready to load sdram with image.
-./arm-wrsdram r.bin
+#./arm-wrsdram r.bin
 #Start the lifting function
-./arm-wbregs 0x01401008 0x1
-./arm-wbregs 0x01401004 
-./test-code.sh
+#./arm-wbregs 0x01401008 0x1
+#./arm-wbregs 0x01401004 
+#./test-code.sh
