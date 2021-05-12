@@ -3,8 +3,11 @@
 #include <stdlib.h>
 #include "board.h"
 #include "lifting.h"
+
 #define BLKRAM_FLAG 0x01401000
 #define BLKRAM_INVFWD 0x01401004
+#define BLKRAM_STATUS 0x01401008
+
 #define imgsize 256
 #define DBUG 1
 #define DBUG1 1
@@ -42,19 +45,23 @@ for(i=0;i<loop;i++) {
 }
 //0xc0024	786468	0x008093b0
 struct PTRs {
-	int inpbuf[65536];
+	//int inpbuf[65536];
 	 
-	int flag;
+	
 	int w;
 	int h;
-	 
-	 int *red;
-	
+	int status;
+	int *pbuf_red; 
+	int *pred;
+	int *pfwd_inv;
+
+	 int *pblkram_flag;
+	 int *pblkram_invfwd;
+	 int *pblkram_status;
+	 int flag;
 	 int *grn;
 	 int *blu;
 	 int *alt;
-	 int *ptr_blkram_flag;
-	 int *ptr_blkram_invfwd;
 	//int *fwd_inv;
 } ptrs;
 
@@ -86,7 +93,7 @@ void split(int ff, int loop, int *ibuf,  int *obuf) {
 }	
 int main(int argc, char **argv) {
 	
-	 
+	/* 
 	  
 	 int *red_s_ptr, *gr_s_ptr, *bl_s_ptr;
 	 int *wptr,*wptr1,*wptr2;
@@ -98,16 +105,46 @@ int main(int argc, char **argv) {
 	int *fwd_inv;	
 
 	int i,j;
-	 
+	*/ 
+	
 	ptrs.w = 256;
 	ptrs.h = 256;
-	ptrs.ptr_blkram_flag = (int *)BLKRAM_FLAG; 
-	ptrs.ptr_blkram_invfwd = (int *)BLKRAM_INVFWD;  
-	buf_red = ( int *)malloc(sizeof( int)* ptrs.w*ptrs.h*2);	
-	red_s_ptr = buf_red;
+	ptrs.pblkram_flag = (int *)BLKRAM_FLAG; 
+	ptrs.pblkram_invfwd = (int *)BLKRAM_INVFWD; 
+	ptrs.pblkram_status = (int *)BLKRAM_STATUS;  
+	 
+	ptrs.pbuf_red = ( int *)malloc(sizeof( int)* ptrs.w*ptrs.h*2);
+	ptrs.pfwd_inv = (int *)malloc(sizeof( int)*1);	
+	ptrs.pred = &ptrs.pbuf_red[0] + ptrs.w*ptrs.h;
+
+	ptrs.flag = ptrs.pblkram_flag[0];
+	ptrs.pfwd_inv = (int *)ptrs.pblkram_invfwd[0];
+	ptrs.status = ptrs.pblkram_status[0];
 	
-	fwd_inv = (int *)malloc(sizeof( int)*1);
- 
+	printf("%d \n",ptrs.w);
+	printf("%d \n",ptrs.h);
+	printf("0x%x \n",ptrs.pblkram_flag);
+	printf("0x%x \n",ptrs.pblkram_invfwd);
+	printf("0x%x 0x%x\n",ptrs.pbuf_red,*ptrs.pbuf_red);
+	printf("0x%x 0x%x\n",ptrs.pred,*ptrs.pred);
+	
+	printf("waiting for data\n");
+	while(ptrs.status==2) {
+		ptrs.status = ptrs.pblkram_status[0];
+	}
+	printf("starting lifting\n");
+	lifting(ptrs.w,ptrs.pbuf_red,ptrs.pred,ptrs.pfwd_inv);
+	
+	printf("read buffer\n");
+		while(ptrs.status==1) {
+		ptrs.status = ptrs.pblkram_status[0];
+	}
+	free(ptrs.pbuf_red);
+	free(ptrs.pfwd_inv);
+	while(1);
+ 	return 0;
+
+	/*
 	if(buf_red == NULL) return 2;
 	
 	if(fwd_inv == NULL) return 5;
@@ -116,16 +153,19 @@ int main(int argc, char **argv) {
 		printf("ptrs.inpbuf = 0x%x buf_red = 0x%x\n",ptrs.inpbuf,buf_red);
      
 		printf("fwd_inv = 0x%x\n",fwd_inv);
-	}
+	}*/
+	
     /*The file rgb_pack.bin contains the rgb images
      * packed in bits red 29-20
      * packed in bits grn 19-10
      * packed in bits blu 9-0 
-    */ 
+    */
+    /*
  	i = ptrs.w*ptrs.h*2;
  	clrram(i,buf_red);
 	i = 65535;
-	 
+	*/ 
+	/*
 		ptrs.flag = ptrs.ptr_blkram_flag[0];
 		split(ptrs.flag, i, ptrs.inpbuf,buf_red);
 	
@@ -204,6 +244,5 @@ int main(int argc, char **argv) {
   	free(buf_red);
 	free(fwd_inv);
 	return 0;
-	
-	
+	*/
 }

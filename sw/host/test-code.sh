@@ -1,9 +1,9 @@
 #!/bin/bash
 
-echo "inpbuf"
-./arm-wbregs 0x0200ec28
+
+./arm-wbregs 0x0200f05c
          COUNTER=10
-	ADDRESS=0x0200ec28
+	ADDRESS=0x0200f05c
          until [  $COUNTER -lt 1 ]; do
              echo COUNTER $COUNTER
              let COUNTER-=1
