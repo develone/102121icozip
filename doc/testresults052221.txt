@@ -1,0 +1,124 @@
+rsync -avl --delete icozip-catzip-br mypi3-19:~/
+iCE40 HX8K 05/22/21
+
+devel@mypi3-19:~/icozip-catzip-br/icozip/sw/host $ sudo config_cat ../../rtl/catzip/catzip.bin 
+[sudo] password for devel: 
+
+GPIO 25 not exported, trying to export...
+GPIO 17 not exported, trying to export...
+GPIO 22 not exported, trying to export...
+
+OK: SPI driver loaded
+
+Setting GPIO directions
+out
+out
+in
+Setting output to low
+0
+Reseting FPGA
+0
+1
+Checking DONE pin
+0
+Continuing with configuration procedure
+263+1 records in
+263+1 records out
+135100 bytes (135 kB, 132 KiB) copied, 0.0252488 s, 5.4 MB/s
+Setting output to high
+1
+Checking DONE pin
+1
+
+devel@mypi3-19:~/icozip-catzip-br/icozip/sw/host $ sudo ./arm-netpport 
+Listening on port 8363
+Listening on port 8364
+# 
+
+devel@mypi3-19:~/icozip-catzip-br/icozip/sw/host $ ./arm-wbregs version
+01000014 ( VERSION) : [.!.!] 20210521
+
+. Running CPU self-test
+Command port disconnect
+. -----------------------------------
+. SIM Instructions                Pass
+. CIS Instructions                Supported
+. Break test #1                   Pass
+. Break test #2                   Pass
+. Break test #3                   Pass
+. Early Branch test               Pass
+. Trap test/AND                   Pass
+. Trap test/CLR                   Pass
+. Overflow test                   Pass
+. Carry test                      Pass
+. Loop test                       Pass
+. Shift test                      Pass
+. Pipeline test                   Pass
+. Mem-Pipeline test               Pass
+. Conditional Execution test      Pass
+. No-waiting pipeline test        Pass
+. Conditional Branching test      Pass
+. Ill Instruction test, NULL PC   Pass
+. Ill Instruction test, two       Pass
+. Comparison test, ==             Pass
+. Comparison test, !=             Pass
+. CC Register test                Pass
+. Multi-Arg test                  Pass
+. Multiply test                   Pass
+. Multiply HI-word test           
+. MPYUHI: F97E27AB x 000B272E = 000ADE9A(Soft) = 000BFE9A(Hard)
+. FAIL!
+. 
+. Between 0x00000000 and 0x00000000
+. 
+. Core-dump:
+. uR0 : 0x02000098    uR1 : 0x00000001    uR2 : 0x00010000    uR3 : 0x00C00000  . 
+. uR4 : 0x00000000    uR5 : 0x00000000    uR6 : 0x00000000    uR7 : 0x00000000  . 
+. uR8 : 0x00000000    uR9 : 0x00000000    uR10: 0x00000000    uR11: 0x00000000  . 
+. uR12: 0x00000000    uSP : 0x02FFFFE0    uCC : 0xE0800220    uPC : 0x020000A0  . 
+. 
+
+. Hello, World!
+
+devel@mypi3-19:~/icozip-catzip-br/icozip/sw/host $ ./arm-wrsdram rgb_pack.bin ; ./arm-rdsdram rdtest.bin ; diff rgb_pack.bin rdtest.bin 
+The size of the buffer is 0x010000 or 65536 words
+
+READ-COMPLETE
+
+Write-COMPLETE
+The size of the buffer is 0x010000 or 65536 words
+devel@mypi3-19:~/icozip-catzip-br/icozip/sw/host $ ./arm-zipload -v ../board/cputest
+Halting the CPU
+Memory regions:
+	Block RAM: 01400000 - 01402000
+	SDRAM       : 02000000 - 03000000
+Loading: ../board/cputest
+Section 0: 02000000 - 02003ddc
+Writing to MEM: 02000000-02003ddc
+Clearing the CPUs registers
+Setting PC to 02000000
+The CPU should be fully loaded, you may now
+start it (from reset/reboot) with:
+> wbregs cpu 0x0f
+
+CPU Status is: 0000060f
+devel@mypi3-19:~/icozip-catzip-br/icozip/sw/host $ ./arm-wbregs cpu 0x0f
+04000000 (     CPU)-> 0000000f
+devel@mypi3-19:~/icozip-catzip-br/icozip/sw/host $ ./arm-zipload -v ../board/hello
+Halting the CPU
+Memory regions:
+	Block RAM: 01400000 - 01402000
+	SDRAM       : 02000000 - 03000000
+Loading: ../board/hello
+Section 0: 02000000 - 02004a2c
+Writing to MEM: 02000000-02004a2c
+Clearing the CPUs registers
+Setting PC to 02000000
+The CPU should be fully loaded, you may now
+start it (from reset/reboot) with:
+> wbregs cpu 0x0f
+
+CPU Status is: 0000060f
+devel@mypi3-19:~/icozip-catzip-br/icozip/sw/host $ ./arm-wbregs cpu 0x0f
+04000000 (     CPU)-> 0000000f
+
