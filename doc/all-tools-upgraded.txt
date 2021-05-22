@@ -1,0 +1,74 @@
+Upgraded yosys
+commit 0ccc7229c02449618209a20d66b9fa07e3ea79f2 (HEAD -> master, upstream/master)
+Author: Zachary Snow <zach@zachjs.com>
+Date:   Tue Mar 30 09:38:00 2021 -0400
+devel@mypi3-20:~/yosys $ yosys -V
+Yosys 0.9+4052 (git sha1 0ccc7229, gcc 8.3.0-6+rpi1 -fPIC -Os)
+
+The previous commit was simullated on mypi3-16 & hard tested on mypi3-19.
+Testing on mypi3-20 on clean clone from github revealed missing files auto-data/clockpll40.txt 
+& auto-data/mem_sdram_bkram.txt
+
+38.2.1. Analyzing design hierarchy..
+Top module:  \toplevel
+Used module:     \ppio
+Used module:     \main
+Used module:         \icontrol
+Used module:         \memdev
+Used module:         \ziptimer
+Used module:         \console
+Used module:         \hbconsole
+Used module:             \hbnewline
+Used module:             \hbgenhex
+Used module:             \hbdeword
+Used module:             \hbidle
+Used module:             \hbints
+Used module:             \hbexec
+Used module:             \hbpack
+Used module:             \hbdechex
+Used module:         \pport
+Used module:         \wbgpio
+Used module:         \zipbones
+Used module:             \zipcpu
+Used module:                 \wbdblpriarb
+Used module:                 \memops
+Used module:                 \div
+Used module:                 \cpuops
+Used module:                     \mpyop
+Used module:                 \idecode
+Used module:                 \dblfetch
+Used module:         \wbsdram
+Used module:         \wbxbar
+Used module:             \addrdecode
+Used module:             \skidbuffer
+Parameter \W = 16
+=== toplevel ===
+
+   Number of wires:               4038
+   Number of wire bits:          19494
+   Number of public wires:        4038
+   Number of public wire bits:   19494
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               8209
+     SB_CARRY                      681
+     SB_DFF                        642
+     SB_DFFE                      1055
+     SB_DFFESR                     538
+     SB_DFFESS                      67
+     SB_DFFSR                      536
+     SB_DFFSS                       15
+     SB_IO                          24
+     SB_LUT4                      4628
+     SB_PLL40_CORE                   1
+     SB_RAM40_4K                    22
+     
+devel@mypi3-20:~/wkg-notwkg/icozip-catzip-br/icozip/rtl/catzip $ icetime -d hx8k -c 40 catzip.asc
+// Reading input .asc file..
+// Reading 8k chipdb file..
+// Creating timing netlist..
+// Timing estimate: 17.42 ns (57.39 MHz)
+// Checking 25.00 ns (40.00 MHz) clock constraint: PASSED.
+
+devel@mypi3-20:~ $ rsync -avl --delete wkg-notwkg mypi3-19:~/
