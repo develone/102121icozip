@@ -1,0 +1,342 @@
+iCE40 HX8K
+
+cputest & hello not working hardware.
+
+devel@mypi3-19:~/wkg-notwkg/not/icozip/sw/host $ ./arm-wbregs version
+01000014 ( VERSION) : [.!.!] 20210521
+
+devel@mypi3-19:~/wkg-notwkg/not/icozip/sw/host $ ./arm-wrsdram rgb_pack.bin ; ./arm-rdsdram rdtest.bin; diff rgb_pack.bin rdtest.bin 
+The size of the buffer is 0x010000 or 65536 words
+
+READ-COMPLETE
+
+Write-COMPLETE
+The size of the buffer is 0x010000 or 65536 words
+
+rgb_pack.bin
+00000000   7C 24 22 0E  83 20 E2 0D  75 14 22 0E  7B 20 32 0E  |$".. ..u.".{ 2.
+00000010   7A 28 12 0E  7C 18 22 0E  70 18 02 0E  75 0C D2 0D  z(..|.".p...u...
+00000020   6D 10 C2 0D  76 2C E2 0D  6A 00 F2 0D  69 0C E2 0D  m...v,..j...i...
+00000030   6F 10 B2 0D  65 FC 01 0E  74 04 C2 0D  74 04 D2 0D  o...e...t...t...
+
+
+rdtest.bin
+00000000   7C 24 22 0E  83 20 E2 0D  75 14 22 0E  7B 20 32 0E  |$".. ..u.".{ 2.
+00000010   7A 28 12 0E  7C 18 22 0E  70 18 02 0E  75 0C D2 0D  z(..|.".p...u...
+00000020   6D 10 C2 0D  76 2C E2 0D  6A 00 F2 0D  69 0C E2 0D  m...v,..j...i...
+00000030   6F 10 B2 0D  65 FC 01 0E  74 04 C2 0D  74 04 D2 0D  o...e...t...t...
+
+simulation
+
+devel@mypi3-20:~/wkg-notwkg/not/icozip/sw/host $ ./arm-wbregs version
+01000014 ( VERSION) : [.!.!] 20210521
+
+devel@mypi3-20:~/wkg-notwkg/not/icozip/sw/host $ ./arm-wrsdram rgb_pack.bin ; ./arm-rdsdram rdtest.bin; diff rgb_pack.bin rdtest.bin
+The size of the buffer is 0x010000 or 65536 words
+
+READ-COMPLETE
+
+Write-COMPLETE
+The size of the buffer is 0x010000 or 65536 words
+
+rgb_pack.bin
+00000000   7C 24 22 0E  83 20 E2 0D  75 14 22 0E  7B 20 32 0E  |$".. ..u.".{ 2.
+00000010   7A 28 12 0E  7C 18 22 0E  70 18 02 0E  75 0C D2 0D  z(..|.".p...u...
+00000020   6D 10 C2 0D  76 2C E2 0D  6A 00 F2 0D  69 0C E2 0D  m...v,..j...i...
+00000030   6F 10 B2 0D  65 FC 01 0E  74 04 C2 0D  74 04 D2 0D  o...e...t...t...
+
+rdtest.bin
+00000000   7C 24 22 0E  83 20 E2 0D  75 14 22 0E  7B 20 32 0E  |$".. ..u.".{ 2.
+00000010   7A 28 12 0E  7C 18 22 0E  70 18 02 0E  75 0C D2 0D  z(..|.".p...u...
+00000020   6D 10 C2 0D  76 2C E2 0D  6A 00 F2 0D  69 0C E2 0D  m...v,..j...i...
+00000030   6F 10 B2 0D  65 FC 01 0E  74 04 C2 0D  74 04 D2 0D  o...e...t...t...
+
+devel@mypi3-20:~/wkg-notwkg/not/icozip/sw/host $ ./arm-zipload -v ../board/cputest
+Halting the CPU
+Memory regions:
+	Block RAM: 01400000 - 01402000
+	SDRAM       : 02000000 - 03000000
+Loading: ../board/cputest
+Section 0: 02000000 - 02003ddc
+Writing to MEM: 02000000-02003ddc
+Clearing the CPUs registers
+Setting PC to 02000000
+The CPU should be fully loaded, you may now
+start it (from reset/reboot) with:
+> wbregs cpu 0x0f
+
+CPU Status is: 0000060f
+devel@mypi3-20:~/wkg-notwkg/not/icozip/sw/host $ ./arm-wbregs cpu 0x0f
+04000000 (     CPU)-> 0000000f
+
+devel@mypi3-20:~/wkg-notwkg/not/icozip/sw/host $ ./arm-zipload -v ../board/hello
+Halting the CPU
+Memory regions:
+	Block RAM: 01400000 - 01402000
+	SDRAM       : 02000000 - 03000000
+Loading: ../board/hello
+Section 0: 02000000 - 02004a2c
+Writing to MEM: 02000000-02004a2c
+Clearing the CPUs registers
+Setting PC to 02000000
+The CPU should be fully loaded, you may now
+start it (from reset/reboot) with:
+> wbregs cpu 0x0f
+
+CPU Status is: 0000060f
+devel@mypi3-20:~/wkg-notwkg/not/icozip/sw/host $ ./arm-wbregs cpu 0x0f
+04000000 (     CPU)-> 0000000f
+
+
+devel@mypi3-20:~/wkg-notwkg/not/icozip/sim/verilated $ ./arm-main_tb 
+Listening on port 8363
+Listening on port 8364
+> T
+
+Running CPU self-test
+-----------------------------------
+SIM Instructions                Is this a simulator?
+CIS Instructions                Supported
+Break test #1                   Pass
+Break test #2                   Pass
+Break test #3                   Pass
+Early Branch test               Pass
+Trap test/AND                   Pass
+Trap test/CLR                   Pass
+Overflow test                   Pass
+Carry test                      Pass
+Loop test                       Pass
+Shift test                      Pass
+Pipeline test                   Pass
+Mem-Pipeline test               Pass
+Conditional Execution test      Pass
+No-waiting pipeline test        Pass
+Conditional Branching test      Pass
+Ill Instruction test, NULL PC   Pass
+Ill Instruction test, two       Pass
+Comparison test, ==             Pass
+Comparison test, !=             Pass
+CC Register test                Pass
+Multi-Arg test                  Pass
+Multiply test                   Pass
+
+> A04000001K00000000
+<  [CLOSED]
+Hello, World
+
+mypi3-20
+
+autofpga
+commit 5b57538081d60a04cd32aeba2436816062cb0141 (HEAD -> master, upstream/master, upstream/dev)
+Author: ZipCPU <dgisselq@ieee.org>
+Date:   Fri Aug 14 07:55:55 2020 -0400
+devel@mypi3-20:~/autofpga $ ls -la /usr/local/bin/autofpga 
+lrwxrwxrwx 1 root root 32 May  9 08:18 /usr/local/bin/autofpga -> /home/devel/autofpga/sw/autofpga
+
+icestorm
+commit c495861c19bd0976c88d4964f912abe76f3901c3 (HEAD -> master, upstream/master)
+Author: gatecat <gatecat@ds0.me>
+Date:   Tue Mar 9 09:51:12 2021 +0000
+
+nextpnr
+commit 4419c36db5556d2a7f600517d6a4b5673067579d (HEAD -> master, upstream/master)
+Merge: 0e9a1abc d0bc033a
+Author: gatecat <gatecat@ds0.me>
+Date:   Fri Mar 26 18:39:18 2021 +0000
+nextpnr-ice40 -V
+nextpnr-ice40 -- Next Generation Place and Route (Version 4419c36d)
+
+yosys
+commit 7cc9d487ff806f91fa09815243d4d8091671b88b (HEAD -> master, origin/master, origin/HEAD)
+Merge: 2e8d6ec0 161eba25
+Author: whitequark <whitequark@whitequark.org>
+Date:   Sun Feb 9 20:29:16 2020 +0000
+yosys -V
+Yosys 0.9+1706 (git sha1 7cc9d487, clang 7.0.1-8+rpi3+deb10u2 -fPIC -Os)
+
+zipcpu
+commit 3c0c9c6b017ca54ca8d90eba862149321cd13a4d (HEAD -> master, upstream/master, origin/master, origin/HEAD)
+Merge: f7f800b 3e4aa81
+Author: Dan Gisselquist <dan.gisselquist@gmail.com>
+Date:   Wed Nov 11 18:23:14 2020 -0500
+
+verilator
+commit 39eea781bc73f09f9d8374c31b0a9a036f58f2b7 (HEAD -> stable, origin/stable)
+Merge: c4f7bd6a 16fba594
+Author: Wilson Snyder <wsnyder@wsnyder.org>
+Date:   Mon Sep 7 09:38:50 2020 -0400
+verilator -V
+Verilator 4.100 2020-09-07 rev v4.100-10-g39eea781
+
+mypi3-16 testing/icozip-catzip-br/icozip simulation 05/22/21
+
+devel@mypi3-16:~/testbuilds/icozip-catzip-br/icozip/sim/verilated $ ./arm-main_tb 
+Listening on port 8363
+Listening on port 8364
+> T
+
+Running CPU self-test
+-----------------------------------
+SIM Instructions                Is this a simulator?
+CIS Instructions                Supported
+Break test #1                   Pass
+Break test #2                   Pass
+Break test #3                   Pass
+Early Branch test               Pass
+Trap test/AND                   Pass
+Trap test/CLR                   Pass
+Overflow test                   Pass
+Carry test                      Pass
+Loop test                       Pass
+Shift test                      Pass
+Pipeline test                   Pass
+Mem-Pipeline test               Pass
+Conditional Execution test      Pass
+No-waiting pipeline test        Pass
+Conditional Branching test      Pass
+Ill Instruction test, NULL PC   Pass
+Ill Instruction test, two       Pass
+Comparison test, ==             Pass
+Comparison test, !=             Pass
+CC Register test                Pass
+Multi-Arg test                  Pass
+Multiply test                   Pass
+
+> A04000001K00000000
+<  [CLOSED]
+Multiply HI-word test           Hello, World
+
+ptrs.inpbuf = 0xff0f  4 __f_  d xx0xff4f
+
+0
+fwd_inv = 0xffcf
+
+8
+  = 22e27727ppsp00 0  2   = 22e20000
+
+  = eede8828ppsp00 0  e   = eede0000
+
+  = 22e27717ppsp00 0  2   = 22e20000
+
+  = 33e37727ppsp00 0  3   = 33e30000
+
+> Z
+  = 88a85525ppsp00 0  8   = 88a80000
+
+  = 22b24404ppsp00 0  2   = 22b20000
+
+spliting red sub ban
+
+fwd lifting then inv lifting ste
+
+  = 0010ppwp== =22x2ffffaa a== =xx0xff8f  0 __d_eeve  e 00 0cc0c8808 fwd_inverse =    0 
+starting red dwt
+in singlelif
+> Z
+in singlelif
+
+
+> Z
+in singlelif
+
+
+in singlelif
+
+
+in singlelif
+
+
+in singlelif
+
+
+> Z
+testing test_fwd
+
+> Z
+> Z
+finished ted dwt
+
+
+devel@mypi3-16:~/testbuilds/icozip-catzip-br/icozip/sw/host $ ./arm-wbregs version
+01000014 ( VERSION) : [.!.!] 20210521
+
+devel@mypi3-16:~/testbuilds/icozip-catzip-br/icozip/sw/host $ ./arm-zipload -v ../board/cputest
+Halting the CPU
+Memory regions:
+	Block RAM: 01400000 - 01402000
+	SDRAM       : 02000000 - 03000000
+Loading: ../board/cputest
+Section 0: 02000000 - 02003ddc
+Writing to MEM: 02000000-02003ddc
+Clearing the CPUs registers
+Setting PC to 02000000
+The CPU should be fully loaded, you may now
+start it (from reset/reboot) with:
+> wbregs cpu 0x0f
+
+CPU Status is: 0000060f
+
+devel@mypi3-16:~/testbuilds/icozip-catzip-br/icozip/sw/host $ ./arm-wbregs cpu 0x0f
+04000000 (     CPU)-> 0000000f
+
+devel@mypi3-16:~/testbuilds/icozip-catzip-br/icozip/sw/host $ ./arm-zipload -v ../board/hello
+Halting the CPU
+Memory regions:
+	Block RAM: 01400000 - 01402000
+	SDRAM       : 02000000 - 03000000
+Loading: ../board/hello
+Section 0: 02000000 - 02004a2c
+Writing to MEM: 02000000-02004a2c
+Clearing the CPUs registers
+Setting PC to 02000000
+The CPU should be fully loaded, you may now
+start it (from reset/reboot) with:
+> wbregs cpu 0x0f
+
+CPU Status is: 0000060f
+devel@mypi3-16:~/testbuilds/icozip-catzip-br/icozip/sw/host $ ./arm-wbregs cpu 0x0f
+04000000 (     CPU)-> 0000000f
+
+devel@mypi3-16:~/testbuilds/icozip-catzip-br/icozip/sw/host $ ./runjpeg.sh 
+01401000 (        )-> 00000002
+01401004 (        )-> 00000001
+Halting the CPU
+Memory regions:
+	Block RAM: 01400000 - 01402000
+	SDRAM       : 02000000 - 03000000
+Loading: ../board/jpeg
+Section 0: 02000000 - 0204f2f4
+Writing to MEM: 02000000-0204f2f4
+Clearing the CPUs registers
+Setting PC to 02000000
+The CPU should be fully loaded, you may now
+start it (from reset/reboot) with:
+> wbregs cpu 0x0f
+
+CPU Status is: 0000060f
+The size of the buffer is 0x010000 or 65536 words
+
+READ-COMPLETE
+04000000 (     CPU)-> 0000000f
+
+autofpga
+commit 5b57538081d60a04cd32aeba2436816062cb0141 (HEAD -> master, upstream/master, upstream/dev, origin/master, origin/HEAD)
+Author: ZipCPU <dgisselq@ieee.org>
+Date:   Fri Aug 14 07:55:55 2020 -0400
+lrwxrwxrwx  1 root root        32 Mar 31 15:39 autofpga -> /home/devel/autofpga/sw/autofpga
+
+yosys
+commit 0ccc7229c02449618209a20d66b9fa07e3ea79f2 (HEAD -> master, upstream/master, origin/master, origin/HEAD)
+Author: Zachary Snow <zach@zachjs.com>
+Date:   Tue Mar 30 09:38:00 2021 -0400
+devel@mypi3-16:~/yosys $ yosys -V
+Yosys 0.9+4052 (git sha1 0ccc7229, gcc 8.3.0-6+rpi1 -fPIC -Os)
+
+nextpnr
+commit 4419c36db5556d2a7f600517d6a4b5673067579d (HEAD -> master, upstream/master, origin/master, origin/HEAD)
+Merge: 0e9a1abc d0bc033a
+Author: gatecat <gatecat@ds0.me>
+Date:   Fri Mar 26 18:39:18 2021 +0000
+
+devel@mypi3-16:~/nextpnr $ nextpnr-ice40 -V
+nextpnr-ice40 -- Next Generation Place and Route (Version 4419c36d)
