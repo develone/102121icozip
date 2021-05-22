@@ -160,9 +160,9 @@ parameter	RDLY = 6;
 			wb_sdram_cyc,
 			 
 			wb_sdram_stb,wb_sdram_we,
-			 
+			/* verilator lint_off WIDTH */			 
 			wb_sdram_addr[(@$LGMEMSZ-2):0],
-			 
+			 /* verilator lint_off WIDTH */
 			wb_sdram_data, // 32 bits wide
 			wb_sdram_sel,  // 32/8 bits wide
 			wb_sdram_stall, wb_sdram_ack, wb_sdram_idata,
