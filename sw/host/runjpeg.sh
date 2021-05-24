@@ -4,7 +4,7 @@
 ./arm-zipload -v ../board/jpeg
 ./arm-wrsdram rgb_pack.bin
 ./arm-wbregs cpu 0x0f
-#sleep 25
+sleep 25
 #rm -f dwt.bin
-#./arm-rdsdram dwt.bin
+./arm-rdsdram dwt.bin
 
