@@ -3,8 +3,8 @@
 #include <stdlib.h>
 #include "board.h"
 #include "lifting.h"
-#define BLKRAM_FLAG 0x00A01000
-#define BLKRAM_INVFWD 0x00A01004
+#define BLKRAM_FLAG 0x01401000
+#define BLKRAM_INVFWD 0x01401004
 #define imgsize 256
 #define DBUG 1
 #define DBUG1 1
