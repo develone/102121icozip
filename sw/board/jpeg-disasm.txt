@@ -170,7 +170,7 @@ Disassembly of section .rocode:
  2000254:	23 41 40 00 	MOV        R5,R4
  2000258:	1a 03 00 40 	LDI        0x0200f284,R3  // 200f284 <ptrs>
  200025c:	1a 40 f2 84 
- 2000260:	16 00 ff ff 	LDI        $65535,R2
+ 2000260:	16 01 00 00 	LDI        $65536,R2
  2000264:	87 fa fc f8 	JSR        0x0200089c     // 200089c <split>
  2000268:	02 00 08 9c 
  200026c:	8c d8 8c 88 	LW         (R11),R1       | LW         (R1),R1
@@ -268,7 +268,7 @@ Disassembly of section .rocode:
  20003dc:	0a 40 e4 cc 
  20003e0:	87 fa fc f8 	JSR        0x020019a8     // 20019a8 <puts>
  20003e4:	02 00 19 a8 
- 20003e8:	1e 03 ff fc 	LDI        $262140,R3
+ 20003e8:	1e 04 00 00 	LDI        $262144,R3
  20003ec:	13 41 40 00 	MOV        R5,R2
  20003f0:	0a 03 00 40 	LDI        0x0200f284,R1  // 200f284 <ptrs>
  20003f4:	0a 40 f2 84 

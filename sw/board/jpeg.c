@@ -124,7 +124,7 @@ int main(int argc, char **argv) {
     */ 
  	i = ptrs.w*ptrs.h*2;
  	clrram(i,buf_red);
-	i = 65535;
+	i = 65536;
 	 
 		ptrs.flag = ptrs.ptr_blkram_flag[0];
 		split(ptrs.flag, i, ptrs.inpbuf,buf_red);
