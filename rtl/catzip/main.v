@@ -130,7 +130,7 @@ parameter	RDLY = 6;
 	output	wire		o_ram_cs_n,
 				o_ram_ras_n, o_ram_cas_n, o_ram_we_n;
 	output	wire	[1:0]	o_ram_bs;
-	output	wire	[12:0]	o_ram_addr;
+	output	wire	[11:0]	o_ram_addr;
 	 /* verilator lint_off UNUSED */
 	input	wire	[15:0]	i_ram_data;
         /* verilator lint_off UNUSED */
@@ -780,7 +780,7 @@ parameter	RDLY = 6;
 			 
 			wb_sdram_stb,wb_sdram_we,
 			/* verilator lint_off WIDTH */			 
-			wb_sdram_addr[(24-2):0],
+			wb_sdram_addr[(24-4):0],
 			 /* verilator lint_off WIDTH */
 			wb_sdram_data, // 32 bits wide
 			wb_sdram_sel,  // 32/8 bits wide

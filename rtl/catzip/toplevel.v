@@ -92,7 +92,7 @@ i_clk);
 	output	wire	o_ram_clk, o_ram_cke;
 	output	wire	o_ram_cs_n, o_ram_ras_n, o_ram_cas_n, o_ram_we_n;
 	output	wire	[1:0]	o_ram_bs;
-	output	wire	[12:0]	o_ram_addr;
+	output	wire	[11:0]	o_ram_addr;
 	output	wire		o_ram_udqm, o_ram_ldqm;
 	inout	wire	[15:0]	io_ram_data;
 	wire	[15:0]		i_ram_data, o_ram_data;
