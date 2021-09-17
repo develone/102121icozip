@@ -85,7 +85,7 @@ module	speechpp(i_clk, o_ledg, o_ledr,
 		.DIVR(4'b0000),		// Divide by (DIVR+1)
 		.DIVQ(3'b100),		// Divide by 2^(DIVQ)
 		.DIVF(7'b0000111),		// Multiply by (DIVF+1)
-		.FILTER_RANGE(3'b001)
+		.FILTER_RANGE(3'b101)
 	) plli (
 		.REFERENCECLK    (i_clk        ),
 		.PLLOUTCORE     (clk_50mhz    ),
