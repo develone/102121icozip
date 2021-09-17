@@ -68,9 +68,9 @@ module	hellopp(i_clk,
 		.PLLOUT_SELECT("GENCLK"),
 		.FDA_FEEDBACK(4'b1111),
 		.FDA_RELATIVE(4'b1111),
-		.DIVR(4'd8),		// Divide by (DIVR+1)
-		.DIVQ(3'd3),		// Divide by 2^(DIVQ)
-		.DIVF(7'd47),		// Multiply by (DIVF+1)
+		.DIVR(4'b1000),		// Divide by (DIVR+1)
+		.DIVQ(3'b100),		// Divide by 2^(DIVQ)
+		.DIVF(7'b1011110),		// Multiply by (DIVF+1)
 		.FILTER_RANGE(3'b001)
 	) plli (
 		.REFERENCECLK    (i_clk        ),
