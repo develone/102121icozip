@@ -2,7 +2,7 @@
 //
 // Filename: 	pport.v
 //
-// Project:	ICO Zip, iCE40 ZipCPU demonstration project
+// Project:	ICO Zip, iCE40 ZipCPU demonsrtation project
 //
 // Purpose:
 //
@@ -19,7 +19,7 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 //
-// Copyright (C) 2017-2020, Gisselquist Technology, LLC
+// Copyright (C) 2017, Gisselquist Technology, LLC
 //
 // This program is free software (firmware): you can redistribute it and/or
 // modify it under the terms of  the GNU General Public License as published
