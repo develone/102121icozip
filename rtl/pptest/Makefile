@@ -45,7 +45,7 @@ PNR := nextpnr-ice40 --hx8k -r --freq $(CLKFREQ) --package ct256
 # $<	- Name of the first prerequisite
 # $^	- Names of all the prerequisites
 %.json: %.v
-	yosys -ql $*.yslog -p 'synth_ice40 -abc9 -top $* -json $@' $^
+	yosys -ql $*.yslog -p 'synth_ice40 -top $* -json $@' $^
 %.asc: %.json %.pcf
 	$(PNR) --pcf $*.pcf --json $*.json --asc $@
 
