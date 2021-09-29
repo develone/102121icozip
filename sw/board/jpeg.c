@@ -5,6 +5,15 @@
 #include "lifting.h"
 #define BLKRAM_FLAG 0x01401000
 #define BLKRAM_INVFWD 0x01401004
+#define BLKRAM_WAIT 0x01401008
+#define BLKRAM_INP 0x0140100c
+
+#define BLKRAM_WAIT1 0x01401010
+//#define BLKRAM_INP1 0x01401014
+
+#define BLKRAM_WAIT2 0x01401018
+//#define BLKRAM_INP2 0x0140101c
+
 #define imgsize 256
 #define DBUG 1
 #define DBUG1 1
@@ -43,19 +52,27 @@ for(i=0;i<loop;i++) {
 //0xc0024	786468	0x008093b0
 struct PTRs {
 	int inpbuf[65536];
-	 
 	int flag;
+	int wait;
+	int wait1;
+	int wait2;
 	int w;
 	int h;
+	/*
+	  ptrs.red = ( int *)malloc(sizeof( int)* ptrs.w*ptrs.h*2);
+	  first 65536 used as input to lifting 
+	  2nd 655536 used as output for lifting.
+	*/
+	int *red;
+	int *alt;
+	int *ptr_blkram_flag;
+	int *ptr_blkram_invfwd;
+	int *ptr_blkram_wait;
+	int *ptr_blkram_inp;
+	int *ptr_blkram_wait1;
+	int *ptr_blkram_wait2;
 	 
-	 int *red;
-	
-	 int *grn;
-	 int *blu;
-	 int *alt;
-	 int *ptr_blkram_flag;
-	 int *ptr_blkram_invfwd;
-	//int *fwd_inv;
+ 
 } ptrs;
 
  
@@ -86,123 +103,134 @@ void split(int ff, int loop, int *ibuf,  int *obuf) {
 }	
 int main(int argc, char **argv) {
 	
-	 
+ 
 	  
-	 int *red_s_ptr, *gr_s_ptr, *bl_s_ptr;
-	 int *wptr,*wptr1,*wptr2;
-	 int *alt,*alt1,*alt2;
 	
 	 
-	 int *buf_red, *buf_gr, *buf_bl;
-	 int ur,ug,ub,x,y,z;
-	int *fwd_inv;	
-
-	int i,j;
-	 
+	int loop,i,s,*fwd_inv,*inp;
+	
 	ptrs.w = 256;
 	ptrs.h = 256;
-	ptrs.ptr_blkram_flag = (int *)BLKRAM_FLAG; 
-	ptrs.ptr_blkram_invfwd = (int *)BLKRAM_INVFWD;  
-	buf_red = ( int *)malloc(sizeof( int)* ptrs.w*ptrs.h*2);	
-	red_s_ptr = buf_red;
 	
-	fwd_inv = (int *)malloc(sizeof( int)*1);
- 
-	if(buf_red == NULL) return 2;
-	
-	if(fwd_inv == NULL) return 5;
-	red_s_ptr = buf_red;
-	if (DBUG) {
-		printf("ptrs.inpbuf = 0x%x buf_red = 0x%x\n",ptrs.inpbuf,buf_red);
-     
-		printf("fwd_inv = 0x%x\n",fwd_inv);
-	}
-    /*The file rgb_pack.bin contains the rgb images
-     * packed in bits red 29-20
-     * packed in bits grn 19-10
-     * packed in bits blu 9-0 
-    */ 
- 	i = ptrs.w*ptrs.h*2;
- 	clrram(i,buf_red);
-	i = 65536;
+	printf("w=%d  h=%d\n",ptrs.w,ptrs.h);
 	 
-		ptrs.flag = ptrs.ptr_blkram_flag[0];
-		split(ptrs.flag, i, ptrs.inpbuf,buf_red);
 	
-
-		*fwd_inv = ptrs.ptr_blkram_invfwd[0];
+	
+	
+	ptrs.ptr_blkram_flag = (int *)BLKRAM_FLAG;
+	ptrs.ptr_blkram_inp = (int *)BLKRAM_INP;
+	/*
+	 *  ptrs.ptr_blkram_flag is the pointer to which image to be split
+	 * 0 red 1 green and 2 blue.
+	 * this value is written by runjpeg using ./arm-wbregs 0x01401000 0x2.
+	 * ptrs.flag is set with the value passed by runjpeg.
+	 * The struct has 3 int wait, wait1, and wait2 used as places to stop the 
+	 * program. This requires 3 pointers (*ptr_blkram_wait,*ptr_blkram_wait1
+	 * *ptr_blkram_wait2). 
+	 * 
+	 * In addition a pointer *ptr_blkram_inp is used to inform the user the location of where
+	 * the data should be placed.  
+	 */
+	printf("%x %d \n",ptrs.ptr_blkram_flag,*(ptrs.ptr_blkram_flag) );
+	ptrs.flag = ptrs.ptr_blkram_flag[0];
+	
+	printf("flag %d 0x%x\n",ptrs.flag,&ptrs.flag);
+	
+	ptrs.ptr_blkram_invfwd = (int *)BLKRAM_INVFWD;
+	/*
+	* ptrs.ptr_blkram_invfwd is used to provide a inv only when 1 or
+	* inv/fwd when 0 this value is written by runjpeg using
+	* ./arm-wbregs 0x01401004 0x1
+	*/
+	
+	printf("%x %d \n",ptrs.ptr_blkram_invfwd,*(ptrs.ptr_blkram_invfwd) );
+	ptrs.alt = ( int *)malloc(sizeof( int)* ptrs.w*ptrs.h);
+	/*
+	 * ptrs.red will be passed to lifting step 
+	*/
+	//ptrs.alt = ptrs.red + (ptrs.w*ptrs.h);
+	
+	
+	*ptrs.ptr_blkram_inp = &(ptrs.inpbuf[0]);
+	printf("%x %x \n",ptrs.ptr_blkram_inp,*(ptrs.ptr_blkram_inp) );
+	
+	ptrs.ptr_blkram_wait = (int *)BLKRAM_WAIT;
+	ptrs.wait = ptrs.ptr_blkram_wait[0];
+	while (ptrs.wait==1) {
+			 
+		ptrs.wait = ptrs.ptr_blkram_wait[0];	 
 		
-		if (ptrs.flag == 0) { 
-			if (DBUG1) {
-				printf("spliting red sub band\n");
-			}
-			
-		}
-		else if (ptrs.flag == 1) {
-			if (DBUG1) {
-				printf("spliting green sub band\n");
-			}
-			
-		}	
-		else if (ptrs.flag == 2) {
-			if (DBUG1) {
-				printf("spliting blue sub band\n");
-			}
-		
-		}
-		else {
-			if (DBUG1) {
-				printf("First parameter can only be 0 1 2 \n");
-			}
-			free(buf_red);
-	        free(fwd_inv);
-			exit (1);
-		}
- 
- 
- 
-		if (fwd_inv[0] == 0) { 
-			if (DBUG1) {
-				printf("fwd lifting then inv lifting step\n");
-			}
-			
-		}
-		else if (fwd_inv[0] == 1) {
-			if (DBUG1) {
-				printf("fwd lifting step only\n");
-			}
-			
-		} else
-		{
-			if (DBUG1) {
-				printf("BLKRAM_INVFWD parameter can only be 0 1  \n");
-			}
-			free(buf_red);
-	        free(fwd_inv);
-			exit (2);
-		}
-
-		buf_red = red_s_ptr;
-		wptr = buf_red;
-		alt = &buf_red[ptrs.w*ptrs.h];
-		if(DBUG) {
-			printf("w = 0x%x wptr = 0x%x alt =  0x%x fwd_inverse =  0x%x fwd_inverse =  0x%x \n",ptrs.w, wptr,alt,fwd_inv,*fwd_inv);
-		}
-		if(DBUG1) {
-			printf("starting red dwt\n");
-		}
-		
-			lifting(ptrs.w,wptr,alt,fwd_inv);
-		
-		if(DBUG1) {
-			printf("finished ted dwt\n");
-		}
-		out2inpbuf(i,buf_red, ptrs.inpbuf);
-		//pack(ptrs.flag, i,buf_red, ptrs.inpbuf);
-	while (DBUG1) {
 	}
-  	free(buf_red);
-	free(fwd_inv);
+	
+ 	printf(" ptrs.alt 0x%x 0x%x\n",ptrs.alt,&(ptrs.inpbuf[0]));
+	s = ptrs.w*ptrs.h*2;
+	printf("%d \n",s);
+	
+	ptrs.ptr_blkram_wait1 = (int *)BLKRAM_WAIT1;
+	ptrs.wait1 = ptrs.ptr_blkram_wait1[0];
+	while (ptrs.wait1==1) {
+		
+		ptrs.wait1 = ptrs.ptr_blkram_wait1[0];
+ 
+	}	
+	 
+	for(i=0;i<4;i++) {
+		printf("0x%x 0x%x\n",&(ptrs.inpbuf[i]),ptrs.inpbuf[i]);
+		
+	}	
+	printf("\n");
+	for(i=32768;i<32772;i++) {
+		printf("0x%x 0x%x\n",&(ptrs.inpbuf[i]),ptrs.inpbuf[i]);
+		
+	}	
+	printf("\n");
+	for(i=65532;i<65536;i++) {
+		printf("0x%x 0x%x\n",&(ptrs.inpbuf[i]),ptrs.inpbuf[i]);
+		
+	}	
+	
+	//printf("%x %d \n",ptrs.ptr_blkram_invfwd,*(ptrs.ptr_blkram_invfwd) );	
+	//loop=ptrs.w*ptrs.h;
+	//printf("loop %d \n",loop);
+
+	//clrram(loop,ptrs.alt);
+
+	//loop=ptrs.w*ptrs.h;
+	//*fwd_inv = ptrs.ptr_blkram_invfwd[0];
+	//printf("%d %d\n",fwd_inv,loop);
+
+	//ptrs.ptr_blkram_wait2 = (int *)BLKRAM_WAIT2;
+	//ptrs.wait2 = ptrs.ptr_blkram_wait2[0];
+	while (ptrs.wait2==1) {
+		
+		ptrs.wait2 = ptrs.ptr_blkram_wait2[0];
+ 
+	}
+	//printf("%x %d \n",ptrs.ptr_blkram_invfwd,*(ptrs.ptr_blkram_invfwd) );	
+	//loop=ptrs.w*ptrs.h;
+	//printf("loop %d \n",loop);
+
+	//clrram(loop,ptrs.alt);
+
+	
+	//printf("split \n ");
+	
+	//split(ptrs.flag, loop, &(ptrs.inpbuf[0]),ptrs.red);
+	
+	
+	printf("%d 0x%x 0x%x 0x %x \n",ptrs.w,ptrs.inpbuf,ptrs.alt,ptrs.ptr_blkram_invfwd);
+	printf("%d  \n",ptrs.w);
+	//printf("0x%x  \n",ptrs.inpbuf);
+	lifting(ptrs.w,ptrs.inpbuf,ptrs.alt,fwd_inv);
+	
+	ptrs.ptr_blkram_wait = (int *)BLKRAM_WAIT;
+	ptrs.wait = ptrs.ptr_blkram_wait[0];
+	while (ptrs.wait==0) {
+			 
+		ptrs.wait = ptrs.ptr_blkram_wait[0];	 
+		
+	}
+	free(ptrs.red);
 	return 0;
 	
 	
