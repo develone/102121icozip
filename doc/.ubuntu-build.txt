@@ -1,0 +1,263 @@
+09/30/21	
+Welcome to Ubuntu 20.04.3 LTS (GNU/Linux 5.4.0-84-generic x86_64)
+
+git clone git@github.com:develone/icozip.git -b catzip catzip
+
+cd catzip/
+
+. myenv-a.sh
+
+make
+
+rsync -avl --delete /home/vidal/testbuilds/catzip devel@mypi3-19:~/testbuilds/ws011/
+
+devel@mypi3-19:~/testbuilds/mypi3-16/catzip/sw/host $ sudo config_cat ../../../../ws011/catzip/rtl/catzip/catzip.bin
+
+devel@mypi3-19:~/testbuilds/mypi3-16/catzip/sw/host $ sudo ./arm-netpport 
+Listening on port 8363
+Listening on port 8364
+
+cd sw/host
+
+vidal@ws011:~/testbuilds/catzip/sw/host$ ./pc-wbregs -n mypi3-19 version
+01000014 ( VERSION) : [.!.0] 20210930
+
+vidal@ws011:~/testbuilds/catzip/sw/host$ ./pc-zipload -n mypi3-19 -v ../board/cputest
+Halting the CPU
+Memory regions:
+	Block RAM: 01400000 - 01402000
+	SDRAM       : 02000000 - 03000000
+Loading: ../board/cputest
+Section 0: 02000000 - 020039f0
+Writing to MEM: 02000000-020039f0
+Clearing the CPUs registers
+Setting PC to 02000000
+The CPU should be fully loaded, you may now
+start it (from reset/reboot) with:
+> wbregs cpu 0x0f
+
+CPU Status is: 0000060f
+
+vidal@ws011:~/testbuilds/catzip/sw/host$ ./pc-wbregs -n mypi3-19 cpu 0x0f
+04000000 (     CPU)-> 0000000f
+
+. Running CPU self-test
+. -----------------------------------
+. SIM Instructions                Pass
+. CIS Instructions                Supported
+. Break test #1                   Pass
+. Break test #2                   Pass
+. Break test #3                   Pass
+. Early Branch test               Pass
+. Trap test/AND                   Pass
+. Trap test/CLR                   Pass
+. Overflow test                   Pass
+. Carry test                      Pass
+. Loop test                       Pass
+. Shift test                      Pass
+. Pipeline test                   Pass
+. Mem-Pipeline test               Pass
+. Conditional Execution test      Pass
+. No-waiting pipeline test        Pass
+. Conditional Branching test      Pass
+. Ill Instruction test, NULL PC   Pass
+. Ill Instruction test, two       Pass
+. Comparison test, ==             Pass
+. Comparison test, !=             Pass
+. CC Register test                Pass
+. Multi-Arg test                  Pass
+. Multiply test                   Pass
+. Multiply HI-word test           Pass
+. Divide test                     Pass
+. 
+. -----------------------------------
+. All tests passed.  Halting CPU.
+
+vidal@ws011:~/testbuilds/catzip/sw/host$ ./pc-zipload -n mypi3-19 -v ../board/hello
+Halting the CPU
+Memory regions:
+	Block RAM: 01400000 - 01402000
+	SDRAM       : 02000000 - 03000000
+Loading: ../board/hello
+Section 0: 02000000 - 020047c8
+Writing to MEM: 02000000-020047c8
+Clearing the CPUs registers
+Setting PC to 02000000
+The CPU should be fully loaded, you may now
+start it (from reset/reboot) with:
+> wbregs cpu 0x0f
+
+CPU Status is: 0000060f
+vidal@ws011:~/testbuilds/catzip/sw/host$ ./pc-wbregs -n mypi3-19 cpu 0x0f
+04000000 (     CPU)-> 0000000f
+
+. Hello, World!
+
+
+#!/bin/bash
+./pc-wbregs -n mypi3-19 0x01401000 0x2
+./pc-wbregs -n mypi3-19 0x01401004 0x1
+./pc-wbregs -n mypi3-19 0x01401008 0x1
+./pc-wbregs -n mypi3-19 0x0140100c 0x0
+./pc-wbregs -n mypi3-19 0x01401010 0x1
+./pc-wbregs -n mypi3-19 0x01401018 0x1
+
+./pc-zipload -n mypi3-19 -v ../board/jpeg
+#./pc-wrsdram rgb_pack.bin
+./pc-wbregs -n mypi3-19 cpu 0x0f
+#sleep 45
+#rm -f dwt.bin
+#./pc-rdsdram -n mypi3-19 dwt.bin
+
+vidal@ws011:~/testbuilds/catzip/sw/host$ ./pc-zipload -n mypi3-19 -v ../board/jpeg
+Halting the CPU
+Memory regions:
+	Block RAM: 01400000 - 01402000
+	SDRAM       : 02000000 - 03000000
+Loading: ../board/jpeg
+Section 0: 02000000 - 0204fe6c
+Writing to MEM: 02000000-0204fe6c
+Clearing the CPUs registers
+Setting PC to 02000000
+The CPU should be fully loaded, you may now
+start it (from reset/reboot) with:
+> wbregs cpu 0x0f
+
+CPU Status is: 0000060f
+
+vidal@ws011:~/testbuilds/catzip/sw/host$ ./remrunjpeg.sh 
+01401000 (        )-> 00000002
+01401004 (        )-> 00000001
+01401008 (        )-> 00000001
+0140100c (        )-> 00000000
+01401010 (        )-> 00000001
+01401018 (        )-> 00000001
+Halting the CPU
+Memory regions:
+	Block RAM: 01400000 - 01402000
+	SDRAM       : 02000000 - 03000000
+Loading: ../board/jpeg
+Section 0: 02000000 - 0204fe6c
+Writing to MEM: 02000000-0204fe6c
+Clearing the CPUs registers
+Setting PC to 02000000
+The CPU should be fully loaded, you may now
+start it (from reset/reboot) with:
+> wbregs cpu 0x0f
+
+CPU Status is: 0000060f
+04000000 (     CPU)-> 0000000f
+
+. w=256  h=256
+. 1401000 2 
+. flag 2 0x204fde8
+. 1401004 1 
+. 140100c 200fde8 
+
+vidal@ws011:~/testbuilds/catzip/sw/host$ ./pc-wbregs -n mypi3-19 0x0140100c
+0140100c (        ) : [....] 0200fde8
+
+vidal@ws011:~/testbuilds/catzip/sw/host$ ./pc-wrsdram -n mypi3-19 b.bin
+HOST = mypi3-19
+The size of the buffer is 0x010000 or 65536 words
+
+READ-COMPLETE
+
+vidal@ws011:~/testbuilds/catzip/sw/host$ ./pc-wbregs -n mypi3-19 0x01401008 0x0
+01401008 (        )-> 00000000
+
+.  ptrs.alt 0x20544c8 0x200fde8
+. 131072
+
+vidal@ws011:~/testbuilds/catzip/sw/host$ ./pc-wbregs -n mypi3-19 0x01401010 0x0
+01401010 (        )-> 00000000
+
+. 0x200fde8 0x7e
+. 0x200fdec 0x7d
+. 0x200fdf0 0x7b
+. 0x200fdf4 0x76
+. 
+. 0x202fde8 0x6a
+. 0x202fdec 0x6a
+. 0x202fdf0 0x68
+. 0x202fdf4 0x64
+. 
+. 0x204fdd8 0x48
+. 0x204fddc 0x4a
+. 0x204fde0 0x4e
+. 0x204fde4 0x50
+. 256 0x200fde8 0x20544c8 0x 1401004 
+. 256
+
+repeat jpeg with g.bin
+. 0x200fde8 0x89
+. 0x200fdec 0x89
+. 0x200fdf0 0x89
+. 0x200fdf4 0x85
+. 
+. 0x202fde8 0x6d
+. 0x202fdec 0x6c
+. 0x202fdf0 0x69
+. 0x202fdf4 0x66
+. 
+. 0x204fdd8 0x36
+. 0x204fddc 0x3b
+. 0x204fde0 0x41
+. 0x204fde4 0x47
+. 256 0x200fde8 0x20544c8 0x 1401004 
+. 256
+
+repeat jpeg with r.bin
+. 0x200fde8 0xe2
+. 0x200fdec 0xe2
+. 0x200fdf0 0xe1
+. 0x200fdf4 0xe1
+. 
+. 0x202fde8 0xcf
+. 0x202fdec 0xcf
+. 0x202fdf0 0xcf
+. 0x202fdf4 0xcf
+. 
+. 0x204fdd8 0x96
+. 0x204fddc 0xa1
+. 0x204fde0 0xab
+. 0x204fde4 0xb4
+. 256 0x200fde8 0x20544c8 0x 1401004 
+. 256 
+
+vidal@ws011:~/testbuilds/catzip/sw/host$ ./pc-rdsdram -n mypi3-19 dwt.bin
+HOST = mypi3-19
+
+Write-COMPLETE
+The size of the buffer is 0x010000 or 65536 words
+
+#!/bin/bash
+./pc-wbregs 0x01401000 0x2
+./pc-wbregs 0x01401004 0x1
+./pc-wbregs 0x01401008 0x1
+./pc-wbregs 0x0140100c 0x0
+./pc-wbregs 0x01401010 0x1
+./pc-wbregs 0x01401018 0x1
+
+./pc-zipload -v ../board/jpeg
+./pc-wrsdram r.bin
+./pc-wbregs cpu 0x0f
+./pc-wbregs 0x01401008 0x0
+./pc-wbregs 0x01401010 0x0
+#sleep 25
+#rm -f dwt.bin
+#./pc-rdsdram dwt.bin
+
+
+BOMB : CPU BREAK RECEIVED
+ZIPM--DUMP: Supervisor mode
+
+sR0 : 02000930 sR1 : 00000000 sR2 : 020401e8 sR3 : 00002020
+sR4 : 0204fde4 sR5 : 00000003 sR6 : 020400e8 sR7 : 020847c8
+sR8 : 02ffff94 sR9 : 02ffff8c sR10: 00000100 sR11: 020544c8
+sR12: 00000040 sSP : 02ffff84 sCC : 00000001 sPC : 02000974
+
+uR0 : 00000000 uR1 : 00000000 uR2 : 00000000 uR3 : 00000000
+uR4 : 00000000 uR5 : 00000000 uR6 : 00000000 uR7 : 00000000
+uR8 : 00000000 uR9 : 00000000 uR10: 00000000 uR11: 00000000
+uR12: 00000000 uSP : 00000000 uCC : 00000020 uPC : 02000048
