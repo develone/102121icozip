@@ -48,11 +48,34 @@ module	clktest(i_clk, o_ledg, o_ledr);
 	// top of any second.  We do this using a 32-bit counter, but step
 	// the counter by 2^32/clock_rate.  Hence, after clock_rate clocks tick
 	// by, the counter should roll over.
+	wire		s_clk, s_reset;
+	wire	clk_40mhz, pll_locked;
+	SB_PLL40_CORE #(
+		.FEEDBACK_PATH("SIMPLE"),
+		.DELAY_ADJUSTMENT_MODE_FEEDBACK("FIXED"),
+		.DELAY_ADJUSTMENT_MODE_RELATIVE("FIXED"),
+		.PLLOUT_SELECT("GENCLK"),
+		.FDA_FEEDBACK(4'b1111),
+		.FDA_RELATIVE(4'b1111),
+		.DIVR(4'b0100),		// DIVR =  4
+		.DIVF(7'b0011111),		// DIVQ =  31
+		.DIVQ(3'b100),		// DIVF =  4
+		.FILTER_RANGE(3'b010)	// FILTER_RANGE = 2
+	) plli (
+		.REFERENCECLK     (i_clk        ),
+		.PLLOUTCORE     (clk_40mhz    ),
+		.LOCK           (pll_locked  ),
+		.BYPASS         (1'b0         ),
+		.RESETB         (1'b1         )
+	);
+       	//SB_GB global_buffer(clk_40mhz, s_clk);
+	assign	s_clk = clk_40mhz;
+
 	reg		pps;
 	reg [31:0]	ctr;
 	initial ctr = 0;
-	always @(posedge i_clk)
-		{pps, ctr} <= ctr + 32'd43;	// Valid if CLKRATE = 100MHz
+	always @(posedge s_clk)
+		{pps, ctr} <= ctr + 32'd107;	// Valid if CLKRATE = 40MHz
 		// {pps, ctr} <= ctr + 32'd89;  // Good if CLKRATE =  48MHz
 		// {pps, ctr} <= ctr + 32'd172; // Good if CLKRATE =  25MHz
 
@@ -66,7 +89,7 @@ module	clktest(i_clk, o_ledg, o_ledr);
 	// go back to zero--so it will never actually hit 60.
 	reg	[5:0]	secs;
 	initial	mins = 6'h0;
-	always @(posedge i_clk)
+	always @(posedge s_clk)
 		if (secs >= 6'd60)
 			secs <= 6'h0;
 		else if ((pps)&&(secs == 6'd59))
