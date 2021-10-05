@@ -149,7 +149,8 @@ int main(int argc, char **argv) {
 	 * ptrs.red will be passed to lifting step 
 	*/
 	//ptrs.alt = ptrs.red + (ptrs.w*ptrs.h);
-	
+	loop=ptrs.w*ptrs.h*2;
+	clrram(loop,ptrs.alt);
 	
 	*ptrs.ptr_blkram_inp = &(ptrs.inpbuf[0]);
 	printf("%x %x \n",ptrs.ptr_blkram_inp,*(ptrs.ptr_blkram_inp) );
