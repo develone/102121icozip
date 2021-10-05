@@ -1,3 +1,67 @@
+Tried using the corredted auto-data/clockpll40.txt.  After many rebuilds that failed reverted back to 
+auto-data/clockpll40.txt.wkg. Added the call to clrra
+
+./remrunjpeg.sh 
+01401000 (        )-> 00000002
+01401004 (        )-> 00000001
+01401008 (        )-> 00000001
+0140100c (        )-> 00000000
+01401010 (        )-> 00000001
+01401018 (        )-> 00000001
+Halting the CPU
+Memory regions:
+	Block RAM: 01400000 - 01402000
+	SDRAM       : 02000000 - 03000000
+Loading: ../board/jpeg
+Section 0: 02000000 - 0204fe8c
+Writing to MEM: 02000000-0204fe8c
+Clearing the CPUs registers
+Setting PC to 02000000
+The CPU should be fully loaded, you may now
+start it (from reset/reboot) with:
+> wbregs cpu 0x0f
+
+CPU Status is: 0000060f
+04000000 (     CPU)-> 0000000f
+0140100c (        ) : [....] 0200fe08
+HOST = mypi3-19
+The size of the buffer is 0x010000 or 65536 words
+
+READ-COMPLETE
+01401008 (        )-> 00000000
+01401010 (        )-> 00000000
+
+. w=256  h=256
+. 1401000 2 
+. flag 2 0x204fe08
+. 1401004 1 
+. 140100c 2
+
+.  ptrs.alt 0x2054468 0x200fe08
+. 131072 
+. 0x200fe08 0x7e
+. 0x200fe0c 0x7d
+. 0x200fe10 0x7b
+. 0x200fe14 0x76
+. 
+. 0x202fe08 0x6a
+. 0x202fe0c 0x6a
+. 0x202fe10 0x68
+. 0x202fe14 0x64
+. 
+. 0x204fdf8 0x48
+. 0x204fdfc 0x4a
+. 0x204fe00 0x4e
+. 0x204fe04 0x50
+. 256 0x200fe08 0x2054468 0x 1401004 
+. 256  
+
+rm -f dwt.bin; ./pc-rdsdram -n mypi3-19 dwt.bin
+HOST = mypi3-19
+
+Write-COMPLETE
+The size of the buffer is 0x010000 or 65536 words
+
 09/30/21	
 Welcome to Ubuntu 20.04.3 LTS (GNU/Linux 5.4.0-84-generic x86_64)
 
