@@ -30,30 +30,6 @@ struct PTRs {
 } ptrs;
 
  
-void split(int ff, int loop, int *ibuf,  int *obuf) {
-        
-    int	*ip = ibuf;
-     int *op = obuf;
-    int i,sp,x,y,z;
-	for(i=0;i<loop;i++) {
-		x = *ip;
-		if (ff == 0) y = 0x1ff00000;
-		if (ff == 1) y = 0x7fc00;
-		if (ff == 2) y = 0x1ff;
-		z = x & y;
-		//printf("x = 0x%x z = 0x%x y = 0x%x ",x,z,y);
-		if (ff == 0) sp = z>>20;
-		if (ff == 1) sp = z>>8;
-		if (ff == 2) sp = z;
-		*op = sp;
-		if (i <= 3) printf("x = 0x%x sp = 0x%x z = 0x%x\n",x,sp,z);
-		if (i > 65532) printf("x = 0x%x sp = 0x%x z = 0x%x\n",x,sp,z);
-		ip++;
-		op++;
-	}
-		
-}	
-
 int main(int argc, char **argv) {
 	
 	FILE *inptr,*outptr;
@@ -168,7 +144,7 @@ int main(int argc, char **argv) {
 		alt = &buf_red[ptrs.w*ptrs.h];
 		printf("w = 0x%x buf_red wptr = 0x%x alt =  0x%x fwd_inverse =  0x%x fwd_inverse =  0x%x \n",ptrs.w, wptr,alt,fwd_inv,*fwd_inv);
 		printf("starting red dwt\n");
-		*fwd_inv=1;
+		
 		lifting(ptrs.w,wptr,alt,fwd_inv);
 		printf("finished ted dwt\n");
 		//pack(ptrs.flag, i,buf_red, ptrs.inpbuf);
