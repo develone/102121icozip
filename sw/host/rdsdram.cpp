@@ -59,7 +59,7 @@ FPGA	*m_fpga;
  * zip-objdump -d jpeg > jpeg-disasm.txt
  * */
 
-#define	DUMPMEM 	0x0200fe08
+#define	DUMPMEM 	0x0200fdf8
 //0x02054468
 //0x020543c8
 //0x0200fe3c
