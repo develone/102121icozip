@@ -1,11 +1,11 @@
 ////////////////////////////////////////////////////////////////////////////////
 //
 // Filename: 	zipload.cpp
-// {{{
-// Project:	ICO Zip, iCE40 ZipCPU demonstration project
+//
+// Project:	ICO Zip, iCE40 ZipCPU demonsrtation project
 //
 // Purpose:	To load a program for the ZipCPU into memory, whether flash,
-//		SRAM, or block RAM.  This requires a working/running
+//		SDRAM, or block RAM.  This requires a working/running
 //	configuration in order to successfully load.
 //
 //
@@ -13,11 +13,11 @@
 //		Gisselquist Technology, LLC
 //
 ////////////////////////////////////////////////////////////////////////////////
-// }}}
-// Copyright (C) 2015-2021, Gisselquist Technology, LLC
-// {{{
+//
+// Copyright (C) 2015-2018, Gisselquist Technology, LLC
+//
 // This program is free software (firmware): you can redistribute it and/or
-// modify it under the terms of the GNU General Public License as published
+// modify it under the terms of  the GNU General Public License as published
 // by the Free Software Foundation, either version 3 of the License, or (at
 // your option) any later version.
 //
@@ -30,14 +30,14 @@
 // with this program.  (It's in the $(ROOT)/doc directory.  Run make with no
 // target there if the PDF file isn't present.)  If not, see
 // <http://www.gnu.org/licenses/> for a copy.
-// }}}
+//
 // License:	GPL, v3, as defined and found on www.gnu.org,
-// {{{
 //		http://www.gnu.org/licenses/gpl.html
+//
 //
 ////////////////////////////////////////////////////////////////////////////////
 //
-// }}}
+//
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/types.h>
@@ -54,7 +54,7 @@
 #include "llcomms.h"
 #include "hexbus.h"
 #include "regdefs.h"
-#include "flashdrvr.h"
+//#include "flashdrvr.h"
 #include "zipelf.h"
 #include "byteswap.h"
 #include <design.h>
@@ -65,8 +65,6 @@ void	usage(void) {
 #ifdef	INCLUDE_ZIPCPU
 	printf("USAGE: zipload [-hr] <zip-program-file>\n");
 	printf("\n"
-"\tLoads a ZipCPU program into the flash/sdram/blockRAM of the FPGA,\n"
-"\tand then optionally starts the program once loaded.\n"
 "\t-h\tDisplay this usage statement\n"
 "\t-r\tStart the ZipCPU running from the address in the program file\n");
 #else
@@ -82,7 +80,7 @@ int main(int argc, char **argv) {
 	int		skp=0, port = FPGAPORT;
 	bool		start_when_finished = false, verbose = false;
 	unsigned	entry = 0;
-	FLASHDRVR	*flash = NULL;
+	//FLASHDRVR	*flash = NULL;
 	const char	*bitfile = NULL, *altbitfile = NULL, *execfile = NULL,
 	      		*host = FPGAHOST;
 
@@ -181,10 +179,10 @@ int main(int argc, char **argv) {
 	}
 
 	const char *codef = (argc>0)?argv[0]:NULL;
-	char	*fbuf = new char[FLASHLEN];
+	//char	*fbuf = new char[FLASHLEN];
 
 	// Set the flash buffer to all ones
-	memset(fbuf, -1, FLASHLEN);
+	//memset(fbuf, -1, FLASHLEN);
 
 	m_fpga = new FPGA(new NETCOMMS(host, port));
 
@@ -210,7 +208,7 @@ int main(int argc, char **argv) {
 		exit(EXIT_FAILURE);
 	}
 
-	flash = new FLASHDRVR(m_fpga);
+	//flash = new FLASHDRVR(m_fpga);
 
 	if (verbose) {
 		printf("Memory regions:\n");
@@ -222,9 +220,9 @@ int main(int argc, char **argv) {
 		printf("\tFlash (ROM): %08x - %08x\n",
 			FLASHBASE, FLASHBASE+FLASHLEN);
 #endif
-#ifdef	SRAM_ACCESS
-		printf("\tSRAM       : %08x - %08x\n",
-			SRAMBASE, SRAMBASE + SRAMLEN);
+#ifdef	SDRAM_ACCESS
+		printf("\tSDRAM       : %08x - %08x\n",
+			SDRAMBASE, SDRAMBASE + SDRAMLEN);
 #endif
 	}
 
@@ -265,11 +263,11 @@ int main(int argc, char **argv) {
 				valid = true;
 #endif
 
-#ifdef	SRAM_ACCESS
-			// Or SRAM
-			if ((secp->m_start >= SRAMBASE)
+#ifdef	SDRAM_ACCESS
+			// Or SDRAM
+			if ((secp->m_start >= SDRAMBASE)
 				&&(secp->m_start+secp->m_len
-						<= SRAMBASE+SRAMLEN))
+						<= SDRAMBASE+SDRAMLEN))
 				valid = true;
 #endif
 			if (!valid) {
@@ -283,10 +281,10 @@ int main(int argc, char **argv) {
 		for(int i=0; secpp[i]->m_len; i++) {
 			secp = secpp[i];
 
-#ifdef	SRAM_ACCESS
-			if ((secp->m_start >= SRAMBASE)
+#ifdef	SDRAM_ACCESS
+			if ((secp->m_start >= SDRAMBASE)
 				&&(secp->m_start+secp->m_len
-						<= SRAMBASE+SRAMLEN)) {
+						<= SDRAMBASE+SDRAMLEN)) {
 				if (verbose)
 					printf("Writing to MEM: %08x-%08x\n",
 						secp->m_start,
@@ -363,25 +361,23 @@ int main(int argc, char **argv) {
 
 		// Now ... how shall we start this CPU?
 		printf("Clearing the CPUs registers\n");
-		{
-			unsigned r[32];
-			m_fpga->writeio(R_ZIPCTRL, CPU_HALT);
-			for(int i=0; i<32; i++)
-				r[i] = 0;
-			m_fpga->writei(R_ZIPREGS, 32, r);
+		for(int i=0; i<32; i++) {
+			m_fpga->writeio(R_ZIPCTRL, CPU_HALT|i);
+			m_fpga->writeio(R_ZIPDATA, 0);
 		}
 
 		m_fpga->writeio(R_ZIPCTRL, CPU_HALT|CPU_CLRCACHE);
 		printf("Setting PC to %08x\n", entry);
-		m_fpga->writeio(R_ZIPPC, entry);
+		m_fpga->writeio(R_ZIPCTRL, CPU_HALT|CPU_sPC);
+		m_fpga->writeio(R_ZIPDATA, entry);
 
 		if (start_when_finished) {
 			printf("Starting the CPU\n");
-			m_fpga->writeio(R_ZIPCTRL, CPU_GO);
+			m_fpga->writeio(R_ZIPCTRL, CPU_GO|CPU_sPC);
 		} else {
 			printf("The CPU should be fully loaded, you may now\n");
 			printf("start it (from reset/reboot) with:\n");
-			printf("> wbregs cpu 0\n");
+			printf("> wbregs cpu 0x0f\n");
 			printf("\n");
 		}
 	} catch(BUSERR a) {

@@ -14,7 +14,7 @@
 ## Copyright (C) 2017-2021, Gisselquist Technology, LLC
 ## {{{
 ## This program is free software (firmware): you can redistribute it and/or
-## modify it under the terms of the GNU General Public License as published
+## modify it under the terms of  the GNU General Public License as published
 ## by the Free Software Foundation, either version 3 of the License, or (at
 ## your option) any later version.
 ##
@@ -37,11 +37,12 @@
 ## }}}
 @LEGAL=legalgen.txt
 @PROJECT=ICO Zip, iCE40 ZipCPU demonstration project
-@PCF.FILE=icozip.pcf
+@PCF.FILE=catzip.pcf
 #
 @KEYS.INTLIST= BUS_ADDRESS_WIDTH NADDR NPIC NSCOPES PIC.MAX REGS.N ID
 @DEFAULT.BUS=wb
-@$RESET_ADDRESS=@$flash.BASE+131072
+# @$RESET_ADDRESS=@$flash.BASE+131072
+@$RESET_ADDRESS=@$bkram.REGBASE
 @VERILATOR_PREFIX=v
 @REGDEFS.H.INSERT=
 typedef	struct {

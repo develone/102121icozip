@@ -1,7 +1,7 @@
 ################################################################################
 ##
 ## Filename:	Makefile
-## {{{
+##
 ## Project:	ICO Zip, iCE40 ZipCPU demonstration project
 ##
 ## Purpose:	To guide/direct the build of the board-specific portion of
@@ -13,11 +13,11 @@
 ##		Gisselquist Technology, LLC
 ##
 ################################################################################
-## }}}
-## Copyright (C) 2017-2021, Gisselquist Technology, LLC
-## {{{
+##
+## Copyright (C) 2017-2020, Gisselquist Technology, LLC
+##
 ## This program is free software (firmware): you can redistribute it and/or
-## modify it under the terms of the GNU General Public License as published
+## modify it under the terms of  the GNU General Public License as published
 ## by the Free Software Foundation, either version 3 of the License, or (at
 ## your option) any later version.
 ##
@@ -30,22 +30,22 @@
 ## with this program.  (It's in the $(ROOT)/doc directory.  Run make with no
 ## target there if the PDF file isn't present.)  If not, see
 ## <http://www.gnu.org/licenses/> for a copy.
-## }}}
+##
 ## License:	GPL, v3, as defined and found on www.gnu.org,
-## {{{
 ##		http://www.gnu.org/licenses/gpl.html
+##
 ##
 ################################################################################
 ##
-## }}}
+##
 CC := zip-gcc
 AR := zip-ar
 OBJDIR  := obj-zip
-INCS    := -I. -I../../rtl/icozip
+INCS    := -I. -I../../rtl/catzip
 CFLAGS  := -O3 $(INCS)
 LIBSRCS := udiv.c umod.c syscalls.c crt0.c
 LIBOBJS := $(addprefix $(OBJDIR)/,$(subst .c,.o,$(LIBSRCS)))
-ZIPLIB  := libicozip.a
+ZIPLIB  := libcatzip.a
 all: $(ZIPLIB)
 
 $(OBJDIR)/%.o: %.c
@@ -72,7 +72,6 @@ endef
 
 define	build-depends
 	@echo "Building dependency file(s)"
-	$(mk-objdir)
 	@$(CC) $(CFLAGS) -MM $(LIBSRCS) > $(OBJDIR)/xdepends.txt
 	@sed -e 's/^.*.o: /$(OBJDIR)\/&/' < $(OBJDIR)/xdepends.txt > $(OBJDIR)/depends.txt
 	@rm $(OBJDIR)/xdepends.txt
@@ -83,10 +82,7 @@ tags: $(LIBSRCS) $(HEADERS)
 	@ctags $(LIBSRCS) $(HEADERS)
 
 .PHONY: depends
-depends: tags
-	$(build-depends)
-
-$(OBJDIR)/depends.txt: $(SOURCES) $(HEADERS)
+depends:
 	$(build-depends)
 
 -include $(OBJDIR)/depends.txt

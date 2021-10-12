@@ -37,7 +37,7 @@
 ##
 ##
 all: hellopp speechpp linepp
-CLKFREQ := 75
+CLKFREQ := 66
 PNR := nextpnr-ice40 --hx8k -r --freq $(CLKFREQ) --package ct256
 
 # GNU Make automatic variables (since I can never remember these ...)

@@ -1,8 +1,8 @@
 ################################################################################
 ##
 ## Filename:	sw/board/Makefile
-## {{{
-## Project:	ICO Zip, iCE40 ZipCPU demonstration project
+##
+## Project:	ZBasic, a generic toplevel impl using the full ZipCPU
 ##
 ## Purpose:	
 ##
@@ -10,11 +10,11 @@
 ##		Gisselquist Technology, LLC
 ##
 ################################################################################
-## }}}
-## Copyright (C) 2015-2021, Gisselquist Technology, LLC
-## {{{
+##
+## Copyright (C) 2015-2016, Gisselquist Technology, LLC
+##
 ## This program is free software (firmware): you can redistribute it and/or
-## modify it under the terms of the GNU General Public License as published
+## modify it under the terms of  the GNU General Public License as published
 ## by the Free Software Foundation, either version 3 of the License, or (at
 ## your option) any later version.
 ##
@@ -27,17 +27,16 @@
 ## with this program.  (It's in the $(ROOT)/doc directory.  Run make with no
 ## target there if the PDF file isn't present.)  If not, see
 ## <http://www.gnu.org/licenses/> for a copy.
-## }}}
+##
 ## License:	GPL, v3, as defined and found on www.gnu.org,
-## {{{
 ##		http://www.gnu.org/licenses/gpl.html
 ##
 ##
 ################################################################################
 ##
-## }}}
+##
 .PHONY: all
-PROGRAMS := cputest hello hellostep lockcheck
+PROGRAMS := cputest hello jpeg 
 all:	$(PROGRAMS)
 #
 #
@@ -48,14 +47,14 @@ NM	:=zip-nm
 OBJDIR	:= obj-zip
 RDELF	:= zip-readelf
 OBJDUMP := zip-objdump
-SOURCES := cputest.c hello.c hellostep.c lockcheck.c txfns.c
+SOURCES := cputest.c hello.c jpeg.c lifting.c rd_bytes.c
 HEADERS := $(foreach hdr,$(subst .c,.o,$(SOURCES)),$(wildcard $(hdr))) board.h
-LDSCRIPT:= -Tboard.ld
+LDSCRIPT:= -Tboardram.ld
 LFLAGS  := $(LDSCRIPT) -L../zlib
-INCS    := -I../zlib -I../../rtl/icozip -I.
+INCS    := -I../zlib -I../../rtl/catzip -I.
 CFLAGS  := -O3 $(INCS)
-LIBS    := -lc -licozip -lgcc
-INSTALLD:=/home/dan/work/rnd/zipcpu/sw/install
+LIBS    := -lc -lcatzip
+INSTALLD:=/home/devel/zipcpu/sw/install
 NLIBD	:=$(INSTALLD)/cross-tools/zip/lib
 ZLIBD	:=../zlib
 LIB	:= $(NLIBD)/libg.a $(NLIBD)/libc.a
@@ -93,18 +92,22 @@ cputest: $(OBJDIR)/cputest.o boardram.ld
 	$(CC) $(CFLAGS) -T boardram.ld -fno-builtin -Wl,-Map=$(OBJDIR)/cputest.map $(OBJDIR)/cputest.o -o $@
 cputestcis: $(OBJDIR)/cputestcis.o boardram.ld
 	$(CC) $(CFLAGS) -T boardram.ld -fno-builtin -Wl,-Map=$(OBJDIR)/cputestcis.map $(OBJDIR)/cputestcis.o -o $@
-
+$(OBJDIR)/lifting.o: lifting.c
+	$(CC) -O3 -c  $< -o $@
+	
 $(OBJDIR)/hello.o: hello.c
-	$(CC) -O3 -c $< -o $@
+	$(CC) -O3 -c  $< -o $@
+$(OBJDIR)/jpeg.o: jpeg.c
+	$(CC) $(CFLAGS) -c  $< -o $@
+
 $(OBJDIR)/gettysburg.o: gettysburg.c
 	$(CC) -O3 -c $< -o $@
 
-hello: $(OBJDIR)/hello.o board.ld
-	$(CC) $(CFLAGS) $(LFLAGS) $< $(LIBS) -o $@
-hellostep: $(OBJDIR)/hellostep.o $(OBJDIR)/txfns.o board.ld
-	$(CC) $(CFLAGS) $(LFLAGS) $< $(OBJDIR)/txfns.o $(LIBS) -o $@
-lockcheck: $(OBJDIR)/lockcheck.o $(OBJDIR)/txfns.o board.ld
-	$(CC) $(CFLAGS) $(LFLAGS) $< $(OBJDIR)/txfns.o $(LIBS) -o $@
+hello: $(OBJDIR)/hello.o boardram.ld
+	$(CC) $(CFLAGS) $(LFLAGS) -Wl,-Map=$(OBJDIR)/hello.map $< $(LIBS) -o $@
+
+jpeg: $(OBJDIR)/jpeg.o $(OBJDIR)/lifting.o  boardram.ld
+	$(CC) $(CFLAGS) $(LFLAGS) $(OBJDIR)/lifting.o  -Wl,-Map=$(OBJDIR)/jpeg.map $< $(LIBS) -o $@ -lgcc
 
 
 define	mk-objdir

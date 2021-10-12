@@ -109,8 +109,8 @@ check-icepack:
 #
 .PHONY: datestamp
 datestamp: check-perl
-	@bash -c 'if [ ! -e $(YYMMDD)-build.v ]; then rm -f 20??????-build.v; perl mkdatev.pl > $(YYMMDD)-build.v; rm -f rtl/icozip/builddate.v; fi'
-	@bash -c 'if [ ! -e rtl/icozip/builddate.v ]; then cp $(YYMMDD)-build.v rtl/icozip/builddate.v; fi'
+	@bash -c 'if [ ! -e $(YYMMDD)-build.v ]; then rm -f 20??????-build.v; perl mkdatev.pl > $(YYMMDD)-build.v; rm -f rtl/catzip/builddate.v; fi'
+	@bash -c 'if [ ! -e rtl/catzip/builddate.v ]; then cp $(YYMMDD)-build.v rtl/catzip/builddate.v; fi'
 
 #
 #
@@ -120,7 +120,7 @@ datestamp: check-perl
 ARCHIVEFILES := $(BENCH) $(SW) $(RTL) $(NOTES) $(PROJ) $(BIN) $(CONSTRAINTS) $(AUTODATA) README.md
 .PHONY: archive
 archive:
-	tar --transform s,^,$(YYMMDD)-ico/, -chjf $(YYMMDD)-ico.tjz $(ARCHIVEFILES)
+	tar --transform s,^,$(YYMMDD)-cat/, -chjf $(YYMMDD)-cat.tjz $(ARCHIVEFILES)
 
 #
 #
@@ -129,16 +129,13 @@ archive:
 .PHONY: autodata
 autodata: check-autofpga
 	$(MAKE) --no-print-directory --directory=auto-data
-	$(call copyif-changed,auto-data/toplevel.v,rtl/icozip/toplevel.v)
-	$(call copyif-changed,auto-data/main.v,rtl/icozip/main.v)
+	$(call copyif-changed,auto-data/toplevel.v,rtl/catzip/toplevel.v)
+	$(call copyif-changed,auto-data/main.v,rtl/catzip/main.v)
 	$(call copyif-changed,auto-data/regdefs.h,sw/host/regdefs.h)
 	$(call copyif-changed,auto-data/regdefs.cpp,sw/host/regdefs.cpp)
 	$(call copyif-changed,auto-data/board.h,sw/board/board.h)
-	$(call copyif-changed,auto-data/board.h,sw/zlib/board.h)
-	$(call copyif-changed,auto-data/sram.ld,sw/board/board.ld)
-	$(call copyif-changed,auto-data/flashram.ld,sw/board/flashram.ld)
-	$(call copyif-changed,auto-data/sram_only.ld,sw/board/boardram.ld)
-	$(call copyif-changed,auto-data/rtl.make.inc,rtl/icozip/auto.mk)
+	$(call copyif-changed,auto-data/board.ld,sw/board/board.ld)
+	$(call copyif-changed,auto-data/rtl.make.inc,rtl/catzip/auto.mk)
 	$(call copyif-changed,auto-data/main_tb.cpp,sim/verilated/main_tb.cpp)
 	$(call copyif-changed,auto-data/testb.h,sim/verilated/testb.h)
 

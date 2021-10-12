@@ -1,0 +1,223 @@
+################################################################################
+##
+## Filename: 	sdramdev.txt
+##
+## Project:	ICO Zip, iCE40 ZipCPU demonsrtation project
+##
+## Purpose:	Describes how an HDL project needs to be patched to include the
+##		SRAM device driver/controller.
+##
+## Creator:	Dan Gisselquist, Ph.D.
+##		Gisselquist Technology, LLC
+##
+################################################################################
+##
+## Copyright (C) 2018-2020, Gisselquist Technology, LLC
+##
+## This program is free software (firmware): you can redistribute it and/or
+## modify it under the terms of  the GNU General Public License as published
+## by the Free Software Foundation, either version 3 of the License, or (at
+## your option) any later version.
+##
+## This program is distributed in the hope that it will be useful, but WITHOUT
+## ANY WARRANTY; without even the implied warranty of MERCHANTIBILITY or
+## FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+## for more details.
+##
+## You should have received a copy of the GNU General Public License along
+## with this program.  (It's in the $(ROOT)/doc directory.  Run make with no
+## target there if the PDF file isn't present.)  If not, see
+## <http://www.gnu.org/licenses/> for a copy.
+##
+## License:	GPL, v3, as defined and found on www.gnu.org,
+##		http://www.gnu.org/licenses/gpl.html
+##
+##
+################################################################################
+##
+##
+@PREFIX=sdram
+@DEVID=SDRAM
+## This is 24 to SDRAM
+@$LGMEMSZ=24
+@LGMEMSZ.FORMAT=%d
+@$NADDR=(1<<(@$THIS.LGMEMSZ-2))
+@$NBYTES=(1<<(@$THIS.LGMEMSZ))
+@NBYTES.FORMAT=0x%08x
+@ACCESS=@$(DEVID)_ACCESS
+@SLAVE.TYPE=MEMORY
+@SLAVE.BUS=wb
+@LD.PERM=wx
+@TOP.PORTLIST= 
+		i_ram_feedback_clk, o_ram_clk, o_ram_cke, o_ram_cs_n, o_ram_ras_n, o_ram_cas_n,
+		o_ram_we_n, o_ram_bs, o_ram_addr, o_ram_udqm, o_ram_ldqm,
+		io_ram_data
+@TOP.MAIN=
+
+		//*********************************************************
+			//toplevel
+			//o_ram_cs_n,	// Chip select
+			//o_ram_cke,	// Clock enable
+			//o_ram_ras_n,	// Row address strobe
+			//o_ram_cas_n,	// Column address strobe
+			//o_ram_we_n,	// Write enable
+			//o_ram_bs,	// Bank select
+			//o_ram_addr,	// Address lines
+			//ram_drive_data,
+			//r_ram_data,	// Data lines (input)
+			//ram_data,	// Data lines (output)
+			//{ o_ram_udqm, o_ram_ldqm },
+		//*********************************************************			
+		o_ram_cs_n, o_ram_cke, o_ram_ras_n, o_ram_cas_n, o_ram_we_n, 
+			o_ram_bs, o_ram_addr,
+			ram_drive_data, r_ram_data, ram_data, { o_ram_udqm, o_ram_ldqm },
+		o_debug		
+    
+@TOP.IODECL=
+	//toplevel.v instantiating busmaster.v 
+	//o_ram_cs_n,     Chip select
+	//o_ram_cke,      Clock enable
+	//o_ram_ras_n,    Row address strobe
+	//o_ram_cas_n,    Column address strobe
+	//o_ram_we_n,     Write enable
+	//o_ram_bs,       Bank select
+	//o_ram_addr,     Address lines
+	//ram_drive_data, toplevel in tristate
+	//o_ram_drive_data, in main.v & main_tb.cpp
+	//r_ram_data,     Data lines (input)
+	//ram_data,       Data lines (output)
+	input		i_ram_feedback_clk;
+	output	wire	o_ram_clk, o_ram_cke;
+	output	wire	o_ram_cs_n, o_ram_ras_n, o_ram_cas_n, o_ram_we_n;
+	output	wire	[1:0]	o_ram_bs;
+	output	wire	[11:0]	o_ram_addr;
+	output	wire		o_ram_udqm, o_ram_ldqm;
+	inout	wire	[15:0]	io_ram_data;
+	wire	[15:0]		i_ram_data, o_ram_data;
+	 
+	wire	[15:0]	ram_data;
+	 
+	reg [15:0] r_ram_data;
+	wire		ram_drive_data;	 
+	reg	[1:0]	o_ram_dqm; 
+ 
+	wire	[31:0]	o_debug;
+	
+@TOP.INSERT=
+	//
+	// SDRAM Interface
+	//
+	// Use the PPIO primitive to give us access to a group of SB_IO's,
+	// and therefore access to a tristate output
+	//r_ram_data_ext_clk is used with assign io_ram_data
+	//tristate which only works with arachne-pnr not nextpnr
+	//reg	[15:0]	r_ram_data_ext_clk;
+	reg	[15:0] r_delay_in;
+	reg	[15:0] r_delay; 
+	ppio #(.W(16))
+		sdramioi((!ram_drive_data), io_ram_data, ram_data, r_delay_in);
+	//assign io_ram_data = (ram_drive_data) ? ram_data : 16'bzzzz_zzzz_zzzz_zzzz;
+	
+	//always @(posedge s_clk)
+		//r_ram_data_ext_clk <= io_ram_data;
+	always @(posedge s_clk)
+		r_delay <= r_delay_in;
+	always @(posedge s_clk)
+		r_ram_data <= r_delay;	
+			
+	assign o_ram_clk = s_clk;
+@TOP.DEFNS=
+	wire	[15:0]		i_ram_data, o_ram_data;
+@MAIN.PORTLIST=	
+		o_ram_cs_n, o_ram_cke, o_ram_ras_n, o_ram_cas_n, o_ram_we_n, 
+			o_ram_bs, o_ram_addr,
+			o_ram_drive_data, i_ram_data, o_ram_data, o_ram_dqm,
+			o_debug
+ 	
+@MAIN.IODECL=
+parameter	RDLY = 6;
+
+	// SDRAM control
+	output	wire		o_ram_cke;
+	output	wire		o_ram_cs_n,
+				o_ram_ras_n, o_ram_cas_n, o_ram_we_n;
+	output	wire	[1:0]	o_ram_bs;
+	output	wire	[11:0]	o_ram_addr;
+	 /* verilator lint_off UNUSED */
+	input	wire	[15:0]	i_ram_data;
+        /* verilator lint_off UNUSED */
+	output	wire	[15:0]	o_ram_data;
+	output	wire	[1:0]	o_ram_dqm;
+	output	wire	[31:0]	o_debug;
+ 
+	wire	[15:0]	ram_data;
+	output	wire		o_ram_drive_data; 
+	
+@MAIN.INSERT=
+	wbsdram 
+	
+		@$(PREFIX)i(i_clk,
+			wb_sdram_cyc,
+			 
+			wb_sdram_stb,wb_sdram_we,
+			/* verilator lint_off WIDTH */			 
+			wb_sdram_addr[(@$LGMEMSZ-4):0],
+			 /* verilator lint_off WIDTH */
+			wb_sdram_data, // 32 bits wide
+			wb_sdram_sel,  // 32/8 bits wide
+			wb_sdram_stall, wb_sdram_ack, wb_sdram_idata,
+
+
+		o_ram_cs_n, o_ram_cke, o_ram_ras_n, o_ram_cas_n, o_ram_we_n,
+		o_ram_bs, o_ram_addr,
+		o_ram_drive_data, i_ram_data, o_ram_data, o_ram_dqm,
+		o_debug);	
+
+@REGS.N=1
+@REGS.0= 0 R_@$(DEVID) @$(DEVID)
+@REGDEFS.H.DEFNS=
+#define	@$(DEVID)BASE	@$(BASEHX)
+#define	@$(DEVID)LEN	@$NBYTES
+@BDEF.OSDEF=_BOARD_HAS_@$(DEVID)
+@MEM.NAME= @$(PREFIX)
+@BDEF.OSVAL=extern char	_@$(MEM.NAME)[@$NBYTES];
+@LDSCRIPT.PSTR=	wx
+@LDSCRIPT.PTR=	@$(MEM.NAME)
+@LDSCRIPT.DEF=
+_@$(MEM.NAME) = ORIGIN(@$(MEM.NAME))
+@RTL.MAKE.GROUP= @$(DEVID)
+@RTL.MAKE.FILES= wbsdram.v
+@$BASEHX = @$REGBASE
+@BASEHX.FORMAT= 0x%08x
+@$NADDRHX = @$NADDR
+@NADDRHX.FORMAT= 0x%x
+@SIM.INCLUDE=
+#include "sdramsim.h"
+@SIM.DEFNS=
+#ifdef	@$(ACCESS)
+
+	SDRAMSIM		*m_@$(MEM.NAME);
+	
+#endif // @$(ACCESS)
+@SIM.INIT=
+#ifdef	@$(ACCESS)
+
+	m_@$(MEM.NAME) = new SDRAMSIM();
+	
+#endif // @$(ACCESS)
+@SIM.CLOCK=clk
+@SIM.TICK=
+#ifdef	@$(ACCESS)
+
+	m_core->i_ram_data = (*m_@$(MEM.NAME))(1,m_core->o_ram_cke,
+	m_core->o_ram_cs_n,m_core->o_ram_ras_n,m_core->o_ram_cas_n,
+	m_core->o_ram_we_n,m_core->o_ram_bs,m_core->o_ram_addr,
+	m_core->o_ram_drive_data,m_core->o_ram_data,m_core->o_ram_dqm);
+	
+#endif // @$(ACCESS)		
+@SIM.LOAD=
+#ifdef	@$(ACCESS)
+
+	m_@$(MEM.NAME)->load(start, &buf[offset], wlen);
+	
+#endif // @$(ACCESS)

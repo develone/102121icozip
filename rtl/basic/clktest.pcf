@@ -1,4 +1,4 @@
-set_io i_clk R9			# 25MHz clock ?
-set_io o_ledg[0] C8
-set_io o_ledg[1] F7
-set_io o_ledr K9
+set_io i_clk C8 	#USER_CLK IOT_197 GBIN1 100MHz 
+set_io o_ledg[0] A9 	#LED1 IOT_194
+set_io o_ledg[1] B8 	#LED2 IOT_203
+set_io o_ledr B7 	#LED3 IOT_205

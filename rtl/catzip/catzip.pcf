@@ -1,0 +1,229 @@
+################################################################################
+##
+## Filename: 	icozip.pcf
+##
+## Project:	ICO Zip, iCE40 ZipCPU demonsrtation project
+##
+## Purpose:	This is the file that maps toplevel.v I/O ports to actual FPGA
+##		pins.
+##
+##
+## Comments:
+##	PMod connector pins don't match between schematic and picture
+##	Pin names offer very little insight as to the designers intention
+##
+## Creator:	Dan Gisselquist, Ph.D.
+##		Gisselquist Technology, LLC
+##
+################################################################################
+##
+## Copyright (C) 2015-2016, Gisselquist Technology, LLC
+##
+## This program is free software (firmware): you can redistribute it and/or
+## modify it under the terms of  the GNU General Public License as published
+## by the Free Software Foundation, either version 3 of the License, or (at
+## your option) any later version.
+##
+## This program is distributed in the hope that it will be useful, but WITHOUT
+## ANY WARRANTY; without even the implied warranty of MERCHANTIBILITY or
+## FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+## for more details.
+##
+## You should have received a copy of the GNU General Public License along
+## with this program.  (It's in the $(ROOT)/doc directory, run make with no
+## target there if the PDF file isn't present.)  If not, see
+## <http://www.gnu.org/licenses/> for a copy.
+##
+## License:	GPL, v3, as defined and found on www.gnu.org,
+##		http://www.gnu.org/licenses/gpl.html
+##
+##
+################################################################################
+##
+##
+set_io i_clk     C8	#R9			# 100 MHz clock
+#
+# LED's
+set_io o_ledg[0] A9	#C8
+set_io o_ledg[1] B8			#icoboard F7 mapped to Catboard used make speechpp to test
+set_io o_ledr    B7			#icoboard K9 mapped to Catboard used make speechpp to test
+#set_io o_ledg[1] F7
+#set_io o_ledr    K9
+#
+# Buttons
+set_io i_btn[0]		A16	#P13	# IO104 // Also used to select boot options(?)
+set_io i_btn[1]		B9	#K11	# IO103 // Also used to select boot options(?)
+
+set_io  i_pp_dir     R3		#icoboard C9 mapped to Catboard used make speechpp to test
+set_io  i_pp_clk     T8		#icoboard C10 mapped to Catboard used make speechpp to test
+set_io io_pp_data[0] R4		#icoboard D9 mapped to Catboard used make speechpp to test
+set_io io_pp_data[1] T3		#icoboard D7 mapped to Catboard used make speechpp to test  
+set_io io_pp_data[2] T13	#icoboard D4 mapped to Catboard used make speechpp to test
+set_io io_pp_data[3] T6		#icoboard A7 mapped to Catboard used make speechpp to test
+set_io io_pp_data[4] T5		#icoboard A6 mapped to Catboard used make speechpp to test
+set_io io_pp_data[5] P9		#icoboard C7 mapped to Catboard used make speechpp to test
+set_io io_pp_data[6] T9		#icoboard C6 mapped to Catboard used make speechpp to test
+set_io io_pp_data[7] T11	#icoboard D6 mapped to Catboard used make speechpp to test
+set_io o_pp_clkfb    T7		#icoboard D5   # set_io io_pp_data[8] D5 mapped to Catboard used make speechpp to test
+#
+# Give us access to the RPi PPort connector
+#set_io  i_pp_dir     C9
+#set_io  i_pp_clk     C10
+#set_io io_pp_data[0] D9
+#set_io io_pp_data[1] D7
+#set_io io_pp_data[2] D4
+#set_io io_pp_data[3] A7
+#set_io io_pp_data[4] A6
+#set_io io_pp_data[5] C7
+#set_io io_pp_data[6] C6
+#set_io io_pp_data[7] D6
+#set_io o_pp_clkfb    D5   # set_io io_pp_data[8] D5
+
+#
+# Turn PMod-1 into a debug port
+
+#set_io o_dbgwires[7] D8		# 207(B7), 213(A5) --- but these are P2 ports
+#set_io o_dbgwires[6] B9		# 208(B6), 218(A2) --- top is second
+#set_io o_dbgwires[5] B10		# 223(B3), 227(C3)
+#set_io o_dbgwires[4] B11		# 214(B5), 216(B4)
+#set_io o_dbgwires[3] B8		#
+#set_io o_dbgwires[2] A9		#
+#set_io o_dbgwires[1] A10		#
+#set_io o_dbgwires[0] A11		#
+
+set_io o_dbgwires[7] G1	#A5 HDR1-8 TOP,edg,24	# 203( B8), 200 (D8) ---- These appear to be P2
+set_io o_dbgwires[6] G2	#A2	HDR1-7 194( A9), 199 (B9)	-- ports, as per
+set_io o_dbgwires[5] H2	#C3	HDR1-6 186(A10), 183 (B10)	-- schematic
+set_io o_dbgwires[4] F2	#B4	HDR1-9 187(A11), 184 (B11)
+
+set_io o_dbgwires[3]  J2 #B7 HDR1-4
+#set_io o_dbgwires[3] B7 # BOT,edg	# 28
+set_io o_dbgwires[2] H1	#B6	HDR1-3
+set_io o_dbgwires[1] K1	#B3	HDR1-2
+set_io o_dbgwires[0] J1	#B5	HDR1-1
+
+#these wires are new for sdramscope 11/07/18
+set_io o_dbgwires_scope[7] C1	#A5 HDR1-18  
+set_io o_dbgwires_scope[6] C2	#A2	HDR1-17  
+set_io o_dbgwires_scope[5] D2	#C3	HDR1-16  
+set_io o_dbgwires_scope[4] E3	#B4	HDR1-14  
+
+set_io o_dbgwires_scope[3]  D1 #B7 HDR1-13
+#set_io o_dbgwires[3] B7 # BOT,edg	# 28
+set_io o_dbgwires_scope[2] F3	#B6	HDR1-12
+set_io o_dbgwires_scope[1] E2	#B3	HDR1-11
+set_io o_dbgwires_scope[0] F1	#B5	HDR1-10
+
+
+#
+# SPI Flash, also controlled by RPI_ICE_x through MachXO2
+# set_io o_spi_cs_n	R12
+# set_io o_spi_sck	R11
+# set_io o_spi_mosi	P11
+# set_io i_spi_miso	P12
+#
+#
+#from oled on catboard
+#set_io rpi_sck R11	#H11 	pin 23 BCM11_SCLK
+#set_io rpi_cs  T7	#D4 IOT_224
+#set_io rpi_mosi P11	#A6	pin 19 BCM10_MOSI 
+# RPI SPI interface
+# set_io i_spi_sck	h11	# RPI SPI lines, no dedicated CS_N line
+# set_io i_spi_mosi	A6	# But this is a pport data line ... ??
+# set_io o_spi_miso	A7	# But this is a pport data line ... ??
+#
+# SRAM
+# o_ram_ce_n	M7	# IO64
+# o_ram_we_n	T7	# IO75
+# o_ram_oe_n	L5	# IO23A
+# o_ram_addr[0]	N2	# IO21B
+# o_ram_addr[1]	K5	# IO20A
+# o_ram_addr[2]	J5	# IO13A
+# o_ram_addr[3]	M5	# IO25B
+# o_ram_addr[4]	P4	# IO54
+# o_ram_addr[5]	N5	# IO56
+# o_ram_addr[6]	P5	# IO58
+# o_ram_addr[7]	P7	# IO77
+# o_ram_addr[8]	M6	# IO22A
+# o_ram_addr[9]	P6	# IO67
+# o_ram_addr[10]	T8	# IO76
+# o_ram_addr[11]	T1	# IO53
+# o_ram_addr[12]	P2	# IO25A
+# o_ram_addr[13]	R1	# IO26A
+# o_ram_addr[14]	N3	# IO23B
+# o_ram_addr[15]	M5	# IO24A
+# io_ram_data[0]	T2	# IO57
+# io_ram_data[1]	R3	# IO59
+# io_ram_data[2]	T3	# IO61
+# io_ram_data[3]	R4	# IO63
+# io_ram_data[4]	R5	# IO60
+# io_ram_data[5]	T5	# IO69
+# io_ram_data[6]	R6	# IO71
+# io_ram_data[7]	T6	# IO73
+# io_ram_data[8]	N4	# IO26B
+# io_ram_data[9]	M4	# IO24B
+# io_ram_data[10]	L6	# IO19A
+# io_ram_data[11]	M3	# IO22B
+# io_ram_data[12]	L4	# IO17A
+# io_ram_data[13]	L3	# IO19B
+# io_ram_data[14]	K4	# IO18A
+# io_ram_data[15]	K3	# IO16B
+# o_ram_lb	J4	# IO12A
+# o_ram_ub	J3	# IO14A
+
+# SDRAM 10/24/18
+#o_ram_clk, o_ram_cke, o_ram_cs_n, o_ram_ras_n, o_ram_cas_n,
+#o_ram_we_n, o_ram_bs, o_ram_addr, o_ram_udqm, o_ram_ldqm,
+#io_ram_data, o_ram_dqm, o_debug
+set_io o_ram_bs[0] H14
+set_io o_ram_bs[1] G13
+set_io i_ram_feedback_clk G16
+set_io o_ram_clk H16
+set_io o_ram_cke G15 -pullup yes
+set_io o_ram_cs_n H13 -pullup yes
+set_io o_ram_ras_n K16
+set_io o_ram_cas_n K15
+set_io o_ram_we_n J14
+
+#dqmh J15 dqml J13 
+set_io o_ram_udqm J15
+set_io o_ram_ldqm J13
+#???? 10/15/18
+#'F13', 'E14', 'E13', 'D14',   0-3 from rhea/rhea/boards/lattice/_catboard.py
+set_io o_ram_addr[0] F13
+set_io o_ram_addr[1] E14
+set_io o_ram_addr[2] E13
+set_io o_ram_addr[3] D14
+#'B16', 'C16', 'D15', 'D16',    4-7 from rhea/rhea/boards/lattice/_catboard.py
+set_io o_ram_addr[4] B16
+set_io o_ram_addr[5] C16
+set_io o_ram_addr[6] D15
+set_io o_ram_addr[7] D16
+#'E16', 'F15', 'F14', 'F16',    8-11 from rhea/rhea/boards/lattice/_catboard.py
+set_io o_ram_addr[8] E16
+set_io o_ram_addr[9] F15
+set_io o_ram_addr[10] F14
+set_io o_ram_addr[11] F16
+set_io o_ram_addr[12] G14
+
+#D0 D1 D2 D3 D4 D5 D6 D7 D8 D9 D10 D11 D12 D13 D14 D15 ???? 10/15/18
+#'R14', 'P14', 'M13', 'M14', 0-3 from rhea/rhea/boards/lattice/_catboard.py
+set_io io_ram_data[0] R14
+set_io io_ram_data[1] P14
+set_io io_ram_data[2] M13 
+set_io io_ram_data[3] M14
+#L13', 'L14', 'K13', 'K14',  4-7 from rhea/rhea/boards/lattice/_catboard.py
+set_io io_ram_data[4] L13
+set_io io_ram_data[5] L14
+set_io io_ram_data[6] K13
+set_io io_ram_data[7] K14
+#J16', 'L16', 'M16', 'M15', 8-11 from rhea/rhea/boards/lattice/_catboard.py
+set_io io_ram_data[8] J16
+set_io io_ram_data[9] L16
+set_io io_ram_data[10] M16
+set_io io_ram_data[11] M15
+#'N16', 'P16', 'P15', 'R15', 12-15 from rhea/rhea/boards/lattice/_catboard.py
+set_io io_ram_data[12] N16
+set_io io_ram_data[13] P16
+set_io io_ram_data[14] P15
+set_io io_ram_data[15] R15
