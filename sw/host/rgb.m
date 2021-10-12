@@ -21,7 +21,7 @@ title "b.bin 09/28/21"
 figure;
 imagesc(im4);
 colorbar;
-title "DWT  jpeg.c 3 Lvls 10/11/21 write 0x0200fdf8 read 0x0200fdf8"
+title "DWT  jpeg.c 3 Lvls 10/12/21 write 0x0200fdf8 read 0x0200fdf8"
 
 %title "RPi3B fwd lifting step blue sub band ./pi_jpeg 2 1 05/29/19"
 %title "FPGA HX8K fwd lifting step green sub band catboard 0x0100f204 05/29/19"
