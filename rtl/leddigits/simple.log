@@ -2323,6 +2323,6 @@ Found and reported 0 problems.
 2.50. Executing JSON backend.
 
 Warnings: 40 unique messages, 40 total
-End of script. Logfile hash: 3febb18bb4, CPU: user 4.10s system 0.19s, MEM: 42.54 MB peak
+End of script. Logfile hash: 3febb18bb4, CPU: user 4.36s system 0.12s, MEM: 42.54 MB peak
 Yosys 0.9+4081 (git sha1 83a21814, gcc 8.3.0-6+rpi1 -fPIC -Os)
-Time spent: 20% 21x opt_expr (0 sec), 16% 11x read_verilog (0 sec), ...
+Time spent: 20% 21x opt_expr (1 sec), 16% 11x read_verilog (0 sec), ...

@@ -46,7 +46,7 @@ all:	data install
 # of parts and pieces of our project that autofpga will copy/paste into our
 # main project files.
 #
-DATA := global.txt bkram.txt buserr.txt clockpll40.txt		\
+DATA := global.txt bkram.txt buserr.txt clockpll48.txt		\
 	pic.txt pwrcount.txt version.txt			\
 	hbconsole.txt gpio.txt  zipbones.txt sdramdev.txt \
 	mem_sdram_bkram.txt 

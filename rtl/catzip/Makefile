@@ -113,14 +113,14 @@ yosys: catzip.json
 
 catzip.asc: $(PCFFILE) catzip.json
 	# arachne-pnr -d 8k -r -P ct256 -p $(PCFFILE) catzip.blif -o $@
-	nextpnr-ice40 --hx8k -r --freq 40 --package ct256 --pcf $(PCFFILE) --json catzip.json --asc catzip.asc --no-promote-globals
+	nextpnr-ice40 --hx8k -r --freq 48 --package ct256 --pcf $(PCFFILE) --json catzip.json --asc catzip.asc --no-promote-globals
 
 .PHONY: arachne
 arachne: catzip.asc
 
 catzip.bin: catzip.asc
 	icepack catzip.asc catzip.bin
-	icetime -d hx8k -c 40 catzip.asc
+	icetime -d hx8k -c 48 catzip.asc
 
 #
 #
