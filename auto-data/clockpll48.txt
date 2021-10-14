@@ -113,7 +113,7 @@
 		.FDA_FEEDBACK(4'b1111),
 		.FDA_RELATIVE(4'b1111),
 		.DIVR(4'b0010),		// DIVR =  2
-		.DIVF(4'b0010110),		// DIVQ =  22
+		.DIVF(7'b0010110),		// DIVQ =  22
 		.DIVQ(3'b100),		// DIVF =  4
 		.FILTER_RANGE(3'b011)	// FILTER_RANGE = 3
 	) plli (
