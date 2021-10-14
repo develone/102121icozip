@@ -28,15 +28,17 @@ read_verilog cpu/wbwatchdog.v
 read_verilog cpu/ziptimer.v
 
 # Peripherals
-read_verilog wbpwmaudio.v
-read_verilog wbpwmfifo.v
+#read_verilog wbpwmaudio.v
+#read_verilog wbpwmfifo.v
 # read_verilog wbspiflash.v
-read_verilog flashconfig.v
+#
+#read_verilog flashconfig.v
+#
 # read_verilog spio.v
 read_verilog wbgpio.v
 # read_verilog wbscope.v
 read_verilog memdev.v
-read_verilog dacfifo.v
+#read_verilog dacfifo.v
 
 read_verilog ../pport/pport.v
 read_verilog ../pport/ppio.v
@@ -55,13 +57,14 @@ read_verilog ../hexbus/hbnewline.v
 read_verilog ../hexbus/hbpack.v	
 
 read_verilog oclkddr.v
-read_verilog sramdev.v
-read_verilog spixpress.v
+read_verilog sdramdev.v
+#
+#read_verilog spixpress.v
+#
 read_verilog wbxbar.v
 read_verilog addrdecode.v
 read_verilog skidbuffer.v
 read_verilog cpu/pfcache.v
-
 # read_verilog wbubus/wbconsole.v
 # read_verilog wbubus/wbubus.v
 # read_verilog wbubus/wbucompactlines.v

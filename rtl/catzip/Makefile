@@ -104,7 +104,7 @@ $(VDIRFB)/V%__ALL.a: $(VDIRFB)/V%.mk
 bin: catzip.bin
 #
 #
-catzip.json: toplevel.v wbxbar.v addrdecode.v skidbuffer.v $(VFLIST)
+catzip.json: synth.ys toplevel.v wbxbar.v addrdecode.v skidbuffer.v $(VFLIST)
 	@echo yosys -ql yosys.log -p 'synth_ice40 -top toplevel' ...
 	@yosys -ql yosys.log -p 'synth_ice40 -json catzip.json -top toplevel' $^
 
