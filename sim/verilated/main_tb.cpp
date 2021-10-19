@@ -53,19 +53,28 @@
 #include "design.h"
 #include "regdefs.h"
 #include "testb.h"
-#include "zipelf.h"
-
-#include "flashsim.h"
 #include "byteswap.h"
+#include "flashsim.h"
 #include "sramsim.h"
 #include "port.h"
 #include "pportsim.h"
+#include "zipelf.h"
+
 //
 // SIM.DEFINES
 //
 // This tag is useful fr pasting in any #define values that
 // might then control the simulation following.
 //
+#ifndef VVAR
+#ifdef  NEW_VERILATOR
+#define VVAR(A) main__DOT_ ## A
+#else
+#define VVAR(A) v__DOT_ ## A
+#endif
+#endif
+
+#define	block_ram	VVAR(_bkrami__DOT__mem)
 #ifndef	VVAR
 #ifdef	ROOT_VERILATOR
 
@@ -112,15 +121,6 @@
 #define	cpu_wr_reg_id	CPUVAR(_wr_reg_id)
 #define	cpu_wr_gpreg	CPUVAR(_wr_gpreg_vl)
 
-#ifndef VVAR
-#ifdef  NEW_VERILATOR
-#define VVAR(A) main__DOT_ ## A
-#else
-#define VVAR(A) v__DOT_ ## A
-#endif
-#endif
-
-#define	block_ram	VVAR(_bkrami__DOT__mem)
 class	MAINTB : public TESTB<Vmain> {
 public:
 		// SIM.DEFNS
@@ -128,7 +128,6 @@ public:
 		// If you have any simulation components, create a
 		// SIM.DEFNS tag to have those components defined here
 		// as part of the main_tb.cpp function.
-	int	m_cpu_bombed;
 #ifdef	FLASH_ACCESS
 	FLASHSIM	*m_flash;
 	int		m_flash_last_sck;
@@ -137,6 +136,7 @@ public:
 	SRAMSIM		*m_sram;
 #endif // SRAM_ACCESS
 	PPORTSIM	*m_hb;
+	int	m_cpu_bombed;
 	MAINTB(void) {
 		// SIM.INIT
 		//
@@ -144,8 +144,6 @@ public:
 		// create a SIM.INIT tag.  That tag's value will be pasted
 		// here.
 		//
-		// From zip
-		m_cpu_bombed = 0;
 		// From flash
 #ifdef	FLASH_ACCESS
 		m_flash = new FLASHSIM(FLASHLGLEN);
@@ -157,6 +155,8 @@ public:
 #endif // SRAM_ACCESS
 		// From hb
 		m_hb = new PPORTSIM(FPGAPORT, true);
+		// From zip
+		m_cpu_bombed = 0;
 	}
 
 	void	reset(void) {
@@ -201,27 +201,6 @@ public:
 		//
 		// SIM.TICK tags go here for SIM.CLOCK=clk
 		//
-		// SIM.TICK from zip
-#ifdef	INCLUDE_ZIPCPU
-		// ZipCPU Sim instruction support
-		// {{{
-		if ((m_core->cpu_sim)
-			&&(!m_core->cpu_new_pc)) {
-			//
-			execsim(m_core->cpu_sim_immv);
-		}
-
-		if (m_cpu_bombed) {
-			if (m_cpu_bombed++ > 12)
-				m_done = true;
-		} else if (m_core->cpu_break) {
-			printf("\n\nBOMB : CPU BREAK RECEIVED\n");
-			m_cpu_bombed++;
-			dump(m_core->cpu_regs);
-		}
-		// }}}
-#endif	// INCLUDE_ZIPCPU
-
 		// SIM.TICK from flash
 #ifdef	FLASH_ACCESS
 		if (m_flash_last_sck) {
@@ -248,6 +227,27 @@ public:
 			m_core->o_pp_clkfb);
 		m_core->i_pp_clk = pp_clk;
 		m_core->i_pp_dir = pp_dir;
+		// SIM.TICK from zip
+#ifdef	INCLUDE_ZIPCPU
+		// ZipCPU Sim instruction support
+		// {{{
+		if ((m_core->cpu_sim)
+			&&(!m_core->cpu_new_pc)) {
+			//
+			execsim(m_core->cpu_sim_immv);
+		}
+
+		if (m_cpu_bombed) {
+			if (m_cpu_bombed++ > 12)
+				m_done = true;
+		} else if (m_core->cpu_break) {
+			printf("\n\nBOMB : CPU BREAK RECEIVED\n");
+			m_cpu_bombed++;
+			dump(m_core->cpu_regs);
+		}
+		// }}}
+#endif	// INCLUDE_ZIPCPU
+
 	}
 	inline	void	tick_clk(void) {	tick();	}
 
@@ -261,37 +261,6 @@ public:
 	//
 	bool	load(uint32_t addr, const char *buf, uint32_t len) {
 		uint32_t	start, offset, wlen, base, adrln;
-
-		//
-		// Loading the flash component
-		//
-		base  = 0x01000000; // in octets
-		adrln = 0x01000000;
-
-		if ((addr >= base)&&(addr < base + adrln)) {
-			// If the start access is in flash
-			start = (addr > base) ? (addr-base) : 0;
-			offset = (start + base) - addr;
-			wlen = (len-offset > adrln - start)
-				? (adrln - start) : len - offset;
-#ifdef	FLASH_ACCESS
-			// FROM flash.SIM.LOAD
-#ifdef	FLASH_ACCESS
-			m_flash->load(start, &buf[offset], wlen);
-#endif // FLASH_ACCESS
-			// AUTOFPGA::Now clean up anything else
-			// Was there more to write than we wrote?
-			if (addr + len > base + adrln)
-				return load(base + adrln, &buf[offset+wlen], len-wlen);
-			return true;
-#else	// FLASH_ACCESS
-			return false;
-#endif	// FLASH_ACCESS
-		//
-		// End of components with a SIM.LOAD tag, and a
-		// non-zero number of addresses (NADDR)
-		//
-		}
 
 		//
 		// Loading the bkram component
@@ -324,6 +293,37 @@ public:
 #else	// BKRAM_ACCESS
 			return false;
 #endif	// BKRAM_ACCESS
+		//
+		// End of components with a SIM.LOAD tag, and a
+		// non-zero number of addresses (NADDR)
+		//
+		}
+
+		//
+		// Loading the flash component
+		//
+		base  = 0x01000000; // in octets
+		adrln = 0x01000000;
+
+		if ((addr >= base)&&(addr < base + adrln)) {
+			// If the start access is in flash
+			start = (addr > base) ? (addr-base) : 0;
+			offset = (start + base) - addr;
+			wlen = (len-offset > adrln - start)
+				? (adrln - start) : len - offset;
+#ifdef	FLASH_ACCESS
+			// FROM flash.SIM.LOAD
+#ifdef	FLASH_ACCESS
+			m_flash->load(start, &buf[offset], wlen);
+#endif // FLASH_ACCESS
+			// AUTOFPGA::Now clean up anything else
+			// Was there more to write than we wrote?
+			if (addr + len > base + adrln)
+				return load(base + adrln, &buf[offset+wlen], len-wlen);
+			return true;
+#else	// FLASH_ACCESS
+			return false;
+#endif	// FLASH_ACCESS
 		//
 		// End of components with a SIM.LOAD tag, and a
 		// non-zero number of addresses (NADDR)

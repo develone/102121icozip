@@ -53,10 +53,10 @@
 
 
 
-#define	CLKFREQHZ	50000000
-
-
 #define BUSPIC(X) (1<<X)
+
+
+#define	CLKFREQHZ	50000000
 
 
 //
@@ -91,52 +91,52 @@ typedef struct  CONSOLE_S {
 
 
 
+#define	_BOARD_HAS_BUILDTIME
+static volatile unsigned *const _buildtime = ((unsigned *)0x00a00000);
+#define	_BOARD_HAS_VERSION
+static volatile unsigned *const _version = ((unsigned *)0x00a00014);
 #ifdef	BUSTIMER_ACCESS
 #define	_BOARD_HAS_BUSTIMER
 static volatile unsigned *const _bustimer = ((unsigned *)0x00200000);
 #endif	// BUSTIMER_ACCESS
-#define	_BOARD_HAS_VERSION
-static volatile unsigned *const _version = ((unsigned *)0x00a00014);
-#ifdef	FLASH_ACCESS
-#define	_BOARD_HAS_FLASH
-extern char _flash[0x01000000];
-#endif	// FLASH_ACCESS
-#define	_BOARD_HAS_BUILDTIME
-static volatile unsigned *const _buildtime = ((unsigned *)0x00a00000);
-#ifdef	BKRAM_ACCESS
-#define	_BOARD_HAS_BKRAM
-extern char	_bkram[0x00002000];
-#endif	// BKRAM_ACCESS
 #ifdef	BUSPIC_ACCESS
 #define	_BOARD_HAS_BUSPIC
 static volatile unsigned *const _buspic = ((unsigned *)0x00a00008);
 #endif	// BUSPIC_ACCESS
-#define	_BOARD_HAS_BUSERR
-static volatile unsigned *const _buserr = ((unsigned *)0x00a00004);
-#ifdef	PWRCOUNT_ACCESS
-static volatile unsigned *const _pwrcount = ((unsigned *)0x00a00010);
-#endif	// PWRCOUNT_ACCESS
+#ifdef	BKRAM_ACCESS
+#define	_BOARD_HAS_BKRAM
+extern char	_bkram[0x00002000];
+#endif	// BKRAM_ACCESS
 #ifdef	GPIO_ACCESS
 #define	_BOARD_HAS_GPIO
 static volatile unsigned *const _gpio = ((unsigned *)10485772);
 #endif	// GPIO_ACCESS
+#ifdef	FLASH_ACCESS
+#define	_BOARD_HAS_FLASH
+extern char _flash[0x01000000];
+#endif	// FLASH_ACCESS
 #ifdef	SRAM_ACCESS
 #define	_BOARD_HAS_SRAM
 extern char	_sram[0x00020000];
 #endif	// SRAM_ACCESS
+#ifdef	PWRCOUNT_ACCESS
+static volatile unsigned *const _pwrcount = ((unsigned *)0x00a00010);
+#endif	// PWRCOUNT_ACCESS
 #ifdef	BUSCONSOLE_ACCESS
 #define	_BOARD_HAS_BUSCONSOLE
 static volatile CONSOLE *const _uart = ((CONSOLE *)8388608);
 #endif	// BUSCONSOLE_ACCESS
+#define	_BOARD_HAS_BUSERR
+static volatile unsigned *const _buserr = ((unsigned *)0x00a00004);
 //
 // Interrupt assignments (2 PICs)
 //
-// PIC: cpu_reset
-#define	CPU_RESET_RESET	CPU_RESET(0)
-#define	CPU_RESET_WATCHDOG	CPU_RESET(1)
 // PIC: buspic
 #define	BUSPIC_BUSTIMER	BUSPIC(0)
 #define	BUSPIC_GPIO	BUSPIC(1)
-#define	BUSPIC_UARTRXF	BUSPIC(2)
-#define	BUSPIC_UARTTXF	BUSPIC(3)
+#define	BUSPIC_UARTTXF	BUSPIC(2)
+#define	BUSPIC_UARTRXF	BUSPIC(3)
+// PIC: cpu_reset
+#define	CPU_RESET_RESET	CPU_RESET(0)
+#define	CPU_RESET_WATCHDOG	CPU_RESET(1)
 #endif	// BOARD_H

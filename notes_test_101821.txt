@@ -1,0 +1,157 @@
+10/18/21
+git clone git@github.com:develone/icozip.git -b dev icozip-dev
+
+. ~/catzip-dev-zipcore/myenv-a.sh
+
+*****************changes to needed to get make to build.*****************
+
+diff --git a/rtl/icozip/synth.ys b/rtl/icozip/synth.ys
+index 9b8e7c0..6cefaa0 100644
+--- a/rtl/icozip/synth.ys
++++ b/rtl/icozip/synth.ys
+@@ -28,15 +28,15 @@ read_verilog cpu/wbwatchdog.v
+ read_verilog cpu/ziptimer.v
+ 
+ # Peripherals
+-read_verilog wbpwmaudio.v
+-read_verilog wbpwmfifo.v
++#read_verilog wbpwmaudio.v
++#read_verilog wbpwmfifo.v
+ # read_verilog wbspiflash.v
+ read_verilog flashconfig.v
+ # read_verilog spio.v
+ read_verilog wbgpio.v
+ # read_verilog wbscope.v
+ read_verilog memdev.v
+-read_verilog dacfifo.v
++#read_verilog dacfifo.v
+ 
+ read_verilog ../pport/pport.v
+ read_verilog ../pport/ppio.v
+*****************changes to needed to get make to build.*****************
+
+devel@mypi3-20:~/icozip-dev $ make
+
+devel@mypi3-20:~/icozip-dev/sim/verilated $ ./arm-main_tb 
+Listening on port 8363
+Listening on port 8364
+> T
+Accepted CMD connection
+< A00a00015R
+> A00a00015R20211018
+<  [CLOSED]
+
+devel@mypi3-20:~/icozip-dev/sw/host $ ./arm-wbregs version
+00a00014 ( VERSION) : [.!..] 20211018
+46.2.1. Analyzing design hierarchy..
+Top module:  \toplevel
+Used module:     \ppio
+Used module:     \oclkddr
+Used module:     \main
+Used module:         \zipbones
+Used module:             \zipwb
+Used module:                 \wbdblpriarb
+Used module:                 \memops
+Used module:                 \pfcache
+Used module:                 \zipcore
+Used module:                     \div
+Used module:                     \cpuops
+Used module:                         \mpyop
+Used module:                     \idecode
+Used module:         \ziptimer
+Used module:         \hbconsole
+Used module:             \hbnewline
+Used module:             \hbgenhex
+Used module:             \hbdeword
+Used module:             \hbidle
+Used module:             \hbints
+Used module:             \hbexec
+Used module:             \hbpack
+Used module:             \hbdechex
+Used module:         \pport
+Used module:         \console
+Used module:         \sramdev
+Used module:         \spixpress
+Used module:             \wbarbiter
+Used module:         \wbgpio
+Used module:         \memdev
+Used module:         \icontrol
+Used module:         \wbxbar
+Used module:             \addrdecode
+Used module:             \skidbuffer
+Parameter \W = 16
+
+devel@mypi3-20:~/icozip-dev/sw/host $ ./arm-zipload -v ../board/cputest
+Halting the CPU
+Memory regions:
+	Block RAM: 00c00000 - 00c02000
+	Flash (ROM): 01000000 - 02000000
+	SRAM       : 00e00000 - 00e20000
+Loading: ../board/cputest
+Section 0: 00e00000 - 00e03a14
+Writing to MEM: 00e00000-00e03a14
+Clearing the CPUs registers
+Setting PC to 00e00000
+The CPU should be fully loaded, you may now
+start it (from reset/reboot) with:
+> wbregs cpu 0
+
+CPU Status is: 00000600
+
+devel@mypi3-20:~/icozip-dev/sw/host $ ./arm-wbregs cpu 0x0f
+02000080 (     CPU)-> 0000000f
+
+Running CPU self-test
+-----------------------------------
+SIM Instructions                Is this a simulator?
+CIS Instructions                Supported
+Break test #1                   Pass
+Break test #2                   Pass
+Break test #3                   Pass
+Early Branch test               Pass
+Trap test/AND                   Pass
+Trap test/CLR                   Pass
+Overflow test                   Pass
+Carry test                      Pass
+Loop test                       Pass
+Shift test                      Pass
+Pipeline test                   Pass
+Mem-Pipeline test               Pass
+Conditional Execution test      Pass
+No-waiting pipeline test        Pass
+Conditional Branching test      Pass
+Ill Instruction test, NULL PC   Pass
+Ill Instruction test, two       Pass
+Comparison test, ==             Pass
+Comparison test, !=             Pass
+CC Register test                Pass
+Multi-Arg test                  Pass
+Multiply test                   Pass
+
+devel@mypi3-20:~/icozip-dev/sw/host $ ./arm-zipload -r ../board/hello
+Halting the CPU
+Loading: ../board/hello
+NO ERASE NEEDED
+Writing page: 0x01020000 - 0x010200ff
+VERIFY FAILS[0]: 01020000
+	(Flash[0]) ffffffff != 6a004700 (Goal[01020000])
+WRITE-PAGE FAILED!
+ERR: Could not write program to flash
+
+devel@mypi3-20:~/icozip-dev/sw/host $ ./arm-zipload -v ../board/hello
+Halting the CPU
+Memory regions:
+	Block RAM: 00c00000 - 00c02000
+	Flash (ROM): 01000000 - 02000000
+	SRAM       : 00e00000 - 00e20000
+Loading: ../board/hello
+Section 0: 01020000 - 010201c4
+Section 1: 010201c4 - 010247cc
+Sending to flash: 01020000-010201c4
+Sending to flash: 010201c4-010247cc
+NO ERASE NEEDED
+Writing page: 0x01020000 - 0x010200ff
+VERIFY FAILS[0]: 01020000
+	(Flash[0]) ffffffff != 6a004700 (Goal[01020000])
+WRITE-PAGE FAILED!
+ERR: Could not write program to flash

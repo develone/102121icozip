@@ -56,10 +56,10 @@
 // also appear in this list
 //
 module	toplevel(i_clk,
-		// Top level Dual-SPI I/O ports
-		o_spi_cs_n, o_spi_sck, o_spi_mosi, i_spi_miso,
 		// GPIO ports
 		o_ledg, o_ledr, i_btn,
+		// Top level Dual-SPI I/O ports
+		o_spi_cs_n, o_spi_sck, o_spi_mosi, i_spi_miso,
 		o_ram_ce_n, o_ram_oe_n, o_ram_we_n, o_ram_addr, o_ram_sel, 
 			io_ram_data,
 		// Parallel port to wishbone / console interface
@@ -77,14 +77,14 @@ module	toplevel(i_clk,
 	// We start with any @CLOCK.TOP keys
 	//
 	input	wire		i_clk;
-	// Dual SPI flash
-	output	wire		o_spi_cs_n;
-	output	wire		o_spi_sck, o_spi_mosi;
-	input	wire		i_spi_miso;
 	// GPIO wires
 	output	wire	[1:0]	o_ledg;
 	output	wire		o_ledr;
 	input	wire	[1:0]	i_btn;
+	// Dual SPI flash
+	output	wire		o_spi_cs_n;
+	output	wire		o_spi_sck, o_spi_mosi;
+	input	wire		i_spi_miso;
 	output	wire	o_ram_ce_n, o_ram_oe_n, o_ram_we_n;
 	output	wire	[15:0]	o_ram_addr;
 	output	wire	[1:0]	o_ram_sel;
@@ -101,12 +101,12 @@ module	toplevel(i_clk,
 	// These declarations just copy data from the @TOP.DEFNS key
 	// within the component data files.
 	//
-	wire		spi_sck;
 	wire		s_clk, s_reset;
 	// GPIO declarations.  The two wire busses are just virtual lists of
 	// input (or output) ports.
 	wire	[2 -1:0]	i_gpio;
 	wire	[11-1:0]	o_gpio;
+	wire		spi_sck;
 	wire	[15:0]		i_ram_data, o_ram_data;
 
 	//
@@ -135,10 +135,10 @@ module	toplevel(i_clk,
 	//
 
 	main	thedesign(s_clk, s_reset,
-		// SPI flash
-		o_spi_cs_n, spi_sck, o_spi_mosi, i_spi_miso,
 		// GPIO wires
 		i_gpio, o_gpio,
+		// SPI flash
+		o_spi_cs_n, spi_sck, o_spi_mosi, i_spi_miso,
 		o_ram_ce_n, o_ram_oe_n, o_ram_we_n, o_ram_addr, o_ram_sel, 
 			o_ram_data, i_ram_data,
 		// External USB-UART bus control
@@ -150,14 +150,6 @@ module	toplevel(i_clk,
 	// that special logic that couldnt fit in main.  This logic is
 	// given by the @TOP.INSERT tag in our data files.
 	//
-
-
-	//
-	//
-	// Wires for setting up the SPI flash wishbone peripheral
-	//
-	//
-	oclkddr spi_ddr_sck(s_clk, {!spi_sck, 1'b1}, o_spi_sck);
 
 
 	assign	s_reset = 1'b0; // This design requires local, not global resets
@@ -178,6 +170,14 @@ module	toplevel(i_clk,
 	assign	i_gpio = { i_btn };
 	assign	o_ledr = o_gpio[0];
 	assign	o_ledg = o_gpio[2:1];
+
+	//
+	//
+	// Wires for setting up the SPI flash wishbone peripheral
+	//
+	//
+	oclkddr spi_ddr_sck(s_clk, {!spi_sck, 1'b1}, o_spi_sck);
+
 
 	//
 	// SRAM Interface

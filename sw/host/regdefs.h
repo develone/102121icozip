@@ -119,11 +119,11 @@
 #define	CLKFREQHZ	50000000
 #define	RESET_ADDRESS	0x01020000
 // @REGDEFS.H.DEFNS for peripherals
+#define	BKRAMBASE	0x00c00000
+#define	BKRAMLEN	0x00002000
 #define	FLASHBASE	0x01000000
 #define	FLASHLEN	0x01000000
 #define	FLASHLGLEN	24
-#define	BKRAMBASE	0x00c00000
-#define	BKRAMLEN	0x00002000
 #define	SRAMBASE	0x00e00000
 #define	SRAMLEN	0x00020000
 // @REGDEFS.H.DEFNS at the top level
@@ -133,6 +133,20 @@
 //
 // @REGDEFS.H.INSERT for masters
 // @REGDEFS.H.INSERT for peripherals
+// Flash memory constants
+#define	SZPAGEB		256
+#define	PGLENB		256
+#define	SZPAGEW		64
+#define	PGLENW		64
+#define	NPAGES		256
+#define	SECTORSZB	(NPAGES * SZPAGEB)	// In bytes, not words!!
+#define	SECTORSZW	(NPAGES * SZPAGEW)	// In words
+#define	NSECTORS	64
+#define	SECTOROF(A)	((A) & (-1<<16))
+#define	SUBSECTOROF(A)	((A) & (-1<<12))
+#define	PAGEOF(A)	((A) & (-1<<8))
+
+
 
 #define	CPU_GO		0x0000
 #define	CPU_RESET	0x0040
@@ -151,20 +165,6 @@
 #define	CPU_uPC		0x001f
 
 #define	RESET_ADDRESS	0x01020000
-
-
-// Flash memory constants
-#define	SZPAGEB		256
-#define	PGLENB		256
-#define	SZPAGEW		64
-#define	PGLENW		64
-#define	NPAGES		256
-#define	SECTORSZB	(NPAGES * SZPAGEB)	// In bytes, not words!!
-#define	SECTORSZW	(NPAGES * SZPAGEW)	// In words
-#define	NSECTORS	64
-#define	SECTOROF(A)	((A) & (-1<<16))
-#define	SUBSECTOROF(A)	((A) & (-1<<12))
-#define	PAGEOF(A)	((A) & (-1<<8))
 
 
 // @REGDEFS.H.INSERT from the top level
