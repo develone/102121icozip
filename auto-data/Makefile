@@ -1,8 +1,8 @@
 ################################################################################
 ##
 ## Filename:	auto-data/Makefile
-##
-## Project:	CAT Zip, iCE40 ZipCPU demonsrtation project
+## {{{
+## Project:	ICO Zip, iCE40 ZipCPU demonstration project
 ##
 ## Purpose:	To coordinate the build of the glue logic holding this design
 ##		together via autofpga.
@@ -12,9 +12,9 @@
 ##		Gisselquist Technology, LLC
 ##
 ################################################################################
-##
-## Copyright (C) 2017-2018, Gisselquist Technology, LLC
-##
+## }}}
+## Copyright (C) 2017-2021, Gisselquist Technology, LLC
+## {{{
 ## This program is free software (firmware): you can redistribute it and/or
 ## modify it under the terms of  the GNU General Public License as published
 ## by the Free Software Foundation, either version 3 of the License, or (at
@@ -29,16 +29,16 @@
 ## with this program.  (It's in the $(ROOT)/doc directory.  Run make with no
 ## target there if the PDF file isn't present.)  If not, see
 ## <http://www.gnu.org/licenses/> for a copy.
-##
+## }}}
 ## License:	GPL, v3, as defined and found on www.gnu.org,
+## {{{
 ##		http://www.gnu.org/licenses/gpl.html
-##
 ##
 ################################################################################
 ##
-##
+## }}}
 .PHONY: all
-all:	data install
+all:	data
 #
 # Could also depend upon load, if desired, but not necessary
 #
@@ -46,36 +46,28 @@ all:	data install
 # of parts and pieces of our project that autofpga will copy/paste into our
 # main project files.
 #
-DATA := global.txt bkram.txt buserr.txt clockpll40.txt		\
-	pic.txt pwrcount.txt version.txt			\
-	hbconsole.txt gpio.txt  zipbones.txt sdramdev.txt \
-	mem_sdram_bkram.txt 
-	##sdramscope.txt
-         
-
-	# nodelay.txt
-	# Not used: flash.txt rtclite.txt watchdog.txt
+BASE    := global.txt # dlyarbiter.txt
+AUX     := version.txt buserr.txt pic.txt pwrcount.txt
+IO      := gpio.txt # spio.txt
+MEMORY  := sdramdev.txt bkram.txt ##spixpress.txt
+DBGBUS  := hbconsole.txt
+CPU     := zipbones.txt
+SCOPES  := # spixscope.txt
+##LDSCRIPT:= mem_flash_bkram.txt mem_bkram_only.txt mem_flash_sram.txt mem_sram_only.txt
+LDSCRIPT:= mem_sdram_bkram.txt
+BONUS   :=
+DATA := clock50.txt $(BASE) $(AUX) $(IO) $(MEMORY) $(DBGBUS) $(CPU) $(SCOPES) $(BONUS) $(LDSCRIPT)
+	# Not used: rtclite.txt watchdog.txt
+	# Scopes, pick only one: spixscope sramscope dbgscope
 
 AUTOFPGA := autofpga
+$(AUTOFPGA):
+
 .PHONY: data
-data: $(DATA)
+data: $(AUTOFPGA) $(DATA)
 	$(AUTOFPGA) -d -o . $(DATA)
-
-.PHONY: install
-install: data
-	$(call notify-on-change,toplevel.v,../rtl/catzip)
-	$(call notify-on-change,main.v,../rtl/catzip)
-	$(call notify-on-change,regdefs.h,../sw/host/)
-	$(call notify-on-change,regdefs.cpp,../sw/host/)
-	$(call notify-on-change,board.h,../sw/board/)
-	$(call notify-on-change,board.ld,../sw/board/)
-
-define	notify-on-change
-	@bash -c 'cmp $(1) $(2)/$(1) >& /dev/null; if [[ $$? != 0 ]]; then echo "Files $(1) and $(2)/$(1) differ"; fi'
-endef
 
 clean:
 	rm -f toplevel.v main.v regdefs.h regdefs.cpp board.h board.ld
 	rm -f rtl.make.inc main_tb.cpp
 	rm -f dump.txt
-
