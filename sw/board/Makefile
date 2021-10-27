@@ -53,7 +53,7 @@ LDSCRIPT:= -Tboardram.ld
 LFLAGS  := $(LDSCRIPT) -L../zlib
 INCS    := -I../zlib -I../../rtl/catzip -I.
 CFLAGS  := -O3 $(INCS)
-LIBS    := -lc -lcatzip
+LIBS    := -lc -lcatzip -lgcc
 INSTALLD:=/home/devel/zipcpu/sw/install
 NLIBD	:=$(INSTALLD)/cross-tools/zip/lib
 ZLIBD	:=../zlib
@@ -96,7 +96,7 @@ $(OBJDIR)/lifting.o: lifting.c
 	$(CC) -O3 -c  $< -o $@
 	
 $(OBJDIR)/hello.o: hello.c
-	$(CC) -O3 -c  $< -o $@
+	$(CC) $(INCS) -O3 -c  $< -o $@
 $(OBJDIR)/jpeg.o: jpeg.c
 	$(CC) $(CFLAGS) -c  $< -o $@
 

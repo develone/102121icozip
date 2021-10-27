@@ -1,21 +1,21 @@
 ################################################################################
 ##
-## Filename: 	rtl/icozip/Makefile
-##
+## Filename: 	rtl/catzip/Makefile
+## {{{
 ## Project:	ICO Zip, iCE40 ZipCPU demonstration project
 ##
 ## Purpose:	This makefile builds both the final bit file for loading, as
-##		well as a verilator simulation of the entire icozip project.
+##		well as a verilator simulation of the entire catzip project.
 ##
 ## Creator:	Dan Gisselquist, Ph.D.
 ##		Gisselquist Technology, LLC
 ##
 ################################################################################
-##
+## }}}
 ## Copyright (C) 2015-2021, Gisselquist Technology, LLC
-##
+## {{{
 ## This program is free software (firmware): you can redistribute it and/or
-## modify it under the terms of  the GNU General Public License as published
+## modify it under the terms of the GNU General Public License as published
 ## by the Free Software Foundation, either version 3 of the License, or (at
 ## your option) any later version.
 ##
@@ -28,13 +28,14 @@
 ## with this program.  (It's in the $(ROOT)/doc directory.  Run make with no
 ## target there if the PDF file isn't present.)  If not, see
 ## <http://www.gnu.org/licenses/> for a copy.
-##
+## }}}
 ## License:	GPL, v3, as defined and found on www.gnu.org,
+## {{{
 ##		http://www.gnu.org/licenses/gpl.html
 ##
 ################################################################################
 ##
-##
+## }}}
 .PHONY: all
 all: cpudefs.h design.h verilated bin
 CROSS ?=
@@ -104,23 +105,23 @@ $(VDIRFB)/V%__ALL.a: $(VDIRFB)/V%.mk
 bin: catzip.bin
 #
 #
-catzip.json: toplevel.v wbxbar.v addrdecode.v skidbuffer.v $(VFLIST)
+catzip.json: synth.ys toplevel.v wbxbar.v addrdecode.v skidbuffer.v $(VFLIST)
 	@echo yosys -ql yosys.log -p 'synth_ice40 -top toplevel' ...
-	@yosys -ql yosys.log -p 'synth_ice40 -json catzip.json -top toplevel' $^
+	@yosys -ql yosys.log -s 'synth.ys'
 
 .PHONY: yosys
 yosys: catzip.json
 
 catzip.asc: $(PCFFILE) catzip.json
 	# arachne-pnr -d 8k -r -P ct256 -p $(PCFFILE) catzip.blif -o $@
-	nextpnr-ice40 --hx8k -r --freq 40 --package ct256 --pcf $(PCFFILE) --json catzip.json --asc catzip.asc --no-promote-globals
+	nextpnr-ice40 --hx8k -r --freq 50 --package ct256 --pcf $(PCFFILE) --json catzip.json --asc catzip.asc --no-promote-globals
 
 .PHONY: arachne
 arachne: catzip.asc
 
 catzip.bin: catzip.asc
 	icepack catzip.asc catzip.bin
-	icetime -d hx8k -c 40 catzip.asc
+	icetime -d hx8k -c 50 catzip.asc
 
 #
 #
