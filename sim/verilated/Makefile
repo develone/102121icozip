@@ -2,7 +2,7 @@
 ##
 ## Filename:	Makefile
 ##
-## Project:	ICO Zip, iCE40 ZipCPU demonsrtation project
+## Project:	ICO Zip, iCE40 ZipCPU demonstration project
 ##
 ## Purpose:	To coordinate the build of both a cycle accurate, Verilator based,
 ##		simulation of the main module as well as the final ICOZIP FPGA
@@ -14,7 +14,7 @@
 ##
 ################################################################################
 ##
-## Copyright (C) 2017-2018, Gisselquist Technology, LLC
+## Copyright (C) 2017-2020, Gisselquist Technology, LLC
 ##
 ## This program is free software (firmware): you can redistribute it and/or
 ## modify it under the terms of  the GNU General Public License as published
@@ -58,10 +58,11 @@ VDEFS   := $(shell ./vversion.sh)
 VINCD   := $(VROOT)/include
 INCS	:= -I$(RTLD) -I$(RTLD)/obj-$(ARCH)/ -I$(VINCD) -I$(VINCD)/vltstd
 CFLAGS	:= -Og -g -Wall $(INCS)
+# CFLAGS	:= -Og -g -faligned-new -Wall $(INCS)
 #
 # A list of our sources and headers
 #
-SIMSRCS := zipelf.cpp memsim.cpp byteswap.cpp pportsim.cpp sdramsim.cpp
+SIMSRCS := zipelf.cpp byteswap.cpp pportsim.cpp sdramsim.cpp
 # Not used: i2csim.cpp
 VOBJDR	:= $(RTLD)/$(OBJDIR)
 VOBJS   := $(OBJDIR)/verilated.o $(OBJDIR)/verilated_vcd_c.o
