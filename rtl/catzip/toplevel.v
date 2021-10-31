@@ -56,13 +56,13 @@
 // also appear in this list
 //
 module	toplevel(i_clk,
-		// Parallel port to wishbone / console interface
-		i_pp_dir, i_pp_clk, io_pp_data, o_pp_clkfb,
+		// GPIO ports
+		o_ledg, o_ledr, i_btn,
 		i_ram_feedback_clk, o_ram_clk, o_ram_cke, o_ram_cs_n, o_ram_ras_n, o_ram_cas_n,
 		o_ram_we_n, o_ram_bs, o_ram_addr, o_ram_udqm, o_ram_ldqm,
 		io_ram_data,
-		// GPIO ports
-		o_ledg, o_ledr, i_btn);
+		// Parallel port to wishbone / console interface
+		i_pp_dir, i_pp_clk, io_pp_data, o_pp_clkfb);
 	//
 	// Declaring our input and output ports.  We listed these above,
 	// now we are declaring them here.
@@ -76,10 +76,10 @@ module	toplevel(i_clk,
 	// We start with any @CLOCK.TOP keys
 	//
 	input	wire		i_clk;
-	// Parallel port to wishbone / console interface
-	input	wire		i_pp_dir, i_pp_clk;
-	inout	wire	[7:0]	io_pp_data;
-	output	wire		o_pp_clkfb;
+	// GPIO wires
+	output	wire	[1:0]	o_ledg;
+	output	wire		o_ledr;
+	input	wire	[1:0]	i_btn;
 	//toplevel.v instantiating busmaster.v 
 	//o_ram_cs_n,     Chip select
 	//o_ram_cke,      Clock enable
@@ -109,10 +109,10 @@ module	toplevel(i_clk,
  
 	wire	[31:0]	o_debug;
 	
-	// GPIO wires
-	output	wire	[1:0]	o_ledg;
-	output	wire		o_ledr;
-	input	wire	[1:0]	i_btn;
+	// Parallel port to wishbone / console interface
+	input	wire		i_pp_dir, i_pp_clk;
+	inout	wire	[7:0]	io_pp_data;
+	output	wire		o_pp_clkfb;
 
 
 	//
@@ -121,6 +121,12 @@ module	toplevel(i_clk,
 	// These declarations just copy data from the @TOP.DEFNS key
 	// within the component data files.
 	//
+	wire		s_clk, s_reset;
+	// GPIO declarations.  The two wire busses are just virtual lists of
+	// input (or output) ports.
+	wire	[2 -1:0]	i_gpio;
+	wire	[11-1:0]	o_gpio;
+	wire	[15:0]		i_ram_data, o_ram_data;
 	//
 	//
 	// Parallel port interface
@@ -129,12 +135,6 @@ module	toplevel(i_clk,
 	wire	[7:0]	i_pp_data, w_pp_data;
 	wire		w_pp_dbg;
 
-	wire	[15:0]		i_ram_data, o_ram_data;
-	// GPIO declarations.  The two wire busses are just virtual lists of
-	// input (or output) ports.
-	wire	[2 -1:0]	i_gpio;
-	wire	[11-1:0]	o_gpio;
-	wire		s_clk, s_reset;
 
 
 	//
@@ -153,8 +153,8 @@ module	toplevel(i_clk,
 	//
 
 	main	thedesign(s_clk, s_reset,
-		// External USB-UART bus control
-		i_pp_clk, i_pp_dir, i_pp_data, w_pp_data, o_pp_clkfb, w_pp_dbg,
+		// GPIO wires
+		i_gpio, o_gpio,
 
 		//*********************************************************
 			//toplevel
@@ -174,8 +174,8 @@ module	toplevel(i_clk,
 			o_ram_bs, o_ram_addr,
 			ram_drive_data, r_ram_data, ram_data, { o_ram_udqm, o_ram_ldqm },
 		o_debug,
-		// GPIO wires
-		i_gpio, o_gpio);
+		// External USB-UART bus control
+		i_pp_clk, i_pp_dir, i_pp_data, w_pp_data, o_pp_clkfb, w_pp_dbg);
 
 
 	//
@@ -185,9 +185,24 @@ module	toplevel(i_clk,
 	//
 
 
-	//
-	// Parallel port I/O pin control
-	ppio	hbi_io(i_pp_dir, io_pp_data, w_pp_data, i_pp_data);
+	assign	s_reset = 1'b0; // This design requires local, not global resets
+
+`ifdef	VERILATOR
+	assign	s_clk = i_clk;
+`else
+	reg	clk_50mhz;
+
+	initial	clk_50mhz = 1'b0;
+	always @(posedge i_clk)
+		clk_50mhz <= !clk_50mhz;
+
+	SB_GB global_buffer(clk_50mhz, s_clk);
+`endif
+
+
+	assign	i_gpio = { i_btn };
+	assign	o_ledr = o_gpio[0];
+	assign	o_ledg = o_gpio[2:1];
 
 	//
 	// SDRAM Interface
@@ -212,24 +227,9 @@ module	toplevel(i_clk,
 			
 	assign o_ram_clk = s_clk;
 
-	assign	i_gpio = { i_btn };
-	assign	o_ledr = o_gpio[0];
-	assign	o_ledg = o_gpio[2:1];
-
-	assign	s_reset = 1'b0; // This design requires local, not global resets
-
-`ifdef	VERILATOR
-	assign	s_clk = i_clk;
-`else
-	reg	clk_50mhz;
-
-	initial	clk_50mhz = 1'b0;
-	always @(posedge i_clk)
-		clk_50mhz <= !clk_50mhz;
-
-	SB_GB global_buffer(clk_50mhz, s_clk);
-`endif
-
+	//
+	// Parallel port I/O pin control
+	ppio	hbi_io(i_pp_dir, io_pp_data, w_pp_data, i_pp_data);
 
 
 
