@@ -19,7 +19,7 @@
  |                                                                            |
  \----------------------------------------------------------------------------/
 
- Yosys 0.9+4052 (git sha1 0ccc7229, gcc 8.3.0-6+rpi1 -fPIC -Os)
+ Yosys 0.9+4081 (git sha1 83a21814, gcc 9.3.0-17ubuntu1~20.04 -fPIC -Os)
 
 
 -- Parsing `switch_leds.v' using frontend `verilog' --
@@ -186,22 +186,22 @@ Removed 0 unused modules.
 Cleaned up 0 empty switches.
 
 2.3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
-Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1330$429 in module SB_DFFNES.
-Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1274$422 in module SB_DFFNESS.
-Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1199$418 in module SB_DFFNER.
-Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1143$411 in module SB_DFFNESR.
-Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1074$408 in module SB_DFFNS.
-Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1026$405 in module SB_DFFNSS.
-Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:957$402 in module SB_DFFNR.
-Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:909$399 in module SB_DFFNSR.
-Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:753$391 in module SB_DFFES.
-Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:697$384 in module SB_DFFESS.
-Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:622$380 in module SB_DFFER.
-Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:566$373 in module SB_DFFESR.
-Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:497$370 in module SB_DFFS.
-Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:449$367 in module SB_DFFSS.
-Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:380$364 in module SB_DFFR.
-Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:332$361 in module SB_DFFSR.
+Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1346$429 in module SB_DFFNES.
+Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1290$422 in module SB_DFFNESS.
+Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1215$418 in module SB_DFFNER.
+Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1159$411 in module SB_DFFNESR.
+Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1090$408 in module SB_DFFNS.
+Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1042$405 in module SB_DFFNSS.
+Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:973$402 in module SB_DFFNR.
+Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:925$399 in module SB_DFFNSR.
+Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:769$391 in module SB_DFFES.
+Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:713$384 in module SB_DFFESS.
+Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:638$380 in module SB_DFFER.
+Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:582$373 in module SB_DFFESR.
+Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:513$370 in module SB_DFFS.
+Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:465$367 in module SB_DFFSS.
+Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:396$364 in module SB_DFFR.
+Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:348$361 in module SB_DFFSR.
 Marked 3 switch rules as full_case in process $proc$switch_leds.v:467$180 in module buttons_display.
 Marked 1 switch rules as full_case in process $proc$switch_leds.v:457$178 in module buttons_display.
 Marked 1 switch rules as full_case in process $proc$switch_leds.v:443$175 in module buttons_display.
@@ -264,74 +264,74 @@ Found init rule in `\SB_DFF.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.
   Set init value: \Q = 1'0
 
 2.3.5. Executing PROC_ARST pass (detect async resets in processes).
-Found async reset \S in `\SB_DFFNES.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1330$429'.
-Found async reset \R in `\SB_DFFNER.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1199$418'.
-Found async reset \S in `\SB_DFFNS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1074$408'.
-Found async reset \R in `\SB_DFFNR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:957$402'.
-Found async reset \S in `\SB_DFFES.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:753$391'.
-Found async reset \R in `\SB_DFFER.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:622$380'.
-Found async reset \S in `\SB_DFFS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:497$370'.
-Found async reset \R in `\SB_DFFR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:380$364'.
+Found async reset \S in `\SB_DFFNES.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1346$429'.
+Found async reset \R in `\SB_DFFNER.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1215$418'.
+Found async reset \S in `\SB_DFFNS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1090$408'.
+Found async reset \R in `\SB_DFFNR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:973$402'.
+Found async reset \S in `\SB_DFFES.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:769$391'.
+Found async reset \R in `\SB_DFFER.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:638$380'.
+Found async reset \S in `\SB_DFFS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:513$370'.
+Found async reset \R in `\SB_DFFR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:396$364'.
 
 2.3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
 Creating decoders for process `\SB_DFFNES.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$432'.
-Creating decoders for process `\SB_DFFNES.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1330$429'.
+Creating decoders for process `\SB_DFFNES.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1346$429'.
      1/1: $0\Q[0:0]
 Creating decoders for process `\SB_DFFNESS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$428'.
-Creating decoders for process `\SB_DFFNESS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1274$422'.
+Creating decoders for process `\SB_DFFNESS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1290$422'.
      1/1: $0\Q[0:0]
 Creating decoders for process `\SB_DFFNER.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$421'.
-Creating decoders for process `\SB_DFFNER.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1199$418'.
+Creating decoders for process `\SB_DFFNER.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1215$418'.
      1/1: $0\Q[0:0]
 Creating decoders for process `\SB_DFFNESR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$417'.
-Creating decoders for process `\SB_DFFNESR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1143$411'.
+Creating decoders for process `\SB_DFFNESR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1159$411'.
      1/1: $0\Q[0:0]
 Creating decoders for process `\SB_DFFNS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$410'.
-Creating decoders for process `\SB_DFFNS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1074$408'.
+Creating decoders for process `\SB_DFFNS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1090$408'.
      1/1: $0\Q[0:0]
 Creating decoders for process `\SB_DFFNSS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$407'.
-Creating decoders for process `\SB_DFFNSS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1026$405'.
+Creating decoders for process `\SB_DFFNSS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1042$405'.
      1/1: $0\Q[0:0]
 Creating decoders for process `\SB_DFFNR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$404'.
-Creating decoders for process `\SB_DFFNR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:957$402'.
+Creating decoders for process `\SB_DFFNR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:973$402'.
      1/1: $0\Q[0:0]
 Creating decoders for process `\SB_DFFNSR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$401'.
-Creating decoders for process `\SB_DFFNSR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:909$399'.
+Creating decoders for process `\SB_DFFNSR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:925$399'.
      1/1: $0\Q[0:0]
 Creating decoders for process `\SB_DFFNE.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$398'.
-Creating decoders for process `\SB_DFFNE.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:866$397'.
+Creating decoders for process `\SB_DFFNE.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:882$397'.
      1/1: $0\Q[0:0]
 Creating decoders for process `\SB_DFFN.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$396'.
-Creating decoders for process `\SB_DFFN.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:830$395'.
+Creating decoders for process `\SB_DFFN.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:846$395'.
 Creating decoders for process `\SB_DFFES.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$394'.
-Creating decoders for process `\SB_DFFES.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:753$391'.
+Creating decoders for process `\SB_DFFES.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:769$391'.
      1/1: $0\Q[0:0]
 Creating decoders for process `\SB_DFFESS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$390'.
-Creating decoders for process `\SB_DFFESS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:697$384'.
+Creating decoders for process `\SB_DFFESS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:713$384'.
      1/1: $0\Q[0:0]
 Creating decoders for process `\SB_DFFER.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$383'.
-Creating decoders for process `\SB_DFFER.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:622$380'.
+Creating decoders for process `\SB_DFFER.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:638$380'.
      1/1: $0\Q[0:0]
 Creating decoders for process `\SB_DFFESR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$379'.
-Creating decoders for process `\SB_DFFESR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:566$373'.
+Creating decoders for process `\SB_DFFESR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:582$373'.
      1/1: $0\Q[0:0]
 Creating decoders for process `\SB_DFFS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$372'.
-Creating decoders for process `\SB_DFFS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:497$370'.
+Creating decoders for process `\SB_DFFS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:513$370'.
      1/1: $0\Q[0:0]
 Creating decoders for process `\SB_DFFSS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$369'.
-Creating decoders for process `\SB_DFFSS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:449$367'.
+Creating decoders for process `\SB_DFFSS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:465$367'.
      1/1: $0\Q[0:0]
 Creating decoders for process `\SB_DFFR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$366'.
-Creating decoders for process `\SB_DFFR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:380$364'.
+Creating decoders for process `\SB_DFFR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:396$364'.
      1/1: $0\Q[0:0]
 Creating decoders for process `\SB_DFFSR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$363'.
-Creating decoders for process `\SB_DFFSR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:332$361'.
+Creating decoders for process `\SB_DFFSR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:348$361'.
      1/1: $0\Q[0:0]
 Creating decoders for process `\SB_DFFE.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$360'.
-Creating decoders for process `\SB_DFFE.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:289$359'.
+Creating decoders for process `\SB_DFFE.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:305$359'.
      1/1: $0\Q[0:0]
 Creating decoders for process `\SB_DFF.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$358'.
-Creating decoders for process `\SB_DFF.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:253$357'.
+Creating decoders for process `\SB_DFF.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:269$357'.
 Creating decoders for process `\buttons_display.$proc$switch_leds.v:0$188'.
 Creating decoders for process `\buttons_display.$proc$switch_leds.v:467$180'.
      1/8: $0\display_digit_shf[7:0] [7:1]
@@ -461,45 +461,45 @@ No latch inferred for signal `\buttons_display.\sw2_digit' from process `\button
 No latch inferred for signal `\buttons_display.\sw1_digit' from process `\buttons_display.$proc$switch_leds.v:99$1'.
 
 2.3.8. Executing PROC_DFF pass (convert process syncs to FFs).
-Creating register for signal `\SB_DFFNES.\Q' using process `\SB_DFFNES.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1330$429'.
+Creating register for signal `\SB_DFFNES.\Q' using process `\SB_DFFNES.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1346$429'.
   created $adff cell `$procdff$3516' with negative edge clock and positive level reset.
-Creating register for signal `\SB_DFFNESS.\Q' using process `\SB_DFFNESS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1274$422'.
+Creating register for signal `\SB_DFFNESS.\Q' using process `\SB_DFFNESS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1290$422'.
   created $dff cell `$procdff$3517' with negative edge clock.
-Creating register for signal `\SB_DFFNER.\Q' using process `\SB_DFFNER.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1199$418'.
+Creating register for signal `\SB_DFFNER.\Q' using process `\SB_DFFNER.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1215$418'.
   created $adff cell `$procdff$3518' with negative edge clock and positive level reset.
-Creating register for signal `\SB_DFFNESR.\Q' using process `\SB_DFFNESR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1143$411'.
+Creating register for signal `\SB_DFFNESR.\Q' using process `\SB_DFFNESR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1159$411'.
   created $dff cell `$procdff$3519' with negative edge clock.
-Creating register for signal `\SB_DFFNS.\Q' using process `\SB_DFFNS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1074$408'.
+Creating register for signal `\SB_DFFNS.\Q' using process `\SB_DFFNS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1090$408'.
   created $adff cell `$procdff$3520' with negative edge clock and positive level reset.
-Creating register for signal `\SB_DFFNSS.\Q' using process `\SB_DFFNSS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1026$405'.
+Creating register for signal `\SB_DFFNSS.\Q' using process `\SB_DFFNSS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1042$405'.
   created $dff cell `$procdff$3521' with negative edge clock.
-Creating register for signal `\SB_DFFNR.\Q' using process `\SB_DFFNR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:957$402'.
+Creating register for signal `\SB_DFFNR.\Q' using process `\SB_DFFNR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:973$402'.
   created $adff cell `$procdff$3522' with negative edge clock and positive level reset.
-Creating register for signal `\SB_DFFNSR.\Q' using process `\SB_DFFNSR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:909$399'.
+Creating register for signal `\SB_DFFNSR.\Q' using process `\SB_DFFNSR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:925$399'.
   created $dff cell `$procdff$3523' with negative edge clock.
-Creating register for signal `\SB_DFFNE.\Q' using process `\SB_DFFNE.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:866$397'.
+Creating register for signal `\SB_DFFNE.\Q' using process `\SB_DFFNE.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:882$397'.
   created $dff cell `$procdff$3524' with negative edge clock.
-Creating register for signal `\SB_DFFN.\Q' using process `\SB_DFFN.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:830$395'.
+Creating register for signal `\SB_DFFN.\Q' using process `\SB_DFFN.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:846$395'.
   created $dff cell `$procdff$3525' with negative edge clock.
-Creating register for signal `\SB_DFFES.\Q' using process `\SB_DFFES.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:753$391'.
+Creating register for signal `\SB_DFFES.\Q' using process `\SB_DFFES.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:769$391'.
   created $adff cell `$procdff$3526' with positive edge clock and positive level reset.
-Creating register for signal `\SB_DFFESS.\Q' using process `\SB_DFFESS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:697$384'.
+Creating register for signal `\SB_DFFESS.\Q' using process `\SB_DFFESS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:713$384'.
   created $dff cell `$procdff$3527' with positive edge clock.
-Creating register for signal `\SB_DFFER.\Q' using process `\SB_DFFER.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:622$380'.
+Creating register for signal `\SB_DFFER.\Q' using process `\SB_DFFER.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:638$380'.
   created $adff cell `$procdff$3528' with positive edge clock and positive level reset.
-Creating register for signal `\SB_DFFESR.\Q' using process `\SB_DFFESR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:566$373'.
+Creating register for signal `\SB_DFFESR.\Q' using process `\SB_DFFESR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:582$373'.
   created $dff cell `$procdff$3529' with positive edge clock.
-Creating register for signal `\SB_DFFS.\Q' using process `\SB_DFFS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:497$370'.
+Creating register for signal `\SB_DFFS.\Q' using process `\SB_DFFS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:513$370'.
   created $adff cell `$procdff$3530' with positive edge clock and positive level reset.
-Creating register for signal `\SB_DFFSS.\Q' using process `\SB_DFFSS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:449$367'.
+Creating register for signal `\SB_DFFSS.\Q' using process `\SB_DFFSS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:465$367'.
   created $dff cell `$procdff$3531' with positive edge clock.
-Creating register for signal `\SB_DFFR.\Q' using process `\SB_DFFR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:380$364'.
+Creating register for signal `\SB_DFFR.\Q' using process `\SB_DFFR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:396$364'.
   created $adff cell `$procdff$3532' with positive edge clock and positive level reset.
-Creating register for signal `\SB_DFFSR.\Q' using process `\SB_DFFSR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:332$361'.
+Creating register for signal `\SB_DFFSR.\Q' using process `\SB_DFFSR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:348$361'.
   created $dff cell `$procdff$3533' with positive edge clock.
-Creating register for signal `\SB_DFFE.\Q' using process `\SB_DFFE.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:289$359'.
+Creating register for signal `\SB_DFFE.\Q' using process `\SB_DFFE.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:305$359'.
   created $dff cell `$procdff$3534' with positive edge clock.
-Creating register for signal `\SB_DFF.\Q' using process `\SB_DFF.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:253$357'.
+Creating register for signal `\SB_DFF.\Q' using process `\SB_DFF.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:269$357'.
   created $dff cell `$procdff$3535' with positive edge clock.
 Creating register for signal `\buttons_display.\display_seg_cntr' using process `\buttons_display.$proc$switch_leds.v:467$180'.
   created $dff cell `$procdff$3536' with positive edge clock.
@@ -518,59 +518,59 @@ Creating register for signal `\buttons_display.\display_seg_timer' using process
 
 2.3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
 Removing empty process `SB_DFFNES.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$432'.
-Found and cleaned up 1 empty switch in `\SB_DFFNES.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1330$429'.
-Removing empty process `SB_DFFNES.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1330$429'.
+Found and cleaned up 1 empty switch in `\SB_DFFNES.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1346$429'.
+Removing empty process `SB_DFFNES.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1346$429'.
 Removing empty process `SB_DFFNESS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$428'.
-Found and cleaned up 2 empty switches in `\SB_DFFNESS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1274$422'.
-Removing empty process `SB_DFFNESS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1274$422'.
+Found and cleaned up 2 empty switches in `\SB_DFFNESS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1290$422'.
+Removing empty process `SB_DFFNESS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1290$422'.
 Removing empty process `SB_DFFNER.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$421'.
-Found and cleaned up 1 empty switch in `\SB_DFFNER.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1199$418'.
-Removing empty process `SB_DFFNER.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1199$418'.
+Found and cleaned up 1 empty switch in `\SB_DFFNER.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1215$418'.
+Removing empty process `SB_DFFNER.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1215$418'.
 Removing empty process `SB_DFFNESR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$417'.
-Found and cleaned up 2 empty switches in `\SB_DFFNESR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1143$411'.
-Removing empty process `SB_DFFNESR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1143$411'.
+Found and cleaned up 2 empty switches in `\SB_DFFNESR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1159$411'.
+Removing empty process `SB_DFFNESR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1159$411'.
 Removing empty process `SB_DFFNS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$410'.
-Removing empty process `SB_DFFNS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1074$408'.
+Removing empty process `SB_DFFNS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1090$408'.
 Removing empty process `SB_DFFNSS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$407'.
-Found and cleaned up 1 empty switch in `\SB_DFFNSS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1026$405'.
-Removing empty process `SB_DFFNSS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1026$405'.
+Found and cleaned up 1 empty switch in `\SB_DFFNSS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1042$405'.
+Removing empty process `SB_DFFNSS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1042$405'.
 Removing empty process `SB_DFFNR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$404'.
-Removing empty process `SB_DFFNR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:957$402'.
+Removing empty process `SB_DFFNR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:973$402'.
 Removing empty process `SB_DFFNSR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$401'.
-Found and cleaned up 1 empty switch in `\SB_DFFNSR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:909$399'.
-Removing empty process `SB_DFFNSR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:909$399'.
+Found and cleaned up 1 empty switch in `\SB_DFFNSR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:925$399'.
+Removing empty process `SB_DFFNSR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:925$399'.
 Removing empty process `SB_DFFNE.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$398'.
-Found and cleaned up 1 empty switch in `\SB_DFFNE.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:866$397'.
-Removing empty process `SB_DFFNE.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:866$397'.
+Found and cleaned up 1 empty switch in `\SB_DFFNE.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:882$397'.
+Removing empty process `SB_DFFNE.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:882$397'.
 Removing empty process `SB_DFFN.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$396'.
-Removing empty process `SB_DFFN.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:830$395'.
+Removing empty process `SB_DFFN.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:846$395'.
 Removing empty process `SB_DFFES.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$394'.
-Found and cleaned up 1 empty switch in `\SB_DFFES.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:753$391'.
-Removing empty process `SB_DFFES.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:753$391'.
+Found and cleaned up 1 empty switch in `\SB_DFFES.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:769$391'.
+Removing empty process `SB_DFFES.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:769$391'.
 Removing empty process `SB_DFFESS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$390'.
-Found and cleaned up 2 empty switches in `\SB_DFFESS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:697$384'.
-Removing empty process `SB_DFFESS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:697$384'.
+Found and cleaned up 2 empty switches in `\SB_DFFESS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:713$384'.
+Removing empty process `SB_DFFESS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:713$384'.
 Removing empty process `SB_DFFER.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$383'.
-Found and cleaned up 1 empty switch in `\SB_DFFER.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:622$380'.
-Removing empty process `SB_DFFER.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:622$380'.
+Found and cleaned up 1 empty switch in `\SB_DFFER.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:638$380'.
+Removing empty process `SB_DFFER.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:638$380'.
 Removing empty process `SB_DFFESR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$379'.
-Found and cleaned up 2 empty switches in `\SB_DFFESR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:566$373'.
-Removing empty process `SB_DFFESR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:566$373'.
+Found and cleaned up 2 empty switches in `\SB_DFFESR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:582$373'.
+Removing empty process `SB_DFFESR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:582$373'.
 Removing empty process `SB_DFFS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$372'.
-Removing empty process `SB_DFFS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:497$370'.
+Removing empty process `SB_DFFS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:513$370'.
 Removing empty process `SB_DFFSS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$369'.
-Found and cleaned up 1 empty switch in `\SB_DFFSS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:449$367'.
-Removing empty process `SB_DFFSS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:449$367'.
+Found and cleaned up 1 empty switch in `\SB_DFFSS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:465$367'.
+Removing empty process `SB_DFFSS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:465$367'.
 Removing empty process `SB_DFFR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$366'.
-Removing empty process `SB_DFFR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:380$364'.
+Removing empty process `SB_DFFR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:396$364'.
 Removing empty process `SB_DFFSR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$363'.
-Found and cleaned up 1 empty switch in `\SB_DFFSR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:332$361'.
-Removing empty process `SB_DFFSR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:332$361'.
+Found and cleaned up 1 empty switch in `\SB_DFFSR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:348$361'.
+Removing empty process `SB_DFFSR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:348$361'.
 Removing empty process `SB_DFFE.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$360'.
-Found and cleaned up 1 empty switch in `\SB_DFFE.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:289$359'.
-Removing empty process `SB_DFFE.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:289$359'.
+Found and cleaned up 1 empty switch in `\SB_DFFE.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:305$359'.
+Removing empty process `SB_DFFE.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:305$359'.
 Removing empty process `SB_DFF.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$358'.
-Removing empty process `SB_DFF.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:253$357'.
+Removing empty process `SB_DFF.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:269$357'.
 Removing empty process `buttons_display.$proc$switch_leds.v:0$188'.
 Found and cleaned up 3 empty switches in `\buttons_display.$proc$switch_leds.v:467$180'.
 Removing empty process `buttons_display.$proc$switch_leds.v:467$180'.
@@ -1794,12 +1794,14 @@ Performed a total of 0 transformations.
 2.22.3. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \buttons_display..
 
-2.22.4. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+2.22.4. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
 
-2.22.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+2.22.5. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+2.22.6. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \buttons_display..
 
-2.22.6. Executing MEMORY_COLLECT pass (generating $mem cells).
+2.22.7. Executing MEMORY_COLLECT pass (generating $mem cells).
 
 2.23. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \buttons_display..
@@ -2292,7 +2294,7 @@ ABC: Participating nodes from the first network   =      39. (  55.71 % of nodes
 ABC: Participating nodes from the second network  =      56. (  80.00 % of nodes)
 ABC: Node pairs (any polarity)                    =      39. (  55.71 % of names can be moved)
 ABC: Node pairs (same polarity)                   =      31. (  44.29 % of names can be moved)
-ABC: Total runtime =     0.02 sec
+ABC: Total runtime =     0.00 sec
 ABC: + write_blif <abc-temp-dir>/output.blif 
 
 2.40.1.2. Re-integrating ABC results.
@@ -2450,6 +2452,6 @@ Found and reported 0 problems.
 2.50. Executing JSON backend.
 
 Warnings: 48 unique messages, 48 total
-End of script. Logfile hash: 92b86cf0e4, CPU: user 3.88s system 0.15s, MEM: 42.63 MB peak
-Yosys 0.9+4052 (git sha1 0ccc7229, gcc 8.3.0-6+rpi1 -fPIC -Os)
-Time spent: 21% 22x opt_expr (0 sec), 17% 11x read_verilog (0 sec), ...
+End of script. Logfile hash: 8c54c64901, CPU: user 1.42s system 0.06s, MEM: 57.89 MB peak
+Yosys 0.9+4081 (git sha1 83a21814, gcc 9.3.0-17ubuntu1~20.04 -fPIC -Os)
+Time spent: 21% 22x opt_expr (0 sec), 16% 11x read_verilog (0 sec), ...
