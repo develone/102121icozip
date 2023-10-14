@@ -1,0 +1,66 @@
+# pin definitions
+
+#       654321      
+#	xxxxxx	PMOD2 A
+#	xxxxxx  PMOD2 B
+#       654321
+#
+#PM2-A1		A1
+#PM2-A2		B3
+#PM2-A3		B5
+#PM2-A4		B6
+#PM2-A5		grd
+#PM2-A6		3.3V
+
+#PM2-B1		A2
+#PM2-B2		B4
+#PM2-B3		A5
+#PM2-B4		B6
+#PM2-B5		grd	
+#PM2-B6		3.3V
+
+# pin definitions
+
+#       654321      
+#	xxxxxx	PMOD2 A
+#	xxxxxx  PMOD2 B
+#       654321
+#
+#PM3-A1		A11
+#PM3-A2		B12
+#PM3-A3		B14
+#PM3-A4		B15
+#PM3-A5		grd
+#PM3-A6		3.3V
+
+#PM3-B1		B10
+#PM3-B2		B11
+#PM3-B3		B13
+#PM3-B4		A15
+#PM3-B5		grd
+#PM3-B6		3.3V
+
+#LED1		A9
+#LED2		B8
+#LED3		A7
+#LED4		B7		
+
+# dipsw definitions
+
+		1234
+		XXXX
+		1234
+
+
+#DIPSW1		C6
+#DIPSW2		C5
+#DIPSW3		C4
+#DIPSW4		C3
+
+# sw definitions
+
+	#Sw1
+
+	#SW2
+#SW1		A16
+#SW2		B9
