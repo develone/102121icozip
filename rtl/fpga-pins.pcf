@@ -1,3 +1,30 @@
+Testing clktest.bin
+set_io o_ledg[0] 	A1	PM2-A1
+
+            654321
+top A		xxxxxx
+bot B		xxxxxx
+            654321
+
+set_io o_ledg[0] 	A2	PM2-B1
+3.3V 6
+grd	 5
+
+            654321
+top A		xxxxxx
+bot B		xxxxxx
+            654321
+
+A1			PM2-A1
+B3			PM2-A2
+B5			PM2-A3
+B6			PM2-A4
+
+A2			PM2-B1
+B4			PM2-B2
+A5			PM2-B3
+A6			PM2-B4
+			
 # pin definitions
 
 #       654321      
@@ -64,3 +91,24 @@
 	#SW2
 #SW1		A16
 #SW2		B9
+
+	2						
+	xxxxxx
+	xxxxxx
+	1
+
+PMOD 1 & 2 3.3V
+PMOD 3 & 4 GRD
+
+GPIO0	12		GPIO1	11
+GPIO2	10		GPIO3	9
+GPIO4	8			GPIO5	7
+GPIO6	6			GPIO7	5
+
+GPIO0	SPI0RX		I2C0SDA	UART0TX	1		12			GPIO1	SPI0CSn		I2C0SCL	UART0RX	2		11
+
+GPIO2	SPI0SCK		I2C1SDA					4		10			GPIO3	SPI0TX		I2C1SCL					5		9
+
+GPIO4	SPI0RX		I2C0SDA	UART1TX	6		8				GPIO5	SPI0CSn		I2C0SCL	UART1RX 7		7
+
+GPIO6	SPI0SCK		I2C1SDA					9		6				GPIO7	SPI0TX		I2C1SCL					10	5
