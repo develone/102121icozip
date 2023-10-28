@@ -1,0 +1,134 @@
+################################################################################
+##
+## Filename: 	clock.txt
+##
+## Project:	AutoFPGA, a utility for composing FPGA designs from peripherals
+##
+## Purpose:	
+##
+## Creator:	Dan Gisselquist, Ph.D.
+##		Gisselquist Technology, LLC
+##
+################################################################################
+##
+## Copyright (C) 2017, Gisselquist Technology, LLC
+##
+## This program is free software (firmware): you can redistribute it and/or
+## modify it under the terms of  the GNU General Public License as published
+## by the Free Software Foundation, either version 3 of the License, or (at
+## your option) any later version.
+##
+## This program is distributed in the hope that it will be useful, but WITHOUT
+## ANY WARRANTY; without even the implied warranty of MERCHANTIBILITY or
+## FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+## for more details.
+##
+## You should have received a copy of the GNU General Public License along
+## with this program.  (It's in the $(ROOT)/doc directory.  Run make with no
+## target there if the PDF file isn't present.)  If not, see
+## <http://www.gnu.org/licenses/> for a copy.
+##
+## License:	GPL, v3, as defined and found on www.gnu.org,
+##		http://www.gnu.org/licenses/gpl.html
+##
+##
+##	devel@pi4-20:~/102121icozip/auto-data $ icepll -i 100 -o 58 -m
+##/**
+## * PLL configuration
+## *
+## * This Verilog module was generated automatically
+## * using the icepll tool from the IceStorm project.
+## * Use at your own risk.
+## *
+## * Given input frequency:       100.000 MHz
+## * Requested output frequency:   58.000 MHz
+## * Achieved output frequency:    58.036 MHz
+## */
+##
+##module pll(
+##	input  clock_in,
+##	output clock_out,
+##	output locked
+##	);
+##
+##SB_PLL40_CORE #(
+##		.FEEDBACK_PATH("SIMPLE"),
+##		.DIVR(4'b0110),		// DIVR =  6
+##		.DIVF(7'b1000000),	// DIVF = 64
+##		.DIVQ(3'b100),		// DIVQ =  4
+##		.FILTER_RANGE(3'b001)	// FILTER_RANGE = 1
+##	) uut (
+##		.LOCK(locked),
+##		.RESETB(1'b1),
+##		.BYPASS(1'b0),
+##		.REFERENCECLK(clock_in),
+##		.PLLOUTCORE(clock_out)
+##		);
+##
+##endmodule
+ ##	##	
+##	FEEDBACK
+##		SIMPLE
+##		DELAY
+##		PHASE_AND_DELAY
+##		EXTERNAL
+##	DELAYED_ADJUSTMENT_MODE
+##		FIXED
+##		DYNAMIC
+##	FIXED_DELAY_ADJUSTMENT
+##		9,1,..15	The PLLOUTGOBAL & PLLOUTCORE are delay
+##		compensated (n+1)^150ps where n = FIXED_DELAY_ADJUSTMENT
+##		only if the setting DELAYED_ADJUSTMENT_MODE is FIXED
+##	PLL_OUT_PHASE
+##		Controls the phase alignment of the PLLOUTGOBAL & PLLOUTCORE
+##		signals relative to REFERENCECLK
+##	
+##	INPUT 	REFERENCECLK
+##	OUTPUT	PLLOUTGOBAL
+##	OUTPUT	PLLOUTCORE
+##	OUTPUT 	LOCK	When HIGH PLLOUTGOBAL/PLLOUTCORE	
+##	locked to the PLL source on REFERENCECLK
+################################################################################
+##
+##
+@$CLKFREQHZ=58000000
+@PREFIX=clk
+@CLOCK.NAME=clk
+@TOP.DEFNS=
+	wire		s_clk, s_reset;
+@TOP.INSERT=
+	assign	s_reset = 1'b0; // This design requires local, not global resets
+
+`ifdef	VERILATOR
+	assign	s_clk = i_clk;
+`else
+	wire	clk_58mhz, pll_locked;
+	SB_PLL40_CORE #(
+		.FEEDBACK_PATH("SIMPLE"),
+		.DELAY_ADJUSTMENT_MODE_FEEDBACK("FIXED"),
+		.DELAY_ADJUSTMENT_MODE_RELATIVE("FIXED"),
+		.PLLOUT_SELECT("GENCLK"),
+		.FDA_FEEDBACK(4'b1111),
+		.FDA_RELATIVE(4'b1111),
+		.DIVR(4'b0110),         // DIVR =  6
+		.DIVF(7'b1000000),      // DIVF = 64
+		.DIVQ(3'b100),          // DIVQ =  4
+        .FILTER_RANGE(3'b001)   // FILTER_RANGE = 1
+	) plli (
+		.REFERENCECLK     (i_clk        ),
+		.PLLOUTCORE     (clk_58mhz    ),
+		.LOCK           (pll_locked  ),
+		.BYPASS         (1'b0         ),
+		.RESETB         (1'b1         )
+	);
+       	//SB_GB global_buffer(clk_58mhz, s_clk);
+	assign	s_clk = clk_58mhz;
+`endif
+@TOP.PORTLIST=i_clk 
+@TOP.IODECL= input  i_clk;
+@REGDEFS.H.DEFNS=
+#define	CLKFREQHZ	@$CLKFREQHZ
+@BDEF.DEFN=
+#define	CLKFREQHZ	@$CLKFREQHZ
+@CLOCK.NAME=clk
+@CLOCK.FREQUENCY= @$CLKFREQHZ
