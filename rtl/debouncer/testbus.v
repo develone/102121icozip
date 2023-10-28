@@ -58,27 +58,27 @@ module	testbus(i_clk, i_btn, o_ledg, o_ledr,
 `ifdef	VERILATOR
 	assign	s_clk = i_clk;
 `else
-	wire	clk_80mhz, pll_locked;
-	SB_PLL40_PAD #(
+	wire    clk_66mhz, pll_locked;
+	SB_PLL40_CORE #(
 		.FEEDBACK_PATH("SIMPLE"),
 		.DELAY_ADJUSTMENT_MODE_FEEDBACK("FIXED"),
 		.DELAY_ADJUSTMENT_MODE_RELATIVE("FIXED"),
 		.PLLOUT_SELECT("GENCLK"),
 		.FDA_FEEDBACK(4'b1111),
 		.FDA_RELATIVE(4'b1111),
-		.DIVR(4'd4),		// Divide by (DIVR+1)  = 5
-		.DIVQ(3'd3),		// Divide by 2^(DIVQ)  = 1
-		.DIVF(7'd31),		// Multiply by (DIVF+1)= 4
-		.FILTER_RANGE(3'b010)
+		.DIVR(4'd8),		// Divide by (DIVR+1)
+		.DIVQ(3'd4),		// Divide by 2^(DIVQ)
+		.DIVF(7'd94),		// Multiply by (DIVF+1)
+		.FILTER_RANGE(3'b001)
 	) plli (
-		.PACKAGEPIN     (i_clk        ),
-		.PLLOUTCORE     (clk_80mhz    ),
+		.REFERENCECLK    (i_clk        ),
+		.PLLOUTCORE     (clk_66mhz    ),
 		.LOCK           (pll_locked  ),
 		.BYPASS         (1'b0         ),
 		.RESETB         (1'b1         )
 	);
 
-	assign	s_clk = clk_80mhz;
+	assign	s_clk = clk_66mhz;
 `endif
 
 

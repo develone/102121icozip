@@ -38,7 +38,7 @@
 ##
 all: testbus
 YOSYS      := yosys
-NEXTPNR    := nextpnr-ice40 --hx8k -r --package ct256
+NEXTPNR    := nextpnr-ice40 -l pnr.log --hx8k -r --package ct256
 ICEPACK    := icepack
 ICETIME    := icetime
 
@@ -49,9 +49,9 @@ ICETIME    := icetime
 %.json: %.v
 	$(YOSYS) -p 'synth_ice40 -json $@' $<
 %.asc: %.json %.pcf
-	$(NEXTPNR) --freq 80 --pcf $*.pcf --json $*.json --asc $@
+	$(NEXTPNR) --freq 66 --pcf $*.pcf --json $*.json --asc $@
 %.bin: %.asc
-	$(ICETIME) -d hx8k -c 80 $<
+	$(ICETIME) -d hx8k -c 66 $<
 	$(ICEPACK) $< $@
 
 PPSRCS := ppio.v pport.v
