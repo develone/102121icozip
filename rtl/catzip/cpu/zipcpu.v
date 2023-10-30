@@ -253,7 +253,7 @@ module	zipcpu(i_clk, i_reset, i_interrupt,
 	// as described herein will work, this just makes sure XST implements
 	// that logic.
 	//
-	(* ram_style = "distributed" *)
+	//(* ram_style = "distributed" *)
 	reg	[31:0]	regset	[0:(OPT_NO_USERMODE)? 15:31];
 
 	// Condition codes

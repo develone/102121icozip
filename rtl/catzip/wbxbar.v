@@ -1,8 +1,8 @@
 ////////////////////////////////////////////////////////////////////////////////
 //
-// Filename: 	wbxbar.v
+// Filename: 	sim/rtl/wbxbar.v
 // {{{
-// Project:	WB2AXIPSP: bus bridges and other odds and ends
+// Project:	10Gb Ethernet switch
 //
 // Purpose:	A Configurable wishbone cross-bar interconnect, conforming
 //		to the WB-B4 pipeline specification, as described on the
@@ -52,17 +52,17 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 // }}}
-// Copyright (C) 2019-2021, Gisselquist Technology, LLC
+// Copyright (C) 2023, Gisselquist Technology, LLC
 // {{{
-// This file is part of the WB2AXIP project.
+// This file is part of the ETH10G project.
 //
-// The WB2AXIP project contains free software and gateware, licensed under the
+// The ETH10G project contains free software and gateware, licensed under the
 // Apache License, Version 2.0 (the "License").  You may not use this project,
 // or this file, except in compliance with the License.  You may obtain a copy
 // of the License at
-//
+// }}}
 //	http://www.apache.org/licenses/LICENSE-2.0
-//
+// {{{
 // Unless required by applicable law or agreed to in writing, software
 // distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
 // WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  See the
@@ -70,7 +70,6 @@
 // under the License.
 //
 ////////////////////////////////////////////////////////////////////////////////
-//
 //
 `default_nettype none
 // }}}
@@ -116,10 +115,6 @@ module	wbxbar #(
 		parameter [0:0]	OPT_STARVATION_TIMEOUT = 1'b0
 						&& (OPT_TIMEOUT > 0),
 		//
-		// TIMEOUT_WIDTH is the number of bits in counter used to check
-		// on a timeout.
-		localparam	TIMEOUT_WIDTH = $clog2(OPT_TIMEOUT),
-		//
 		// OPT_DBLBUFFER is used to register all of the outputs, and
 		// thus avoid adding additional combinational latency through
 		// the core that might require a slower clock speed.
@@ -130,18 +125,7 @@ module	wbxbar #(
 		// that could be used to reduce the logic count of the device.
 		// Hence, OPT_LOWPOWER will use more logic, but it won't drive
 		// bus wires unless there's a value to drive onto them.
-		parameter [0:0]	OPT_LOWPOWER = 1'b1,
-		//
-		// LGNM is the log (base two) of the number of bus masters
-		// connecting to this crossbar
-		localparam	LGNM = (NM>1) ? $clog2(NM) : 1,
-		//
-		// LGNM is the log (base two) of the number of slaves plus one
-		// come out of the system.  The extra "plus one" is used for a
-		// pseudo slave representing the case where the given address
-		// doesn't connect to any of the slaves.  This address will
-		// generate a bus error.
-		localparam	LGNS = $clog2(NS+1)
+		parameter [0:0]	OPT_LOWPOWER = 1'b1
 		// }}}
 	) (
 		// {{{
@@ -154,9 +138,10 @@ module	wbxbar #(
 		input	wire	[NM*DW/8-1:0]	i_msel,
 		//
 		// .... and their return data
-		output	reg	[NM-1:0]	o_mstall, o_mack,
+		output	wire	[NM-1:0]	o_mstall,
+		output	wire	[NM-1:0]	o_mack,
 		output	reg	[NM*DW-1:0]	o_mdata,
-		output	reg	[NM-1:0]	o_merr,
+		output	wire	[NM-1:0]	o_merr,
 		//
 		//
 		// Here are the output ports, used to control each of the
@@ -178,6 +163,21 @@ module	wbxbar #(
 	//
 	// Register declarations
 	// {{{
+	//
+	// TIMEOUT_WIDTH is the number of bits in counter used to check
+	// on a timeout.
+	localparam	TIMEOUT_WIDTH = $clog2(OPT_TIMEOUT);
+	//
+	// LGNM is the log (base two) of the number of bus masters
+	// connecting to this crossbar
+	localparam	LGNM = (NM>1) ? $clog2(NM) : 1;
+	//
+	// LGNS is the log (base two) of the number of slaves plus one
+	// come out of the system.  The extra "plus one" is used for a
+	// pseudo slave representing the case where the given address
+	// doesn't connect to any of the slaves.  This address will
+	// generate a bus error.
+	localparam	LGNS = $clog2(NS+1);
 	// At one time I used o_macc and o_sacc to put into the outgoing
 	// trace file, just enough logic to tell me if a transaction was
 	// taking place on the given clock.
@@ -274,8 +274,7 @@ module	wbxbar #(
 			// }}}
 		);
 
-		always @(*)
-			o_mstall[N] = !iskd_ready;
+		assign	o_mstall[N] = !iskd_ready;
 
 		addrdecode #(
 			// {{{
@@ -562,6 +561,7 @@ module	wbxbar #(
 
 			// r_reindex
 			// {{{
+			// Verilator lint_off BLKSEQ
 			always @(r_regrant, regrant)
 			begin
 				r_reindex = 0;
@@ -571,6 +571,7 @@ module	wbxbar #(
 				if (regrant == 0)
 					r_reindex = r_mindex;
 			end
+			// Verilator lint_on  BLKSEQ
 			// }}}
 
 			always @(posedge i_clk)
@@ -810,7 +811,8 @@ module	wbxbar #(
 			end
 		end
 		// }}}
-	end else for(M=0; M<NS; M=M+1)
+	end else begin : J
+	for(M=0; M<NS; M=M+1)
 	begin : GEN_DOWNSTREAM
 		// {{{
 		always @(posedge i_clk)
@@ -833,7 +835,7 @@ module	wbxbar #(
 
 		end
 		// }}}
-	end endgenerate
+	end end endgenerate
 	// }}}
 	////////////////////////////////////////////////////////////////////////
 	//
@@ -892,14 +894,9 @@ module	wbxbar #(
 				end
 			end
 
-			always @(*)
-				o_mack[N] = r_mack[N];
+			assign	o_mack[N] = r_mack[N];
 
-			always @(*)
-			if (!OPT_STARVATION_TIMEOUT || i_mcyc[N])
-				o_merr[N] = r_merr[N];
-			else
-				o_merr[N] = 1'b0;
+			assign	o_merr[N] = (!OPT_STARVATION_TIMEOUT || i_mcyc[N]) && r_merr[N];
 
 		end
 		// }}}
@@ -908,38 +905,43 @@ module	wbxbar #(
 		// {{{
 		for(N=0; N<NM; N=N+1)
 		begin : FOREACH_MASTER_PORT
+			reg	r_mack, r_merr;
+
 			always @(*)
 			begin
 				m_stall[N] = !mgrant[N] || s_stall[0]
 					|| (m_stb[N] && !request[N][0]);
-				o_mack[N]   =  mgrant[N] && i_sack[0];
-				o_merr[N]   =  mgrant[N] && i_serr[0];
+				r_mack     =  mgrant[N] && i_sack[0];
+				r_merr     =  mgrant[N] && i_serr[0];
 				o_mdata[N*DW +: DW]  = (!mgrant[N] && OPT_LOWPOWER)
 					? 0 : i_sdata;
 
 				if (mfull[N])
 					m_stall[N] = 1'b1;
 
-				if (timed_out[N]&&!o_mack[N])
+				if (timed_out[N] && !r_mack)
 				begin
 					m_stall[N] = 1'b0;
-					o_mack[N]   = 1'b0;
-					o_merr[N]   = 1'b1;
+					r_mack     = 1'b0;
+					r_merr     = 1'b1;
 				end
 
 				if (grant[N][NS] && m_stb[N])
 				begin
 					m_stall[N] = 1'b0;
-					o_mack[N]   = 1'b0;
-					o_merr[N]   = 1'b1;
+					r_mack     = 1'b0;
+					r_merr     = 1'b1;
 				end
 
 				if (!m_cyc[N])
 				begin
-					o_mack[N] = 1'b0;
-					o_merr[N] = 1'b0;
+					r_mack = 1'b0;
+					r_merr = 1'b0;
 				end
 			end
+
+			assign	o_mack[N] = r_mack;
+			assign	o_merr[N] = r_merr;
 		end
 		// }}}
 	end else begin : SINGLE_BUFFER_STALL
@@ -948,11 +950,13 @@ module	wbxbar #(
 		begin : FOREACH_MASTER_PORT
 			// initial	o_mstall[N] = 0;
 			// initial	o_mack[N]   = 0;
+			reg	r_mack, r_merr;
+
 			always @(*)
 			begin
 				m_stall[N] = 1;
-				o_mack[N]   = mgrant[N] && s_ack[mindex[N]];
-				o_merr[N]   = mgrant[N] && s_err[mindex[N]];
+				r_mack     = mgrant[N] && s_ack[mindex[N]];
+				r_merr     = mgrant[N] && s_err[mindex[N]];
 				if (OPT_LOWPOWER && !mgrant[N])
 					o_mdata[N*DW +: DW] = 0;
 				else
@@ -966,19 +970,22 @@ module	wbxbar #(
 				if (mfull[N])
 					m_stall[N] = 1'b1;
 
-				if (grant[N][NS] ||(timed_out[N]&&!o_mack[N]))
+				if (grant[N][NS] ||(timed_out[N] && !r_mack))
 				begin
 					m_stall[N] = 1'b0;
-					o_mack[N]   = 1'b0;
-					o_merr[N]   = 1'b1;
+					r_mack     = 1'b0;
+					r_merr     = 1'b1;
 				end
 
 				if (!m_cyc[N])
 				begin
-					o_mack[N] = 1'b0;
-					o_merr[N] = 1'b0;
+					r_mack    = 1'b0;
+					r_merr     = 1'b0;
 				end
 			end
+
+			assign	o_mack[N] = r_mack;
+			assign	o_merr[N] = r_merr;
 		end
 		// }}}
 	end endgenerate
@@ -1128,6 +1135,8 @@ module	wbxbar #(
 	generate for(N=0; N<NM; N=N+1)
 	begin : GRANT_CHECKING
 		// {{{
+		reg	checkgrant;
+
 		always @(*)
 		if (f_past_valid)
 		for(iN=N+1; iN<NM; iN=iN+1)
@@ -1149,7 +1158,6 @@ module	wbxbar #(
 		if (&w_mpending[N])
 			assert(o_merr[N] || m_stall[N]);
 
-		reg	checkgrant;
 		always @(*)
 		if (f_past_valid)
 		begin
@@ -1731,7 +1739,7 @@ module	wbxbar #(
 
 	initial	f_m_ackd = 0;
 	generate for (N=0; N<NM; N=N+1)
-	begin
+	begin : GEN_FM_ACKD
 
 		always @(posedge i_clk)
 		if (i_reset)
@@ -1754,7 +1762,7 @@ module	wbxbar #(
 
 	initial	f_s_ackd = 0;
 	generate for (M=0; M<NS; M=M+1)
-	begin
+	begin : GEN_FS_ACKD
 
 		always @(posedge i_clk)
 		if (i_reset)
