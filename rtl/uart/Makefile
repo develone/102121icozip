@@ -45,7 +45,7 @@ all: helloworld speechfifo
 %.json: %.v
 	yosys -p 'synth_ice40 -json $@' $<
 %.asc: %.json %.pcf
-	nextpnr-ice40 --hx8k -r --freq 50 --package ct256 --pcf $*.pcf --json $< --asc $@
+	nextpnr-ice40 --hx8k -r --freq 50 --pcf-allow-unconstrained --package ct256 --pcf $*.pcf --json $< --asc $@
 %.bin: %.asc
 	icetime -d hx8k -c 50 $<
 	icepack $< $@
