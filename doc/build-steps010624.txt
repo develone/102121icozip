@@ -1,0 +1,139 @@
+git clone https://github.com/develone/102121icozip.git -b catzip sdram-test
+
+cd sdram-test/102121icozip
+
+. ./myenv-a.sh
+
+make
+make
+make
+
+40MHz/8192 = 4882.8125
+64ms/1000 = 6.4e-05 
+0.3125
+1/40MHz = 25nsec
+
+
+devel@pi4-60:~/102121icozip $ git diff rtl/catzip/wbsdram.v
+diff --git a/rtl/catzip/wbsdram.v b/rtl/catzip/wbsdram.v
+index f111c1f..e977ba3 100644
+--- a/rtl/catzip/wbsdram.v
++++ b/rtl/catzip/wbsdram.v
+@@ -160,7 +160,7 @@ module      wbsdram #(
+        always @(posedge i_clk)
+        begin
+                if (refresh_cmd)
+-                       refresh_clk <= 10'd625; // Make suitable for 80 MHz clk
++                       refresh_clk <= 10'd313; // Make suitable for 40 MHz clk
+                else if (|refresh_clk)
+                        refresh_clk <= refresh_clk - 10'h1;
+        end
+
+DATA := global.txt bkram.txt buserr.txt clockpll40.txt          \
+        pic.txt pwrcount.txt version.txt                        \
+        hbconsole.txt gpio.txt  zipbones.txt sdramdev.txt \
+        mem_sdram_bkram.txt 
+        ##sdramscope.tx
+
+@MAIN.INSERT=
+        wbsdram 
+        
+                @$(PREFIX)i(i_clk,
+                        wb_sdram_cyc,
+                         
+                        wb_sdram_stb,wb_sdram_we,
+                        /* verilator lint_off WIDTH */                   
+                        wb_sdram_addr[(@$LGMEMSZ-4):0],
+                         /* verilator lint_off WIDTH */
+                        wb_sdram_data, // 32 bits wide
+                        wb_sdram_sel,  // 32/8 bits wide
+                        wb_sdram_stall, wb_sdram_ack, wb_sdram_idata,
+
+
+                o_ram_cs_n, o_ram_cke, o_ram_ras_n, o_ram_cas_n, o_ram_we_n,
+                o_ram_bs, o_ram_addr,
+                o_ram_drive_data, i_ram_data, o_ram_data, o_ram_dqm,
+                o_debug);
+@RTL.MAKE.FILES= wbsdram.v
+
+devel@pi4-30:~/sdram-test/102121icozip/rtl/catzip $ rsync -avl --delete /home/devel/sdram-test pi4-40:~/
+
+cd sdram-test/102121icozip/rtl
+
+sudo config_cat catzip/catzip.bin
+
+cd sdram-test/102121icozip/sw/host/
+
+./arm-netpport 
+Listening on port 8363
+Listening on port 8364
+
+< A04000001R
+> A04000001R0000060f
+Command port disconnect
+Command port is now connected
+< A04000001Wf
+> A04000001K00000000
+Command port disconnect
+. 
+
+Command port disconnect
+. 
+. Running CPU self-test
+. -----------------------------------
+. SIM Instructions                Pass
+. CIS Instructions                Supported
+. Break test #1                   Pass
+. Break test #2                   Pass
+. Break test #3                   Pass
+. Early Branch test               Pass
+. Trap test/AND                   Pass
+. Trap test/CLR                   Pass
+. Overflow test                   Pass
+. Carry test                      Pass
+. Loop test                       Pass
+. Shift test                      Pass
+. Pipeline test                   Pass
+. Mem-Pipeline test               Pass
+. Conditional Execution test      Pass
+. No-waiting pipeline test        Pass
+. Conditional Branching test      Pass
+. Ill Instruction test, NULL PC   Pass
+. Ill Instruction test, two       Pass
+. Comparison test, ==             Pass
+. Comparison test, !=             Pass
+. CC Register test                Pass
+. Multi-Arg test                  Pass
+. Multiply test                   FAIL!
+. 
+. Between 0x00000000 and 0x00000000
+. 
+. Core-dump:
+. uR0 : 0x02000098    uR1 : 0x00000001    uR2 : 0x00000089    uR3 : 0x00000448  . 
+. uR4 : 0x00000008    uR5 : 0x0000066C    uR6 : 0x00000000    uR7 : 0x00000000  . 
+. uR8 : 0x00000000    uR9 : 0x00000000    uR10: 0x00000000    uR11: 0x00000000  . 
+. uR12: 0x00000000    uSP : 0x02FFFFE0    uCC : 0xE0800220    uPC : 0x020000A0  . 
+.
+
+> A04000001R0000060f
+Command port disconnect
+Command port is now connected
+< A04000001Wf
+> A04000001K00000000
+Command port disconnect
+. Hello, World!
+
+cd sdram-test/102121icozip/sw/host/
+
+./arm-wbregs version
+01000014 ( VERSION) : [.$..] 20240106
+
+./arm-zipload ../board/cputest
+
+./arm-wbregs cpu 0x0f
+
+./arm-zipload ../board/hello
+
+./arm-wbregs cpu 0x0f
+
+
