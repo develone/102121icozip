@@ -1,0 +1,106 @@
+01/06/24 
+devel@pi4-20:~ $ yosys -V
+Yosys 0.33+79 (git sha1 b52f6cb19, gcc 10.2.1-6 -fPIC -Os)
+
+devel@pi4-20:~ $ nextpnr-ice40 -V
+"nextpnr-ice40" -- Next Generation Place and Route (Version e8602fb5)
+
+./sim_hw_test.sh 
+The date built
+01000014 ( VERSION) : [.$..] 20240106
+01400000 (     RAM)-> 10000001
+01400004 (        )-> 10000002
+01400008 (        )-> 10000003
+0140000c (        )-> 10000004
+01400000 (     RAM)-> 10000001
+01400004 (        )-> 10000002
+01400008 (        )-> 10000003
+0140000c (        )-> 10000004
+01400000 (     RAM) : [....] 10000001
+01400004 (        ) : [....] 10000002
+01400008 (        ) : [....] 10000003
+0140000c (        ) : [....] 10000004
+01400000 (     RAM) : [....] 10000001
+01400004 (        ) : [....] 10000002
+01400008 (        ) : [....] 10000003
+0140000c (        ) : [....] 10000004
+02000000 (   SDRAM)-> 10000001
+02000004 (        )-> 10000002
+02000008 (        )-> 10000003
+0200000c (        )-> 10000004
+02000000 (   SDRAM)-> 10000001
+02000004 (        )-> 10000002
+02000008 (        )-> 10000003
+0200000c (        )-> 10000004
+02fffffc (        )-> 1ffffffc
+02000000 (   SDRAM) : [....] 10000001
+02000004 (        ) : [....] 10000002
+02000008 (        ) : [....] 10000003
+0200000c (        ) : [....] 10000004
+02000000 (   SDRAM) : [....] 10000001
+02000004 (        ) : [....] 10000002
+02000008 (        ) : [....] 10000003
+0200000c (        ) : [....] 10000004
+02fffffc (        ) : [....] 1ffffffc
+Turning on the 4th led 
+0100000c (    GPIO)-> 00010001
+Turning on the 1st led 
+0100000c (    GPIO)-> 00020002
+Turning on the 2nd led 
+0100000c (    GPIO)-> 00040004
+Turning off the leds 
+0100000c (    GPIO)-> 00070000
+./arm-zipload ../board/hello
+
+./arm-wbregs cpu 0x0f
+
+> A04000001R0000060f
+Command port disconnect
+Command port is now connected
+< A04000001Wf
+> A04000001K00000000
+Command port disconnect
+. Hello, World!
+
+./arm-zipload ../board/cputest
+
+./arm-wbregs cpu 0x0f
+
+> A04000001R0000060f
+Command port disconnect
+Command port is now connected
+< A04000001Wf
+> A04000001K00000000
+Command port disconnect
+. 
+. Running CPU self-test
+. -----------------------------------
+. SIM Instructions                Pass
+. CIS Instructions                Supported
+. Break test #1                   Pass
+. Break test #2                   Pass
+. Break test #3                   Pass
+. Early Branch test               Pass
+. Trap test/AND                   Pass
+. Trap test/CLR                   Pass
+. Overflow test                   Pass
+. Carry test                      Pass
+. Loop test                       Pass
+. Shift test                      Pass
+. Pipeline test                   Pass
+. Mem-Pipeline test               Pass
+. Conditional Execution test      Pass
+. No-waiting pipeline test        Pass
+. Conditional Branching test      Pass
+. Ill Instruction test, NULL PC   Pass
+. Ill Instruction test, two       Pass
+. Comparison test, ==             Pass
+. Comparison test, !=             Pass
+. CC Register test                Pass
+. Multi-Arg test                  Pass
+. Multiply test                   Pass
+. Multiply HI-word test           Pass
+. Divide test                     Pass
+. 
+. -----------------------------------
+. All tests passed.  Halting CPU.
