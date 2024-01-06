@@ -1,8 +1,8 @@
 git clone https://github.com/develone/102121icozip.git -b catzip sdram-test
 
-cd sdram-test/102121icozip
+cd sdram-test/
 
-. ./myenv-a.sh
+. myenv-a.sh
 
 make
 make
@@ -58,11 +58,11 @@ DATA := global.txt bkram.txt buserr.txt clockpll40.txt          \
 
 devel@pi4-30:~/sdram-test/102121icozip/rtl/catzip $ rsync -avl --delete /home/devel/sdram-test pi4-40:~/
 
-cd sdram-test/102121icozip/rtl
+cd sdram-test/rtl
 
 sudo config_cat catzip/catzip.bin
 
-cd sdram-test/102121icozip/sw/host/
+cd sdram-test/sw/host/
 
 ./arm-netpport 
 Listening on port 8363
