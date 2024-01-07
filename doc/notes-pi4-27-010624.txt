@@ -1,0 +1,115 @@
+01/06/24  
+devel@pi4-27:~ $ cat /etc/os-release
+PRETTY_NAME="Debian GNU/Linux 12 (bookworm)"
+NAME="Debian GNU/Linux"
+VERSION_ID="12"
+VERSION="12 (bookworm)"
+VERSION_CODENAME=bookworm
+ID=debian
+HOME_URL="https://www.debian.org/"
+SUPPORT_URL="https://www.debian.org/support"
+BUG_REPORT_URL="https://bugs.debian.org/"
+
+devel@pi4-27:~ $ ls -la /lib/aarch64-linux-gnu/libc.so.6 
+-rwxr-xr-x 1 root root 1651472 Oct  3 14:45 /lib/aarch64-linux-gnu/libc.so.6z
+devel@pi4-27:~ $ uname -a
+Linux pi4-27 6.1.0-rpi7-rpi-v8 #1 SMP PREEMPT Debian 1:6.1.63-1+rpt1 (2023-11-24) aarch64 GNU/Linux
+
+devel@pi4-27:~ $ ls -la /lib/aarch64-linux-gnu/libc.so.6 
+-rwxr-xr-x 1 root root 1651472 Oct  3 14:45 /lib/aarch64-linux-gnu/libc.so.6
+
+devel@pi4-27:~ $ yosys -V
+Yosys 0.33+79 (git sha1 b52f6cb19, gcc 10.2.1-6 -fPIC -Os)
+
+devel@pi4-27:~ $ nextpnr-ice40 -V
+"nextpnr-ice40" -- Next Generation Place and Route (Version e8602fb5)
+ 
+devel@pi4-40:~ $ cat /etc/os-release 
+PRETTY_NAME="Debian GNU/Linux 11 (bullseye)"
+NAME="Debian GNU/Linux"
+VERSION_ID="11"
+VERSION="11 (bullseye)"
+VERSION_CODENAME=bullseye
+ID=debian
+HOME_URL="https://www.debian.org/"
+SUPPORT_URL="https://www.debian.org/support"
+BUG_REPORT_URL="https://bugs.debian.org/"
+
+devel@pi4-40:~ $ sudo unsquashfs -d sdram-test sdram-test-553d217-010624-pi4-20.img
+
+devel@pi4-27:~ $git clone https://github.com/develone/102121icozip.git -b catzip sdram-test
+devel@pi4-27:~ $rsync -avl --delete sdram-test/rtl pi4-40:~/sdram-test/
+
+devel@pi4-27:~ $rsync -avl --delete sdram-test/sw/board pi4-40:~/sdram-test/sw/
+
+lrwxrwxrwx 1 root root  12 Oct  3 13:55 /lib/aarch64-linux-gnu/libc.so.6 -> libc-2.31.so
+The following bin files created with yosys & nextnpr-ice40 work ok.
+sudo config_cat basic/blinky.bin
+sudo config_cat basic/clktest.bin
+sudo config_cat leddigits/leddigits.bin
+sudo config_cat switch_leds/switch_leds.bin
+sudo config_cat pptest/hellopp.bin
+sudo config_cat pptest/speechpp.bin
+sudo config_cat catzip/catzip.bin	./arm-wbregs version
+01000014 ( VERSION) : [.$..] 20240106
+
+devel@pi4-40:~/sdram-test/sw/host $ ./arm-zipload ../board/hello
+
+devel@pi4-40:~/sdram-test/sw/host $ ./arm-wbregs cpu 0x0f
+04000000 (     CPU)-> 0000000f
+
+devel@pi4-40:~/sdram-test/sw/host $ ./arm-zipload ../board/cputest
+
+> A04000001R0000060f
+Command port disconnect
+Command port is now connected
+< A04000001Wf
+> A04000001K00000000
+Command port disconnect
+. 
+. Running CPU self-test
+. -----------------------------------
+. SIM Instructions                Pass
+. CIS Instructions                Supported
+. Break test #1                   Pass
+. Break test #2                   Pass
+. Break test #3                   Pass
+. Early Branch test               Pass
+. Trap test/AND                   Pass
+. Trap test/CLR                   Pass
+. Overflow test                   Pass
+. Carry test                      Pass
+. Loop test                       Pass
+. Shift test                      Pass
+. Pipeline test                   Pass
+. Mem-Pipeline test               Pass
+. Conditional Execution test      Pass
+. No-waiting pipeline test        Pass
+. Conditional Branching test      Pass
+. Ill Instruction test, NULL PC   Pass
+. Ill Instruction test, two       Pass
+. Comparison test, ==             Pass
+. Comparison test, !=             Pass
+. CC Register test                Pass
+. Multi-Arg test                  Pass
+. Multiply test                   FAIL!
+. 
+. Between 0x00000000 and 0x00000000
+. 
+. Core-dump:
+. uR0 : 0x02000098    uR1 : 0x00000001    uR2 : 0x00000089    uR3 : 0x00000089  . 
+. uR4 : 0x00000001    uR5 : 0x00000000    uR6 : 0x00000000    uR7 : 0x00000000  . 
+. uR8 : 0x00000000    uR9 : 0x00000000    uR10: 0x00000000    uR11: 0x00000000  . 
+. uR12: 0x00000000    uSP : 0x02FFFFE0    uCC : 0xE0800220    uPC : 0x020000A0
+devel@pi4-40:~/sdram-test/sw/host $ ./arm-netpport 
+Listening on port 8363
+Listening on port 8364
+Command port is now connected
+< A04000001Wf
+> A04000001K00000000
+Command port disconnect
+. Hello, World!
+
+
+
+ 
