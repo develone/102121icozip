@@ -57,14 +57,14 @@ VROOT	:= $(VERILATOR_ROOT)
 VDEFS   := $(shell ./vversion.sh)
 VINCD   := $(VROOT)/include
 INCS	:= -I$(RTLD) -I$(RTLD)/obj-$(ARCH)/ -I$(VINCD) -I$(VINCD)/vltstd
-CFLAGS	:= -Og -g -Wall $(INCS)
+CFLAGS	:= -Og -g -Wall $(INCS) -lpthread
 #
 # A list of our sources and headers
 #
 SIMSRCS := zipelf.cpp memsim.cpp byteswap.cpp pportsim.cpp sdramsim.cpp
 # Not used: i2csim.cpp
 VOBJDR	:= $(RTLD)/$(OBJDIR)
-VOBJS   := $(OBJDIR)/verilated.o $(OBJDIR)/verilated_vcd_c.o
+VOBJS   := $(OBJDIR)/verilated.o $(OBJDIR)/verilated_vcd_c.o $(OBJDIR)/verilated_threads.o
 SIMOBJ := $(subst .cpp,.o,$(SIMSRCS))
 SIMOBJS:= $(addprefix $(OBJDIR)/,$(SIMOBJ)) $(VOBJS)
 SOURCES := automaster_tb.cpp $(SIMSRCS)
@@ -87,7 +87,7 @@ MAINOBJS := $(OBJDIR)/automaster_tb.o
 
 $(ARCH)-main_tb: $(MAINOBJS) $(SIMOBJS)
 $(ARCH)-main_tb: $(VOBJS) $(VOBJDR)/Vmain__ALL.a
-	$(CXX) $(INCS) $^ $(VOBJDR)/Vmain__ALL.a -lelf -o $@
+	$(CXX) $(INCS) $^ $(VOBJDR)/Vmain__ALL.a -lelf -lpthread -o $@
 
 #
 # The "clean" target, removing any and all remaining build products

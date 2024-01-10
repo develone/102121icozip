@@ -151,27 +151,27 @@ int	main(int argc, char **argv) {
 		free(secpp);
 
 		printf("Attempting to start from 0x%08x\n", entry);
-		tb->m_core->cpu_ipc = entry;
+		//tb->m_core->cpu_ipc = entry;
 
-		tb->m_core->cpu_cmd_halt = 0;
-		tb->m_core->cpu_reset    = 0;
+		//tb->m_core->cpu_cmd_halt = 0;
+		//tb->m_core->cpu_reset    = 0;
 		tb->tick();
 
-		tb->m_core->cpu_ipc = entry;
-		tb->m_core->cpu_new_pc   = 1;
-		tb->m_core->cpu_pf_pc    = entry;
-		tb->m_core->cpu_cmd_halt = 1;
-		tb->m_core->cpu_reset    = 0;
+		//tb->m_core->cpu_ipc = entry;
+		//tb->m_core->cpu_new_pc   = 1;
+		//tb->m_core->cpu_pf_pc    = entry;
+		//tb->m_core->cpu_cmd_halt = 1;
+		//tb->m_core->cpu_reset    = 0;
 	//
 		// tb->m_core->alu_wR  = 1;
-		tb->m_core->CPUVAR(_alu_reg) = 15;
-		tb->m_core->CPUVAR(_dbgv)    = 1;
-		tb->m_core->CPUVAR(_dbg_val) = entry;
-		tb->m_core->CPUVAR(_dbg_clear_pipe) = 1;
+		//tb->m_core->CPUVAR(_alu_reg) = 15;
+		//tb->m_core->CPUVAR(_dbgv)    = 1;
+		//tb->m_core->CPUVAR(_dbg_val) = entry;
+		//tb->m_core->CPUVAR(_dbg_clear_pipe) = 1;
 	//
 		tb->tick();
-		tb->m_core->cpu_cmd_halt = 0;
-		tb->m_core->VVAR(_swic__DOT__cmd_reset) = 0;
+		//tb->m_core->cpu_cmd_halt = 0;
+		//tb->m_core->VVAR(_swic__DOT__cmd_reset) = 0;
 #else
 		fprintf(stderr, "ERR: Design has no ZipCPU\n");
 		exit(EXIT_FAILURE);
