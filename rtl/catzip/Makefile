@@ -36,7 +36,8 @@
 ##
 ##
 .PHONY: all
-all: cpudefs.h design.h verilated bin
+#all: cpudefs.h design.h verilated bin
+all: cpudefs.h design.h bin
 CROSS ?=
 ARCH  ?= $(shell bash ../../sw/host/arch.sh)
 CXX   := $(CROSS)g++
