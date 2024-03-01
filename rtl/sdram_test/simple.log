@@ -1,0 +1,2326 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Wolf <claire@symbioticeda.com>          |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.9+4052 (git sha1 0ccc7229, gcc 8.3.0-6+rpi1 -fPIC -Os)
+
+
+-- Parsing `leddigits.v' using frontend `verilog' --
+
+1. Executing Verilog-2005 frontend: leddigits.v
+Parsing Verilog input from `leddigits.v' to AST representation.
+Warning: Yosys has only limited support for tri-state logic at the moment. (leddigits.v:291)
+Warning: Yosys has only limited support for tri-state logic at the moment. (leddigits.v:305)
+Warning: Yosys has only limited support for tri-state logic at the moment. (leddigits.v:319)
+Warning: Yosys has only limited support for tri-state logic at the moment. (leddigits.v:333)
+Warning: Yosys has only limited support for tri-state logic at the moment. (leddigits.v:347)
+Warning: Yosys has only limited support for tri-state logic at the moment. (leddigits.v:361)
+Warning: Yosys has only limited support for tri-state logic at the moment. (leddigits.v:375)
+Warning: Yosys has only limited support for tri-state logic at the moment. (leddigits.v:389)
+Generating RTLIL representation for module `\catboard'.
+Warning: wire '\disp_inst_1_o_drvr' is assigned in a block at leddigits.v:288.9-288.47.
+Warning: wire '\disp_inst_1_o_drvr' is assigned in a block at leddigits.v:291.9-291.33.
+Warning: wire '\disp_inst_2_o_drvr' is assigned in a block at leddigits.v:302.9-302.47.
+Warning: wire '\disp_inst_2_o_drvr' is assigned in a block at leddigits.v:305.9-305.33.
+Warning: wire '\disp_inst_3_o_drvr' is assigned in a block at leddigits.v:316.9-316.47.
+Warning: wire '\disp_inst_3_o_drvr' is assigned in a block at leddigits.v:319.9-319.33.
+Warning: wire '\disp_inst_4_o_drvr' is assigned in a block at leddigits.v:330.9-330.47.
+Warning: wire '\disp_inst_4_o_drvr' is assigned in a block at leddigits.v:333.9-333.33.
+Warning: wire '\disp_inst_5_o_drvr' is assigned in a block at leddigits.v:344.9-344.47.
+Warning: wire '\disp_inst_5_o_drvr' is assigned in a block at leddigits.v:347.9-347.33.
+Warning: wire '\disp_inst_6_o_drvr' is assigned in a block at leddigits.v:358.9-358.47.
+Warning: wire '\disp_inst_6_o_drvr' is assigned in a block at leddigits.v:361.9-361.33.
+Warning: wire '\disp_inst_7_o_drvr' is assigned in a block at leddigits.v:372.9-372.47.
+Warning: wire '\disp_inst_7_o_drvr' is assigned in a block at leddigits.v:375.9-375.33.
+Warning: wire '\disp_inst_8_o_drvr' is assigned in a block at leddigits.v:386.9-386.47.
+Warning: wire '\disp_inst_8_o_drvr' is assigned in a block at leddigits.v:389.9-389.33.
+Note: Assuming pure combinatorial block at leddigits.v:75.1-120.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at leddigits.v:127.1-155.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at leddigits.v:158.1-279.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+leddigits.v:283: Warning: Identifier `\disp_inst_1_dummy' is implicitly declared.
+leddigits.v:288: Warning: Identifier `\disp_inst_1_o_drvr' is implicitly declared.
+Note: Assuming pure combinatorial block at leddigits.v:286.1-293.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+leddigits.v:297: Warning: Identifier `\disp_inst_2_dummy' is implicitly declared.
+leddigits.v:302: Warning: Identifier `\disp_inst_2_o_drvr' is implicitly declared.
+Note: Assuming pure combinatorial block at leddigits.v:300.1-307.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+leddigits.v:311: Warning: Identifier `\disp_inst_3_dummy' is implicitly declared.
+leddigits.v:316: Warning: Identifier `\disp_inst_3_o_drvr' is implicitly declared.
+Note: Assuming pure combinatorial block at leddigits.v:314.1-321.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+leddigits.v:325: Warning: Identifier `\disp_inst_4_dummy' is implicitly declared.
+leddigits.v:330: Warning: Identifier `\disp_inst_4_o_drvr' is implicitly declared.
+Note: Assuming pure combinatorial block at leddigits.v:328.1-335.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+leddigits.v:339: Warning: Identifier `\disp_inst_5_dummy' is implicitly declared.
+leddigits.v:344: Warning: Identifier `\disp_inst_5_o_drvr' is implicitly declared.
+Note: Assuming pure combinatorial block at leddigits.v:342.1-349.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+leddigits.v:353: Warning: Identifier `\disp_inst_6_dummy' is implicitly declared.
+leddigits.v:358: Warning: Identifier `\disp_inst_6_o_drvr' is implicitly declared.
+Note: Assuming pure combinatorial block at leddigits.v:356.1-363.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+leddigits.v:367: Warning: Identifier `\disp_inst_7_dummy' is implicitly declared.
+leddigits.v:372: Warning: Identifier `\disp_inst_7_o_drvr' is implicitly declared.
+Note: Assuming pure combinatorial block at leddigits.v:370.1-377.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+leddigits.v:381: Warning: Identifier `\disp_inst_8_dummy' is implicitly declared.
+leddigits.v:386: Warning: Identifier `\disp_inst_8_o_drvr' is implicitly declared.
+Note: Assuming pure combinatorial block at leddigits.v:384.1-391.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+-- Running command `synth_ice40 -blif leddigits.blif -json leddigits.json -top catboard' --
+
+2. Executing SYNTH_ICE40 pass.
+
+2.1. Executing Verilog-2005 frontend: /usr/local/bin/../share/yosys/ice40/cells_sim.v
+Parsing Verilog input from `/usr/local/bin/../share/yosys/ice40/cells_sim.v' to AST representation.
+Generating RTLIL representation for module `\SB_IO'.
+Generating RTLIL representation for module `\SB_GB_IO'.
+Generating RTLIL representation for module `\SB_GB'.
+Generating RTLIL representation for module `\SB_LUT4'.
+Generating RTLIL representation for module `\SB_CARRY'.
+Generating RTLIL representation for module `\SB_DFF'.
+Generating RTLIL representation for module `\SB_DFFE'.
+Generating RTLIL representation for module `\SB_DFFSR'.
+Generating RTLIL representation for module `\SB_DFFR'.
+Generating RTLIL representation for module `\SB_DFFSS'.
+Generating RTLIL representation for module `\SB_DFFS'.
+Generating RTLIL representation for module `\SB_DFFESR'.
+Generating RTLIL representation for module `\SB_DFFER'.
+Generating RTLIL representation for module `\SB_DFFESS'.
+Generating RTLIL representation for module `\SB_DFFES'.
+Generating RTLIL representation for module `\SB_DFFN'.
+Generating RTLIL representation for module `\SB_DFFNE'.
+Generating RTLIL representation for module `\SB_DFFNSR'.
+Generating RTLIL representation for module `\SB_DFFNR'.
+Generating RTLIL representation for module `\SB_DFFNSS'.
+Generating RTLIL representation for module `\SB_DFFNS'.
+Generating RTLIL representation for module `\SB_DFFNESR'.
+Generating RTLIL representation for module `\SB_DFFNER'.
+Generating RTLIL representation for module `\SB_DFFNESS'.
+Generating RTLIL representation for module `\SB_DFFNES'.
+Generating RTLIL representation for module `\SB_RAM40_4K'.
+Generating RTLIL representation for module `\SB_RAM40_4KNR'.
+Generating RTLIL representation for module `\SB_RAM40_4KNW'.
+Generating RTLIL representation for module `\SB_RAM40_4KNRNW'.
+Generating RTLIL representation for module `\ICESTORM_LC'.
+Generating RTLIL representation for module `\SB_PLL40_CORE'.
+Generating RTLIL representation for module `\SB_PLL40_PAD'.
+Generating RTLIL representation for module `\SB_PLL40_2_PAD'.
+Generating RTLIL representation for module `\SB_PLL40_2F_CORE'.
+Generating RTLIL representation for module `\SB_PLL40_2F_PAD'.
+Generating RTLIL representation for module `\SB_WARMBOOT'.
+Generating RTLIL representation for module `\SB_SPRAM256KA'.
+Generating RTLIL representation for module `\SB_HFOSC'.
+Generating RTLIL representation for module `\SB_LFOSC'.
+Generating RTLIL representation for module `\SB_RGBA_DRV'.
+Generating RTLIL representation for module `\SB_LED_DRV_CUR'.
+Generating RTLIL representation for module `\SB_RGB_DRV'.
+Generating RTLIL representation for module `\SB_I2C'.
+Generating RTLIL representation for module `\SB_SPI'.
+Generating RTLIL representation for module `\SB_LEDDA_IP'.
+Generating RTLIL representation for module `\SB_FILTER_50NS'.
+Generating RTLIL representation for module `\SB_IO_I3C'.
+Generating RTLIL representation for module `\SB_IO_OD'.
+Generating RTLIL representation for module `\SB_MAC16'.
+Generating RTLIL representation for module `\ICESTORM_RAM'.
+Successfully finished Verilog frontend.
+
+2.2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.2.1. Analyzing design hierarchy..
+Top module:  \catboard
+
+2.2.2. Analyzing design hierarchy..
+Top module:  \catboard
+Removed 0 unused modules.
+
+2.3. Executing PROC pass (convert processes to netlists).
+
+2.3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+2.3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1330$428 in module SB_DFFNES.
+Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1274$421 in module SB_DFFNESS.
+Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1199$417 in module SB_DFFNER.
+Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1143$410 in module SB_DFFNESR.
+Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1074$407 in module SB_DFFNS.
+Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1026$404 in module SB_DFFNSS.
+Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:957$401 in module SB_DFFNR.
+Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:909$398 in module SB_DFFNSR.
+Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:753$390 in module SB_DFFES.
+Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:697$383 in module SB_DFFESS.
+Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:622$379 in module SB_DFFER.
+Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:566$372 in module SB_DFFESR.
+Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:497$369 in module SB_DFFS.
+Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:449$366 in module SB_DFFSS.
+Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:380$363 in module SB_DFFR.
+Marked 1 switch rules as full_case in process $proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:332$360 in module SB_DFFSR.
+Marked 3 switch rules as full_case in process $proc$leddigits.v:394$179 in module catboard.
+Marked 1 switch rules as full_case in process $proc$leddigits.v:384$177 in module catboard.
+Marked 1 switch rules as full_case in process $proc$leddigits.v:370$174 in module catboard.
+Marked 1 switch rules as full_case in process $proc$leddigits.v:356$171 in module catboard.
+Marked 1 switch rules as full_case in process $proc$leddigits.v:342$168 in module catboard.
+Marked 1 switch rules as full_case in process $proc$leddigits.v:328$165 in module catboard.
+Marked 1 switch rules as full_case in process $proc$leddigits.v:314$162 in module catboard.
+Marked 1 switch rules as full_case in process $proc$leddigits.v:300$159 in module catboard.
+Marked 1 switch rules as full_case in process $proc$leddigits.v:286$156 in module catboard.
+Marked 39 switch rules as full_case in process $proc$leddigits.v:158$31 in module catboard.
+Marked 8 switch rules as full_case in process $proc$leddigits.v:127$14 in module catboard.
+Marked 9 switch rules as full_case in process $proc$leddigits.v:75$3 in module catboard.
+Removed a total of 0 dead cases.
+
+2.3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 8 redundant assignments.
+Promoted 42 assignments to connections.
+
+2.3.4. Executing PROC_INIT pass (extract init attributes).
+Found init rule in `\SB_DFFNES.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$431'.
+  Set init value: \Q = 1'0
+Found init rule in `\SB_DFFNESS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$427'.
+  Set init value: \Q = 1'0
+Found init rule in `\SB_DFFNER.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$420'.
+  Set init value: \Q = 1'0
+Found init rule in `\SB_DFFNESR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$416'.
+  Set init value: \Q = 1'0
+Found init rule in `\SB_DFFNS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$409'.
+  Set init value: \Q = 1'0
+Found init rule in `\SB_DFFNSS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$406'.
+  Set init value: \Q = 1'0
+Found init rule in `\SB_DFFNR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$403'.
+  Set init value: \Q = 1'0
+Found init rule in `\SB_DFFNSR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$400'.
+  Set init value: \Q = 1'0
+Found init rule in `\SB_DFFNE.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$397'.
+  Set init value: \Q = 1'0
+Found init rule in `\SB_DFFN.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$395'.
+  Set init value: \Q = 1'0
+Found init rule in `\SB_DFFES.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$393'.
+  Set init value: \Q = 1'0
+Found init rule in `\SB_DFFESS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$389'.
+  Set init value: \Q = 1'0
+Found init rule in `\SB_DFFER.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$382'.
+  Set init value: \Q = 1'0
+Found init rule in `\SB_DFFESR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$378'.
+  Set init value: \Q = 1'0
+Found init rule in `\SB_DFFS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$371'.
+  Set init value: \Q = 1'0
+Found init rule in `\SB_DFFSS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$368'.
+  Set init value: \Q = 1'0
+Found init rule in `\SB_DFFR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$365'.
+  Set init value: \Q = 1'0
+Found init rule in `\SB_DFFSR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$362'.
+  Set init value: \Q = 1'0
+Found init rule in `\SB_DFFE.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$359'.
+  Set init value: \Q = 1'0
+Found init rule in `\SB_DFF.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$357'.
+  Set init value: \Q = 1'0
+
+2.3.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \S in `\SB_DFFNES.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1330$428'.
+Found async reset \R in `\SB_DFFNER.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1199$417'.
+Found async reset \S in `\SB_DFFNS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1074$407'.
+Found async reset \R in `\SB_DFFNR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:957$401'.
+Found async reset \S in `\SB_DFFES.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:753$390'.
+Found async reset \R in `\SB_DFFER.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:622$379'.
+Found async reset \S in `\SB_DFFS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:497$369'.
+Found async reset \R in `\SB_DFFR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:380$363'.
+
+2.3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\SB_DFFNES.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$431'.
+Creating decoders for process `\SB_DFFNES.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1330$428'.
+     1/1: $0\Q[0:0]
+Creating decoders for process `\SB_DFFNESS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$427'.
+Creating decoders for process `\SB_DFFNESS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1274$421'.
+     1/1: $0\Q[0:0]
+Creating decoders for process `\SB_DFFNER.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$420'.
+Creating decoders for process `\SB_DFFNER.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1199$417'.
+     1/1: $0\Q[0:0]
+Creating decoders for process `\SB_DFFNESR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$416'.
+Creating decoders for process `\SB_DFFNESR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1143$410'.
+     1/1: $0\Q[0:0]
+Creating decoders for process `\SB_DFFNS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$409'.
+Creating decoders for process `\SB_DFFNS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1074$407'.
+     1/1: $0\Q[0:0]
+Creating decoders for process `\SB_DFFNSS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$406'.
+Creating decoders for process `\SB_DFFNSS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1026$404'.
+     1/1: $0\Q[0:0]
+Creating decoders for process `\SB_DFFNR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$403'.
+Creating decoders for process `\SB_DFFNR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:957$401'.
+     1/1: $0\Q[0:0]
+Creating decoders for process `\SB_DFFNSR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$400'.
+Creating decoders for process `\SB_DFFNSR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:909$398'.
+     1/1: $0\Q[0:0]
+Creating decoders for process `\SB_DFFNE.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$397'.
+Creating decoders for process `\SB_DFFNE.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:866$396'.
+     1/1: $0\Q[0:0]
+Creating decoders for process `\SB_DFFN.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$395'.
+Creating decoders for process `\SB_DFFN.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:830$394'.
+Creating decoders for process `\SB_DFFES.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$393'.
+Creating decoders for process `\SB_DFFES.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:753$390'.
+     1/1: $0\Q[0:0]
+Creating decoders for process `\SB_DFFESS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$389'.
+Creating decoders for process `\SB_DFFESS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:697$383'.
+     1/1: $0\Q[0:0]
+Creating decoders for process `\SB_DFFER.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$382'.
+Creating decoders for process `\SB_DFFER.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:622$379'.
+     1/1: $0\Q[0:0]
+Creating decoders for process `\SB_DFFESR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$378'.
+Creating decoders for process `\SB_DFFESR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:566$372'.
+     1/1: $0\Q[0:0]
+Creating decoders for process `\SB_DFFS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$371'.
+Creating decoders for process `\SB_DFFS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:497$369'.
+     1/1: $0\Q[0:0]
+Creating decoders for process `\SB_DFFSS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$368'.
+Creating decoders for process `\SB_DFFSS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:449$366'.
+     1/1: $0\Q[0:0]
+Creating decoders for process `\SB_DFFR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$365'.
+Creating decoders for process `\SB_DFFR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:380$363'.
+     1/1: $0\Q[0:0]
+Creating decoders for process `\SB_DFFSR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$362'.
+Creating decoders for process `\SB_DFFSR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:332$360'.
+     1/1: $0\Q[0:0]
+Creating decoders for process `\SB_DFFE.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$359'.
+Creating decoders for process `\SB_DFFE.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:289$358'.
+     1/1: $0\Q[0:0]
+Creating decoders for process `\SB_DFF.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$357'.
+Creating decoders for process `\SB_DFF.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:253$356'.
+Creating decoders for process `\catboard.$proc$leddigits.v:0$187'.
+Creating decoders for process `\catboard.$proc$leddigits.v:394$179'.
+     1/8: $0\disp_digit_shf[7:0] [7:1]
+     2/8: $0\disp_digit_shf[7:0] [0]
+     3/8: $0\disp_seg_mask[6:0] [0]
+     4/8: $0\disp_seg_timer[9:0]
+     5/8: $0\disp_seg_mask[6:0] [6:1]
+     6/8: $0\disp_initialized[0:0]
+     7/8: $0\disp_blank[0:0]
+     8/8: $0\disp_seg_cntr[2:0]
+Creating decoders for process `\catboard.$proc$leddigits.v:384$177'.
+     1/1: $1\disp_inst_8_o_drvr[0:0]
+Creating decoders for process `\catboard.$proc$leddigits.v:370$174'.
+     1/1: $1\disp_inst_7_o_drvr[0:0]
+Creating decoders for process `\catboard.$proc$leddigits.v:356$171'.
+     1/1: $1\disp_inst_6_o_drvr[0:0]
+Creating decoders for process `\catboard.$proc$leddigits.v:342$168'.
+     1/1: $1\disp_inst_5_o_drvr[0:0]
+Creating decoders for process `\catboard.$proc$leddigits.v:328$165'.
+     1/1: $1\disp_inst_4_o_drvr[0:0]
+Creating decoders for process `\catboard.$proc$leddigits.v:314$162'.
+     1/1: $1\disp_inst_3_o_drvr[0:0]
+Creating decoders for process `\catboard.$proc$leddigits.v:300$159'.
+     1/1: $1\disp_inst_2_o_drvr[0:0]
+Creating decoders for process `\catboard.$proc$leddigits.v:286$156'.
+     1/1: $1\disp_inst_1_o_drvr[0:0]
+Creating decoders for process `\catboard.$proc$leddigits.v:158$31'.
+     1/39: $39\disp_segments[6:0]
+     2/39: $38\disp_segments[6:0]
+     3/39: $37\disp_segments[6:0]
+     4/39: $36\disp_segments[6:0]
+     5/39: $35\disp_segments[6:0]
+     6/39: $34\disp_segments[6:0]
+     7/39: $33\disp_segments[6:0]
+     8/39: $32\disp_segments[6:0]
+     9/39: $31\disp_segments[6:0]
+    10/39: $30\disp_segments[6:0]
+    11/39: $29\disp_segments[6:0]
+    12/39: $28\disp_segments[6:0]
+    13/39: $27\disp_segments[6:0]
+    14/39: $26\disp_segments[6:0]
+    15/39: $25\disp_segments[6:0]
+    16/39: $24\disp_segments[6:0]
+    17/39: $23\disp_segments[6:0]
+    18/39: $22\disp_segments[6:0]
+    19/39: $21\disp_segments[6:0]
+    20/39: $20\disp_segments[6:0]
+    21/39: $19\disp_segments[6:0]
+    22/39: $18\disp_segments[6:0]
+    23/39: $17\disp_segments[6:0]
+    24/39: $16\disp_segments[6:0]
+    25/39: $15\disp_segments[6:0]
+    26/39: $14\disp_segments[6:0]
+    27/39: $13\disp_segments[6:0]
+    28/39: $12\disp_segments[6:0]
+    29/39: $11\disp_segments[6:0]
+    30/39: $10\disp_segments[6:0]
+    31/39: $9\disp_segments[6:0]
+    32/39: $8\disp_segments[6:0]
+    33/39: $7\disp_segments[6:0]
+    34/39: $6\disp_segments[6:0]
+    35/39: $5\disp_segments[6:0]
+    36/39: $4\disp_segments[6:0]
+    37/39: $3\disp_segments[6:0]
+    38/39: $2\disp_segments[6:0]
+    39/39: $1\disp_segments[6:0]
+Creating decoders for process `\catboard.$proc$leddigits.v:127$14'.
+     1/8: $8\disp_active_digit[6:0]
+     2/8: $7\disp_active_digit[6:0]
+     3/8: $6\disp_active_digit[6:0]
+     4/8: $5\disp_active_digit[6:0]
+     5/8: $4\disp_active_digit[6:0]
+     6/8: $3\disp_active_digit[6:0]
+     7/8: $2\disp_active_digit[6:0]
+     8/8: $1\disp_active_digit[6:0]
+Creating decoders for process `\catboard.$proc$leddigits.v:75$3'.
+     1/23: $9\disp_drvr_enbls[7:0] [7]
+     2/23: $9\disp_drvr_enbls[7:0] [6:0]
+     3/23: $8\disp_drvr_enbls[7:0] [7]
+     4/23: $8\disp_drvr_enbls[7:0] [5:0]
+     5/23: $8\disp_drvr_enbls[7:0] [6]
+     6/23: $7\disp_drvr_enbls[7:0] [7:6]
+     7/23: $7\disp_drvr_enbls[7:0] [4:0]
+     8/23: $7\disp_drvr_enbls[7:0] [5]
+     9/23: $6\disp_drvr_enbls[7:0] [7:5]
+    10/23: $6\disp_drvr_enbls[7:0] [3:0]
+    11/23: $6\disp_drvr_enbls[7:0] [4]
+    12/23: $5\disp_drvr_enbls[7:0] [7:4]
+    13/23: $5\disp_drvr_enbls[7:0] [2:0]
+    14/23: $5\disp_drvr_enbls[7:0] [3]
+    15/23: $4\disp_drvr_enbls[7:0] [7:3]
+    16/23: $4\disp_drvr_enbls[7:0] [1:0]
+    17/23: $4\disp_drvr_enbls[7:0] [2]
+    18/23: $3\disp_drvr_enbls[7:0] [7:2]
+    19/23: $3\disp_drvr_enbls[7:0] [0]
+    20/23: $3\disp_drvr_enbls[7:0] [1]
+    21/23: $2\disp_drvr_enbls[7:0] [7:1]
+    22/23: $2\disp_drvr_enbls[7:0] [0]
+    23/23: $1\disp_drvr_enbls[7:0]
+Creating decoders for process `\catboard.$proc$leddigits.v:70$1'.
+
+2.3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\catboard.\drvrs[0]' from process `\catboard.$proc$leddigits.v:0$187'.
+No latch inferred for signal `\catboard.\drvrs[1]' from process `\catboard.$proc$leddigits.v:0$187'.
+No latch inferred for signal `\catboard.\drvrs[2]' from process `\catboard.$proc$leddigits.v:0$187'.
+No latch inferred for signal `\catboard.\drvrs[3]' from process `\catboard.$proc$leddigits.v:0$187'.
+No latch inferred for signal `\catboard.\drvrs[4]' from process `\catboard.$proc$leddigits.v:0$187'.
+No latch inferred for signal `\catboard.\drvrs[5]' from process `\catboard.$proc$leddigits.v:0$187'.
+No latch inferred for signal `\catboard.\drvrs[6]' from process `\catboard.$proc$leddigits.v:0$187'.
+No latch inferred for signal `\catboard.\drvrs[7]' from process `\catboard.$proc$leddigits.v:0$187'.
+No latch inferred for signal `\catboard.\disp_inst_8_o_drvr' from process `\catboard.$proc$leddigits.v:384$177'.
+No latch inferred for signal `\catboard.\disp_inst_7_o_drvr' from process `\catboard.$proc$leddigits.v:370$174'.
+No latch inferred for signal `\catboard.\disp_inst_6_o_drvr' from process `\catboard.$proc$leddigits.v:356$171'.
+No latch inferred for signal `\catboard.\disp_inst_5_o_drvr' from process `\catboard.$proc$leddigits.v:342$168'.
+No latch inferred for signal `\catboard.\disp_inst_4_o_drvr' from process `\catboard.$proc$leddigits.v:328$165'.
+No latch inferred for signal `\catboard.\disp_inst_3_o_drvr' from process `\catboard.$proc$leddigits.v:314$162'.
+No latch inferred for signal `\catboard.\disp_inst_2_o_drvr' from process `\catboard.$proc$leddigits.v:300$159'.
+No latch inferred for signal `\catboard.\disp_inst_1_o_drvr' from process `\catboard.$proc$leddigits.v:286$156'.
+No latch inferred for signal `\catboard.\disp_segments' from process `\catboard.$proc$leddigits.v:158$31'.
+No latch inferred for signal `\catboard.\disp_active_digit' from process `\catboard.$proc$leddigits.v:127$14'.
+No latch inferred for signal `\catboard.\disp_drvr_enbls' from process `\catboard.$proc$leddigits.v:75$3'.
+
+2.3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\SB_DFFNES.\Q' using process `\SB_DFFNES.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1330$428'.
+  created $adff cell `$procdff$3503' with negative edge clock and positive level reset.
+Creating register for signal `\SB_DFFNESS.\Q' using process `\SB_DFFNESS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1274$421'.
+  created $dff cell `$procdff$3504' with negative edge clock.
+Creating register for signal `\SB_DFFNER.\Q' using process `\SB_DFFNER.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1199$417'.
+  created $adff cell `$procdff$3505' with negative edge clock and positive level reset.
+Creating register for signal `\SB_DFFNESR.\Q' using process `\SB_DFFNESR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1143$410'.
+  created $dff cell `$procdff$3506' with negative edge clock.
+Creating register for signal `\SB_DFFNS.\Q' using process `\SB_DFFNS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1074$407'.
+  created $adff cell `$procdff$3507' with negative edge clock and positive level reset.
+Creating register for signal `\SB_DFFNSS.\Q' using process `\SB_DFFNSS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1026$404'.
+  created $dff cell `$procdff$3508' with negative edge clock.
+Creating register for signal `\SB_DFFNR.\Q' using process `\SB_DFFNR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:957$401'.
+  created $adff cell `$procdff$3509' with negative edge clock and positive level reset.
+Creating register for signal `\SB_DFFNSR.\Q' using process `\SB_DFFNSR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:909$398'.
+  created $dff cell `$procdff$3510' with negative edge clock.
+Creating register for signal `\SB_DFFNE.\Q' using process `\SB_DFFNE.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:866$396'.
+  created $dff cell `$procdff$3511' with negative edge clock.
+Creating register for signal `\SB_DFFN.\Q' using process `\SB_DFFN.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:830$394'.
+  created $dff cell `$procdff$3512' with negative edge clock.
+Creating register for signal `\SB_DFFES.\Q' using process `\SB_DFFES.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:753$390'.
+  created $adff cell `$procdff$3513' with positive edge clock and positive level reset.
+Creating register for signal `\SB_DFFESS.\Q' using process `\SB_DFFESS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:697$383'.
+  created $dff cell `$procdff$3514' with positive edge clock.
+Creating register for signal `\SB_DFFER.\Q' using process `\SB_DFFER.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:622$379'.
+  created $adff cell `$procdff$3515' with positive edge clock and positive level reset.
+Creating register for signal `\SB_DFFESR.\Q' using process `\SB_DFFESR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:566$372'.
+  created $dff cell `$procdff$3516' with positive edge clock.
+Creating register for signal `\SB_DFFS.\Q' using process `\SB_DFFS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:497$369'.
+  created $adff cell `$procdff$3517' with positive edge clock and positive level reset.
+Creating register for signal `\SB_DFFSS.\Q' using process `\SB_DFFSS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:449$366'.
+  created $dff cell `$procdff$3518' with positive edge clock.
+Creating register for signal `\SB_DFFR.\Q' using process `\SB_DFFR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:380$363'.
+  created $adff cell `$procdff$3519' with positive edge clock and positive level reset.
+Creating register for signal `\SB_DFFSR.\Q' using process `\SB_DFFSR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:332$360'.
+  created $dff cell `$procdff$3520' with positive edge clock.
+Creating register for signal `\SB_DFFE.\Q' using process `\SB_DFFE.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:289$358'.
+  created $dff cell `$procdff$3521' with positive edge clock.
+Creating register for signal `\SB_DFF.\Q' using process `\SB_DFF.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:253$356'.
+  created $dff cell `$procdff$3522' with positive edge clock.
+Creating register for signal `\catboard.\disp_seg_cntr' using process `\catboard.$proc$leddigits.v:394$179'.
+  created $dff cell `$procdff$3523' with positive edge clock.
+Creating register for signal `\catboard.\disp_blank' using process `\catboard.$proc$leddigits.v:394$179'.
+  created $dff cell `$procdff$3524' with positive edge clock.
+Creating register for signal `\catboard.\disp_initialized' using process `\catboard.$proc$leddigits.v:394$179'.
+  created $dff cell `$procdff$3525' with positive edge clock.
+Creating register for signal `\catboard.\disp_digit_shf' using process `\catboard.$proc$leddigits.v:394$179'.
+  created $dff cell `$procdff$3526' with positive edge clock.
+Creating register for signal `\catboard.\disp_seg_mask' using process `\catboard.$proc$leddigits.v:394$179'.
+  created $dff cell `$procdff$3527' with positive edge clock.
+Creating register for signal `\catboard.\disp_seg_timer' using process `\catboard.$proc$leddigits.v:394$179'.
+  created $dff cell `$procdff$3528' with positive edge clock.
+Creating register for signal `\catboard.\cntr' using process `\catboard.$proc$leddigits.v:70$1'.
+  created $dff cell `$procdff$3529' with positive edge clock.
+
+2.3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+2.3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `SB_DFFNES.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$431'.
+Found and cleaned up 1 empty switch in `\SB_DFFNES.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1330$428'.
+Removing empty process `SB_DFFNES.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1330$428'.
+Removing empty process `SB_DFFNESS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$427'.
+Found and cleaned up 2 empty switches in `\SB_DFFNESS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1274$421'.
+Removing empty process `SB_DFFNESS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1274$421'.
+Removing empty process `SB_DFFNER.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$420'.
+Found and cleaned up 1 empty switch in `\SB_DFFNER.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1199$417'.
+Removing empty process `SB_DFFNER.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1199$417'.
+Removing empty process `SB_DFFNESR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$416'.
+Found and cleaned up 2 empty switches in `\SB_DFFNESR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1143$410'.
+Removing empty process `SB_DFFNESR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1143$410'.
+Removing empty process `SB_DFFNS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$409'.
+Removing empty process `SB_DFFNS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1074$407'.
+Removing empty process `SB_DFFNSS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$406'.
+Found and cleaned up 1 empty switch in `\SB_DFFNSS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1026$404'.
+Removing empty process `SB_DFFNSS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1026$404'.
+Removing empty process `SB_DFFNR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$403'.
+Removing empty process `SB_DFFNR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:957$401'.
+Removing empty process `SB_DFFNSR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$400'.
+Found and cleaned up 1 empty switch in `\SB_DFFNSR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:909$398'.
+Removing empty process `SB_DFFNSR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:909$398'.
+Removing empty process `SB_DFFNE.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$397'.
+Found and cleaned up 1 empty switch in `\SB_DFFNE.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:866$396'.
+Removing empty process `SB_DFFNE.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:866$396'.
+Removing empty process `SB_DFFN.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$395'.
+Removing empty process `SB_DFFN.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:830$394'.
+Removing empty process `SB_DFFES.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$393'.
+Found and cleaned up 1 empty switch in `\SB_DFFES.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:753$390'.
+Removing empty process `SB_DFFES.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:753$390'.
+Removing empty process `SB_DFFESS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$389'.
+Found and cleaned up 2 empty switches in `\SB_DFFESS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:697$383'.
+Removing empty process `SB_DFFESS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:697$383'.
+Removing empty process `SB_DFFER.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$382'.
+Found and cleaned up 1 empty switch in `\SB_DFFER.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:622$379'.
+Removing empty process `SB_DFFER.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:622$379'.
+Removing empty process `SB_DFFESR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$378'.
+Found and cleaned up 2 empty switches in `\SB_DFFESR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:566$372'.
+Removing empty process `SB_DFFESR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:566$372'.
+Removing empty process `SB_DFFS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$371'.
+Removing empty process `SB_DFFS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:497$369'.
+Removing empty process `SB_DFFSS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$368'.
+Found and cleaned up 1 empty switch in `\SB_DFFSS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:449$366'.
+Removing empty process `SB_DFFSS.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:449$366'.
+Removing empty process `SB_DFFR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$365'.
+Removing empty process `SB_DFFR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:380$363'.
+Removing empty process `SB_DFFSR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$362'.
+Found and cleaned up 1 empty switch in `\SB_DFFSR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:332$360'.
+Removing empty process `SB_DFFSR.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:332$360'.
+Removing empty process `SB_DFFE.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$359'.
+Found and cleaned up 1 empty switch in `\SB_DFFE.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:289$358'.
+Removing empty process `SB_DFFE.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:289$358'.
+Removing empty process `SB_DFF.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:0$357'.
+Removing empty process `SB_DFF.$proc$/usr/local/bin/../share/yosys/ice40/cells_sim.v:253$356'.
+Removing empty process `catboard.$proc$leddigits.v:0$187'.
+Found and cleaned up 3 empty switches in `\catboard.$proc$leddigits.v:394$179'.
+Removing empty process `catboard.$proc$leddigits.v:394$179'.
+Found and cleaned up 1 empty switch in `\catboard.$proc$leddigits.v:384$177'.
+Removing empty process `catboard.$proc$leddigits.v:384$177'.
+Found and cleaned up 1 empty switch in `\catboard.$proc$leddigits.v:370$174'.
+Removing empty process `catboard.$proc$leddigits.v:370$174'.
+Found and cleaned up 1 empty switch in `\catboard.$proc$leddigits.v:356$171'.
+Removing empty process `catboard.$proc$leddigits.v:356$171'.
+Found and cleaned up 1 empty switch in `\catboard.$proc$leddigits.v:342$168'.
+Removing empty process `catboard.$proc$leddigits.v:342$168'.
+Found and cleaned up 1 empty switch in `\catboard.$proc$leddigits.v:328$165'.
+Removing empty process `catboard.$proc$leddigits.v:328$165'.
+Found and cleaned up 1 empty switch in `\catboard.$proc$leddigits.v:314$162'.
+Removing empty process `catboard.$proc$leddigits.v:314$162'.
+Found and cleaned up 1 empty switch in `\catboard.$proc$leddigits.v:300$159'.
+Removing empty process `catboard.$proc$leddigits.v:300$159'.
+Found and cleaned up 1 empty switch in `\catboard.$proc$leddigits.v:286$156'.
+Removing empty process `catboard.$proc$leddigits.v:286$156'.
+Found and cleaned up 39 empty switches in `\catboard.$proc$leddigits.v:158$31'.
+Removing empty process `catboard.$proc$leddigits.v:158$31'.
+Found and cleaned up 8 empty switches in `\catboard.$proc$leddigits.v:127$14'.
+Removing empty process `catboard.$proc$leddigits.v:127$14'.
+Found and cleaned up 9 empty switches in `\catboard.$proc$leddigits.v:75$3'.
+Removing empty process `catboard.$proc$leddigits.v:75$3'.
+Removing empty process `catboard.$proc$leddigits.v:70$1'.
+Cleaned up 85 empty switches.
+
+2.4. Executing FLATTEN pass (flatten design).
+
+2.5. Executing TRIBUF pass.
+
+2.6. Executing DEMINOUT pass (demote inout ports to input or output).
+
+2.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module catboard.
+<suppressed ~53 debug messages>
+
+2.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \catboard..
+Removed 2 unused cells and 1124 unused wires.
+<suppressed ~11 debug messages>
+
+2.9. Executing CHECK pass (checking for obvious problems).
+Checking module catboard...
+Found and reported 0 problems.
+
+2.10. Executing OPT pass (performing simple optimizations).
+
+2.10.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module catboard.
+
+2.10.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\catboard'.
+Removed a total of 0 cells.
+
+2.10.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \catboard..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port B of cell $procmux$649: \disp_initialized -> 1'1
+  Analyzing evaluation results.
+    dead port 1/2 on $mux $procmux$1002.
+    dead port 1/2 on $mux $procmux$1005.
+    dead port 1/2 on $mux $procmux$1008.
+    dead port 1/2 on $mux $procmux$1011.
+    dead port 1/2 on $mux $procmux$1014.
+    dead port 1/2 on $mux $procmux$1017.
+    dead port 1/2 on $mux $procmux$1020.
+    dead port 1/2 on $mux $procmux$1023.
+    dead port 1/2 on $mux $procmux$1026.
+    dead port 1/2 on $mux $procmux$1029.
+    dead port 1/2 on $mux $procmux$1035.
+    dead port 1/2 on $mux $procmux$1038.
+    dead port 1/2 on $mux $procmux$1041.
+    dead port 1/2 on $mux $procmux$1044.
+    dead port 1/2 on $mux $procmux$1047.
+    dead port 1/2 on $mux $procmux$1050.
+    dead port 1/2 on $mux $procmux$1053.
+    dead port 1/2 on $mux $procmux$1056.
+    dead port 1/2 on $mux $procmux$1059.
+    dead port 1/2 on $mux $procmux$1062.
+    dead port 1/2 on $mux $procmux$1065.
+    dead port 1/2 on $mux $procmux$1068.
+    dead port 1/2 on $mux $procmux$1071.
+    dead port 1/2 on $mux $procmux$1074.
+    dead port 1/2 on $mux $procmux$1077.
+    dead port 1/2 on $mux $procmux$1080.
+    dead port 1/2 on $mux $procmux$1083.
+    dead port 1/2 on $mux $procmux$1086.
+    dead port 1/2 on $mux $procmux$1089.
+    dead port 1/2 on $mux $procmux$1092.
+    dead port 1/2 on $mux $procmux$1095.
+    dead port 1/2 on $mux $procmux$1098.
+    dead port 1/2 on $mux $procmux$1101.
+    dead port 1/2 on $mux $procmux$1104.
+    dead port 1/2 on $mux $procmux$1107.
+    dead port 1/2 on $mux $procmux$1110.
+    dead port 1/2 on $mux $procmux$1113.
+    dead port 1/2 on $mux $procmux$1116.
+    dead port 1/2 on $mux $procmux$1119.
+    dead port 1/2 on $mux $procmux$1122.
+    dead port 1/2 on $mux $procmux$1125.
+    dead port 1/2 on $mux $procmux$1128.
+    dead port 1/2 on $mux $procmux$1131.
+    dead port 1/2 on $mux $procmux$1134.
+    dead port 1/2 on $mux $procmux$1137.
+    dead port 1/2 on $mux $procmux$1143.
+    dead port 1/2 on $mux $procmux$1146.
+    dead port 1/2 on $mux $procmux$1149.
+    dead port 1/2 on $mux $procmux$1152.
+    dead port 1/2 on $mux $procmux$1155.
+    dead port 1/2 on $mux $procmux$1158.
+    dead port 1/2 on $mux $procmux$1161.
+    dead port 1/2 on $mux $procmux$1164.
+    dead port 1/2 on $mux $procmux$1167.
+    dead port 1/2 on $mux $procmux$1170.
+    dead port 1/2 on $mux $procmux$1173.
+    dead port 1/2 on $mux $procmux$1176.
+    dead port 1/2 on $mux $procmux$1179.
+    dead port 1/2 on $mux $procmux$1182.
+    dead port 1/2 on $mux $procmux$1185.
+    dead port 1/2 on $mux $procmux$1188.
+    dead port 1/2 on $mux $procmux$1191.
+    dead port 1/2 on $mux $procmux$1194.
+    dead port 1/2 on $mux $procmux$1197.
+    dead port 1/2 on $mux $procmux$1200.
+    dead port 1/2 on $mux $procmux$1203.
+    dead port 1/2 on $mux $procmux$1206.
+    dead port 1/2 on $mux $procmux$1209.
+    dead port 1/2 on $mux $procmux$1212.
+    dead port 1/2 on $mux $procmux$1215.
+    dead port 1/2 on $mux $procmux$1218.
+    dead port 1/2 on $mux $procmux$1221.
+    dead port 1/2 on $mux $procmux$1224.
+    dead port 1/2 on $mux $procmux$1227.
+    dead port 1/2 on $mux $procmux$1230.
+    dead port 1/2 on $mux $procmux$1233.
+    dead port 1/2 on $mux $procmux$1236.
+    dead port 1/2 on $mux $procmux$1239.
+    dead port 1/2 on $mux $procmux$1242.
+    dead port 1/2 on $mux $procmux$1248.
+    dead port 1/2 on $mux $procmux$1251.
+    dead port 1/2 on $mux $procmux$1254.
+    dead port 1/2 on $mux $procmux$1257.
+    dead port 1/2 on $mux $procmux$1260.
+    dead port 1/2 on $mux $procmux$1263.
+    dead port 1/2 on $mux $procmux$1266.
+    dead port 1/2 on $mux $procmux$1269.
+    dead port 1/2 on $mux $procmux$1272.
+    dead port 1/2 on $mux $procmux$1275.
+    dead port 1/2 on $mux $procmux$1278.
+    dead port 1/2 on $mux $procmux$1281.
+    dead port 1/2 on $mux $procmux$1284.
+    dead port 1/2 on $mux $procmux$1287.
+    dead port 1/2 on $mux $procmux$1290.
+    dead port 1/2 on $mux $procmux$1293.
+    dead port 1/2 on $mux $procmux$1296.
+    dead port 1/2 on $mux $procmux$1299.
+    dead port 1/2 on $mux $procmux$1302.
+    dead port 1/2 on $mux $procmux$1305.
+    dead port 1/2 on $mux $procmux$1308.
+    dead port 1/2 on $mux $procmux$1311.
+    dead port 1/2 on $mux $procmux$1314.
+    dead port 1/2 on $mux $procmux$1317.
+    dead port 1/2 on $mux $procmux$1320.
+    dead port 1/2 on $mux $procmux$1323.
+    dead port 1/2 on $mux $procmux$1326.
+    dead port 1/2 on $mux $procmux$1329.
+    dead port 1/2 on $mux $procmux$1332.
+    dead port 1/2 on $mux $procmux$1335.
+    dead port 1/2 on $mux $procmux$1338.
+    dead port 1/2 on $mux $procmux$1341.
+    dead port 1/2 on $mux $procmux$1344.
+    dead port 1/2 on $mux $procmux$1350.
+    dead port 1/2 on $mux $procmux$1353.
+    dead port 1/2 on $mux $procmux$1356.
+    dead port 1/2 on $mux $procmux$1359.
+    dead port 1/2 on $mux $procmux$1362.
+    dead port 1/2 on $mux $procmux$1365.
+    dead port 1/2 on $mux $procmux$1368.
+    dead port 1/2 on $mux $procmux$1371.
+    dead port 1/2 on $mux $procmux$1374.
+    dead port 1/2 on $mux $procmux$1377.
+    dead port 1/2 on $mux $procmux$1380.
+    dead port 1/2 on $mux $procmux$1383.
+    dead port 1/2 on $mux $procmux$1386.
+    dead port 1/2 on $mux $procmux$1389.
+    dead port 1/2 on $mux $procmux$1392.
+    dead port 1/2 on $mux $procmux$1395.
+    dead port 1/2 on $mux $procmux$1398.
+    dead port 1/2 on $mux $procmux$1401.
+    dead port 1/2 on $mux $procmux$1404.
+    dead port 1/2 on $mux $procmux$1407.
+    dead port 1/2 on $mux $procmux$1410.
+    dead port 1/2 on $mux $procmux$1413.
+    dead port 1/2 on $mux $procmux$1416.
+    dead port 1/2 on $mux $procmux$1419.
+    dead port 1/2 on $mux $procmux$1422.
+    dead port 1/2 on $mux $procmux$1425.
+    dead port 1/2 on $mux $procmux$1428.
+    dead port 1/2 on $mux $procmux$1431.
+    dead port 1/2 on $mux $procmux$1434.
+    dead port 1/2 on $mux $procmux$1437.
+    dead port 1/2 on $mux $procmux$1440.
+    dead port 1/2 on $mux $procmux$1443.
+    dead port 1/2 on $mux $procmux$1449.
+    dead port 1/2 on $mux $procmux$1452.
+    dead port 1/2 on $mux $procmux$1455.
+    dead port 1/2 on $mux $procmux$1458.
+    dead port 1/2 on $mux $procmux$1461.
+    dead port 1/2 on $mux $procmux$1464.
+    dead port 1/2 on $mux $procmux$1467.
+    dead port 1/2 on $mux $procmux$1470.
+    dead port 1/2 on $mux $procmux$1473.
+    dead port 1/2 on $mux $procmux$1476.
+    dead port 1/2 on $mux $procmux$1479.
+    dead port 1/2 on $mux $procmux$1482.
+    dead port 1/2 on $mux $procmux$1485.
+    dead port 1/2 on $mux $procmux$1488.
+    dead port 1/2 on $mux $procmux$1491.
+    dead port 1/2 on $mux $procmux$1494.
+    dead port 1/2 on $mux $procmux$1497.
+    dead port 1/2 on $mux $procmux$1500.
+    dead port 1/2 on $mux $procmux$1503.
+    dead port 1/2 on $mux $procmux$1506.
+    dead port 1/2 on $mux $procmux$1509.
+    dead port 1/2 on $mux $procmux$1512.
+    dead port 1/2 on $mux $procmux$1515.
+    dead port 1/2 on $mux $procmux$1518.
+    dead port 1/2 on $mux $procmux$1521.
+    dead port 1/2 on $mux $procmux$1524.
+    dead port 1/2 on $mux $procmux$1527.
+    dead port 1/2 on $mux $procmux$1530.
+    dead port 1/2 on $mux $procmux$1533.
+    dead port 1/2 on $mux $procmux$1536.
+    dead port 1/2 on $mux $procmux$1539.
+    dead port 1/2 on $mux $procmux$1545.
+    dead port 1/2 on $mux $procmux$1548.
+    dead port 1/2 on $mux $procmux$1551.
+    dead port 1/2 on $mux $procmux$1554.
+    dead port 1/2 on $mux $procmux$1557.
+    dead port 1/2 on $mux $procmux$1560.
+    dead port 1/2 on $mux $procmux$1563.
+    dead port 1/2 on $mux $procmux$1566.
+    dead port 1/2 on $mux $procmux$1569.
+    dead port 1/2 on $mux $procmux$1572.
+    dead port 1/2 on $mux $procmux$1575.
+    dead port 1/2 on $mux $procmux$1578.
+    dead port 1/2 on $mux $procmux$1581.
+    dead port 1/2 on $mux $procmux$1584.
+    dead port 1/2 on $mux $procmux$1587.
+    dead port 1/2 on $mux $procmux$1590.
+    dead port 1/2 on $mux $procmux$1593.
+    dead port 1/2 on $mux $procmux$1596.
+    dead port 1/2 on $mux $procmux$1599.
+    dead port 1/2 on $mux $procmux$1602.
+    dead port 1/2 on $mux $procmux$1605.
+    dead port 1/2 on $mux $procmux$1608.
+    dead port 1/2 on $mux $procmux$1611.
+    dead port 1/2 on $mux $procmux$1614.
+    dead port 1/2 on $mux $procmux$1617.
+    dead port 1/2 on $mux $procmux$1620.
+    dead port 1/2 on $mux $procmux$1623.
+    dead port 1/2 on $mux $procmux$1626.
+    dead port 1/2 on $mux $procmux$1629.
+    dead port 1/2 on $mux $procmux$1632.
+    dead port 1/2 on $mux $procmux$1638.
+    dead port 1/2 on $mux $procmux$1641.
+    dead port 1/2 on $mux $procmux$1644.
+    dead port 1/2 on $mux $procmux$1647.
+    dead port 1/2 on $mux $procmux$1650.
+    dead port 1/2 on $mux $procmux$1653.
+    dead port 1/2 on $mux $procmux$1656.
+    dead port 1/2 on $mux $procmux$1659.
+    dead port 1/2 on $mux $procmux$1662.
+    dead port 1/2 on $mux $procmux$1665.
+    dead port 1/2 on $mux $procmux$1668.
+    dead port 1/2 on $mux $procmux$1671.
+    dead port 1/2 on $mux $procmux$1674.
+    dead port 1/2 on $mux $procmux$1677.
+    dead port 1/2 on $mux $procmux$1680.
+    dead port 1/2 on $mux $procmux$1683.
+    dead port 1/2 on $mux $procmux$1686.
+    dead port 1/2 on $mux $procmux$1689.
+    dead port 1/2 on $mux $procmux$1692.
+    dead port 1/2 on $mux $procmux$1695.
+    dead port 1/2 on $mux $procmux$1698.
+    dead port 1/2 on $mux $procmux$1701.
+    dead port 1/2 on $mux $procmux$1704.
+    dead port 1/2 on $mux $procmux$1707.
+    dead port 1/2 on $mux $procmux$1710.
+    dead port 1/2 on $mux $procmux$1713.
+    dead port 1/2 on $mux $procmux$1716.
+    dead port 1/2 on $mux $procmux$1719.
+    dead port 1/2 on $mux $procmux$1722.
+    dead port 1/2 on $mux $procmux$1728.
+    dead port 1/2 on $mux $procmux$1731.
+    dead port 1/2 on $mux $procmux$1734.
+    dead port 1/2 on $mux $procmux$1737.
+    dead port 1/2 on $mux $procmux$1740.
+    dead port 1/2 on $mux $procmux$1743.
+    dead port 1/2 on $mux $procmux$1746.
+    dead port 1/2 on $mux $procmux$1749.
+    dead port 1/2 on $mux $procmux$1752.
+    dead port 1/2 on $mux $procmux$1755.
+    dead port 1/2 on $mux $procmux$1758.
+    dead port 1/2 on $mux $procmux$1761.
+    dead port 1/2 on $mux $procmux$1764.
+    dead port 1/2 on $mux $procmux$1767.
+    dead port 1/2 on $mux $procmux$1770.
+    dead port 1/2 on $mux $procmux$1773.
+    dead port 1/2 on $mux $procmux$1776.
+    dead port 1/2 on $mux $procmux$1779.
+    dead port 1/2 on $mux $procmux$1782.
+    dead port 1/2 on $mux $procmux$1785.
+    dead port 1/2 on $mux $procmux$1788.
+    dead port 1/2 on $mux $procmux$1791.
+    dead port 1/2 on $mux $procmux$1794.
+    dead port 1/2 on $mux $procmux$1797.
+    dead port 1/2 on $mux $procmux$1800.
+    dead port 1/2 on $mux $procmux$1803.
+    dead port 1/2 on $mux $procmux$1806.
+    dead port 1/2 on $mux $procmux$1809.
+    dead port 1/2 on $mux $procmux$1815.
+    dead port 1/2 on $mux $procmux$1818.
+    dead port 1/2 on $mux $procmux$1821.
+    dead port 1/2 on $mux $procmux$1824.
+    dead port 1/2 on $mux $procmux$1827.
+    dead port 1/2 on $mux $procmux$1830.
+    dead port 1/2 on $mux $procmux$1833.
+    dead port 1/2 on $mux $procmux$1836.
+    dead port 1/2 on $mux $procmux$1839.
+    dead port 1/2 on $mux $procmux$1842.
+    dead port 1/2 on $mux $procmux$1845.
+    dead port 1/2 on $mux $procmux$1848.
+    dead port 1/2 on $mux $procmux$1851.
+    dead port 1/2 on $mux $procmux$1854.
+    dead port 1/2 on $mux $procmux$1857.
+    dead port 1/2 on $mux $procmux$1860.
+    dead port 1/2 on $mux $procmux$1863.
+    dead port 1/2 on $mux $procmux$1866.
+    dead port 1/2 on $mux $procmux$1869.
+    dead port 1/2 on $mux $procmux$1872.
+    dead port 1/2 on $mux $procmux$1875.
+    dead port 1/2 on $mux $procmux$1878.
+    dead port 1/2 on $mux $procmux$1881.
+    dead port 1/2 on $mux $procmux$1884.
+    dead port 1/2 on $mux $procmux$1887.
+    dead port 1/2 on $mux $procmux$1890.
+    dead port 1/2 on $mux $procmux$1893.
+    dead port 1/2 on $mux $procmux$1899.
+    dead port 1/2 on $mux $procmux$1902.
+    dead port 1/2 on $mux $procmux$1905.
+    dead port 1/2 on $mux $procmux$1908.
+    dead port 1/2 on $mux $procmux$1911.
+    dead port 1/2 on $mux $procmux$1914.
+    dead port 1/2 on $mux $procmux$1917.
+    dead port 1/2 on $mux $procmux$1920.
+    dead port 1/2 on $mux $procmux$1923.
+    dead port 1/2 on $mux $procmux$1926.
+    dead port 1/2 on $mux $procmux$1929.
+    dead port 1/2 on $mux $procmux$1932.
+    dead port 1/2 on $mux $procmux$1935.
+    dead port 1/2 on $mux $procmux$1938.
+    dead port 1/2 on $mux $procmux$1941.
+    dead port 1/2 on $mux $procmux$1944.
+    dead port 1/2 on $mux $procmux$1947.
+    dead port 1/2 on $mux $procmux$1950.
+    dead port 1/2 on $mux $procmux$1953.
+    dead port 1/2 on $mux $procmux$1956.
+    dead port 1/2 on $mux $procmux$1959.
+    dead port 1/2 on $mux $procmux$1962.
+    dead port 1/2 on $mux $procmux$1965.
+    dead port 1/2 on $mux $procmux$1968.
+    dead port 1/2 on $mux $procmux$1971.
+    dead port 1/2 on $mux $procmux$1974.
+    dead port 1/2 on $mux $procmux$1980.
+    dead port 1/2 on $mux $procmux$1983.
+    dead port 1/2 on $mux $procmux$1986.
+    dead port 1/2 on $mux $procmux$1989.
+    dead port 1/2 on $mux $procmux$1992.
+    dead port 1/2 on $mux $procmux$1995.
+    dead port 1/2 on $mux $procmux$1998.
+    dead port 1/2 on $mux $procmux$2001.
+    dead port 1/2 on $mux $procmux$2004.
+    dead port 1/2 on $mux $procmux$2007.
+    dead port 1/2 on $mux $procmux$2010.
+    dead port 1/2 on $mux $procmux$2013.
+    dead port 1/2 on $mux $procmux$2016.
+    dead port 1/2 on $mux $procmux$2019.
+    dead port 1/2 on $mux $procmux$2022.
+    dead port 1/2 on $mux $procmux$2025.
+    dead port 1/2 on $mux $procmux$2028.
+    dead port 1/2 on $mux $procmux$2031.
+    dead port 1/2 on $mux $procmux$2034.
+    dead port 1/2 on $mux $procmux$2037.
+    dead port 1/2 on $mux $procmux$2040.
+    dead port 1/2 on $mux $procmux$2043.
+    dead port 1/2 on $mux $procmux$2046.
+    dead port 1/2 on $mux $procmux$2049.
+    dead port 1/2 on $mux $procmux$2052.
+    dead port 1/2 on $mux $procmux$2058.
+    dead port 1/2 on $mux $procmux$2061.
+    dead port 1/2 on $mux $procmux$2064.
+    dead port 1/2 on $mux $procmux$2067.
+    dead port 1/2 on $mux $procmux$2070.
+    dead port 1/2 on $mux $procmux$2073.
+    dead port 1/2 on $mux $procmux$2076.
+    dead port 1/2 on $mux $procmux$2079.
+    dead port 1/2 on $mux $procmux$2082.
+    dead port 1/2 on $mux $procmux$2085.
+    dead port 1/2 on $mux $procmux$2088.
+    dead port 1/2 on $mux $procmux$2091.
+    dead port 1/2 on $mux $procmux$2094.
+    dead port 1/2 on $mux $procmux$2097.
+    dead port 1/2 on $mux $procmux$2100.
+    dead port 1/2 on $mux $procmux$2103.
+    dead port 1/2 on $mux $procmux$2106.
+    dead port 1/2 on $mux $procmux$2109.
+    dead port 1/2 on $mux $procmux$2112.
+    dead port 1/2 on $mux $procmux$2115.
+    dead port 1/2 on $mux $procmux$2118.
+    dead port 1/2 on $mux $procmux$2121.
+    dead port 1/2 on $mux $procmux$2124.
+    dead port 1/2 on $mux $procmux$2127.
+    dead port 1/2 on $mux $procmux$2133.
+    dead port 1/2 on $mux $procmux$2136.
+    dead port 1/2 on $mux $procmux$2139.
+    dead port 1/2 on $mux $procmux$2142.
+    dead port 1/2 on $mux $procmux$2145.
+    dead port 1/2 on $mux $procmux$2148.
+    dead port 1/2 on $mux $procmux$2151.
+    dead port 1/2 on $mux $procmux$2154.
+    dead port 1/2 on $mux $procmux$2157.
+    dead port 1/2 on $mux $procmux$2160.
+    dead port 1/2 on $mux $procmux$2163.
+    dead port 1/2 on $mux $procmux$2166.
+    dead port 1/2 on $mux $procmux$2169.
+    dead port 1/2 on $mux $procmux$2172.
+    dead port 1/2 on $mux $procmux$2175.
+    dead port 1/2 on $mux $procmux$2178.
+    dead port 1/2 on $mux $procmux$2181.
+    dead port 1/2 on $mux $procmux$2184.
+    dead port 1/2 on $mux $procmux$2187.
+    dead port 1/2 on $mux $procmux$2190.
+    dead port 1/2 on $mux $procmux$2193.
+    dead port 1/2 on $mux $procmux$2196.
+    dead port 1/2 on $mux $procmux$2199.
+    dead port 1/2 on $mux $procmux$2205.
+    dead port 1/2 on $mux $procmux$2208.
+    dead port 1/2 on $mux $procmux$2211.
+    dead port 1/2 on $mux $procmux$2214.
+    dead port 1/2 on $mux $procmux$2217.
+    dead port 1/2 on $mux $procmux$2220.
+    dead port 1/2 on $mux $procmux$2223.
+    dead port 1/2 on $mux $procmux$2226.
+    dead port 1/2 on $mux $procmux$2229.
+    dead port 1/2 on $mux $procmux$2232.
+    dead port 1/2 on $mux $procmux$2235.
+    dead port 1/2 on $mux $procmux$2238.
+    dead port 1/2 on $mux $procmux$2241.
+    dead port 1/2 on $mux $procmux$2244.
+    dead port 1/2 on $mux $procmux$2247.
+    dead port 1/2 on $mux $procmux$2250.
+    dead port 1/2 on $mux $procmux$2253.
+    dead port 1/2 on $mux $procmux$2256.
+    dead port 1/2 on $mux $procmux$2259.
+    dead port 1/2 on $mux $procmux$2262.
+    dead port 1/2 on $mux $procmux$2265.
+    dead port 1/2 on $mux $procmux$2268.
+    dead port 1/2 on $mux $procmux$2274.
+    dead port 1/2 on $mux $procmux$2277.
+    dead port 1/2 on $mux $procmux$2280.
+    dead port 1/2 on $mux $procmux$2283.
+    dead port 1/2 on $mux $procmux$2286.
+    dead port 1/2 on $mux $procmux$2289.
+    dead port 1/2 on $mux $procmux$2292.
+    dead port 1/2 on $mux $procmux$2295.
+    dead port 1/2 on $mux $procmux$2298.
+    dead port 1/2 on $mux $procmux$2301.
+    dead port 1/2 on $mux $procmux$2304.
+    dead port 1/2 on $mux $procmux$2307.
+    dead port 1/2 on $mux $procmux$2310.
+    dead port 1/2 on $mux $procmux$2313.
+    dead port 1/2 on $mux $procmux$2316.
+    dead port 1/2 on $mux $procmux$2319.
+    dead port 1/2 on $mux $procmux$2322.
+    dead port 1/2 on $mux $procmux$2325.
+    dead port 1/2 on $mux $procmux$2328.
+    dead port 1/2 on $mux $procmux$2331.
+    dead port 1/2 on $mux $procmux$2334.
+    dead port 1/2 on $mux $procmux$2340.
+    dead port 1/2 on $mux $procmux$2343.
+    dead port 1/2 on $mux $procmux$2346.
+    dead port 1/2 on $mux $procmux$2349.
+    dead port 1/2 on $mux $procmux$2352.
+    dead port 1/2 on $mux $procmux$2355.
+    dead port 1/2 on $mux $procmux$2358.
+    dead port 1/2 on $mux $procmux$2361.
+    dead port 1/2 on $mux $procmux$2364.
+    dead port 1/2 on $mux $procmux$2367.
+    dead port 1/2 on $mux $procmux$2370.
+    dead port 1/2 on $mux $procmux$2373.
+    dead port 1/2 on $mux $procmux$2376.
+    dead port 1/2 on $mux $procmux$2379.
+    dead port 1/2 on $mux $procmux$2382.
+    dead port 1/2 on $mux $procmux$2385.
+    dead port 1/2 on $mux $procmux$2388.
+    dead port 1/2 on $mux $procmux$2391.
+    dead port 1/2 on $mux $procmux$2394.
+    dead port 1/2 on $mux $procmux$2397.
+    dead port 1/2 on $mux $procmux$2403.
+    dead port 1/2 on $mux $procmux$2406.
+    dead port 1/2 on $mux $procmux$2409.
+    dead port 1/2 on $mux $procmux$2412.
+    dead port 1/2 on $mux $procmux$2415.
+    dead port 1/2 on $mux $procmux$2418.
+    dead port 1/2 on $mux $procmux$2421.
+    dead port 1/2 on $mux $procmux$2424.
+    dead port 1/2 on $mux $procmux$2427.
+    dead port 1/2 on $mux $procmux$2430.
+    dead port 1/2 on $mux $procmux$2433.
+    dead port 1/2 on $mux $procmux$2436.
+    dead port 1/2 on $mux $procmux$2439.
+    dead port 1/2 on $mux $procmux$2442.
+    dead port 1/2 on $mux $procmux$2445.
+    dead port 1/2 on $mux $procmux$2448.
+    dead port 1/2 on $mux $procmux$2451.
+    dead port 1/2 on $mux $procmux$2454.
+    dead port 1/2 on $mux $procmux$2457.
+    dead port 1/2 on $mux $procmux$2463.
+    dead port 1/2 on $mux $procmux$2466.
+    dead port 1/2 on $mux $procmux$2469.
+    dead port 1/2 on $mux $procmux$2472.
+    dead port 1/2 on $mux $procmux$2475.
+    dead port 1/2 on $mux $procmux$2478.
+    dead port 1/2 on $mux $procmux$2481.
+    dead port 1/2 on $mux $procmux$2484.
+    dead port 1/2 on $mux $procmux$2487.
+    dead port 1/2 on $mux $procmux$2490.
+    dead port 1/2 on $mux $procmux$2493.
+    dead port 1/2 on $mux $procmux$2496.
+    dead port 1/2 on $mux $procmux$2499.
+    dead port 1/2 on $mux $procmux$2502.
+    dead port 1/2 on $mux $procmux$2505.
+    dead port 1/2 on $mux $procmux$2508.
+    dead port 1/2 on $mux $procmux$2511.
+    dead port 1/2 on $mux $procmux$2514.
+    dead port 1/2 on $mux $procmux$2520.
+    dead port 1/2 on $mux $procmux$2523.
+    dead port 1/2 on $mux $procmux$2526.
+    dead port 1/2 on $mux $procmux$2529.
+    dead port 1/2 on $mux $procmux$2532.
+    dead port 1/2 on $mux $procmux$2535.
+    dead port 1/2 on $mux $procmux$2538.
+    dead port 1/2 on $mux $procmux$2541.
+    dead port 1/2 on $mux $procmux$2544.
+    dead port 1/2 on $mux $procmux$2547.
+    dead port 1/2 on $mux $procmux$2550.
+    dead port 1/2 on $mux $procmux$2553.
+    dead port 1/2 on $mux $procmux$2556.
+    dead port 1/2 on $mux $procmux$2559.
+    dead port 1/2 on $mux $procmux$2562.
+    dead port 1/2 on $mux $procmux$2565.
+    dead port 1/2 on $mux $procmux$2568.
+    dead port 1/2 on $mux $procmux$2574.
+    dead port 1/2 on $mux $procmux$2577.
+    dead port 1/2 on $mux $procmux$2580.
+    dead port 1/2 on $mux $procmux$2583.
+    dead port 1/2 on $mux $procmux$2586.
+    dead port 1/2 on $mux $procmux$2589.
+    dead port 1/2 on $mux $procmux$2592.
+    dead port 1/2 on $mux $procmux$2595.
+    dead port 1/2 on $mux $procmux$2598.
+    dead port 1/2 on $mux $procmux$2601.
+    dead port 1/2 on $mux $procmux$2604.
+    dead port 1/2 on $mux $procmux$2607.
+    dead port 1/2 on $mux $procmux$2610.
+    dead port 1/2 on $mux $procmux$2613.
+    dead port 1/2 on $mux $procmux$2616.
+    dead port 1/2 on $mux $procmux$2619.
+    dead port 1/2 on $mux $procmux$2625.
+    dead port 1/2 on $mux $procmux$2628.
+    dead port 1/2 on $mux $procmux$2631.
+    dead port 1/2 on $mux $procmux$2634.
+    dead port 1/2 on $mux $procmux$2637.
+    dead port 1/2 on $mux $procmux$2640.
+    dead port 1/2 on $mux $procmux$2643.
+    dead port 1/2 on $mux $procmux$2646.
+    dead port 1/2 on $mux $procmux$2649.
+    dead port 1/2 on $mux $procmux$2652.
+    dead port 1/2 on $mux $procmux$2655.
+    dead port 1/2 on $mux $procmux$2658.
+    dead port 1/2 on $mux $procmux$2661.
+    dead port 1/2 on $mux $procmux$2664.
+    dead port 1/2 on $mux $procmux$2667.
+    dead port 1/2 on $mux $procmux$2673.
+    dead port 1/2 on $mux $procmux$2676.
+    dead port 1/2 on $mux $procmux$2679.
+    dead port 1/2 on $mux $procmux$2682.
+    dead port 1/2 on $mux $procmux$2685.
+    dead port 1/2 on $mux $procmux$2688.
+    dead port 1/2 on $mux $procmux$2691.
+    dead port 1/2 on $mux $procmux$2694.
+    dead port 1/2 on $mux $procmux$2697.
+    dead port 1/2 on $mux $procmux$2700.
+    dead port 1/2 on $mux $procmux$2703.
+    dead port 1/2 on $mux $procmux$2706.
+    dead port 1/2 on $mux $procmux$2709.
+    dead port 1/2 on $mux $procmux$2712.
+    dead port 1/2 on $mux $procmux$2718.
+    dead port 1/2 on $mux $procmux$2721.
+    dead port 1/2 on $mux $procmux$2724.
+    dead port 1/2 on $mux $procmux$2727.
+    dead port 1/2 on $mux $procmux$2730.
+    dead port 1/2 on $mux $procmux$2733.
+    dead port 1/2 on $mux $procmux$2736.
+    dead port 1/2 on $mux $procmux$2739.
+    dead port 1/2 on $mux $procmux$2742.
+    dead port 1/2 on $mux $procmux$2745.
+    dead port 1/2 on $mux $procmux$2748.
+    dead port 1/2 on $mux $procmux$2751.
+    dead port 1/2 on $mux $procmux$2754.
+    dead port 1/2 on $mux $procmux$2760.
+    dead port 1/2 on $mux $procmux$2763.
+    dead port 1/2 on $mux $procmux$2766.
+    dead port 1/2 on $mux $procmux$2769.
+    dead port 1/2 on $mux $procmux$2772.
+    dead port 1/2 on $mux $procmux$2775.
+    dead port 1/2 on $mux $procmux$2778.
+    dead port 1/2 on $mux $procmux$2781.
+    dead port 1/2 on $mux $procmux$2784.
+    dead port 1/2 on $mux $procmux$2787.
+    dead port 1/2 on $mux $procmux$2790.
+    dead port 1/2 on $mux $procmux$2793.
+    dead port 1/2 on $mux $procmux$2799.
+    dead port 1/2 on $mux $procmux$2802.
+    dead port 1/2 on $mux $procmux$2805.
+    dead port 1/2 on $mux $procmux$2808.
+    dead port 1/2 on $mux $procmux$2811.
+    dead port 1/2 on $mux $procmux$2814.
+    dead port 1/2 on $mux $procmux$2817.
+    dead port 1/2 on $mux $procmux$2820.
+    dead port 1/2 on $mux $procmux$2823.
+    dead port 1/2 on $mux $procmux$2826.
+    dead port 1/2 on $mux $procmux$2829.
+    dead port 1/2 on $mux $procmux$2835.
+    dead port 1/2 on $mux $procmux$2838.
+    dead port 1/2 on $mux $procmux$2841.
+    dead port 1/2 on $mux $procmux$2844.
+    dead port 1/2 on $mux $procmux$2847.
+    dead port 1/2 on $mux $procmux$2850.
+    dead port 1/2 on $mux $procmux$2853.
+    dead port 1/2 on $mux $procmux$2856.
+    dead port 1/2 on $mux $procmux$2859.
+    dead port 1/2 on $mux $procmux$2862.
+    dead port 1/2 on $mux $procmux$2868.
+    dead port 1/2 on $mux $procmux$2871.
+    dead port 1/2 on $mux $procmux$2874.
+    dead port 1/2 on $mux $procmux$2877.
+    dead port 1/2 on $mux $procmux$2880.
+    dead port 1/2 on $mux $procmux$2883.
+    dead port 1/2 on $mux $procmux$2886.
+    dead port 1/2 on $mux $procmux$2889.
+    dead port 1/2 on $mux $procmux$2892.
+    dead port 1/2 on $mux $procmux$2898.
+    dead port 1/2 on $mux $procmux$2901.
+    dead port 1/2 on $mux $procmux$2904.
+    dead port 1/2 on $mux $procmux$2907.
+    dead port 1/2 on $mux $procmux$2910.
+    dead port 1/2 on $mux $procmux$2913.
+    dead port 1/2 on $mux $procmux$2916.
+    dead port 1/2 on $mux $procmux$2919.
+    dead port 1/2 on $mux $procmux$2925.
+    dead port 1/2 on $mux $procmux$2928.
+    dead port 1/2 on $mux $procmux$2931.
+    dead port 1/2 on $mux $procmux$2934.
+    dead port 1/2 on $mux $procmux$2937.
+    dead port 1/2 on $mux $procmux$2940.
+    dead port 1/2 on $mux $procmux$2943.
+    dead port 1/2 on $mux $procmux$2949.
+    dead port 1/2 on $mux $procmux$2952.
+    dead port 1/2 on $mux $procmux$2955.
+    dead port 1/2 on $mux $procmux$2958.
+    dead port 1/2 on $mux $procmux$2961.
+    dead port 1/2 on $mux $procmux$2964.
+    dead port 1/2 on $mux $procmux$2970.
+    dead port 1/2 on $mux $procmux$2973.
+    dead port 1/2 on $mux $procmux$2976.
+    dead port 1/2 on $mux $procmux$2979.
+    dead port 1/2 on $mux $procmux$2982.
+    dead port 1/2 on $mux $procmux$2988.
+    dead port 1/2 on $mux $procmux$2991.
+    dead port 1/2 on $mux $procmux$2994.
+    dead port 1/2 on $mux $procmux$2997.
+    dead port 1/2 on $mux $procmux$3003.
+    dead port 1/2 on $mux $procmux$3006.
+    dead port 1/2 on $mux $procmux$3009.
+    dead port 1/2 on $mux $procmux$3015.
+    dead port 1/2 on $mux $procmux$3018.
+    dead port 1/2 on $mux $procmux$3024.
+    dead port 1/2 on $mux $procmux$3033.
+    dead port 1/2 on $mux $procmux$3036.
+    dead port 1/2 on $mux $procmux$3039.
+    dead port 1/2 on $mux $procmux$3042.
+    dead port 1/2 on $mux $procmux$3045.
+    dead port 1/2 on $mux $procmux$3048.
+    dead port 1/2 on $mux $procmux$3051.
+    dead port 1/2 on $mux $procmux$3057.
+    dead port 1/2 on $mux $procmux$3060.
+    dead port 1/2 on $mux $procmux$3063.
+    dead port 1/2 on $mux $procmux$3066.
+    dead port 1/2 on $mux $procmux$3069.
+    dead port 1/2 on $mux $procmux$3072.
+    dead port 1/2 on $mux $procmux$3078.
+    dead port 1/2 on $mux $procmux$3081.
+    dead port 1/2 on $mux $procmux$3084.
+    dead port 1/2 on $mux $procmux$3087.
+    dead port 1/2 on $mux $procmux$3090.
+    dead port 1/2 on $mux $procmux$3096.
+    dead port 1/2 on $mux $procmux$3099.
+    dead port 1/2 on $mux $procmux$3102.
+    dead port 1/2 on $mux $procmux$3105.
+    dead port 1/2 on $mux $procmux$3111.
+    dead port 1/2 on $mux $procmux$3114.
+    dead port 1/2 on $mux $procmux$3117.
+    dead port 1/2 on $mux $procmux$3123.
+    dead port 1/2 on $mux $procmux$3126.
+    dead port 1/2 on $mux $procmux$3132.
+    dead port 1/2 on $mux $procmux$3141.
+    dead port 1/2 on $mux $procmux$3144.
+    dead port 1/2 on $mux $procmux$3147.
+    dead port 1/2 on $mux $procmux$3150.
+    dead port 1/2 on $mux $procmux$3153.
+    dead port 1/2 on $mux $procmux$3156.
+    dead port 1/2 on $mux $procmux$3159.
+    dead port 1/2 on $mux $procmux$3162.
+    dead port 1/2 on $mux $procmux$3195.
+    dead port 1/2 on $mux $procmux$3198.
+    dead port 1/2 on $mux $procmux$3201.
+    dead port 1/2 on $mux $procmux$3204.
+    dead port 1/2 on $mux $procmux$3207.
+    dead port 1/2 on $mux $procmux$3210.
+    dead port 1/2 on $mux $procmux$3213.
+    dead port 1/2 on $mux $procmux$3243.
+    dead port 1/2 on $mux $procmux$3246.
+    dead port 1/2 on $mux $procmux$3249.
+    dead port 1/2 on $mux $procmux$3252.
+    dead port 1/2 on $mux $procmux$3255.
+    dead port 1/2 on $mux $procmux$3258.
+    dead port 1/2 on $mux $procmux$3261.
+    dead port 1/2 on $mux $procmux$3267.
+    dead port 1/2 on $mux $procmux$3270.
+    dead port 1/2 on $mux $procmux$3273.
+    dead port 1/2 on $mux $procmux$3276.
+    dead port 1/2 on $mux $procmux$3279.
+    dead port 1/2 on $mux $procmux$3282.
+    dead port 1/2 on $mux $procmux$3309.
+    dead port 1/2 on $mux $procmux$3312.
+    dead port 1/2 on $mux $procmux$3315.
+    dead port 1/2 on $mux $procmux$3318.
+    dead port 1/2 on $mux $procmux$3321.
+    dead port 1/2 on $mux $procmux$3324.
+    dead port 1/2 on $mux $procmux$3330.
+    dead port 1/2 on $mux $procmux$3333.
+    dead port 1/2 on $mux $procmux$3336.
+    dead port 1/2 on $mux $procmux$3339.
+    dead port 1/2 on $mux $procmux$3342.
+    dead port 1/2 on $mux $procmux$3348.
+    dead port 1/2 on $mux $procmux$3351.
+    dead port 1/2 on $mux $procmux$3354.
+    dead port 1/2 on $mux $procmux$3357.
+    dead port 1/2 on $mux $procmux$3360.
+    dead port 1/2 on $mux $procmux$3366.
+    dead port 1/2 on $mux $procmux$3369.
+    dead port 1/2 on $mux $procmux$3372.
+    dead port 1/2 on $mux $procmux$3375.
+    dead port 1/2 on $mux $procmux$3378.
+    dead port 1/2 on $mux $procmux$3384.
+    dead port 1/2 on $mux $procmux$3387.
+    dead port 1/2 on $mux $procmux$3390.
+    dead port 1/2 on $mux $procmux$3393.
+    dead port 1/2 on $mux $procmux$3399.
+    dead port 1/2 on $mux $procmux$3402.
+    dead port 1/2 on $mux $procmux$3405.
+    dead port 1/2 on $mux $procmux$3408.
+    dead port 1/2 on $mux $procmux$3414.
+    dead port 1/2 on $mux $procmux$3417.
+    dead port 1/2 on $mux $procmux$3420.
+    dead port 1/2 on $mux $procmux$3423.
+    dead port 1/2 on $mux $procmux$3429.
+    dead port 1/2 on $mux $procmux$3432.
+    dead port 1/2 on $mux $procmux$3435.
+    dead port 1/2 on $mux $procmux$3441.
+    dead port 1/2 on $mux $procmux$3444.
+    dead port 1/2 on $mux $procmux$3447.
+    dead port 1/2 on $mux $procmux$3453.
+    dead port 1/2 on $mux $procmux$3456.
+    dead port 1/2 on $mux $procmux$3459.
+    dead port 1/2 on $mux $procmux$3465.
+    dead port 1/2 on $mux $procmux$3468.
+    dead port 1/2 on $mux $procmux$3474.
+    dead port 1/2 on $mux $procmux$3477.
+    dead port 1/2 on $mux $procmux$3483.
+    dead port 1/2 on $mux $procmux$3486.
+    dead port 1/2 on $mux $procmux$3492.
+    dead port 1/2 on $mux $procmux$3498.
+    dead port 1/2 on $mux $procmux$693.
+    dead port 1/2 on $mux $procmux$696.
+    dead port 1/2 on $mux $procmux$699.
+    dead port 1/2 on $mux $procmux$702.
+    dead port 1/2 on $mux $procmux$705.
+    dead port 1/2 on $mux $procmux$708.
+    dead port 1/2 on $mux $procmux$711.
+    dead port 1/2 on $mux $procmux$714.
+    dead port 1/2 on $mux $procmux$717.
+    dead port 1/2 on $mux $procmux$720.
+    dead port 1/2 on $mux $procmux$723.
+    dead port 1/2 on $mux $procmux$726.
+    dead port 1/2 on $mux $procmux$729.
+    dead port 1/2 on $mux $procmux$732.
+    dead port 1/2 on $mux $procmux$735.
+    dead port 1/2 on $mux $procmux$738.
+    dead port 1/2 on $mux $procmux$741.
+    dead port 1/2 on $mux $procmux$744.
+    dead port 1/2 on $mux $procmux$747.
+    dead port 1/2 on $mux $procmux$750.
+    dead port 1/2 on $mux $procmux$753.
+    dead port 1/2 on $mux $procmux$756.
+    dead port 1/2 on $mux $procmux$759.
+    dead port 1/2 on $mux $procmux$762.
+    dead port 1/2 on $mux $procmux$765.
+    dead port 1/2 on $mux $procmux$768.
+    dead port 1/2 on $mux $procmux$771.
+    dead port 1/2 on $mux $procmux$774.
+    dead port 1/2 on $mux $procmux$777.
+    dead port 1/2 on $mux $procmux$780.
+    dead port 1/2 on $mux $procmux$783.
+    dead port 1/2 on $mux $procmux$786.
+    dead port 1/2 on $mux $procmux$789.
+    dead port 1/2 on $mux $procmux$792.
+    dead port 1/2 on $mux $procmux$795.
+    dead port 1/2 on $mux $procmux$798.
+    dead port 1/2 on $mux $procmux$801.
+    dead port 1/2 on $mux $procmux$804.
+    dead port 1/2 on $mux $procmux$810.
+    dead port 1/2 on $mux $procmux$813.
+    dead port 1/2 on $mux $procmux$816.
+    dead port 1/2 on $mux $procmux$819.
+    dead port 1/2 on $mux $procmux$822.
+    dead port 1/2 on $mux $procmux$825.
+    dead port 1/2 on $mux $procmux$828.
+    dead port 1/2 on $mux $procmux$831.
+    dead port 1/2 on $mux $procmux$834.
+    dead port 1/2 on $mux $procmux$837.
+    dead port 1/2 on $mux $procmux$840.
+    dead port 1/2 on $mux $procmux$843.
+    dead port 1/2 on $mux $procmux$846.
+    dead port 1/2 on $mux $procmux$849.
+    dead port 1/2 on $mux $procmux$852.
+    dead port 1/2 on $mux $procmux$855.
+    dead port 1/2 on $mux $procmux$858.
+    dead port 1/2 on $mux $procmux$861.
+    dead port 1/2 on $mux $procmux$864.
+    dead port 1/2 on $mux $procmux$867.
+    dead port 1/2 on $mux $procmux$870.
+    dead port 1/2 on $mux $procmux$873.
+    dead port 1/2 on $mux $procmux$876.
+    dead port 1/2 on $mux $procmux$879.
+    dead port 1/2 on $mux $procmux$882.
+    dead port 1/2 on $mux $procmux$885.
+    dead port 1/2 on $mux $procmux$888.
+    dead port 1/2 on $mux $procmux$891.
+    dead port 1/2 on $mux $procmux$894.
+    dead port 1/2 on $mux $procmux$897.
+    dead port 1/2 on $mux $procmux$900.
+    dead port 1/2 on $mux $procmux$903.
+    dead port 1/2 on $mux $procmux$906.
+    dead port 1/2 on $mux $procmux$909.
+    dead port 1/2 on $mux $procmux$912.
+    dead port 1/2 on $mux $procmux$915.
+    dead port 1/2 on $mux $procmux$918.
+    dead port 1/2 on $mux $procmux$924.
+    dead port 1/2 on $mux $procmux$927.
+    dead port 1/2 on $mux $procmux$930.
+    dead port 1/2 on $mux $procmux$933.
+    dead port 1/2 on $mux $procmux$936.
+    dead port 1/2 on $mux $procmux$939.
+    dead port 1/2 on $mux $procmux$942.
+    dead port 1/2 on $mux $procmux$945.
+    dead port 1/2 on $mux $procmux$948.
+    dead port 1/2 on $mux $procmux$951.
+    dead port 1/2 on $mux $procmux$954.
+    dead port 1/2 on $mux $procmux$957.
+    dead port 1/2 on $mux $procmux$960.
+    dead port 1/2 on $mux $procmux$963.
+    dead port 1/2 on $mux $procmux$966.
+    dead port 1/2 on $mux $procmux$969.
+    dead port 1/2 on $mux $procmux$972.
+    dead port 1/2 on $mux $procmux$975.
+    dead port 1/2 on $mux $procmux$978.
+    dead port 1/2 on $mux $procmux$981.
+    dead port 1/2 on $mux $procmux$984.
+    dead port 1/2 on $mux $procmux$987.
+    dead port 1/2 on $mux $procmux$990.
+    dead port 1/2 on $mux $procmux$993.
+    dead port 1/2 on $mux $procmux$996.
+    dead port 1/2 on $mux $procmux$999.
+Removed 847 multiplexer ports.
+<suppressed ~23 debug messages>
+
+2.10.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \catboard.
+    New ctrl vector for $mux cell $procmux$807: { }
+  Optimizing cells in module \catboard.
+Performed a total of 1 changes.
+
+2.10.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\catboard'.
+Removed a total of 0 cells.
+
+2.10.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.10.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \catboard..
+Removed 3 unused cells and 851 unused wires.
+<suppressed ~4 debug messages>
+
+2.10.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module catboard.
+
+2.10.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+2.10.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \catboard..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~23 debug messages>
+
+2.10.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \catboard.
+Performed a total of 0 changes.
+
+2.10.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\catboard'.
+Removed a total of 0 cells.
+
+2.10.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.10.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \catboard..
+
+2.10.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module catboard.
+
+2.10.16. Finished OPT passes. (There is nothing left to do.)
+
+2.11. Executing FSM pass (extract and optimize FSM).
+
+2.11.1. Executing FSM_DETECT pass (finding FSMs in design).
+
+2.11.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+
+2.11.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+2.11.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \catboard..
+
+2.11.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+2.11.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+
+2.11.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+2.11.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+
+2.12. Executing OPT pass (performing simple optimizations).
+
+2.12.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module catboard.
+
+2.12.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\catboard'.
+Removed a total of 0 cells.
+
+2.12.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \catboard..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~23 debug messages>
+
+2.12.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \catboard.
+Performed a total of 0 changes.
+
+2.12.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\catboard'.
+Removed a total of 0 cells.
+
+2.12.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$3528 ($dff) from module catboard (D = $procmux$637_Y, Q = \disp_seg_timer).
+Adding SRST signal on $auto$opt_dff.cc:764:run$3530 ($dffe) from module catboard (D = $sub$leddigits.v:415$186_Y [9:0], Q = \disp_seg_timer, rval = 10'1001010100).
+Adding SRST signal on $procdff$3527 ($dff) from module catboard (D = { $procmux$643_Y $procmux$631_Y }, Q = \disp_seg_mask, rval = 7'0010101).
+Adding EN signal on $auto$opt_dff.cc:702:run$3532 ($sdff) from module catboard (D = { \disp_seg_mask [5:0] \disp_seg_mask [6] }, Q = \disp_seg_mask).
+Adding SRST signal on $procdff$3526 ($dff) from module catboard (D = { $procmux$616_Y $procmux$625_Y }, Q = \disp_digit_shf, rval = 8'00000001).
+Adding EN signal on $auto$opt_dff.cc:702:run$3534 ($sdff) from module catboard (D = { \disp_digit_shf [6:0] \disp_digit_shf [7] }, Q = \disp_digit_shf).
+Adding SRST signal on $procdff$3525 ($dff) from module catboard (D = $logic_not$leddigits.v:398$181_Y, Q = \disp_initialized, rval = 1'1).
+Adding EN signal on $procdff$3524 ($dff) from module catboard (D = $eq$leddigits.v:404$183_Y, Q = \disp_blank).
+Adding EN signal on $procdff$3523 ($dff) from module catboard (D = $procmux$659_Y, Q = \disp_seg_cntr).
+Adding SRST signal on $auto$opt_dff.cc:764:run$3544 ($dffe) from module catboard (D = $sub$leddigits.v:411$185_Y [2:0], Q = \disp_seg_cntr, rval = 3'110).
+
+2.12.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \catboard..
+Removed 18 unused cells and 16 unused wires.
+<suppressed ~19 debug messages>
+
+2.12.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module catboard.
+
+2.12.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+2.12.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \catboard..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~15 debug messages>
+
+2.12.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \catboard.
+Performed a total of 0 changes.
+
+2.12.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\catboard'.
+<suppressed ~3 debug messages>
+Removed a total of 1 cells.
+
+2.12.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.12.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \catboard..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+2.12.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module catboard.
+
+2.12.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+2.12.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \catboard..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~15 debug messages>
+
+2.12.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \catboard.
+Performed a total of 0 changes.
+
+2.12.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\catboard'.
+Removed a total of 0 cells.
+
+2.12.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.12.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \catboard..
+
+2.12.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module catboard.
+
+2.12.23. Finished OPT passes. (There is nothing left to do.)
+
+2.13. Executing WREDUCE pass (reducing word size of cells).
+Removed top 31 bits (of 32) from port B of cell catboard.$add$leddigits.v:71$2 ($add).
+Removed top 1 bits (of 7) from port B of cell catboard.$eq$leddigits.v:159$32 ($eq).
+Removed top 1 bits (of 7) from port B of cell catboard.$eq$leddigits.v:162$33 ($eq).
+Removed top 1 bits (of 7) from port B of cell catboard.$eq$leddigits.v:165$35 ($eq).
+Removed top 6 bits (of 7) from port B of cell catboard.$eq$leddigits.v:168$37 ($eq).
+Removed top 1 bits (of 7) from port B of cell catboard.$eq$leddigits.v:168$38 ($eq).
+Removed top 5 bits (of 7) from port B of cell catboard.$eq$leddigits.v:171$40 ($eq).
+Removed top 1 bits (of 7) from port B of cell catboard.$eq$leddigits.v:171$41 ($eq).
+Removed top 5 bits (of 7) from port B of cell catboard.$eq$leddigits.v:174$43 ($eq).
+Removed top 1 bits (of 7) from port B of cell catboard.$eq$leddigits.v:174$44 ($eq).
+Removed top 4 bits (of 7) from port B of cell catboard.$eq$leddigits.v:177$46 ($eq).
+Removed top 1 bits (of 7) from port B of cell catboard.$eq$leddigits.v:177$47 ($eq).
+Removed top 4 bits (of 7) from port B of cell catboard.$eq$leddigits.v:180$49 ($eq).
+Removed top 1 bits (of 7) from port B of cell catboard.$eq$leddigits.v:180$50 ($eq).
+Removed top 4 bits (of 7) from port B of cell catboard.$eq$leddigits.v:183$52 ($eq).
+Removed top 1 bits (of 7) from port B of cell catboard.$eq$leddigits.v:183$53 ($eq).
+Removed top 4 bits (of 7) from port B of cell catboard.$eq$leddigits.v:186$55 ($eq).
+Removed top 1 bits (of 7) from port B of cell catboard.$eq$leddigits.v:186$56 ($eq).
+Removed top 3 bits (of 7) from port B of cell catboard.$eq$leddigits.v:189$58 ($eq).
+Removed top 1 bits (of 7) from port B of cell catboard.$eq$leddigits.v:189$59 ($eq).
+Removed top 3 bits (of 7) from port B of cell catboard.$eq$leddigits.v:192$61 ($eq).
+Removed top 1 bits (of 7) from port B of cell catboard.$eq$leddigits.v:192$62 ($eq).
+Removed top 3 bits (of 7) from port B of cell catboard.$eq$leddigits.v:195$64 ($eq).
+Removed top 3 bits (of 7) from port B of cell catboard.$eq$leddigits.v:198$69 ($eq).
+Removed top 3 bits (of 7) from port B of cell catboard.$eq$leddigits.v:201$74 ($eq).
+Removed top 3 bits (of 7) from port B of cell catboard.$eq$leddigits.v:204$79 ($eq).
+Removed top 3 bits (of 7) from port B of cell catboard.$eq$leddigits.v:207$84 ($eq).
+Removed top 3 bits (of 7) from port B of cell catboard.$eq$leddigits.v:210$89 ($eq).
+Removed top 2 bits (of 3) from port B of cell catboard.$eq$leddigits.v:404$183 ($eq).
+Removed top 31 bits (of 32) from port B of cell catboard.$sub$leddigits.v:411$185 ($sub).
+Removed top 29 bits (of 32) from port Y of cell catboard.$sub$leddigits.v:411$185 ($sub).
+Removed top 31 bits (of 32) from port B of cell catboard.$sub$leddigits.v:415$186 ($sub).
+Removed top 22 bits (of 32) from port Y of cell catboard.$sub$leddigits.v:415$186 ($sub).
+Removed top 3 bits (of 7) from mux cell catboard.$procmux$3030 ($mux).
+Removed top 3 bits (of 7) from mux cell catboard.$procmux$3054 ($mux).
+Removed top 3 bits (of 7) from mux cell catboard.$procmux$3075 ($mux).
+Removed top 3 bits (of 7) from mux cell catboard.$procmux$3093 ($mux).
+Removed top 3 bits (of 7) from mux cell catboard.$procmux$3108 ($mux).
+Removed top 3 bits (of 7) from mux cell catboard.$procmux$3120 ($mux).
+Removed top 3 bits (of 7) from mux cell catboard.$procmux$3129 ($mux).
+Removed top 3 bits (of 7) from mux cell catboard.$procmux$3135 ($mux).
+Removed cell catboard.$procmux$3168 ($mux).
+Removed cell catboard.$procmux$3171 ($mux).
+Removed cell catboard.$procmux$3174 ($mux).
+Removed cell catboard.$procmux$3177 ($mux).
+Removed cell catboard.$procmux$3180 ($mux).
+Removed cell catboard.$procmux$3183 ($mux).
+Removed cell catboard.$procmux$3186 ($mux).
+Removed cell catboard.$procmux$3189 ($mux).
+Removed cell catboard.$procmux$3219 ($mux).
+Removed cell catboard.$procmux$3222 ($mux).
+Removed cell catboard.$procmux$3225 ($mux).
+Removed cell catboard.$procmux$3228 ($mux).
+Removed cell catboard.$procmux$3231 ($mux).
+Removed cell catboard.$procmux$3234 ($mux).
+Removed cell catboard.$procmux$3237 ($mux).
+Removed cell catboard.$procmux$3288 ($mux).
+Removed cell catboard.$procmux$3291 ($mux).
+Removed cell catboard.$procmux$3294 ($mux).
+Removed cell catboard.$procmux$3297 ($mux).
+Removed cell catboard.$procmux$3300 ($mux).
+Removed cell catboard.$procmux$3303 ($mux).
+Removed top 3 bits (of 7) from wire catboard.$2\disp_active_digit[6:0].
+Removed top 3 bits (of 7) from wire catboard.$3\disp_active_digit[6:0].
+Removed top 3 bits (of 7) from wire catboard.$5\disp_active_digit[6:0].
+Removed top 29 bits (of 32) from wire catboard.$sub$leddigits.v:411$185_Y.
+Removed top 22 bits (of 32) from wire catboard.$sub$leddigits.v:415$186_Y.
+Removed top 3 bits (of 7) from wire catboard.disp_active_digit.
+
+2.14. Executing PEEPOPT pass (run peephole optimizers).
+
+2.15. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \catboard..
+Removed 0 unused cells and 27 unused wires.
+<suppressed ~1 debug messages>
+
+2.16. Executing SHARE pass (SAT-based resource sharing).
+
+2.17. Executing TECHMAP pass (map to technology primitives).
+
+2.17.1. Executing Verilog-2005 frontend: /usr/local/bin/../share/yosys/cmp2lut.v
+Parsing Verilog input from `/usr/local/bin/../share/yosys/cmp2lut.v' to AST representation.
+Generating RTLIL representation for module `\_90_lut_cmp_'.
+Successfully finished Verilog frontend.
+
+2.17.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~6 debug messages>
+
+2.18. Executing OPT_EXPR pass (perform const folding).
+Optimizing module catboard.
+<suppressed ~124 debug messages>
+
+2.19. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \catboard..
+Removed 0 unused cells and 124 unused wires.
+<suppressed ~1 debug messages>
+
+2.20. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module catboard:
+  creating $macc model for $add$leddigits.v:71$2 ($add).
+  creating $macc model for $sub$leddigits.v:411$185 ($sub).
+  creating $macc model for $sub$leddigits.v:415$186 ($sub).
+  creating $alu model for $macc $sub$leddigits.v:415$186.
+  creating $alu model for $macc $sub$leddigits.v:411$185.
+  creating $alu model for $macc $add$leddigits.v:71$2.
+  creating $alu cell for $add$leddigits.v:71$2: $auto$alumacc.cc:485:replace_alu$3553
+  creating $alu cell for $sub$leddigits.v:411$185: $auto$alumacc.cc:485:replace_alu$3556
+  creating $alu cell for $sub$leddigits.v:415$186: $auto$alumacc.cc:485:replace_alu$3559
+  created 3 $alu and 0 $macc cells.
+
+2.21. Executing OPT pass (performing simple optimizations).
+
+2.21.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module catboard.
+
+2.21.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\catboard'.
+Removed a total of 0 cells.
+
+2.21.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \catboard..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~15 debug messages>
+
+2.21.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \catboard.
+Performed a total of 0 changes.
+
+2.21.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\catboard'.
+Removed a total of 0 cells.
+
+2.21.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.21.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \catboard..
+
+2.21.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module catboard.
+
+2.21.9. Finished OPT passes. (There is nothing left to do.)
+
+2.22. Executing MEMORY pass.
+
+2.22.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+2.22.2. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+
+2.22.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \catboard..
+
+2.22.4. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+2.22.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \catboard..
+
+2.22.6. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+2.23. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \catboard..
+
+2.24. Executing MEMORY_BRAM pass (mapping $mem cells to block memories).
+
+2.25. Executing TECHMAP pass (map to technology primitives).
+
+2.25.1. Executing Verilog-2005 frontend: /usr/local/bin/../share/yosys/ice40/brams_map.v
+Parsing Verilog input from `/usr/local/bin/../share/yosys/ice40/brams_map.v' to AST representation.
+Generating RTLIL representation for module `\$__ICE40_RAM4K'.
+Generating RTLIL representation for module `\$__ICE40_RAM4K_M0'.
+Generating RTLIL representation for module `\$__ICE40_RAM4K_M123'.
+Successfully finished Verilog frontend.
+
+2.25.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~5 debug messages>
+
+2.26. Executing ICE40_BRAMINIT pass.
+
+2.27. Executing OPT pass (performing simple optimizations).
+
+2.27.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module catboard.
+<suppressed ~2 debug messages>
+
+2.27.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\catboard'.
+Removed a total of 0 cells.
+
+2.27.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.27.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \catboard..
+
+2.27.5. Finished fast OPT passes.
+
+2.28. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+2.29. Executing OPT pass (performing simple optimizations).
+
+2.29.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module catboard.
+
+2.29.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\catboard'.
+Removed a total of 0 cells.
+
+2.29.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \catboard..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~15 debug messages>
+
+2.29.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \catboard.
+    Consolidated identical input bits for $mux cell $procmux$2517:
+      Old ports: A=7'0001000, B=7'1110001, Y=$18\disp_segments[6:0]
+      New ports: A=2'10, B=2'01, Y={ $18\disp_segments[6:0] [3] $18\disp_segments[6:0] [0] }
+      New connections: { $18\disp_segments[6:0] [6:4] $18\disp_segments[6:0] [2:1] } = { $18\disp_segments[6:0] [0] $18\disp_segments[6:0] [0] $18\disp_segments[6:0] [0] 2'00 }
+  Optimizing cells in module \catboard.
+    Consolidated identical input bits for $mux cell $procmux$2571:
+      Old ports: A=$18\disp_segments[6:0], B=7'1111001, Y=$17\disp_segments[6:0]
+      New ports: A={ $18\disp_segments[6:0] [3] $18\disp_segments[6:0] [0] }, B=2'11, Y={ $17\disp_segments[6:0] [3] $17\disp_segments[6:0] [0] }
+      New connections: { $17\disp_segments[6:0] [6:4] $17\disp_segments[6:0] [2:1] } = { $17\disp_segments[6:0] [0] $17\disp_segments[6:0] [0] $17\disp_segments[6:0] [0] 2'00 }
+  Optimizing cells in module \catboard.
+    Consolidated identical input bits for $mux cell $procmux$2622:
+      Old ports: A=$17\disp_segments[6:0], B=7'1011110, Y=$16\disp_segments[6:0]
+      New ports: A={ $17\disp_segments[6:0] [0] $17\disp_segments[6:0] [3] 1'0 $17\disp_segments[6:0] [0] }, B=4'1110, Y={ $16\disp_segments[6:0] [4:3] $16\disp_segments[6:0] [1:0] }
+      New connections: { $16\disp_segments[6:0] [6:5] $16\disp_segments[6:0] [2] } = { $16\disp_segments[6:0] [4] $16\disp_segments[6:0] [0] $16\disp_segments[6:0] [1] }
+  Optimizing cells in module \catboard.
+    Consolidated identical input bits for $mux cell $procmux$2670:
+      Old ports: A=$16\disp_segments[6:0], B=7'0111001, Y=$15\disp_segments[6:0]
+      New ports: A={ $16\disp_segments[6:0] [4] $16\disp_segments[6:0] [4:3] $16\disp_segments[6:0] [1:0] }, B=5'01101, Y={ $15\disp_segments[6:0] [6] $15\disp_segments[6:0] [4:3] $15\disp_segments[6:0] [1:0] }
+      New connections: { $15\disp_segments[6:0] [5] $15\disp_segments[6:0] [2] } = { $15\disp_segments[6:0] [0] $15\disp_segments[6:0] [1] }
+  Optimizing cells in module \catboard.
+Performed a total of 4 changes.
+
+2.29.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\catboard'.
+Removed a total of 0 cells.
+
+2.29.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.29.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \catboard..
+
+2.29.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module catboard.
+
+2.29.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+2.29.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \catboard..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~15 debug messages>
+
+2.29.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \catboard.
+Performed a total of 0 changes.
+
+2.29.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\catboard'.
+Removed a total of 0 cells.
+
+2.29.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.29.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \catboard..
+
+2.29.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module catboard.
+
+2.29.16. Finished OPT passes. (There is nothing left to do.)
+
+2.30. Executing ICE40_WRAPCARRY pass (wrap carries).
+
+2.31. Executing TECHMAP pass (map to technology primitives).
+
+2.31.1. Executing Verilog-2005 frontend: /usr/local/bin/../share/yosys/techmap.v
+Parsing Verilog input from `/usr/local/bin/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `\$__div_mod_u'.
+Generating RTLIL representation for module `\$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `\$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_pmux'.
+Generating RTLIL representation for module `\_90_lut'.
+Successfully finished Verilog frontend.
+
+2.31.2. Executing Verilog-2005 frontend: /usr/local/bin/../share/yosys/ice40/arith_map.v
+Parsing Verilog input from `/usr/local/bin/../share/yosys/ice40/arith_map.v' to AST representation.
+Generating RTLIL representation for module `\_80_ice40_alu'.
+Successfully finished Verilog frontend.
+
+2.31.3. Continuing TECHMAP pass.
+Using template $paramod$b8c0a997bce700f23568a5ada79cc6781d1f5ca0\_80_ice40_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $and.
+Using extmapper simplemap for cells of type $logic_not.
+Using extmapper simplemap for cells of type $eq.
+Using template $paramod$5619a81fdc4e80ef356d8a234d33ad615dc3d62f\_80_ice40_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $sdffe.
+Using extmapper simplemap for cells of type $reduce_and.
+Using extmapper simplemap for cells of type $dffe.
+Using extmapper simplemap for cells of type $sdff.
+Using template $paramod$1eb759649286d7485bd82f4dfc30385bade4b4b3\_80_ice40_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $tribuf.
+Using extmapper simplemap for cells of type $mux.
+Using extmapper simplemap for cells of type $sdffce.
+Using extmapper simplemap for cells of type $dff.
+Using extmapper simplemap for cells of type $xor.
+Using extmapper simplemap for cells of type $not.
+Using extmapper simplemap for cells of type $pos.
+No more expansions possible.
+<suppressed ~226 debug messages>
+
+2.32. Executing OPT pass (performing simple optimizations).
+
+2.32.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module catboard.
+<suppressed ~332 debug messages>
+
+2.32.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\catboard'.
+<suppressed ~165 debug messages>
+Removed a total of 55 cells.
+
+2.32.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.32.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \catboard..
+Removed 81 unused cells and 149 unused wires.
+<suppressed ~82 debug messages>
+
+2.32.5. Finished fast OPT passes.
+
+2.33. Executing ICE40_OPT pass (performing simple optimizations).
+
+2.33.1. Running ICE40 specific optimizations.
+Optimized $__ICE40_CARRY_WRAPPER cell back to logic (without SB_CARRY) catboard.$auto$alumacc.cc:485:replace_alu$3553.slice[0].carry: CO=\cntr [0]
+Optimized $__ICE40_CARRY_WRAPPER cell back to logic (without SB_CARRY) catboard.$auto$alumacc.cc:485:replace_alu$3556.slice[0].carry: CO=\disp_seg_cntr [0]
+Optimized $__ICE40_CARRY_WRAPPER cell back to logic (without SB_CARRY) catboard.$auto$alumacc.cc:485:replace_alu$3559.slice[0].carry: CO=\disp_seg_timer [0]
+
+2.33.2. Executing OPT_EXPR pass (perform const folding).
+Optimizing module catboard.
+
+2.33.3. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\catboard'.
+Removed a total of 0 cells.
+
+2.33.4. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.33.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \catboard..
+
+2.33.6. Rerunning OPT passes. (Removed registers in this run.)
+
+2.33.7. Running ICE40 specific optimizations.
+
+2.33.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module catboard.
+
+2.33.9. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\catboard'.
+Removed a total of 0 cells.
+
+2.33.10. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.33.11. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \catboard..
+
+2.33.12. Finished OPT passes. (There is nothing left to do.)
+
+2.34. Executing DFFLEGALIZE pass (convert FFs to types supported by the target).
+
+2.35. Executing TECHMAP pass (map to technology primitives).
+
+2.35.1. Executing Verilog-2005 frontend: /usr/local/bin/../share/yosys/ice40/ff_map.v
+Parsing Verilog input from `/usr/local/bin/../share/yosys/ice40/ff_map.v' to AST representation.
+Generating RTLIL representation for module `\$_DFF_N_'.
+Generating RTLIL representation for module `\$_DFF_P_'.
+Generating RTLIL representation for module `\$_DFFE_NP_'.
+Generating RTLIL representation for module `\$_DFFE_PP_'.
+Generating RTLIL representation for module `\$_DFF_NP0_'.
+Generating RTLIL representation for module `\$_DFF_NP1_'.
+Generating RTLIL representation for module `\$_DFF_PP0_'.
+Generating RTLIL representation for module `\$_DFF_PP1_'.
+Generating RTLIL representation for module `\$_DFFE_NP0P_'.
+Generating RTLIL representation for module `\$_DFFE_NP1P_'.
+Generating RTLIL representation for module `\$_DFFE_PP0P_'.
+Generating RTLIL representation for module `\$_DFFE_PP1P_'.
+Generating RTLIL representation for module `\$_SDFF_NP0_'.
+Generating RTLIL representation for module `\$_SDFF_NP1_'.
+Generating RTLIL representation for module `\$_SDFF_PP0_'.
+Generating RTLIL representation for module `\$_SDFF_PP1_'.
+Generating RTLIL representation for module `\$_SDFFCE_NP0P_'.
+Generating RTLIL representation for module `\$_SDFFCE_NP1P_'.
+Generating RTLIL representation for module `\$_SDFFCE_PP0P_'.
+Generating RTLIL representation for module `\$_SDFFCE_PP1P_'.
+Successfully finished Verilog frontend.
+
+2.35.2. Continuing TECHMAP pass.
+Using template \$_SDFFCE_PP1P_ for cells of type $_SDFFCE_PP1P_.
+Using template \$_SDFFCE_PP0P_ for cells of type $_SDFFCE_PP0P_.
+Using template \$_DFFE_PP_ for cells of type $_DFFE_PP_.
+Using template \$_SDFF_PP1_ for cells of type $_SDFF_PP1_.
+Using template \$_DFF_P_ for cells of type $_DFF_P_.
+No more expansions possible.
+<suppressed ~108 debug messages>
+
+2.36. Executing OPT_EXPR pass (perform const folding).
+Optimizing module catboard.
+
+2.37. Executing SIMPLEMAP pass (map simple cells to gate primitives).
+Mapping catboard.$auto$alumacc.cc:485:replace_alu$3553.slice[0].carry ($lut).
+Mapping catboard.$auto$alumacc.cc:485:replace_alu$3556.slice[0].carry ($lut).
+Mapping catboard.$auto$alumacc.cc:485:replace_alu$3559.slice[0].carry ($lut).
+
+2.38. Executing ICE40_OPT pass (performing simple optimizations).
+
+2.38.1. Running ICE40 specific optimizations.
+
+2.38.2. Executing OPT_EXPR pass (perform const folding).
+Optimizing module catboard.
+<suppressed ~85 debug messages>
+
+2.38.3. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\catboard'.
+<suppressed ~150 debug messages>
+Removed a total of 50 cells.
+
+2.38.4. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.38.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \catboard..
+Removed 0 unused cells and 462 unused wires.
+<suppressed ~1 debug messages>
+
+2.38.6. Rerunning OPT passes. (Removed registers in this run.)
+
+2.38.7. Running ICE40 specific optimizations.
+
+2.38.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module catboard.
+
+2.38.9. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\catboard'.
+Removed a total of 0 cells.
+
+2.38.10. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.38.11. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \catboard..
+
+2.38.12. Finished OPT passes. (There is nothing left to do.)
+
+2.39. Executing TECHMAP pass (map to technology primitives).
+
+2.39.1. Executing Verilog-2005 frontend: /usr/local/bin/../share/yosys/ice40/latches_map.v
+Parsing Verilog input from `/usr/local/bin/../share/yosys/ice40/latches_map.v' to AST representation.
+Generating RTLIL representation for module `\$_DLATCH_N_'.
+Generating RTLIL representation for module `\$_DLATCH_P_'.
+Successfully finished Verilog frontend.
+
+2.39.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~4 debug messages>
+
+2.40. Executing ABC pass (technology mapping using ABC).
+
+2.40.1. Extracting gate netlist of module `\catboard' to `<abc-temp-dir>/input.blif'..
+Extracted 259 gates and 324 wires to a netlist network with 63 inputs and 18 outputs.
+
+2.40.1.1. Executing ABC.
+Running ABC command: <yosys-exe-dir>/yosys-abc -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_lut <abc-temp-dir>/lutdefs.txt 
+ABC: + strash 
+ABC: + ifraig 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + dc2 
+ABC: + dretime 
+ABC: + strash 
+ABC: + dch -f 
+ABC: + if 
+ABC: + mfs2 
+ABC: + lutpack -S 1 
+ABC: + dress 
+ABC: Total number of equiv classes                =      39.
+ABC: Participating nodes from both networks       =      88.
+ABC: Participating nodes from the first network   =      38. (  49.35 % of nodes)
+ABC: Participating nodes from the second network  =      50. (  64.94 % of nodes)
+ABC: Node pairs (any polarity)                    =      38. (  49.35 % of names can be moved)
+ABC: Node pairs (same polarity)                   =      25. (  32.47 % of names can be moved)
+ABC: Total runtime =     0.01 sec
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+2.40.1.2. Re-integrating ABC results.
+ABC RESULTS:              $lut cells:       76
+ABC RESULTS:        internal signals:      243
+ABC RESULTS:           input signals:       63
+ABC RESULTS:          output signals:       18
+Removing temp directory.
+
+2.41. Executing ICE40_WRAPCARRY pass (wrap carries).
+
+2.42. Executing TECHMAP pass (map to technology primitives).
+
+2.42.1. Executing Verilog-2005 frontend: /usr/local/bin/../share/yosys/ice40/ff_map.v
+Parsing Verilog input from `/usr/local/bin/../share/yosys/ice40/ff_map.v' to AST representation.
+Generating RTLIL representation for module `\$_DFF_N_'.
+Generating RTLIL representation for module `\$_DFF_P_'.
+Generating RTLIL representation for module `\$_DFFE_NP_'.
+Generating RTLIL representation for module `\$_DFFE_PP_'.
+Generating RTLIL representation for module `\$_DFF_NP0_'.
+Generating RTLIL representation for module `\$_DFF_NP1_'.
+Generating RTLIL representation for module `\$_DFF_PP0_'.
+Generating RTLIL representation for module `\$_DFF_PP1_'.
+Generating RTLIL representation for module `\$_DFFE_NP0P_'.
+Generating RTLIL representation for module `\$_DFFE_NP1P_'.
+Generating RTLIL representation for module `\$_DFFE_PP0P_'.
+Generating RTLIL representation for module `\$_DFFE_PP1P_'.
+Generating RTLIL representation for module `\$_SDFF_NP0_'.
+Generating RTLIL representation for module `\$_SDFF_NP1_'.
+Generating RTLIL representation for module `\$_SDFF_PP0_'.
+Generating RTLIL representation for module `\$_SDFF_PP1_'.
+Generating RTLIL representation for module `\$_SDFFCE_NP0P_'.
+Generating RTLIL representation for module `\$_SDFFCE_NP1P_'.
+Generating RTLIL representation for module `\$_SDFFCE_PP0P_'.
+Generating RTLIL representation for module `\$_SDFFCE_PP1P_'.
+Successfully finished Verilog frontend.
+
+2.42.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~22 debug messages>
+Removed 3 unused cells and 152 unused wires.
+
+2.43. Executing OPT_LUT pass (optimize LUTs).
+Discovering LUTs.
+Number of LUTs:      142
+  1-LUT                4
+  2-LUT               77
+  3-LUT               14
+  4-LUT               47
+
+Eliminating LUTs.
+Number of LUTs:      142
+  1-LUT                4
+  2-LUT               77
+  3-LUT               14
+  4-LUT               47
+
+Combining LUTs.
+Number of LUTs:      142
+  1-LUT                4
+  2-LUT               77
+  3-LUT               14
+  4-LUT               47
+
+Eliminated 0 LUTs.
+Combined 0 LUTs.
+<suppressed ~561 debug messages>
+
+2.44. Executing TECHMAP pass (map to technology primitives).
+
+2.44.1. Executing Verilog-2005 frontend: /usr/local/bin/../share/yosys/ice40/cells_map.v
+Parsing Verilog input from `/usr/local/bin/../share/yosys/ice40/cells_map.v' to AST representation.
+Generating RTLIL representation for module `\$lut'.
+Successfully finished Verilog frontend.
+
+2.44.2. Continuing TECHMAP pass.
+Using template $paramod$6d23198eb2b8f79a41c7626605a61009695893b1\$lut for cells of type $lut.
+Using template $paramod$baa939b0bd5b3e0c8760492528669bd58f640542\$lut for cells of type $lut.
+Using template $paramod$e5759512db67494ff77fbdfc66dff4006376568f\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'0001 for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'01111100 for cells of type $lut.
+Using template $paramod$bb07aa4c6c95211b927837b9073769ffabb3aaa5\$lut for cells of type $lut.
+Using template $paramod$fd904e9e35cfd343a9df248824bd3f1408724879\$lut for cells of type $lut.
+Using template $paramod$965f8f2fa1a796a6c51222eabb50fbd26e97d98b\$lut for cells of type $lut.
+Using template $paramod$b4d0f4738a5ce50c7f36c2aa2ecc09cfb874f2b6\$lut for cells of type $lut.
+Using template $paramod$90211918a84e1cef3407e0f8e61fa8260d248e82\$lut for cells of type $lut.
+Using template $paramod$658b9ed803f0d3d335616d3858b53e0a2522f1e8\$lut for cells of type $lut.
+Using template $paramod$272652f6c6fbe9a75eff76e45cc7e2788835518b\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'1011 for cells of type $lut.
+Using template $paramod$ad823946862e656cf7f96d606b18b8f972dc6d6c\$lut for cells of type $lut.
+Using template $paramod$068476c0c710ac8dbe39ffa3fa53ad378a613e11\$lut for cells of type $lut.
+Using template $paramod$179512a187da069f3b79ef6612a41e494e7d54b6\$lut for cells of type $lut.
+Using template $paramod$f740ebdda65cd0b8323d705f16d6dbb0d2771805\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'00010000 for cells of type $lut.
+Using template $paramod$a50be0e6fa3a01511bb234559cb74fb8bd3e2061\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'0100 for cells of type $lut.
+Using template $paramod$82b4a585d1edcb5c6e755dc9bd3392228a1c1304\$lut for cells of type $lut.
+Using template $paramod$7c83cdd3fab11059b2f4d686e682542bd63a212c\$lut for cells of type $lut.
+Using template $paramod$b93d1ea7a612a32c185108f67a153d44ffb9aac2\$lut for cells of type $lut.
+Using template $paramod$1661fd1d8cfb54ddeba09cd7df814e0fd3aae40f\$lut for cells of type $lut.
+Using template $paramod$bba54c1ef87367812b4c15f4aed5ac70773df775\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'00001101 for cells of type $lut.
+Using template $paramod$c1199f8981eafbdb249b1b209ba0903e3842f9dd\$lut for cells of type $lut.
+Using template $paramod$d53578aacfd93124244778d88be0e90eb09c1b1b\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'1000 for cells of type $lut.
+Using template $paramod$3f6b582516596b8d724aacd3bc2fee7037ba44df\$lut for cells of type $lut.
+Using template $paramod$e9c77024ca501b890c641f9c0b10e27242db8730\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'00000001 for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000001\LUT=2'01 for cells of type $lut.
+Using template $paramod$ad498e625474ac4669814135092d9e5967a65c4b\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'10110000 for cells of type $lut.
+Using template $paramod$b4f85a6321a00b090afc4e21d68e7b99eb94d149\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'11010000 for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'10001111 for cells of type $lut.
+Using template $paramod$c5b694ec89d7629b942ccf6a9be1d39e24f8edec\$lut for cells of type $lut.
+No more expansions possible.
+<suppressed ~652 debug messages>
+Removed 0 unused cells and 317 unused wires.
+
+2.45. Executing AUTONAME pass.
+Renamed 3306 objects in module catboard (21 iterations).
+<suppressed ~337 debug messages>
+
+2.46. Executing HIERARCHY pass (managing design hierarchy).
+
+2.46.1. Analyzing design hierarchy..
+Top module:  \catboard
+
+2.46.2. Analyzing design hierarchy..
+Top module:  \catboard
+Removed 0 unused modules.
+
+2.47. Printing statistics.
+
+=== catboard ===
+
+   Number of wires:                 80
+   Number of wire bits:            423
+   Number of public wires:          80
+   Number of public wire bits:     423
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                299
+     $_TBUF_                         8
+     SB_CARRY                       63
+     SB_DFF                         56
+     SB_DFFE                         1
+     SB_DFFESR                      18
+     SB_DFFESS                      10
+     SB_DFFSS                        1
+     SB_LUT4                       142
+
+2.48. Executing CHECK pass (checking for obvious problems).
+Checking module catboard...
+Found and reported 0 problems.
+
+2.49. Executing BLIF backend.
+
+2.50. Executing JSON backend.
+
+Warnings: 40 unique messages, 40 total
+End of script. Logfile hash: 96eaa43c99, CPU: user 3.72s system 0.21s, MEM: 42.43 MB peak
+Yosys 0.9+4052 (git sha1 0ccc7229, gcc 8.3.0-6+rpi1 -fPIC -Os)
+Time spent: 20% 21x opt_expr (0 sec), 17% 11x read_verilog (0 sec), ...
