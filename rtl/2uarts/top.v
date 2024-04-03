@@ -16,7 +16,7 @@ parameter [31:0] uarts=2;
 
 
 parameter BIT_WIDTH = 11;
-parameter BAUD_RATE = 230400;
+parameter BAUD_RATE = 4000000;
 parameter CLOCK_FREQ_HZ = 80000000;
 reg [23:0] sig_counter;
 wire [uarts - 1:0] sig_send;
