@@ -19,10 +19,10 @@ parameter BIT_WIDTH = 11;
 parameter BAUD_RATE = 4000000;
 parameter CLOCK_FREQ_HZ = 80000000;
 reg [23:0] sig_counter;
-wire [uarts - 1:0] sig_send;
-wire [uarts - 1:0] sig_valid;
-wire [8 * (uarts - 1) + 7:0] sig_rx_data;
-wire [8 * (uarts - 1) + 7:0] sig_tx_data;  //signal sig_rx_data : std_logic_vector(7 downto 0);
+reg [uarts - 1:0] sig_send;
+reg [uarts - 1:0] sig_valid;
+reg [8 * (uarts - 1) + 7:0] sig_rx_data;
+reg [8 * (uarts - 1) + 7:0] sig_tx_data;  //signal sig_rx_data : std_logic_vector(7 downto 0);
 //signal sig_tx_data : std_logic_vector(7 downto 0);
 reg [4:0] sig_led;
 
