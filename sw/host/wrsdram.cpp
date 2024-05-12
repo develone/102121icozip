@@ -1,4 +1,4 @@
-////////////////////////////////////////////////////////////////////////////////
+ ////////////////////////////////////////////////////////////////////////////////
 //
 // Filename:	dumpflash.cpp
 //
@@ -18,7 +18,7 @@
 // This program is free software (firmware): you can redistribute it and/or
 // modify it under the terms of  the GNU General Public License as published
 // by the Free Software Foundation, either version 3 of the License, or (at
-// your option) any later version.
+// your option) any later version. 
 //
 // This program is distributed in the hope that it will be useful, but WITHOUT
 // ANY WARRANTY; without even the implied warranty of MERCHANTIBILITY or
@@ -58,7 +58,7 @@ FPGA	*m_fpga;
  * 0200f144 <ptrs>:
  * zip-objdump -d jpeg > jpeg-disasm.txt
  * */
-#define	DUMPMEM 	0x0200f374
+#define	DUMPMEM 	0x0200fe2c
 
 //#define	DUMPWORDS	(FLASHLEN>>2)	// 16MB Flash
 //#define	DUMPWORDS (4000>>2)
