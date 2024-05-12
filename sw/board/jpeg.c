@@ -131,7 +131,7 @@ int main(int argc, char **argv) {
 	 * In addition a pointer *ptr_blkram_inp is used to inform the user the location of where
 	 * the data should be placed.  
 	 */
-	printf("%x %d \n",ptrs.ptr_blkram_flag,*(ptrs.ptr_blkram_flag) );
+	printf("wrking_subband %x %d \n",ptrs.ptr_blkram_flag,*(ptrs.ptr_blkram_flag) );
 	ptrs.flag = ptrs.ptr_blkram_flag[0];
 	
 	printf("flag %d 0x%x\n",ptrs.flag,&ptrs.flag);
@@ -143,7 +143,7 @@ int main(int argc, char **argv) {
 	* ./arm-wbregs 0x01401004 0x1
 	*/
 	
-	printf("%x %d \n",ptrs.ptr_blkram_invfwd,*(ptrs.ptr_blkram_invfwd) );
+	printf("lifting 0/1 %x %d \n",ptrs.ptr_blkram_invfwd,*(ptrs.ptr_blkram_invfwd) );
 	ptrs.alt = ( int *)malloc(sizeof( int)* ptrs.w*ptrs.h);
 	/*
 	 * ptrs.red will be passed to lifting step 
@@ -163,7 +163,7 @@ int main(int argc, char **argv) {
 		
 	}
 	
- 	printf(" ptrs.alt 0x%x 0x%x\n",ptrs.alt,&(ptrs.inpbuf[0]));
+ 	printf(" ptrs.alt malloc 0x%x 0x%x\n",ptrs.alt,&(ptrs.inpbuf[0]));
 	s = ptrs.w*ptrs.h*2;
 	printf("%d \n",s);
 	
